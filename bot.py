@@ -72,7 +72,8 @@ class ACKSBot(commands.Bot):
             await send_error(interaction, "You can't use that command here.")
             return
         log.exception("Command failed", exc_info=original)
-        await send_error(interaction, f"Something went wrong: `{type(original).__name__}: {original}`")
+        # only the error type goes to Discord; the full message (which could name local paths) stays in the log
+        await send_error(interaction, f"Something went wrong (`{type(original).__name__}`). Details are in the bot's log.")
 
     async def close(self) -> None:
         await super().close()

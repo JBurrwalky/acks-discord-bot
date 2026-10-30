@@ -161,7 +161,7 @@ class CombatantModal(discord.ui.Modal, title="Add a combatant or group"):
 
     async def on_error(self, interaction: discord.Interaction, error: Exception) -> None:
         log.exception("Combatant form error", exc_info=error)
-        await send_error(interaction, f"Something went wrong: `{type(error).__name__}: {error}`")
+        await send_error(interaction, f"Something went wrong (`{type(error).__name__}`). Details are in the bot's log.")
 
 
 # ---------------------------------------------------------------------------
@@ -332,7 +332,7 @@ class EncounterWizard(discord.ui.View):
             await send_error(interaction, str(error))
             return
         log.exception("Encounter wizard error", exc_info=error)
-        await send_error(interaction, f"Something went wrong: `{type(error).__name__}: {error}`")
+        await send_error(interaction, f"Something went wrong (`{type(error).__name__}`). Details are in the bot's log.")
 
     def embed(self) -> discord.Embed:
         e = discord.Embed(title=f"⚔️ New encounter — step {1 if self.step == 'party' else 2} of 2",

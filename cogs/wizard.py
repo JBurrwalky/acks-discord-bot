@@ -57,7 +57,8 @@ class CreationWizard(discord.ui.View):
     async def on_error(self, interaction: discord.Interaction, error: Exception, item: discord.ui.Item) -> None:
         """Tell the player what broke instead of leaving Discord to say 'didn't respond'."""
         log.exception("Creation wizard error in %r", item, exc_info=error)
-        await send_error(interaction, f"Something went wrong in the wizard: `{type(error).__name__}: {error}`")
+        await send_error(interaction, f"Something went wrong in the wizard (`{type(error).__name__}`). "
+                                      "Details are in the bot's log.")
 
     async def refresh(self, interaction: discord.Interaction) -> None:
         self.render()
@@ -528,7 +529,7 @@ class _ManualAttributesModal(discord.ui.Modal, title="Enter attribute scores"):
 
     async def on_error(self, interaction: discord.Interaction, error: Exception) -> None:
         log.exception("Creation wizard form error", exc_info=error)
-        await send_error(interaction, f"Something went wrong: `{type(error).__name__}: {error}`")
+        await send_error(interaction, f"Something went wrong (`{type(error).__name__}`). Details are in the bot's log.")
 
     async def on_submit(self, interaction: discord.Interaction) -> None:
         parts = self.scores.value.replace(",", " ").split()
@@ -567,7 +568,7 @@ class _DetailsModal(discord.ui.Modal, title="Character details"):
 
     async def on_error(self, interaction: discord.Interaction, error: Exception) -> None:
         log.exception("Creation wizard form error", exc_info=error)
-        await send_error(interaction, f"Something went wrong: `{type(error).__name__}: {error}`")
+        await send_error(interaction, f"Something went wrong (`{type(error).__name__}`). Details are in the bot's log.")
 
     async def on_submit(self, interaction: discord.Interaction) -> None:
         d = self.wiz.data
