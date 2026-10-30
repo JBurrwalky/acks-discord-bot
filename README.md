@@ -3,6 +3,11 @@
 A Discord bot that keeps **Adventurer Conqueror King System II** character sheets for your players and rolls
 attacks and saves straight from them.
 
+> **You need the books.** This bot is a play aid, not a replacement for the rules. Do not use it unless you
+> have purchased the ACKS II source books it draws on (the **Revised Rulebook**, **Before All Others**, and
+> **By This Axe**) from [Autarch LLC](https://autarch.co). All ACKS II game content in this repository is the
+> property of Autarch LLC and is **not** licensed; see [Licence](#licence).
+
 **Classes:** 53 classes in all: the 21 from the **Revised Rulebook**, 22 elven and gnomish classes from
 **Before All Others** (v37), and 10 dwarven classes from **By This Axe**. Each has its own XP, titles,
 attack-throw and saving-throw tables, combat proficiencies, and 8 templates.
@@ -21,15 +26,23 @@ attack-throw and saving-throw tables, combat proficiencies, and 8 templates.
 
 ## Setup
 
-1. **Create the bot in Discord**
+Each group runs its own copy of the bot, with its own Discord bot account and token.
+
+1. **Get the files**
+   - **Easiest:** on this page, click the green **Code** button → **Download ZIP**, then extract the ZIP
+     somewhere permanent (e.g. `Documents\acks_discord_bot`). Run the commands below from inside that folder.
+   - **With git:** `git clone https://github.com/JBurrwalky/acks-discord-bot.git`. Run `git pull` later to get updates.
+   - You also need **Python 3.10 or newer** from <https://www.python.org/downloads/>. On Windows, tick
+     **Add python.exe to PATH** in the installer.
+2. **Create the bot in Discord**
    1. Open <https://discord.com/developers/applications> → **New Application**.
    2. **Bot** tab → **Reset Token** → copy the token.
    3. **OAuth2 → URL Generator**: tick the scopes `bot` and `applications.commands`, and the bot permissions
       **Send Messages**, **Embed Links**, and **Use External Emojis**. Open the generated URL and add the bot to your server.
-2. **Configure**: copy `.env.example` to `.env` and paste the token after `DISCORD_TOKEN=`.
+3. **Configure**: copy `.env.example` to `.env` and paste the token after `DISCORD_TOKEN=`.
    Also set `GUILD_ID` to your server's ID (right-click the server → *Copy Server ID*, with Developer Mode on)
    so commands appear instantly instead of after up to an hour.
-3. **Install and run** (Python 3.10+):
+4. **Install and run** (Python 3.10+):
 
    ```bash
    python -m venv .venv
@@ -37,6 +50,11 @@ attack-throw and saving-throw tables, combat proficiencies, and 8 templates.
    pip install -r requirements.txt
    python bot.py
    ```
+
+   On macOS or Linux, activate with `source .venv/bin/activate` instead. The bot runs while that window is open.
+
+Keep your `.env` file private: the token in it lets anyone run your bot. If it leaks, reset it on the
+Discord **Bot** tab.
 
 Characters are saved in `data/acks.db` (SQLite). Back that file up to keep your campaign safe.
 
@@ -229,3 +247,15 @@ Surprise rolls, thief skills, and other proficiency throws aren't rolled by the 
 ```bash
 python tests/test_rules.py
 ```
+
+## Licence
+
+- **The bot's code** is released under the MIT License (see [LICENSE](LICENSE)): you may use, modify, and
+  share it.
+- **The ACKS II game content is not licensed.** The Adventurer Conqueror King System and all rules, tables,
+  classes, class powers, templates, proficiencies, spell-slot tables, equipment, and other content from the
+  ACKS II Revised Rulebook, Before All Others, and By This Axe are the property of Autarch LLC. They appear here
+  (in `acks/data/` and the game tables in `acks/rules.py`) with Autarch LLC's permission; no rights to them are
+  granted, and they may not be copied or redistributed except as Autarch LLC allows.
+- **Buy the books.** Do not use this bot unless you have purchased the ACKS II source books it draws on from
+  [Autarch LLC](https://autarch.co).
