@@ -1,0 +1,3100 @@
+[
+ {
+  "key": "bta_delver",
+  "name": "Dwarven Delver",
+  "source": "By This Axe",
+  "key_attributes": [
+   "DEX"
+  ],
+  "requirements": {
+   "CON": 9
+  },
+  "hit_die": 6,
+  "first_level_hp_bonus": 0,
+  "hp_after_9": 3,
+  "levels": [
+   {
+    "level": 1,
+    "xp": 0,
+    "title": "Dwarven Caver",
+    "attack": 10,
+    "paralysis": 9,
+    "death": 9,
+    "blast": 10,
+    "implements": 10,
+    "spells": 11,
+    "damage_bonus": 0
+   },
+   {
+    "level": 2,
+    "xp": 2100,
+    "title": "Dwarven Tunneler",
+    "attack": 10,
+    "paralysis": 9,
+    "death": 9,
+    "blast": 10,
+    "implements": 10,
+    "spells": 11,
+    "damage_bonus": 0
+   },
+   {
+    "level": 3,
+    "xp": 4200,
+    "title": "Dwarven Explorer",
+    "attack": 9,
+    "paralysis": 8,
+    "death": 8,
+    "blast": 9,
+    "implements": 9,
+    "spells": 10,
+    "damage_bonus": 0
+   },
+   {
+    "level": 4,
+    "xp": 8400,
+    "title": "Dwarven Undertrekker",
+    "attack": 9,
+    "paralysis": 8,
+    "death": 8,
+    "blast": 9,
+    "implements": 9,
+    "spells": 10,
+    "damage_bonus": 0
+   },
+   {
+    "level": 5,
+    "xp": 16800,
+    "title": "Dwarven Spelunker",
+    "attack": 8,
+    "paralysis": 7,
+    "death": 7,
+    "blast": 8,
+    "implements": 8,
+    "spells": 9,
+    "damage_bonus": 0
+   },
+   {
+    "level": 6,
+    "xp": 33600,
+    "title": "Dwarven Expeditionary",
+    "attack": 8,
+    "paralysis": 7,
+    "death": 7,
+    "blast": 8,
+    "implements": 8,
+    "spells": 9,
+    "damage_bonus": 0
+   },
+   {
+    "level": 7,
+    "xp": 65000,
+    "title": "Dwarven Pathfinder",
+    "attack": 7,
+    "paralysis": 6,
+    "death": 6,
+    "blast": 7,
+    "implements": 7,
+    "spells": 8,
+    "damage_bonus": 0
+   },
+   {
+    "level": 8,
+    "xp": 130000,
+    "title": "Dwarven Delver",
+    "attack": 7,
+    "paralysis": 6,
+    "death": 6,
+    "blast": 7,
+    "implements": 7,
+    "spells": 8,
+    "damage_bonus": 0
+   },
+   {
+    "level": 9,
+    "xp": 260000,
+    "title": "Dwarven Pioneer",
+    "attack": 6,
+    "paralysis": 5,
+    "death": 5,
+    "blast": 6,
+    "implements": 6,
+    "spells": 7,
+    "damage_bonus": 0
+   },
+   {
+    "level": 10,
+    "xp": 390000,
+    "title": "Dwarven Pioneer, 10th level",
+    "attack": 6,
+    "paralysis": 5,
+    "death": 5,
+    "blast": 6,
+    "implements": 6,
+    "spells": 7,
+    "damage_bonus": 0
+   },
+   {
+    "level": 11,
+    "xp": 520000,
+    "title": "Dwarven Pioneer, 11th level",
+    "attack": 5,
+    "paralysis": 4,
+    "death": 4,
+    "blast": 5,
+    "implements": 5,
+    "spells": 6,
+    "damage_bonus": 0
+   }
+  ],
+  "weapons": {
+   "all": false,
+   "missile_all": true,
+   "melee_sizes": [],
+   "categories": [
+    "axes"
+   ],
+   "weapons": [
+    "flail",
+    "mace",
+    "warhammer"
+   ],
+   "excluded": [
+    "long_bow"
+   ]
+  },
+  "armor": "light",
+  "styles": [
+   "single",
+   "missile",
+   "dual",
+   "two_handed"
+  ],
+  "damage_bonus_applies_to": "none",
+  "cleave": "half",
+  "backstab": true,
+  "ambush": false,
+  "weapon_finesse": false,
+  "animal_reflexes": false,
+  "notes": "Backstabbing (+4, x2-x4 dmg), Shadowy Senses (sense as by candlelight, 30', in darkness), thief skills (hide, move silently, climb, find traps, hear noises), Endurance, Expert Caving, Underdark Lore. +2 to proficiency throws. Renown at 9th.",
+  "proficiency_list": [
+   "Acrobatics",
+   "Alertness",
+   "Blind-Fighting",
+   "Cat Burglary",
+   "Combat Reflexes",
+   "Combat Trickery (disarm, knock down)",
+   "Contortionism",
+   "Dungeon Bashing",
+   "Dwarven Brewing",
+   "Fighting Style",
+   "Goblin-Slaying",
+   "Illusion Resistance",
+   "Land Surveying",
+   "Mapping",
+   "Mountaineering",
+   "Navigation",
+   "Precise Shooting",
+   "Prospecting",
+   "Running",
+   "Skirmishing",
+   "Skulking",
+   "Sniping",
+   "Streetwise",
+   "Swashbuckling",
+   "Tracking",
+   "Trap Finding",
+   "Trapping",
+   "Vermin-Slaying",
+   "Weapon Finesse",
+   "Weapon Focus"
+  ],
+  "templates": [
+   {
+    "roll_min": 3,
+    "roll_max": 4,
+    "name": "Survivalist (Houseless, any)",
+    "proficiencies": [
+     "Sniping",
+     "Survival"
+    ],
+    "equipment": "Crudely-crafted shortbow, quiver with 20 arrows, rusty hand axe, leather armor, tattered cloak, threadbare workborn tunic and pants, leather belt, scuffed high boots, backpack, tinderbox, 12 torches, 1 week's iron rations, waterskin, 1gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 5,
+    "roll_max": 6,
+    "name": "Prowler (Houseless, any)",
+    "proficiencies": [
+     "Skulking",
+     "Streetwise"
+    ],
+    "equipment": "Shortbow, quiver with 20 arrows, mace, 2 hand axes, leather armor, charcoal gray cloak, workborn tunic and pants, leather belt, high boots, backpack, 50' climbing rope, crowbar, manacles, small hammer, 12 iron spikes, tinderbox, 12 torches, 1 week's iron rations, 5gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 7,
+    "roll_max": 8,
+    "name": "Mountaineer (Workborn, Drover's Guild)",
+    "proficiencies": [
+     "Mountaineering",
+     "Endurance"
+    ],
+    "equipment": "Shortbow, quiver with 20 arrows, hand axe, leather armor, brown workborn tunic and pants, leather belt, leather gloves, high boots, delver's harness, 100' sturdy climbing rope, grappling hook, small hammer, 12 iron spikes, mallet and 4 stakes, 2 small sacks, 1 week's iron rations, waterskin, 1gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 9,
+    "roll_max": 10,
+    "name": "Tunnel Runner (Workborn, Miner's Guild)",
+    "proficiencies": [
+     "Running",
+     "Mapping"
+    ],
+    "equipment": "Crossbow, case with 20 bolts, 10' pole, battle axe, 2 hand axes, sturdy leather armor, miner's helm, dusty workborn tunic and pants, leather belt, high boots, delver's harness, 50' rope, tinderbox, 6 torches, 1 week's iron rations, waterskin, 1gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 11,
+    "roll_max": 12,
+    "name": "Pest Controller (Craftborn, Exterminator's Guild)",
+    "proficiencies": [
+     "Precise Shooting",
+     "Animal Training"
+    ],
+    "equipment": "Crossbow, case with 20 bolts, 10' pole, war hammer splattered with bug-guts, 2 hand axes, sturdy leather armor, tanned brown cloak, thick tunic and pants, leather belt, slightly chewed leather belt, high boots, backpack, delver's harness, 2 small bug sacks, 50' rope, small hammer, 12 iron spikes, tinderbox, 6 torches, 2 flasks of military oil, 2 ill-tempered underterriers, 1 week's iron rations, waterskin, 4gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 13,
+    "roll_max": 14,
+    "name": "Treasure Hunter (Craftborn, Explorer's Guild)",
+    "proficiencies": [
+     "Trap Finding",
+     "Bargaining"
+    ],
+    "equipment": "Crossbow, case with 20 bolts, 10' pole, battle axe, 2 hand axes, sturdy leather armor, tanned brown cloak, blue and green craftborn tunic and pants, leather belt, high boots, backpack, delver's harness, 2 small treasure sacks, strange curio found in old tomb (15gp value), 50' rope, grappling hook, small hammer, 12 iron spikes, tinderbox, 12 torches, 2 flasks of military oil, 1 week's iron rations, waterskin, 2gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 15,
+    "roll_max": 16,
+    "name": "Vermin Slayer (Craftborn, Exterminator's Guild)",
+    "proficiencies": [
+     "Vermin-Slaying",
+     "Trapping"
+    ],
+    "equipment": "Crossbow, case with 20 bolts, war hammer, leather armor, thick tunic and pants, leather belt, high boots, miner's helm, backpack, delver's harness, 50' rope, crowbar, grappling hook, small hammer, 12 iron spikes, tinderbox, 12 torches, 4 flasks of military oil, 1 dose of giant centipede poison, 1 week's iron rations, 3gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 17,
+    "roll_max": 18,
+    "name": "Patroller (Oathsworn, Vaultguard's Guild)",
+    "proficiencies": [
+     "Alertness",
+     "Riding"
+    ],
+    "equipment": "Arbalest, case with 20 bolts, 10 darts, battle axe, leather armor, black oathsworn tunic and pants, leather belt, high boots, backpack, delver's harness, tinderbox, 12 torches, lantern, sure-footed mule, riding saddle and tack, leather saddlebags, 1 week's iron rations, 24gp",
+    "book_encumbrance": null
+   }
+  ],
+  "transcription_notes": "Weapons text: 'all axes, hammers, flails, and maces, and all missile weapons except longbows' -> axes category + flail, mace, warhammer; missile_all with long_bow excluded. Armor 'leather armor or lighter' -> light. Can two-hand or dual wield, no shield. Level table hp: 9d6+3* at 10th, 9d6+6* at 11th. Templates have a Caste column, folded into the name; no encumbrance given in book."
+ },
+ {
+  "key": "bta_earthforger",
+  "name": "Dwarven Earthforger",
+  "source": "By This Axe",
+  "key_attributes": [
+   "INT",
+   "WIL"
+  ],
+  "requirements": {
+   "CON": 13
+  },
+  "hit_die": 6,
+  "first_level_hp_bonus": 0,
+  "hp_after_9": 2,
+  "levels": [
+   {
+    "level": 1,
+    "xp": 0,
+    "title": "Dwarven Smith-Prentice",
+    "attack": 10,
+    "paralysis": 9,
+    "death": 6,
+    "blast": 13,
+    "implements": 9,
+    "spells": 12,
+    "damage_bonus": 0
+   },
+   {
+    "level": 2,
+    "xp": 2600,
+    "title": "Dwarven Anvil-Striker",
+    "attack": 10,
+    "paralysis": 9,
+    "death": 6,
+    "blast": 13,
+    "implements": 9,
+    "spells": 12,
+    "damage_bonus": 0
+   },
+   {
+    "level": 3,
+    "xp": 5200,
+    "title": "Dwarven Hammer-Shaper",
+    "attack": 10,
+    "paralysis": 8,
+    "death": 5,
+    "blast": 12,
+    "implements": 8,
+    "spells": 11,
+    "damage_bonus": 0
+   },
+   {
+    "level": 4,
+    "xp": 10400,
+    "title": "Dwarven Slag-Quencher",
+    "attack": 9,
+    "paralysis": 8,
+    "death": 5,
+    "blast": 12,
+    "implements": 8,
+    "spells": 11,
+    "damage_bonus": 0
+   },
+   {
+    "level": 5,
+    "xp": 20800,
+    "title": "Dwarven Iron-Graver",
+    "attack": 9,
+    "paralysis": 7,
+    "death": 4,
+    "blast": 11,
+    "implements": 7,
+    "spells": 10,
+    "damage_bonus": 0
+   },
+   {
+    "level": 6,
+    "xp": 41600,
+    "title": "Dwarven Steel-Hardener",
+    "attack": 9,
+    "paralysis": 7,
+    "death": 4,
+    "blast": 11,
+    "implements": 7,
+    "spells": 10,
+    "damage_bonus": 0
+   },
+   {
+    "level": 7,
+    "xp": 85000,
+    "title": "Dwarven Foundry-Caster",
+    "attack": 8,
+    "paralysis": 6,
+    "death": 3,
+    "blast": 10,
+    "implements": 6,
+    "spells": 9,
+    "damage_bonus": 0
+   },
+   {
+    "level": 8,
+    "xp": 170000,
+    "title": "Dwarven Earthforger",
+    "attack": 8,
+    "paralysis": 6,
+    "death": 3,
+    "blast": 10,
+    "implements": 6,
+    "spells": 9,
+    "damage_bonus": 0
+   },
+   {
+    "level": 9,
+    "xp": 350000,
+    "title": "Dwarven Vulcan-Lord",
+    "attack": 8,
+    "paralysis": 5,
+    "death": 2,
+    "blast": 9,
+    "implements": 5,
+    "spells": 8,
+    "damage_bonus": 0
+   },
+   {
+    "level": 10,
+    "xp": 530000,
+    "title": "Dwarven Vulcan-Lord, 10th level",
+    "attack": 7,
+    "paralysis": 5,
+    "death": 2,
+    "blast": 9,
+    "implements": 5,
+    "spells": 8,
+    "damage_bonus": 0
+   }
+  ],
+  "weapons": {
+   "all": false,
+   "missile_all": false,
+   "melee_sizes": [],
+   "categories": [],
+   "weapons": [
+    "club",
+    "dagger",
+    "silver_dagger",
+    "staff",
+    "sling"
+   ],
+   "excluded": []
+  },
+  "armor": "light",
+  "styles": [
+   "single",
+   "missile",
+   "two_handed"
+  ],
+  "damage_bonus_applies_to": "none",
+  "cleave": "none",
+  "backstab": false,
+  "ambush": false,
+  "weapon_finesse": false,
+  "animal_reflexes": false,
+  "notes": "Gnostic magic (invocations; max invocation level 1st-5th), Sigil of Creation (Mountain's Bones, Eternal Forge, Iron Crucible or Open Gate) with sigil features at 1st/3rd/7th, Extemporaneous Invocations, Trinkets of Power, Deep Knowledge, Throat-Singing (+1 invocations). +3 prof throws.",
+  "proficiency_list": [
+   "Alchemy",
+   "Alertness",
+   "Armor Training",
+   "Battle Magic",
+   "Bright Lore of Aura",
+   "Collegiate Wizardry",
+   "Craft",
+   "Contemplation",
+   "Diplomacy",
+   "Divine Health",
+   "Dwarven Brewing",
+   "Elementalism",
+   "Endurance",
+   "Engineering",
+   "Goblin-Slaying",
+   "Healing",
+   "Illusion Resistance",
+   "Knowledge",
+   "Land Surveying",
+   "Loremastery",
+   "Magical Engineering",
+   "Martial Training",
+   "Mystic Aura",
+   "Naturalism",
+   "Performance",
+   "Personal Talisman",
+   "Prospecting",
+   "Quiet Magic",
+   "Sensing Power",
+   "Siege Engineering",
+   "Unflappable Casting",
+   "Vermin-Slaying"
+  ],
+  "templates": [
+   {
+    "roll_min": 3,
+    "roll_max": 4,
+    "name": "Bone-Caller (Open Gate; Houseless, ex Oathsworn)",
+    "proficiencies": [
+     "Contemplation",
+     "Survival",
+     "Performance (chanting)",
+     "Knowledge (paleontology) 3"
+    ],
+    "equipment": "Gnostic implements (level 1), club made from fossil bone, dirt-covered workborn tunic and pants, worn-out high boots, cracked leather belt, backpack, 2 flasks of military oil, tinder box, 12 torches, 1 week's iron rations, leaky waterskin, 1gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 5,
+    "roll_max": 6,
+    "name": "Hydrologist (Mountain's Bones; Oathsworn)",
+    "proficiencies": [
+     "Personal Talisman",
+     "Alchemy",
+     "Performance (chanting)",
+     "Knowledge (fluid mechanics) 3"
+    ],
+    "equipment": "Gnostic implements (level 1), skull with mountains painted on the eyesockets (personal talisman of elemental earth +1), sling with 30 sling bullets, leather armor, craftborn tunic and pants, high boots, leather belt, backpack, waterskin, 1 week's iron rations, tinder box, 12 torches, 1gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 7,
+    "roll_max": 8,
+    "name": "Shine-Smith (Eternal Forge; Oathsworn)",
+    "proficiencies": [
+     "Divine Health",
+     "Craft (Jeweler)",
+     "Performance (chanting)",
+     "Knowledge (metallurgy) 3"
+    ],
+    "equipment": "Gnostic implements (level 1), dagger, leather armor, craftborn tunic and pants, high boots, leather belt, copper ring set with azurite (35gp value), backpack, tinderbox, 12 torches, 1 week's iron rations, waterskin, 5gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 9,
+    "roll_max": 10,
+    "name": "Stone Recorder (Mountain's Bones; Oathsworn)",
+    "proficiencies": [
+     "Land Surveying",
+     "Mapping",
+     "Performance (chanting)",
+     "Knowledge (speleology) 3"
+    ],
+    "equipment": "Gnostic implements (level 1), staff, hide armor, craftborn wool tunic and pants, high boots, leather belt, backpack, cartographer's tools, tinder box, 12 torches, 1 week's iron rations, waterskin, 10gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 11,
+    "roll_max": 12,
+    "name": "Artificer (Iron Crucible; Oathsworn)",
+    "proficiencies": [
+     "Magical Engineering",
+     "Military Strategy",
+     "Performance (chanting)",
+     "Knowledge (architecture) 3"
+    ],
+    "equipment": "Gnostic implements (level 1), bronze-shod staff (5 gp value), chainmail armor, craftborn tunic and pants, high boots, leather belt, backpack, 50' rope, lantern, 3 flasks of oil, waterskin, 1 week's iron rations, 48gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 13,
+    "roll_max": 14,
+    "name": "Dendrologist (Eternal Forge; Oathsworn)",
+    "proficiencies": [
+     "Loremastery",
+     "Naturalism",
+     "Performance (chanting)",
+     "Knowledge (botany) 3"
+    ],
+    "equipment": "Gnostic implements (level 1), staff made of ebony (25 gp value), leather armor, craftborn tunic and pants, high boots, leather belt, backpack, 50' rope, lantern, 3 flasks of oil, waterskin, 1 week's iron rations, 48gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 15,
+    "roll_max": 16,
+    "name": "Curator (Mountain's Bones; Oathsworn)",
+    "proficiencies": [
+     "Quiet Magic",
+     "Collegiate Wizardry",
+     "Performance (chanting)",
+     "Knowledge (geology) 3"
+    ],
+    "equipment": "Gnostic implements (level 1), sling with 30 sling bullets, dagger, leather armor, craftborn tunic and pants, high boots, leather belt, backpack, 4 charred sticks, charcoal dust (6 oz), journal (containing notes and charcoal drawings), journal (blank), quill and ink, tinderbox, 6 torches, 1 week's iron rations, waterskin, 58gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 17,
+    "roll_max": 18,
+    "name": "Forge Lord (Iron Crucible; Oathsworn, ex Highborn)",
+    "proficiencies": [
+     "Mystic Aura",
+     "Diplomacy",
+     "Performance (chanting)",
+     "Knowledge (nat. philosophy) 3"
+    ],
+    "equipment": "Gnostic implements (level 1), silver dagger, well-polished chainmail armor, oathsworn tunic and pants, high boots, embossed leather belt, backpack, lantern, 3 flasks of oil, gold signet ring (25 gp value), 1 week's high-quality iron rations, wineskin, 29gp",
+    "book_encumbrance": null
+   }
+  ],
+  "transcription_notes": "Level progression table (XP, titles, HD, max invocation level) was an unconverted image in the Markdown; transcribed from the image file DWARVEN_LORE_DWARVEN_EARTHFORGER_Image51.PNG. Attack throws come from the table's separate attack column (1-3, 4-6, 7-9, 10). Base armor is leather or lighter, but the Sigil of the Iron Crucible allows chainmail or lighter at 1st and any armor at 3rd; the Sigil of the Eternal Forge makes him proficient with axes/hammers (and at 3rd shields) he creates with his invocation. Templates fold sigil and caste into the name as 'Template (Sigil; Caste)'. Template proficiencies are listed as printed, including the class-power entries 'Performance (chanting)' and 'Knowledge (...) 3' (the trailing 3 appears to mean three ranks). No encumbrance given in book."
+ },
+ {
+  "key": "bta_excavator",
+  "name": "Dwarven Excavator",
+  "source": "By This Axe",
+  "key_attributes": [
+   "INT",
+   "DEX"
+  ],
+  "requirements": {
+   "CON": 9
+  },
+  "hit_die": 6,
+  "first_level_hp_bonus": 0,
+  "hp_after_9": 3,
+  "levels": [
+   {
+    "level": 1,
+    "xp": 0,
+    "title": "Dwarven Miner",
+    "attack": 10,
+    "paralysis": 9,
+    "death": 9,
+    "blast": 10,
+    "implements": 10,
+    "spells": 11,
+    "damage_bonus": 0
+   },
+   {
+    "level": 2,
+    "xp": 2100,
+    "title": "Dwarven Collier",
+    "attack": 10,
+    "paralysis": 9,
+    "death": 9,
+    "blast": 10,
+    "implements": 10,
+    "spells": 11,
+    "damage_bonus": 0
+   },
+   {
+    "level": 3,
+    "xp": 4200,
+    "title": "Dwarven Prospector",
+    "attack": 9,
+    "paralysis": 8,
+    "death": 8,
+    "blast": 9,
+    "implements": 9,
+    "spells": 10,
+    "damage_bonus": 0
+   },
+   {
+    "level": 4,
+    "xp": 8400,
+    "title": "Dwarven Dredger",
+    "attack": 9,
+    "paralysis": 8,
+    "death": 8,
+    "blast": 9,
+    "implements": 9,
+    "spells": 10,
+    "damage_bonus": 0
+   },
+   {
+    "level": 5,
+    "xp": 16800,
+    "title": "Dwarven Pit Boss",
+    "attack": 8,
+    "paralysis": 7,
+    "death": 7,
+    "blast": 8,
+    "implements": 8,
+    "spells": 9,
+    "damage_bonus": 0
+   },
+   {
+    "level": 6,
+    "xp": 33600,
+    "title": "Dwarven Driller",
+    "attack": 8,
+    "paralysis": 7,
+    "death": 7,
+    "blast": 8,
+    "implements": 8,
+    "spells": 9,
+    "damage_bonus": 0
+   },
+   {
+    "level": 7,
+    "xp": 65000,
+    "title": "Dwarven Excavator",
+    "attack": 7,
+    "paralysis": 6,
+    "death": 6,
+    "blast": 7,
+    "implements": 7,
+    "spells": 8,
+    "damage_bonus": 0
+   },
+   {
+    "level": 8,
+    "xp": 130000,
+    "title": "Dwarven Master Excavator",
+    "attack": 7,
+    "paralysis": 6,
+    "death": 6,
+    "blast": 7,
+    "implements": 7,
+    "spells": 8,
+    "damage_bonus": 0
+   },
+   {
+    "level": 9,
+    "xp": 260000,
+    "title": "Dwarven Deep Lord",
+    "attack": 6,
+    "paralysis": 5,
+    "death": 5,
+    "blast": 6,
+    "implements": 6,
+    "spells": 7,
+    "damage_bonus": 0
+   },
+   {
+    "level": 10,
+    "xp": 390000,
+    "title": "Dwarven Deep Lord, 10th level",
+    "attack": 6,
+    "paralysis": 5,
+    "death": 5,
+    "blast": 6,
+    "implements": 6,
+    "spells": 7,
+    "damage_bonus": 0
+   },
+   {
+    "level": 11,
+    "xp": 520000,
+    "title": "Dwarven Deep Lord, 11th level",
+    "attack": 5,
+    "paralysis": 4,
+    "death": 4,
+    "blast": 5,
+    "implements": 5,
+    "spells": 6,
+    "damage_bonus": 0
+   }
+  ],
+  "weapons": {
+   "all": false,
+   "missile_all": false,
+   "melee_sizes": [],
+   "categories": [],
+   "weapons": [
+    "battle_axe",
+    "flail",
+    "hand_axe",
+    "morning_star",
+    "polearm",
+    "warhammer"
+   ],
+   "excluded": []
+  },
+  "armor": "heavy",
+  "styles": [
+   "single",
+   "missile",
+   "weapon_and_shield",
+   "two_handed"
+  ],
+  "damage_bonus_applies_to": "none",
+  "cleave": "half",
+  "backstab": false,
+  "ambush": false,
+  "weapon_finesse": false,
+  "animal_reflexes": false,
+  "notes": "Pyroclastics (hurls burning oil/petards attacking as a vaultguard of his level, +1 dmg with them at 1st, +1 more at 3rd/6th/9th), Expert Caving, Loadbearing (-2 st encumbrance for movement), Mine Working, Prospecting. Dowsing at 3rd. +2 to proficiency throws.",
+  "proficiency_list": [
+   "Alertness",
+   "Ambushing",
+   "Blind-Fighting",
+   "Climbing",
+   "Combat Reflexes",
+   "Combat Trickery (force back, knock down, overrun, sunder)",
+   "Command",
+   "Contortionism",
+   "Dungeon Bashing",
+   "Dwarven Brewing",
+   "Fighting Style",
+   "Goblin-Slaying",
+   "Illusion Resistance",
+   "Land Surveying",
+   "Leadership",
+   "Mapping",
+   "Martial Training",
+   "Mountaineering",
+   "Navigation",
+   "Precise Shooting",
+   "Running",
+   "Siege Engineering",
+   "Skirmishing",
+   "Sniping",
+   "Trapping",
+   "Vermin-Slaying",
+   "Weapon Finesse",
+   "Weapon Focus"
+  ],
+  "templates": [
+   {
+    "roll_min": 3,
+    "roll_max": 4,
+    "name": "Grubstaker (Houseless, Miner's Guild)",
+    "proficiencies": [
+     "Vermin-Slaying",
+     "Survival"
+    ],
+    "equipment": "Beat-up hand axe, hide armor, moldy workborn tunic and pants, leather belt, high boots, backpack, laborer's tools, tinderbox, 12 torches, 5 flasks of military oil, 1 week's iron rations, waterskin, 1gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 5,
+    "roll_max": 6,
+    "name": "Longhauler (Workborn, Miner's Guild)",
+    "proficiencies": [
+     "Running",
+     "Endurance"
+    ],
+    "equipment": "Hand axe, leather armor, workborn tunic and pants, leather belt, high boots, backpack, delver's harness, laborer's tools, tinderbox, 6 torches, 5 flasks of military oil, 1 week's iron rations, waterskin, 1gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 7,
+    "roll_max": 8,
+    "name": "Highwaller (Workborn, Miner's Guild)",
+    "proficiencies": [
+     "Climbing",
+     "Signaling"
+    ],
+    "equipment": "Battle axe, hand axe, leather armor, workborn tunic and pants, leather belt, high boots, backpack, 50' rope, grappling hook, laborer's tools, small hammer, 12 iron spikes, tinderbox, 12 torches, 2 flasks of military oil, 1 week's iron rations, waterskin, 1gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 9,
+    "roll_max": 10,
+    "name": "Blaster (Craftborn, Excavator's Guild)",
+    "proficiencies": [
+     "Fighting Style (missile weapon)",
+     "Alchemy"
+    ],
+    "equipment": "War hammer, chainmail armor, fire-blackened shield, slightly singed craftborn tunic and pants, leather belt, high boots, backpack, delver's harness, laborer's tools, tinderbox, 36 torches, 8 flasks of military oil, 1 week's iron rations, 2 waterskins, 1gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 11,
+    "roll_max": 12,
+    "name": "Auger (Craftborn, Excavator's Guild)",
+    "proficiencies": [
+     "Weapon Focus (pole arm)",
+     "Manual of Arms"
+    ],
+    "equipment": "Pole arm, 2 hand axes, chainmail armor, shield, miner's helm, craftborn tunic and pants, leather belt, high boots, backpack, delver's harness, laborer's tools, tinderbox, 12 torches, 6 flasks of military oil, 1 week's iron rations, waterskin, 1gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 13,
+    "roll_max": 14,
+    "name": "Sapper (Craftborn, Excavator's Guild)",
+    "proficiencies": [
+     "Martial Training (bows/xbows)",
+     "Siege Engineering"
+    ],
+    "equipment": "Crossbow, case with 20 bolts, war hammer, shield, chainmail armor, miner's helm, craftborn tunic and pants, leather belt, high boots, backpack, delver's harness, laborer's tools, tinderbox, 12 torches, 5 flasks of military oil, 1 week's iron rations, waterskin, 1gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 15,
+    "roll_max": 16,
+    "name": "Assayer (Craftborn, Excavator's Guild)",
+    "proficiencies": [
+     "Land Surveying",
+     "Mapping"
+    ],
+    "equipment": "Pole arm, hand axe, steel shield, chainmail armor, miner's helm, craftborn tunic and pants, leather belt, high boots, backpack, cartography journal, quill & ink, crowbar, delver's harness, laborer's tools, tinderbox, 12 torches, 5 flasks of military oil, 1 week's iron rations, waterskin, mule, draft saddle and tack, 3gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 17,
+    "roll_max": 18,
+    "name": "Muleskinner (Craftborn, Excavator's Guild)",
+    "proficiencies": [
+     "Command",
+     "Driving"
+    ],
+    "equipment": "Pole arm, hand axe, steel shield, banded plate armor, craftborn tunic and pants, leather belt, high boots, backpack, delver's harness, laborer's tools, tinderbox, 12 torches, 3 flasks of military oil, 1 week's iron rations, waterskin, small cart, 2 mules with draft tack, 1gp",
+    "book_encumbrance": null
+   }
+  ],
+  "transcription_notes": "No level damage bonus (damage_bonus 0). The Pyroclastics class power gives a separate damage bonus with burning oil/petards only (+1 at 1st, +2 at 3rd, +3 at 6th, +4 at 9th, matching the '/+N' column of the level table) and has him attack as a vaultguard with them; this is not captured in damage_bonus or the attack column. Military oil is not in his printed weapon list, so it is not added to weapons, though Pyroclastics clearly expects him to throw it. Petards are not in the weapon catalog. Templates have a Caste column, folded into the name; no encumbrance given in book."
+ },
+ {
+  "key": "bta_furnacewife",
+  "name": "Dwarven Furnacewife",
+  "source": "By This Axe",
+  "key_attributes": [
+   "INT",
+   "WIL",
+   "CHA"
+  ],
+  "requirements": {
+   "CON": 9
+  },
+  "hit_die": 6,
+  "first_level_hp_bonus": 0,
+  "hp_after_9": 2,
+  "levels": [
+   {
+    "level": 1,
+    "xp": 0,
+    "title": "Dwarven Furnace Postulant",
+    "attack": 10,
+    "paralysis": 9,
+    "death": 6,
+    "blast": 13,
+    "implements": 9,
+    "spells": 12,
+    "damage_bonus": 0
+   },
+   {
+    "level": 2,
+    "xp": 2600,
+    "title": "Dwarven Furnace Novice",
+    "attack": 10,
+    "paralysis": 9,
+    "death": 6,
+    "blast": 13,
+    "implements": 9,
+    "spells": 12,
+    "damage_bonus": 0
+   },
+   {
+    "level": 3,
+    "xp": 5200,
+    "title": "Dwarven Furnace Initiate",
+    "attack": 10,
+    "paralysis": 8,
+    "death": 5,
+    "blast": 12,
+    "implements": 8,
+    "spells": 11,
+    "damage_bonus": 0
+   },
+   {
+    "level": 4,
+    "xp": 10400,
+    "title": "Dwarven Furnace Celebrant",
+    "attack": 9,
+    "paralysis": 8,
+    "death": 5,
+    "blast": 12,
+    "implements": 8,
+    "spells": 11,
+    "damage_bonus": 0
+   },
+   {
+    "level": 5,
+    "xp": 20800,
+    "title": "Dwarven Furnace Daughter",
+    "attack": 9,
+    "paralysis": 7,
+    "death": 4,
+    "blast": 11,
+    "implements": 7,
+    "spells": 10,
+    "damage_bonus": 0
+   },
+   {
+    "level": 6,
+    "xp": 41600,
+    "title": "Dwarven Furnace Sister",
+    "attack": 9,
+    "paralysis": 7,
+    "death": 4,
+    "blast": 11,
+    "implements": 7,
+    "spells": 10,
+    "damage_bonus": 0
+   },
+   {
+    "level": 7,
+    "xp": 85000,
+    "title": "Dwarven Furnace Mistress",
+    "attack": 8,
+    "paralysis": 6,
+    "death": 3,
+    "blast": 10,
+    "implements": 6,
+    "spells": 9,
+    "damage_bonus": 0
+   },
+   {
+    "level": 8,
+    "xp": 170000,
+    "title": "Dwarven Furnace Wife",
+    "attack": 8,
+    "paralysis": 6,
+    "death": 3,
+    "blast": 10,
+    "implements": 6,
+    "spells": 9,
+    "damage_bonus": 0
+   },
+   {
+    "level": 9,
+    "xp": 350000,
+    "title": "Dwarven Furnace Mother",
+    "attack": 8,
+    "paralysis": 3,
+    "death": 0,
+    "blast": 7,
+    "implements": 3,
+    "spells": 6,
+    "damage_bonus": 0
+   },
+   {
+    "level": 10,
+    "xp": 530000,
+    "title": "Dwarven Furnace Mother, 10th level",
+    "attack": 7,
+    "paralysis": 3,
+    "death": 0,
+    "blast": 7,
+    "implements": 3,
+    "spells": 6,
+    "damage_bonus": 0
+   }
+  ],
+  "weapons": {
+   "all": false,
+   "missile_all": false,
+   "melee_sizes": [],
+   "categories": [],
+   "weapons": [
+    "club",
+    "dagger",
+    "silver_dagger",
+    "staff",
+    "sling"
+   ],
+   "excluded": []
+  },
+  "armor": "light",
+  "styles": [
+   "single",
+   "missile",
+   "two_handed"
+  ],
+  "damage_bonus_applies_to": "none",
+  "cleave": "none",
+  "backstab": false,
+  "ambush": false,
+  "weapon_finesse": false,
+  "animal_reflexes": false,
+  "notes": "Gnostic magic (Invocation of the Maker's Fire only; no extemporaneous invocations), Fiery Torch (talisman +1), Fiery Cauterization (heal 2 hp/level), Fiery Resistance (+2 saves vs fire, -1 dmg/die), Crafting, Throat-Singing, Trinkets of Power. +3 prof throws.",
+  "proficiency_list": [
+   "Alchemy",
+   "Alertness",
+   "Armor Training",
+   "Art",
+   "Bright Lore of Aura",
+   "Collegiate Wizardry",
+   "Craft",
+   "Contemplation",
+   "Diplomacy",
+   "Divine Health",
+   "Dwarven Brewing",
+   "Elementalism",
+   "Endurance",
+   "Goblin-Slaying",
+   "Healing",
+   "Illusion Resistance",
+   "Knowledge",
+   "Land Surveying",
+   "Laying on Hands",
+   "Loremastery",
+   "Magical Engineering",
+   "Magical Music",
+   "Naturalism",
+   "Personal Talisman",
+   "Prestidigitation",
+   "Prospecting",
+   "Quiet Magic",
+   "Sensing Evil",
+   "Sensing Power",
+   "Siege Engineering",
+   "Swashbuckling",
+   "Vermin-Slaying"
+  ],
+  "templates": [
+   {
+    "roll_min": 3,
+    "roll_max": 4,
+    "name": "Oathbreaker (Houseless, ex Oathsworn)",
+    "proficiencies": [
+     "Contemplation",
+     "Survival",
+     "Craft (charcoal-burning)"
+    ],
+    "equipment": "Fiery torch, gnostic implements (level 1), charred bone club, soot-covered workborn tunic and pants, worn-out high boots, cracked leather belt, backpack, tinder box, 12 torches, 1 flask of military oil, 1 week's iron rations, leaky waterskin, 2gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 5,
+    "roll_max": 6,
+    "name": "Oracle (Oathsworn)",
+    "proficiencies": [
+     "Prophecy",
+     "Performance (storytelling)",
+     "Craft (brazier)"
+    ],
+    "equipment": "Fiery torch, gnostic implements (level 1), staff, leather armor, workborn tunic and pants, high boots, leather belt, backpack, tinder box, 12 torches, 1 flask of military oil, 1 week's iron rations, waterskin, 1gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 7,
+    "roll_max": 8,
+    "name": "Assessor (Oathsworn)",
+    "proficiencies": [
+     "Sensing Evil",
+     "Theology",
+     "Craft (smelting)"
+    ],
+    "equipment": "Fiery torch, gnostic implements (level 1), staff, leather armor, oathsworn wool tunic and pants, high boots, leather belt, backpack, tinder box, 12 torches, 1 flask of military oil, 1 week's iron rations, waterskin, 4gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 9,
+    "roll_max": 10,
+    "name": "Cauterizer (Oathsworn)",
+    "proficiencies": [
+     "Laying on Hands",
+     "Healing",
+     "Craft (blacksmithing)"
+    ],
+    "equipment": "Fiery torch, gnostic implements (level 1), staff, sling with 30 sling bullets, leather armor, oathsworn tunic and pants, high boots, leather belt, backpack, blacksmith's tools, tinderbox, 12 torches, 1 week's iron rations, waterskin",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 11,
+    "roll_max": 12,
+    "name": "Firewitch (Oathsworn)",
+    "proficiencies": [
+     "Elementalism (fire)",
+     "Intimidation",
+     "Craft (coppersmithing)"
+    ],
+    "equipment": "Fiery torch, gnostic implements (level 1), staff, sling with 30 sling bullets, dagger, leather armor, oathsworn tunic and pants, high boots, leather belt, backpack, coppersmith's tools, tinderbox, 12 torches, 5 flasks of military oil, 1 week's iron rations, waterskin, 6gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 13,
+    "roll_max": 14,
+    "name": "Protectrix (Oathsworn)",
+    "proficiencies": [
+     "Martial Training (spear/pole)",
+     "Manual of Arms",
+     "Craft (weapon-smithing)"
+    ],
+    "equipment": "Fiery torch, gnostic implements (level 1), spear, sling with 30 sling bullets, leather armor, oathsworn tunic and pants, high boots, leather belt, backpack, flask of holy water, weapon-smith's tools, tinder box, 12 torches, 5 flasks of military oil, waterskin, 1 week's iron rations, 5gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 15,
+    "roll_max": 16,
+    "name": "Torchbearer (Oathsworn)",
+    "proficiencies": [
+     "Divine Health",
+     "Diplomacy",
+     "Craft (silversmithing)"
+    ],
+    "equipment": "Fiery torch, gnostic implements (level 1), staff, sling with 30 sling bullets, dagger, leather armor, oathsworn tunic and pants, high boots, leather belt, backpack, 2 flasks of holy water, silver-smith's tools, tinderbox, 12 torches, 5 flasks of military oil, 1 week's iron rations, waterskin, 2gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 17,
+    "roll_max": 18,
+    "name": "Lightbringer (Oathsworn, ex Highborn)",
+    "proficiencies": [
+     "Bright Lore of Aura",
+     "Leadership",
+     "Craft (goldsmithing)"
+    ],
+    "equipment": "Fiery torch, holy symbol (Maker's Fire), gnostic implements (level 1), silver dagger, leather armor, oathsworn tunic and pants, high boots, leather belt, backpack, 1 flask of holy water, goldsmith's tools, tinder box, 12 torches, 3 flasks of military oil, 1 week's iron rations, wineskin, 2gp",
+    "book_encumbrance": null
+   }
+  ],
+  "transcription_notes": "Saves at levels 9-10 (3+, 0+, 7+, 3+, 6+) are 2 points better than the cleric-style progression because the Fiery Blessing (9th) +2 to all saves is already factored into the table, as the text states; transcribed as printed. Attack throws come from the table's separate attack column (1-3, 4-6, 7-9, 10). Template proficiencies listed as printed, including the class-power Craft (...) entry. Cauterizer template equipment ends without any coins, as printed. Templates have a Caste column, folded into the name; no encumbrance given in book."
+ },
+ {
+  "key": "bta_fury",
+  "name": "Dwarven Fury",
+  "source": "By This Axe",
+  "key_attributes": [
+   "STR"
+  ],
+  "requirements": {
+   "CON": 9
+  },
+  "hit_die": 8,
+  "first_level_hp_bonus": 0,
+  "hp_after_9": 3,
+  "levels": [
+   {
+    "level": 1,
+    "xp": 0,
+    "title": "Dwarven Grudgebearer",
+    "attack": 10,
+    "paralysis": 9,
+    "death": 10,
+    "blast": 12,
+    "implements": 12,
+    "spells": 13,
+    "damage_bonus": 1,
+    "ac_bonus": 2
+   },
+   {
+    "level": 2,
+    "xp": 2450,
+    "title": "Dwarven Punisher",
+    "attack": 9,
+    "paralysis": 8,
+    "death": 9,
+    "blast": 11,
+    "implements": 11,
+    "spells": 12,
+    "damage_bonus": 1,
+    "ac_bonus": 2
+   },
+   {
+    "level": 3,
+    "xp": 4900,
+    "title": "Dwarven Repriser",
+    "attack": 9,
+    "paralysis": 8,
+    "death": 9,
+    "blast": 11,
+    "implements": 11,
+    "spells": 12,
+    "damage_bonus": 2,
+    "ac_bonus": 2
+   },
+   {
+    "level": 4,
+    "xp": 9800,
+    "title": "Dwarven Vindicator",
+    "attack": 8,
+    "paralysis": 7,
+    "death": 8,
+    "blast": 10,
+    "implements": 10,
+    "spells": 11,
+    "damage_bonus": 2,
+    "ac_bonus": 2
+   },
+   {
+    "level": 5,
+    "xp": 19600,
+    "title": "Dwarven Retaliator",
+    "attack": 7,
+    "paralysis": 6,
+    "death": 7,
+    "blast": 9,
+    "implements": 9,
+    "spells": 10,
+    "damage_bonus": 2,
+    "ac_bonus": 2
+   },
+   {
+    "level": 6,
+    "xp": 39200,
+    "title": "Dwarven Castigator",
+    "attack": 7,
+    "paralysis": 6,
+    "death": 7,
+    "blast": 9,
+    "implements": 9,
+    "spells": 10,
+    "damage_bonus": 3,
+    "ac_bonus": 2
+   },
+   {
+    "level": 7,
+    "xp": 80000,
+    "title": "Dwarven Scourge",
+    "attack": 6,
+    "paralysis": 5,
+    "death": 6,
+    "blast": 8,
+    "implements": 8,
+    "spells": 9,
+    "damage_bonus": 3,
+    "ac_bonus": 4
+   },
+   {
+    "level": 8,
+    "xp": 160000,
+    "title": "Dwarven Fury",
+    "attack": 5,
+    "paralysis": 4,
+    "death": 5,
+    "blast": 7,
+    "implements": 7,
+    "spells": 8,
+    "damage_bonus": 3,
+    "ac_bonus": 4
+   },
+   {
+    "level": 9,
+    "xp": 290000,
+    "title": "Dwarven Avenger",
+    "attack": 5,
+    "paralysis": 4,
+    "death": 5,
+    "blast": 7,
+    "implements": 7,
+    "spells": 8,
+    "damage_bonus": 4,
+    "ac_bonus": 4
+   },
+   {
+    "level": 10,
+    "xp": 420000,
+    "title": "Dwarven Avenger, 10th level",
+    "attack": 4,
+    "paralysis": 3,
+    "death": 4,
+    "blast": 6,
+    "implements": 6,
+    "spells": 7,
+    "damage_bonus": 4,
+    "ac_bonus": 4
+   },
+   {
+    "level": 11,
+    "xp": 550000,
+    "title": "Dwarven Avenger, 11th level",
+    "attack": 3,
+    "paralysis": 2,
+    "death": 3,
+    "blast": 5,
+    "implements": 5,
+    "spells": 6,
+    "damage_bonus": 4,
+    "ac_bonus": 4
+   },
+   {
+    "level": 12,
+    "xp": 680000,
+    "title": "Dwarven Avenger, 12th level",
+    "attack": 3,
+    "paralysis": 2,
+    "death": 3,
+    "blast": 5,
+    "implements": 5,
+    "spells": 6,
+    "damage_bonus": 5,
+    "ac_bonus": 4
+   },
+   {
+    "level": 13,
+    "xp": 810000,
+    "title": "Dwarven Avenger, 13th level",
+    "attack": 2,
+    "paralysis": 1,
+    "death": 2,
+    "blast": 4,
+    "implements": 4,
+    "spells": 5,
+    "damage_bonus": 5,
+    "ac_bonus": 6
+   }
+  ],
+  "weapons": {
+   "all": false,
+   "missile_all": false,
+   "melee_sizes": [],
+   "categories": [
+    "axes",
+    "bludgeons"
+   ],
+   "weapons": [
+    "javelin",
+    "polearm",
+    "spear"
+   ],
+   "excluded": []
+  },
+  "armor": "none",
+  "styles": [
+   "single",
+   "missile",
+   "dual",
+   "two_handed",
+   "weapon_and_shield"
+  ],
+  "damage_bonus_applies_to": "melee",
+  "cleave": "level",
+  "backstab": false,
+  "ambush": false,
+  "weapon_finesse": false,
+  "animal_reflexes": false,
+  "notes": "Flesh-Runes (no armor; +2 AC and -1 dmg/die vs nonmagical attacks, +4/-2 at 7th, +6/-3 at 13th), Fighting Fury (+2 dmg, immune to fear, cannot retreat), Intimidation, Savage Resilience (roll Mortal Wounds twice). Battlefield Prowess at 5th.",
+  "proficiency_list": [
+   "Alertness",
+   "Blind Fighting",
+   "Caving",
+   "Combat Reflexes",
+   "Combat Trickery (force back, knock down, overrun, sunder, wrestle)",
+   "Command",
+   "Dungeon Bashing",
+   "Dwarven Brewing",
+   "Endurance",
+   "Engineering",
+   "Fighting Style",
+   "Gambling",
+   "Goblin-Slaying",
+   "Illusion Resistance",
+   "Land Surveying",
+   "Leadership",
+   "Manual of Arms",
+   "Mapping",
+   "Military Strategy",
+   "Mountaineering",
+   "Prospecting",
+   "Siege Engineering",
+   "Vermin-Slaying",
+   "Weapon Finesse",
+   "Weapon Focus"
+  ],
+  "templates": [
+   {
+    "roll_min": 3,
+    "roll_max": 4,
+    "name": "Foe Eater (Houseless, ex Oathsworn)",
+    "proficiencies": [
+     "Goblin Slaying",
+     "Craft (cooking)"
+    ],
+    "equipment": "Well-used battle axe, hand axe, blood-stained workborn tunic and pants, leather belt, high boots, backpack, tinderbox, 12 torches, 6 weeks' goblin jerky, waterskin, 14gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 5,
+    "roll_max": 6,
+    "name": "Dungeoneer (Oathsworn)",
+    "proficiencies": [
+     "Dungeon Bashing",
+     "Caving"
+    ],
+    "equipment": "Iron-shod spear, war hammer, wooden shield, workborn tunic and pants, leather belt, high boots, backpack, 50' rope, crowbar, small hammer, 12 iron spikes, tinderbox, 12 torches, 2 flasks of military oil, 1 week's iron rations, waterskin, 5gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 7,
+    "roll_max": 8,
+    "name": "Belligerent (Oathsworn)",
+    "proficiencies": [
+     "Weapon Focus (axes)",
+     "Endurance"
+    ],
+    "equipment": "Battle axe, brace of 3 hand axes, steel shield repainted many times, oathsworn tunic and pants, leather belt, high boots, backpack, tinderbox, 12 torches, 2 flasks of military oil, 2 weeks' iron rations, 20gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 9,
+    "roll_max": 10,
+    "name": "Warmonger (Oathsworn)",
+    "proficiencies": [
+     "Combat Reflexes",
+     "Manual of Arms"
+    ],
+    "equipment": "Iron-shod spear, war hammer, steel shield painted with clan emblem, oathsworn tunic and pants, leather belt, high boots, backpack, tinderbox, 12 torches, 2 flasks of military oil, 1 week's iron rations, waterskin, 52gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 11,
+    "roll_max": 12,
+    "name": "Tempest (Oathsworn)",
+    "proficiencies": [
+     "Fighting Style (two weapons)",
+     "Endurance"
+    ],
+    "equipment": "Pair of battle axes notched with many kills, 2 hand axes, fur-lined military cloak, oathsworn tunic and pants, leather belt, high boots, backpack, tinder box, 12 torches, 2 flasks of military oil, 2 weeks' iron rations, waterskin, 50gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 13,
+    "roll_max": 14,
+    "name": "Dirge Marcher (Oathsworn)",
+    "proficiencies": [
+     "Alertness",
+     "Performance (play instruments)"
+    ],
+    "equipment": "War hammer, steel shield painted with skull, dwarven bellowpipe (50gp value), oathsworn tunic and pants, leather belt, high boots, backpack, 50' rope, crowbar, small hammer, 12 iron spikes, tinderbox, 12 torches, 2 flasks of military oil, 1 week's iron rations, waterskin, 38gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 15,
+    "roll_max": 16,
+    "name": "Bloodboiler (Oathsworn)",
+    "proficiencies": [
+     "Dwarven Brewing",
+     "Siege Engineering"
+    ],
+    "equipment": "Spiked mace, heavy steel shield with many dents, oathsworn tunic and pants, leather belt, high boots, backpack, 50' rope, crowbar, dwarven brewer's lab, 2 tinderboxes, 24 torches, 12 flasks of military oil, 1 week's iron rations, waterskin, 10gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 17,
+    "roll_max": 18,
+    "name": "Vengeful Lord (Oathsworn, ex Highborn)",
+    "proficiencies": [
+     "Command",
+     "Riding"
+    ],
+    "equipment": "War hammer carved with clan emblem, 2 hand axes, steel shield painted with clan emblem, oathsworn tunic and pants, gold bracers earned in battle (25gp), leather belt, high boots, backpack, tinderbox, 12 torches, badly-scarred mountain mastiff, mule, riding saddle and tack, saddlebags, 1 week's iron rations, waterskin, 20gp",
+    "book_encumbrance": null
+   }
+  ],
+  "transcription_notes": "Level progression table (XP, titles, HD, melee damage bonus, AC bonus, damage reduction) was an unconverted image in the Markdown; transcribed from the image file DWARVEN_LORE_span_idpage-72-0spanDWARVEN_FURY_Image61.PNG. Damage bonus per table (+1 at 1st, +2 at 3rd, +3 at 6th, +4 at 9th, +5 at 12th) matches the prose. Weapon list (battle axes, great axes, clubs, flails, hammers, hand axes, javelins, maces, morning stars, pole arms, spears, war hammers) covers the whole axes and bludgeons groups plus javelin, polearm, spear. Armor 'none' because furies eschew all armor; shields are allowed (weapon and shield style). Flesh-Runes AC bonus/damage reduction by level is not captured in the level fields. Templates have a Caste column, folded into the name; no encumbrance given in book.",
+  "ac_bonus_condition": "unarmored",
+  "ac_bonus_label": "Flesh-Runes"
+ },
+ {
+  "key": "bta_machinist",
+  "name": "Dwarven Machinist",
+  "source": "By This Axe",
+  "key_attributes": [
+   "INT",
+   "DEX"
+  ],
+  "requirements": {
+   "CON": 9
+  },
+  "hit_die": 6,
+  "first_level_hp_bonus": 0,
+  "hp_after_9": 3,
+  "levels": [
+   {
+    "level": 1,
+    "xp": 0,
+    "title": "Dwarven Apprentice",
+    "attack": 10,
+    "paralysis": 9,
+    "death": 9,
+    "blast": 10,
+    "implements": 10,
+    "spells": 11,
+    "damage_bonus": 0
+   },
+   {
+    "level": 2,
+    "xp": 2400,
+    "title": "Dwarven Mechanic",
+    "attack": 10,
+    "paralysis": 9,
+    "death": 9,
+    "blast": 10,
+    "implements": 10,
+    "spells": 11,
+    "damage_bonus": 0
+   },
+   {
+    "level": 3,
+    "xp": 4800,
+    "title": "Dwarven Shaper",
+    "attack": 9,
+    "paralysis": 8,
+    "death": 8,
+    "blast": 9,
+    "implements": 9,
+    "spells": 10,
+    "damage_bonus": 0
+   },
+   {
+    "level": 4,
+    "xp": 9600,
+    "title": "Dwarven Forger",
+    "attack": 9,
+    "paralysis": 8,
+    "death": 8,
+    "blast": 9,
+    "implements": 9,
+    "spells": 10,
+    "damage_bonus": 0
+   },
+   {
+    "level": 5,
+    "xp": 19200,
+    "title": "Dwarven Maker",
+    "attack": 8,
+    "paralysis": 7,
+    "death": 7,
+    "blast": 8,
+    "implements": 8,
+    "spells": 9,
+    "damage_bonus": 0
+   },
+   {
+    "level": 6,
+    "xp": 38400,
+    "title": "Dwarven Engineer",
+    "attack": 8,
+    "paralysis": 7,
+    "death": 7,
+    "blast": 8,
+    "implements": 8,
+    "spells": 9,
+    "damage_bonus": 0
+   },
+   {
+    "level": 7,
+    "xp": 77000,
+    "title": "Dwarven Artificer",
+    "attack": 7,
+    "paralysis": 6,
+    "death": 6,
+    "blast": 7,
+    "implements": 7,
+    "spells": 8,
+    "damage_bonus": 0
+   },
+   {
+    "level": 8,
+    "xp": 154000,
+    "title": "Dwarven Machinist",
+    "attack": 7,
+    "paralysis": 6,
+    "death": 6,
+    "blast": 7,
+    "implements": 7,
+    "spells": 8,
+    "damage_bonus": 0
+   },
+   {
+    "level": 9,
+    "xp": 280000,
+    "title": "Dwarven Master Machinist",
+    "attack": 6,
+    "paralysis": 5,
+    "death": 5,
+    "blast": 6,
+    "implements": 6,
+    "spells": 7,
+    "damage_bonus": 0
+   },
+   {
+    "level": 10,
+    "xp": 410000,
+    "title": "Dwarven Master Machinist",
+    "attack": 6,
+    "paralysis": 5,
+    "death": 5,
+    "blast": 6,
+    "implements": 6,
+    "spells": 7,
+    "damage_bonus": 0
+   }
+  ],
+  "weapons": {
+   "all": false,
+   "missile_all": false,
+   "melee_sizes": [],
+   "categories": [],
+   "weapons": [
+    "arbalest",
+    "crossbow",
+    "battle_axe",
+    "hand_axe",
+    "flail",
+    "warhammer"
+   ],
+   "excluded": []
+  },
+  "armor": "light",
+  "styles": [
+   "single",
+   "missile",
+   "weapon_and_shield"
+  ],
+  "damage_bonus_applies_to": "none",
+  "cleave": "half",
+  "backstab": false,
+  "ambush": false,
+  "weapon_finesse": false,
+  "animal_reflexes": false,
+  "notes": "Attention to Detail (+3 prof. throws). Ballistics Expertise: attacks as vaultguard with siege/automaton ranged weapons, +1 dmg (+1 more at 3rd/6th/9th). Crafting (3 ranks). Design/Build/Repair Automatons; Personal Automaton. Mechanic Knowledge (open locks, find/remove traps). Siege Engineering.",
+  "proficiency_list": [
+   "Alchemy",
+   "Armor Training",
+   "Art",
+   "Bargaining",
+   "Caving",
+   "Craft",
+   "Dungeon Bashing",
+   "Dwarven Brewing",
+   "Experimenting",
+   "Healing",
+   "Illusion Resistance",
+   "Inventing",
+   "Jury-Rigging",
+   "Knowledge",
+   "Lockpicking",
+   "Loremastery",
+   "Magical Engineering",
+   "Mapping",
+   "Martial Training",
+   "Mechanical Engineering",
+   "Military Strategy",
+   "Navigation",
+   "Precise Shooting",
+   "Prospecting",
+   "Riding",
+   "Scavenging",
+   "Signaling",
+   "Tinkering",
+   "Trap Finding",
+   "Trapping",
+   "Weapon Finesse",
+   "Weapon Focus"
+  ],
+  "templates": [
+   {
+    "roll_min": 3,
+    "roll_max": 4,
+    "name": "Scavenger (Houseless (ex Oathsworn))",
+    "proficiencies": [
+     "Scavenging",
+     "Survival",
+     "Craft (carpentry) 3"
+    ],
+    "equipment": "Clockworker, 1 lb refined oil (fuel), beat-up hand axe, scruffy workborn's apron, stained workborn tunic and pants, leather belt, high boots, small sack, scavenged machinist's tools, tinderbox, 6 torches, 5 day's iron rations, waterskin",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 5,
+    "roll_max": 6,
+    "name": "Apothecary (Oathsworn)",
+    "proficiencies": [
+     "Dwarven Brewing",
+     "Alchemy",
+     "Craft (brewing) 3"
+    ],
+    "equipment": "Clockworker, 1 lb refined oil (fuel), war hammer, wooden shield, stained workborn's apron, workborn tunic and pants smelling of alcohol, leather belt, high boots, backpack, machinist's tools, tinderbox, 12 torches, 4 flasks of military oil, 2 flasks of common oil, 1 week's iron rations, 2 wineskins with dwarven honey-mead",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 7,
+    "roll_max": 8,
+    "name": "Mechanic (Oathsworn)",
+    "proficiencies": [
+     "Jury-Rigging",
+     "Signaling",
+     "Craft (blacksmith) 3"
+    ],
+    "equipment": "Clockworker, 1 lb refined oil (fuel), war hammer, hand axe, leather armor, greasy workborn's apron, craftborn tunic and pants, leather belt, high boots, backpack, 50' rope, crowbar, small hammer, 12 iron spikes, machinist's tools, tinderbox, 12 torches, 1 week's iron rations",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 9,
+    "roll_max": 10,
+    "name": "Aeronaut (Oathsworn)",
+    "proficiencies": [
+     "Inventing",
+     "Navigation",
+     "Craft (aerowright) 3"
+    ],
+    "equipment": "Flying Firepack, 4 lb of refined oil (fuel), crossbow, case with 20 bolts, battle axe, leather armor, cloak with hood, craftborn tunic and pants, leather belt, high boots, backpack, 50' rope, aerowright's tools, machinist's tools, tinderbox, 12 torches, 1 week's iron rations, waterskin, 1gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 11,
+    "roll_max": 12,
+    "name": "Motorist (Oathsworn)",
+    "proficiencies": [
+     "Tinkering",
+     "Driving",
+     "Craft (cartwright) 3"
+    ],
+    "equipment": "Mechanical Cart, 3 st of common oil (fuel), war hammer, leather armor, motorcart helmet, craftborn tunic and pants, leather belt, leather driving gloves, high boots, backpack, cartwright's tools, machinist's tools, racing trophy (4gp value), tinderbox, 12 torches, 1 week's iron rations, waterskin",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 13,
+    "roll_max": 14,
+    "name": "Artillerist (Oathsworn)",
+    "proficiencies": [
+     "Precise Shooting",
+     "Military Strategy",
+     "Craft (weaponsmith) 3"
+    ],
+    "equipment": "Dwarf-Portable Mechanical Ballista, 1 lb of refined oil (fuel), 12 ballista bolts, crossbow, 2 cases with 20 bolts each, war hammer, leather armor, military cloak, craftborn tunic and pants, leather belt, high boots, backpack, machinist's tools, weaponsmith's tools, tinderbox, 12 torches, 3 flasks of military oil, 1 week's iron rations, waterskin",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 15,
+    "roll_max": 16,
+    "name": "War Machinist (Oathsworn)",
+    "proficiencies": [
+     "Armor Training (chainmail)",
+     "Endurance",
+     "Craft (armorer) 3"
+    ],
+    "equipment": "Bronze Soldier, 3 st of charcoal (fuel), crossbow, case with 20 bolts, war hammer, steel shield, personally forged chainmail, military cloak, craftborn tunic and pants, leather belt, high boots, backpack, armorer's tools, crowbar, machinist's tools, small hammer, 12 iron spikes, tinderbox, 12 torches, 2 flasks of military oil, machinist's tools, 1 week's iron rations, waterskin",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 17,
+    "roll_max": 18,
+    "name": "Artificer (Oathsworn (ex Highborn) or Highborn)",
+    "proficiencies": [
+     "Experimenting",
+     "Collegiate Wizardry",
+     "Craft (jeweler) 3"
+    ],
+    "equipment": "Contraption, 1 lb of alchemical fuel, leather armor, craftborn tunic and pants, leather belt, leather gloves, high boots, backpack, jeweler's tools, machinist's tools, 1 week's iron rations, waterskin",
+    "book_encumbrance": null
+   }
+  ],
+  "transcription_notes": "Level table extra columns (L1-10): Ballistics Expertise attack/dmg 10+/+1, 9+/+1, 9+/+2, 8+/+2, 7+/+2, 7+/+3, 6+/+3, 5+/+3, 5+/+4, 4+/+4; Open Locks 15,14,13,12,11,9,7,5,3,1; Find Traps 14,13,12,11,10,8,6,4,2,1; Remove Traps 15,14,13,12,11,10,8,6,4,2; Design/Build/Repair Automaton 14,13,12,11,10,9,8,7,6,5; Construction Rate 5,7,15,25,50,100,200,400,600,900gp/day. The Ballistics damage bonus applies only to ballista, catapults and ranged automaton weapons, so damage_bonus is 0 and damage_bonus_applies_to is 'none'. Templates: the caste column is folded into the name, keeping the printed nested parentheses. Book notes say the Personal Automaton (first equipment item) and the 'Craft (x) 3' entry are italicized, meaning they come from class powers (Crafting = 3 ranks of Craft), not proficiency picks; 'Craft (x) 3' is kept as printed. The book says the player may choose the Clockworker's proficiency and the Contraption's mechanical ability, and may swap crafter's tools for thieves' tools. In the markdown, 'dwarven honey-mead' was pushed into the Mechanic row by a table wrap; it was moved back to the end of the Apothecary equipment. War Machinist lists machinist's tools twice (as printed). No (enc.) values are given in this book, so book_encumbrance is null. Requirement CON 9 is the dwarven racial requirement."
+ },
+ {
+  "key": "bta_pugilist",
+  "name": "Dwarven Pugilist",
+  "source": "By This Axe",
+  "key_attributes": [
+   "STR",
+   "DEX"
+  ],
+  "requirements": {
+   "CON": 9
+  },
+  "hit_die": 8,
+  "first_level_hp_bonus": 0,
+  "hp_after_9": 3,
+  "levels": [
+   {
+    "level": 1,
+    "xp": 0,
+    "title": "Dwarven Brute",
+    "attack": 10,
+    "paralysis": 9,
+    "death": 10,
+    "blast": 12,
+    "implements": 12,
+    "spells": 13,
+    "damage_bonus": 0,
+    "unarmed_damage": "1d3",
+    "ac_bonus": 0
+   },
+   {
+    "level": 2,
+    "xp": 3400,
+    "title": "Dwarven Brawler",
+    "attack": 9,
+    "paralysis": 8,
+    "death": 9,
+    "blast": 11,
+    "implements": 11,
+    "spells": 12,
+    "damage_bonus": 0,
+    "unarmed_damage": "1d3",
+    "ac_bonus": 1
+   },
+   {
+    "level": 3,
+    "xp": 6800,
+    "title": "Dwarven Scrapper",
+    "attack": 9,
+    "paralysis": 8,
+    "death": 9,
+    "blast": 11,
+    "implements": 11,
+    "spells": 12,
+    "damage_bonus": 0,
+    "unarmed_damage": "1d4",
+    "ac_bonus": 1
+   },
+   {
+    "level": 4,
+    "xp": 13600,
+    "title": "Dwarven Boxer",
+    "attack": 8,
+    "paralysis": 7,
+    "death": 8,
+    "blast": 10,
+    "implements": 10,
+    "spells": 11,
+    "damage_bonus": 0,
+    "unarmed_damage": "1d4",
+    "ac_bonus": 2
+   },
+   {
+    "level": 5,
+    "xp": 26400,
+    "title": "Dwarven Slugger",
+    "attack": 7,
+    "paralysis": 6,
+    "death": 7,
+    "blast": 9,
+    "implements": 9,
+    "spells": 10,
+    "damage_bonus": 0,
+    "unarmed_damage": "1d6",
+    "ac_bonus": 2
+   },
+   {
+    "level": 6,
+    "xp": 52800,
+    "title": "Dwarven Bruiser",
+    "attack": 7,
+    "paralysis": 6,
+    "death": 7,
+    "blast": 9,
+    "implements": 9,
+    "spells": 10,
+    "damage_bonus": 0,
+    "unarmed_damage": "1d6",
+    "ac_bonus": 3
+   },
+   {
+    "level": 7,
+    "xp": 105000,
+    "title": "Dwarven Pugilist",
+    "attack": 6,
+    "paralysis": 5,
+    "death": 6,
+    "blast": 8,
+    "implements": 8,
+    "spells": 9,
+    "damage_bonus": 0,
+    "unarmed_damage": "1d8",
+    "ac_bonus": 3
+   },
+   {
+    "level": 8,
+    "xp": 210000,
+    "title": "Dwarven Fist",
+    "attack": 5,
+    "paralysis": 4,
+    "death": 5,
+    "blast": 7,
+    "implements": 7,
+    "spells": 8,
+    "damage_bonus": 0,
+    "unarmed_damage": "1d8",
+    "ac_bonus": 4
+   },
+   {
+    "level": 9,
+    "xp": 340000,
+    "title": "Dwarven Iron Fist",
+    "attack": 5,
+    "paralysis": 4,
+    "death": 5,
+    "blast": 7,
+    "implements": 7,
+    "spells": 8,
+    "damage_bonus": 0,
+    "unarmed_damage": "1d10",
+    "ac_bonus": 4
+   },
+   {
+    "level": 10,
+    "xp": 470000,
+    "title": "Dwarven Iron Fist, 10th level",
+    "attack": 4,
+    "paralysis": 3,
+    "death": 4,
+    "blast": 6,
+    "implements": 6,
+    "spells": 7,
+    "damage_bonus": 0,
+    "unarmed_damage": "1d10",
+    "ac_bonus": 5
+   },
+   {
+    "level": 11,
+    "xp": 600000,
+    "title": "Dwarven Iron Fist, 11th level",
+    "attack": 3,
+    "paralysis": 2,
+    "death": 3,
+    "blast": 5,
+    "implements": 5,
+    "spells": 6,
+    "damage_bonus": 0,
+    "unarmed_damage": "1d12",
+    "ac_bonus": 5
+   },
+   {
+    "level": 12,
+    "xp": 730000,
+    "title": "Dwarven Iron Fist, 12th level",
+    "attack": 3,
+    "paralysis": 2,
+    "death": 3,
+    "blast": 5,
+    "implements": 5,
+    "spells": 6,
+    "damage_bonus": 0,
+    "unarmed_damage": "1d12",
+    "ac_bonus": 6
+   }
+  ],
+  "weapons": {
+   "all": false,
+   "missile_all": false,
+   "melee_sizes": [],
+   "categories": [],
+   "weapons": [
+    "club",
+    "dagger",
+    "silver_dagger",
+    "sling",
+    "staff"
+   ],
+   "excluded": []
+  },
+  "armor": "light",
+  "styles": [
+   "single",
+   "missile",
+   "dual"
+  ],
+  "damage_bonus_applies_to": "none",
+  "cleave": "level",
+  "backstab": false,
+  "ambush": false,
+  "weapon_finesse": false,
+  "animal_reflexes": false,
+  "notes": "Pugilism: 2 barehanded attacks/round, 1d3 each (+STR), 1d4 at 3rd, 1d6 5th, 1d8 7th, 1d10 9th, 1d12 11th; lethal or nonlethal; may use Weapon Finesse with fists. Legwork (2nd): +1 AC in leather or lighter and light enc., up to +6 at 12th. Combat Trickery, Endurance, Intimidation.",
+  "proficiency_list": [
+   "Acrobatics",
+   "Alertness",
+   "Ambushing",
+   "Berserkergang",
+   "Blind Fighting",
+   "Caving",
+   "Climbing",
+   "Combat Reflexes",
+   "Combat Trickery (disarm, force back, knock down, overrun, sunder, wrestle)",
+   "Command",
+   "Contortionism",
+   "Dungeon Bashing",
+   "Dwarven Brewing",
+   "Gambling",
+   "Goblin-Slaying",
+   "Illusion Resistance",
+   "Labor",
+   "Martial Training",
+   "Mountaineering",
+   "Prospecting",
+   "Riding",
+   "Running",
+   "Vermin-Slaying",
+   "Weapon Finesse",
+   "Weapon Focus"
+  ],
+  "templates": [
+   {
+    "roll_min": 3,
+    "roll_max": 4,
+    "name": "Coward (Houseless (ex Workborn))",
+    "proficiencies": [
+     "Running",
+     "Survival",
+     "Combat Trickery (disarm)"
+    ],
+    "equipment": "Unused club, pair of daggers, sling with 30 sling bullets, leather armor, urine-stained workborn tunic and pants, leather belt, high boots, backpack, tinderbox, 12 torches, 1 week's iron rations, waterskin, 2gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 5,
+    "roll_max": 6,
+    "name": "Strongman (Workborn)",
+    "proficiencies": [
+     "Dungeon Bashing",
+     "Performance (barking)",
+     "Combat Trickery (sunder)"
+    ],
+    "equipment": "Heavy-looking club, pair of daggers, sling with 30 sling bullets, whip, leather armor, colorful workborn tunic and pants, leather belt, high boots, backpack, tinderbox, 12 torches, 5 flasks of military oil, 1 week's iron rations, waterskin, 7gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 7,
+    "roll_max": 8,
+    "name": "Bouncer (Workborn)",
+    "proficiencies": [
+     "Alertness",
+     "Profession (tavernkeeper)",
+     "Combat Trickery (force back)"
+    ],
+    "equipment": "Club painted with smiling bar patron face, pair of daggers, sling with 30 sling bullets, whip, leather armor, workborn tunic and pants, leather belt, high boots, backpack, tinderbox, 12 torches, 5 flasks of military oil, 1 week's iron rations, waterskin, 27gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 9,
+    "roll_max": 10,
+    "name": "Thug (Workborn)",
+    "proficiencies": [
+     "Ambushing",
+     "Streetwise",
+     "Combat Trickery (wrestle)"
+    ],
+    "equipment": "Blood-stained club, pair of daggers, sling with 30 sling bullets, whip, leather armor, workborn tunic and pants, leather belt, high boots, backpack, 1 deathcap mushroom brew, tinderbox, 12 torches, 4 flasks of military oil, 1 week's iron rations, waterskin, 24gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 11,
+    "roll_max": 12,
+    "name": "Streetfighter (Workborn)",
+    "proficiencies": [
+     "Berserkergang",
+     "Gambling",
+     "Combat Trickery (wrestle)"
+    ],
+    "equipment": "Pair of silver daggers, sling with 30 sling bullets, whip, leather armor, dark-colored workborn tunic and pants, leather belt, high boots, delver's harness, backpack, crowbar, tinderbox, 12 torches, 5 flasks of military oil, 1 week's iron rations, waterskin, 23gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 13,
+    "roll_max": 14,
+    "name": "Militia (Workborn)",
+    "proficiencies": [
+     "Martial Training (bows/xbows)",
+     "Manual of Arms",
+     "Combat Trickery (force back)"
+    ],
+    "equipment": "Arbalest, case with 20 bolts, silver dagger, military baton, leather armor, workborn tunic and pants, leather belt, high boots, backpack, tinderbox, 12 torches, 5 flasks of military oil, 1 week's iron rations, waterskin, 13gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 15,
+    "roll_max": 16,
+    "name": "Drunken Fist (Workborn)",
+    "proficiencies": [
+     "Dwarven Brewing",
+     "Craft (brewing)",
+     "Combat Trickery (knock down)"
+    ],
+    "equipment": "Silver dagger, sling with 30 sling bullets, leather armor, workborn tunic and pants, leather belt, high boots, backpack, 3 tree bread mushroom brews, tinderbox, 12 torches, 1 week's iron rations, waterskin, 29gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 17,
+    "roll_max": 18,
+    "name": "Prizewinner (Workborn)",
+    "proficiencies": [
+     "Combat Reflexes",
+     "Seduction",
+     "Combat Trickery (overrun)"
+    ],
+    "equipment": "Silver dagger, sling with 30 sling bullets, whip, leather armor, workborn tunic and pants, leather belt, high boots, backpack, champion's trophy (50gp value), tinderbox, 12 torches, 2 flasks of military oil, 1 week's iron rations, waterskin, 65gp in prize winnings",
+    "book_encumbrance": null
+   }
+  ],
+  "transcription_notes": "Unarmed Damage column of the level table (each of 2 fist attacks): L1 1d3/1d3, L2 1d3/1d3, L3 1d4/1d4, L4 1d4/1d4, L5 1d6/1d6, L6 1d6/1d6, L7 1d8/1d8, L8 1d8/1d8, L9 1d10/1d10, L10 1d10/1d10, L11 1d12/1d12, L12 1d12/1d12. AC Bonus column (Legwork): L1 0, L2 +1, L3 +1, L4 +2, L5 +2, L6 +3, L7 +3, L8 +4, L9 +4, L10 +5, L11 +5, L12 +6. Also gains Magic Hands (5th: fists count as magical), Eye of the Tiger (5th), Skirmishing (7th), Hard to Kill (8th), Second Wind (10th), Unyielding Spirit (12th: +1 all saves, said to be already in the table, though the printed 11-12 row is shared and matches tombsealer 11-12). XP for L5 is printed as 26,400 (8x the 3,400 base would be 27,200); later levels follow from it (52,800, 105,000...). Transcribed as printed. Fists are not a catalog weapon; weapon list is club, dagger, sling, staff (silver_dagger added per the spec). weapon_finesse is false: the class may use the Weapon Finesse proficiency with its fists but does not get it as a power. Templates: the caste column is folded into the name; book notes say each template's Combat Trickery entry is italicized (it is the starting class power's maneuver choice, not a proficiency pick). The militia's military baton is a type of club. No (enc.) values given; book_encumbrance null.",
+  "ac_bonus_condition": "nimble",
+  "ac_bonus_label": "Legwork"
+ },
+ {
+  "key": "bta_rhetor",
+  "name": "Dwarven Rhetor",
+  "source": "By This Axe",
+  "key_attributes": [
+   "INT",
+   "CON",
+   "CHA"
+  ],
+  "requirements": {
+   "CON": 9
+  },
+  "hit_die": 6,
+  "first_level_hp_bonus": 0,
+  "hp_after_9": 3,
+  "levels": [
+   {
+    "level": 1,
+    "xp": 0,
+    "title": "Dwarven Pleader",
+    "attack": 10,
+    "paralysis": 9,
+    "death": 9,
+    "blast": 10,
+    "implements": 10,
+    "spells": 11,
+    "damage_bonus": 0
+   },
+   {
+    "level": 2,
+    "xp": 2400,
+    "title": "Dwarven Advocate",
+    "attack": 10,
+    "paralysis": 9,
+    "death": 9,
+    "blast": 10,
+    "implements": 10,
+    "spells": 11,
+    "damage_bonus": 0
+   },
+   {
+    "level": 3,
+    "xp": 4800,
+    "title": "Dwarven Solicitor",
+    "attack": 9,
+    "paralysis": 8,
+    "death": 8,
+    "blast": 9,
+    "implements": 9,
+    "spells": 10,
+    "damage_bonus": 0
+   },
+   {
+    "level": 4,
+    "xp": 9600,
+    "title": "Dwarven Barrister",
+    "attack": 9,
+    "paralysis": 8,
+    "death": 8,
+    "blast": 9,
+    "implements": 9,
+    "spells": 10,
+    "damage_bonus": 0
+   },
+   {
+    "level": 5,
+    "xp": 19200,
+    "title": "Dwarven Procurator",
+    "attack": 8,
+    "paralysis": 7,
+    "death": 7,
+    "blast": 8,
+    "implements": 8,
+    "spells": 9,
+    "damage_bonus": 0
+   },
+   {
+    "level": 6,
+    "xp": 38400,
+    "title": "Dwarven Counsellor",
+    "attack": 8,
+    "paralysis": 7,
+    "death": 7,
+    "blast": 8,
+    "implements": 8,
+    "spells": 9,
+    "damage_bonus": 0
+   },
+   {
+    "level": 7,
+    "xp": 77000,
+    "title": "Dwarven Legist",
+    "attack": 7,
+    "paralysis": 6,
+    "death": 6,
+    "blast": 7,
+    "implements": 7,
+    "spells": 8,
+    "damage_bonus": 0
+   },
+   {
+    "level": 8,
+    "xp": 154000,
+    "title": "Dwarven Jurist",
+    "attack": 7,
+    "paralysis": 6,
+    "death": 6,
+    "blast": 7,
+    "implements": 7,
+    "spells": 8,
+    "damage_bonus": 0
+   },
+   {
+    "level": 9,
+    "xp": 280000,
+    "title": "Dwarven Judge",
+    "attack": 6,
+    "paralysis": 5,
+    "death": 5,
+    "blast": 6,
+    "implements": 6,
+    "spells": 7,
+    "damage_bonus": 0
+   },
+   {
+    "level": 10,
+    "xp": 410000,
+    "title": "Dwarven Judge, 10th level",
+    "attack": 6,
+    "paralysis": 5,
+    "death": 5,
+    "blast": 6,
+    "implements": 6,
+    "spells": 7,
+    "damage_bonus": 0
+   }
+  ],
+  "weapons": {
+   "all": false,
+   "missile_all": false,
+   "melee_sizes": [],
+   "categories": [],
+   "weapons": [
+    "arbalest",
+    "crossbow",
+    "battle_axe",
+    "hand_axe",
+    "flail",
+    "warhammer"
+   ],
+   "excluded": []
+  },
+  "armor": "heavy",
+  "styles": [
+   "single",
+   "missile",
+   "weapon_and_shield",
+   "two_handed"
+  ],
+  "damage_bonus_applies_to": "none",
+  "cleave": "half",
+  "backstab": false,
+  "ambush": false,
+  "weapon_finesse": false,
+  "animal_reflexes": false,
+  "notes": "Attention to Detail (+3 prof. throws). Endurance. Linguistics (+4 languages, read ciphers 2+). Jurisprudence. Loremastery. Inspire Courage (+1 attack, damage, morale, saves vs fear; 50', 1 turn). Performance. Rhetoric: knows 2 rhetorical effects (1st-level enchantments), uses Rhetoric throw.",
+  "proficiency_list": [
+   "Bargaining",
+   "Bribery",
+   "Combat Reflexes",
+   "Combat Trickery (force back, knock down, incapacitate, overrun, sunder)",
+   "Command",
+   "Craft",
+   "Diplomacy",
+   "Dwarven Brewing",
+   "Eavesdropping",
+   "Illusion Resistance",
+   "Knowledge",
+   "Language",
+   "Leadership",
+   "Lip Reading",
+   "Magical Engineering",
+   "Martial Training",
+   "Mimicry",
+   "Military Strategy",
+   "Mystic Aura",
+   "Performance (speeches)",
+   "Precise Shooting",
+   "Running",
+   "Sensing Evil",
+   "Seduction",
+   "Signaling",
+   "Streetwise",
+   "Weapon Finesse",
+   "Weapon Focus"
+  ],
+  "templates": [
+   {
+    "roll_min": 3,
+    "roll_max": 4,
+    "name": "Process Server (Craftborn (Rhetor's College))",
+    "proficiencies": [
+     "Running",
+     "Signaling",
+     "Derision",
+     "Pleonasm"
+    ],
+    "equipment": "Hand axe, hide armor, craftborn tunic and pants, leather belt, well-used high boots, backpack, manacles, 5 sheets of paper, quill & ink, tinderbox, 12 torches, 1 week's iron rations, waterskin, 4gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 5,
+    "roll_max": 6,
+    "name": "Marshal (Craftborn (Rhetor's College))",
+    "proficiencies": [
+     "Combat Reflexes",
+     "Manual of Arms",
+     "Derision",
+     "Epizeuxis"
+    ],
+    "equipment": "Battle axe, shield, scale armor, craftborn tunic and pants, leather belt, high boots, backpack, tinderbox, 6 torches, 1 week's iron rations, waterskin, 2gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 7,
+    "roll_max": 8,
+    "name": "Transcriber (Craftborn (Rhetor's College))",
+    "proficiencies": [
+     "Eavesdropping",
+     "Lip Reading",
+     "Anaphora",
+     "Pleonasm"
+    ],
+    "equipment": "Battle axe, chainmail armor, craftborn tunic and pants, leather belt, high boots, backpack, court transcriber's journal, quill & ink, tinderbox, 12 torches, 1 week's iron rations, waterskin, 4gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 9,
+    "roll_max": 10,
+    "name": "Plea Bargainer (Craftborn (Rhetor's College))",
+    "proficiencies": [
+     "Bribery",
+     "Bargaining",
+     "Epizeuxis",
+     "Procatalepsis"
+    ],
+    "equipment": "War hammer, shield, chainmail armor, craftborn tunic and pants, leather belt, high boots, backpack, attorney's journal, quill & ink, tinderbox, 12 torches, 1 week's iron rations, 1 waterskin, 16gp (for bribes)",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 11,
+    "roll_max": 12,
+    "name": "Prosecutor (Craftborn (Rhetor's College))",
+    "proficiencies": [
+     "Sensing Evil",
+     "Intimidation",
+     "Derision",
+     "Innuendo"
+    ],
+    "equipment": "Crossbow, case with 20 bolts, war hammer, shield, chainmail armor, craftborn tunic and pants, leather belt, high boots, backpack, attorney's journal, quill & ink, tinderbox, 12 torches, 1 week's iron rations, 1 waterskin, 4gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 13,
+    "roll_max": 14,
+    "name": "Conciliator (Craftborn (Rhetor's College))",
+    "proficiencies": [
+     "Mystic Aura",
+     "Diplomacy",
+     "Anaphora",
+     "Procatalepsis"
+    ],
+    "equipment": "Arbalest, case with 20 bolts, war hammer, shield, chainmail armor, craftborn tunic and pants, leather belt, high boots, backpack, attorney's journal, quill & ink, tinderbox, 12 torches, 1 week's iron rations, 1 waterskin, 4gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 15,
+    "roll_max": 16,
+    "name": "Assessor (Craftborn (Rhetor's College))",
+    "proficiencies": [
+     "Magical Engineering",
+     "Alchemy",
+     "Epizeuxis",
+     "Pleonasm"
+    ],
+    "equipment": "Arbalest, case with 20 bolts, war hammer, shield, plate armor, craftborn tunic and pants, leather belt, high boots, backpack, attorney's journal, quill & ink, tinderbox, 12 torches, 1 week's iron rations, 1 waterskin, 4gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 17,
+    "roll_max": 18,
+    "name": "Magistrate (Craftborn (Rhetor's College))",
+    "proficiencies": [
+     "Command",
+     "Leadership",
+     "Anaphora",
+     "Procatalepsis"
+    ],
+    "equipment": "Crossbow, case with 20 bolts, war hammer, shield, plate armor, craftborn tunic and pants, leather belt, high boots, backpack, attorney's journal, quill & ink, tinderbox, 12 torches, 1 week's iron rations, 1 waterskin, mule, riding saddle, saddle & tack, 9gp",
+    "book_encumbrance": null
+   }
+  ],
+  "transcription_notes": "Level table extra columns (L1-10): Loremastery 15+,14+,13+,12+,11+,10+,9+,8+,7+,6+; Rhetoric 8+,7+,6+,5+,4+,3+,2+,2+,2+,2+. Rhetorical effects: Anaphora (hypnotism), Derision (infuriate person), Epizeuxis (sleep), Innuendo (incite madness), Pleonasm (ensorcellment), Procatalepsis (charm person); +2 effects at 4th and 8th. Later powers: Tireless (6th), Renown (9th), Rule of Law (10th). CON is both a prime requisite and the listed requirement (CON 9, the dwarven racial requirement); kept in requirements because the book prints it. Templates: the caste column is folded into the name, keeping the printed nested parentheses. IMPORTANT: the last two entries in each template's proficiencies (Derision, Pleonasm, Epizeuxis, Anaphora, Innuendo, Procatalepsis) are the template's two starting rhetorical effects (italic in the book), not proficiencies; they were kept in the list as printed. Alchemy (Assessor) and Manual of Arms (Marshal) are not on the rhetor class list, so they are presumably general proficiencies. No (enc.) values given; book_encumbrance null."
+ },
+ {
+  "key": "bta_sporecaster",
+  "name": "Dwarven Sporecaster",
+  "source": "By This Axe",
+  "key_attributes": [
+   "INT",
+   "CHA"
+  ],
+  "requirements": {
+   "CON": 9
+  },
+  "hit_die": 6,
+  "first_level_hp_bonus": 0,
+  "hp_after_9": 3,
+  "levels": [
+   {
+    "level": 1,
+    "xp": 0,
+    "title": "Dwarven Spore Worker",
+    "attack": 10,
+    "paralysis": 9,
+    "death": 9,
+    "blast": 10,
+    "implements": 10,
+    "spells": 11,
+    "damage_bonus": 0
+   },
+   {
+    "level": 2,
+    "xp": 2400,
+    "title": "Dwarven Spore Eater",
+    "attack": 10,
+    "paralysis": 9,
+    "death": 9,
+    "blast": 10,
+    "implements": 10,
+    "spells": 11,
+    "damage_bonus": 0
+   },
+   {
+    "level": 3,
+    "xp": 4800,
+    "title": "Dwarven Spore Son",
+    "attack": 9,
+    "paralysis": 8,
+    "death": 8,
+    "blast": 9,
+    "implements": 9,
+    "spells": 10,
+    "damage_bonus": 0
+   },
+   {
+    "level": 4,
+    "xp": 9600,
+    "title": "Dwarven Spore Finder",
+    "attack": 9,
+    "paralysis": 8,
+    "death": 8,
+    "blast": 9,
+    "implements": 9,
+    "spells": 10,
+    "damage_bonus": 0
+   },
+   {
+    "level": 5,
+    "xp": 19200,
+    "title": "Dwarven Spore Brother",
+    "attack": 8,
+    "paralysis": 7,
+    "death": 7,
+    "blast": 8,
+    "implements": 8,
+    "spells": 9,
+    "damage_bonus": 0
+   },
+   {
+    "level": 6,
+    "xp": 38400,
+    "title": "Dwarven Spore Speaker",
+    "attack": 8,
+    "paralysis": 7,
+    "death": 7,
+    "blast": 8,
+    "implements": 8,
+    "spells": 9,
+    "damage_bonus": 0
+   },
+   {
+    "level": 7,
+    "xp": 77000,
+    "title": "Dwarven Spore Father",
+    "attack": 7,
+    "paralysis": 6,
+    "death": 6,
+    "blast": 7,
+    "implements": 7,
+    "spells": 8,
+    "damage_bonus": 0
+   },
+   {
+    "level": 8,
+    "xp": 154000,
+    "title": "Dwarven Spore Master",
+    "attack": 7,
+    "paralysis": 6,
+    "death": 6,
+    "blast": 7,
+    "implements": 7,
+    "spells": 8,
+    "damage_bonus": 0
+   },
+   {
+    "level": 9,
+    "xp": 280000,
+    "title": "Dwarven Spore Lord",
+    "attack": 6,
+    "paralysis": 5,
+    "death": 5,
+    "blast": 6,
+    "implements": 6,
+    "spells": 7,
+    "damage_bonus": 0
+   },
+   {
+    "level": 10,
+    "xp": 410000,
+    "title": "Dwarven Spore Lord",
+    "attack": 6,
+    "paralysis": 5,
+    "death": 5,
+    "blast": 6,
+    "implements": 6,
+    "spells": 7,
+    "damage_bonus": 0
+   }
+  ],
+  "weapons": {
+   "all": false,
+   "missile_all": false,
+   "melee_sizes": [],
+   "categories": [],
+   "weapons": [
+    "crossbow",
+    "battle_axe",
+    "hand_axe",
+    "dart",
+    "sling",
+    "staff"
+   ],
+   "excluded": []
+  },
+  "armor": "light",
+  "styles": [
+   "single",
+   "missile",
+   "two_handed",
+   "dual"
+  ],
+  "damage_bonus_applies_to": "none",
+  "cleave": "half",
+  "backstab": false,
+  "ambush": false,
+  "weapon_finesse": false,
+  "animal_reflexes": false,
+  "notes": "Attention to Detail (+3 prof. throws). Alchemy (brew potions, magic research). Conventional Brewing. Dwarven Brewing (knows clubhead + 4 brews). Fungal Friendship. Fungal Immunity. Necrosporing: animate corpses as spore zombies (max HD by level).",
+  "proficiency_list": [
+   "Armor Training",
+   "Black Lore of Zahar",
+   "Blind-Fighting",
+   "Bribery",
+   "Caving",
+   "Climbing",
+   "Command",
+   "Contortionism",
+   "Diplomacy",
+   "Disguise",
+   "Divine Blessing",
+   "Dungeon Bashing",
+   "Endurance",
+   "Healing",
+   "Illusion Resistance",
+   "Intimidation",
+   "Land Surveying",
+   "Laying on Hands",
+   "Leadership",
+   "Loremastery",
+   "Magical Engineering",
+   "Martial Training",
+   "Mystic Aura",
+   "Naturalism",
+   "Passing Without Trace",
+   "Prospecting",
+   "Sensing Power",
+   "Skirmishing",
+   "Soothsaying",
+   "Survival",
+   "Wakefulness",
+   "Vermin-Slaying"
+  ],
+  "templates": [
+   {
+    "roll_min": 3,
+    "roll_max": 4,
+    "name": "Anchorite (Oathsworn (Sporecasters))",
+    "proficiencies": [
+     "Blind Fighting",
+     "Survival"
+    ],
+    "equipment": "Sling with 30 bullets, beat-up hand axe, hide armor, moldy craftborn tunic and pants, leather belt, high boots, backpack, laborer's tools, tinderbox, 12 torches, 4 flasks of military oil, 1 week's iron rations, waterskin, 2 lb of piltbier, 6gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 5,
+    "roll_max": 6,
+    "name": "Vermiculite (Oathsworn (Sporecasters))",
+    "proficiencies": [
+     "Vermin-Slaying",
+     "Caving"
+    ],
+    "equipment": "Crossbow, case with 20 bolt, hand axe, mottled gray cloak, craftborn tunic and pants, leather belt, high boots, backpack, tinderbox, 12 torches, 4 flasks of oil, 1 week's iron rations, waterskin, 2 lb of piltbier, 2gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 7,
+    "roll_max": 8,
+    "name": "Stylite (Oathsworn (Sporecasters))",
+    "proficiencies": [
+     "Climbing",
+     "Endurance"
+    ],
+    "equipment": "Crossbow, case with 20 bolt, hand axe, mottled gray cloak, craftborn tunic and pants, leather belt, high boots, backpack, 50' rope, grappling hook, tinderbox, 12 torches, 1 week's iron rations, waterskin, 2 lb of piltbier, 4gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 9,
+    "roll_max": 10,
+    "name": "Acolouthite (Oathsworn (Sporecasters))",
+    "proficiencies": [
+     "Divine Blessing",
+     "Theology"
+    ],
+    "equipment": "Sling with 30 sling bullets, staff, mottled gray cloak, craftborn tunic and pants, leather belt, high boots, backpack, dwarven brewer's lab, tinderbox, 12 torches, 1 week's iron rations, waterskin, 2 lb of piltbier, 3gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 11,
+    "roll_max": 12,
+    "name": "Cenobite (Oathsworn (Sporecasters))",
+    "proficiencies": [
+     "Laying on Hands",
+     "Healing"
+    ],
+    "equipment": "Sling with 30 sling bullets, staff, leather armor, mottled gray cloak, craftborn tunic and pants, leather belt, high boots, backpack, dwarven brewer's lab, tinderbox, 12 torches, 1 week's iron rations, waterskin, 2 lb of piltbier, 3gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 13,
+    "roll_max": 14,
+    "name": "Erudite (Oathsworn (Sporecasters))",
+    "proficiencies": [
+     "Loremastery",
+     "Naturalism"
+    ],
+    "equipment": "Sling with 30 sling bullets, staff, leather armor, mottled gray cloak, craftborn tunic and pants, leather belt, high boots, backpack, dwarven brewer's lab, 2 lb of special mushrooms, tinderbox, 12 torches, 1 week's iron rations, waterskin, 2 lb of piltbier, 3gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 15,
+    "roll_max": 16,
+    "name": "Cosmopolite (Oathsworn (Sporecasters))",
+    "proficiencies": [
+     "Mystic Aura",
+     "Diplomacy"
+    ],
+    "equipment": "Sling with 30 sling bullets, staff, leather armor, mottled gray cloak, oathsworn tunic and pants, leather belt, high boots, backpack, dwarven brewer's lab, 2 lb of special mushrooms, tinderbox, 12 torches, 1 week's iron rations, waterskin, 4 lb of piltbier, 5gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 17,
+    "roll_max": 18,
+    "name": "Archimandrite (Oathsworn (Sporecasters))",
+    "proficiencies": [
+     "Command",
+     "Leadership"
+    ],
+    "equipment": "Sling with 30 sling bullets, staff, leather armor, mottled gray cloak, oathsworn tunic and pants, leather belt, high boots, backpack, dwarven brewer's lab, 4 lb of special mushrooms, tinderbox, 12 torches, 1 week's iron rations, waterskin, 4 lb of piltbier, 5gp",
+    "book_encumbrance": null
+   }
+  ],
+  "transcription_notes": "Level table extra columns (L1-10): Spore Zombies (max HD controlled) 8, 15, 30, 60, 120, 240, 480, 960, 1920, Unlimited; Alchemy (magic research) 13+,12+,11+,10+,9+,8+,7+,6+,5+,4+; Dwarven Brewing 9+,8+,7+,6+,5+,4+,3+,2+,1+,1+. Later powers: Fungal Awareness (2nd), Blooming Spores (3rd), Fungal Humors (4th, immune to disease and poison), Blossoming Spores (5th), Mushroom Management (6th), Billowing Spores (7th), Spore Servitude (8th), Mushroom Mutation and Renown (9th), Fungal Spawn (10th); optional 'wet path' powers at 2nd/4th/6th/8th with rolls on the Gifts of the Great Fungi table. Templates: the caste column is folded into the name, keeping the printed nested parentheses. Book note: all templates know the banded mottlegill, clubhead, deathcap, lion's mane, and tree bread mushroom beer recipes by default. 'case with 20 bolt' is as printed. Theology (Acolouthite) is not on the class list, so it is presumably a general proficiency. No (enc.) values given; book_encumbrance null."
+ },
+ {
+  "key": "bta_tombsealer",
+  "name": "Dwarven Tombsealer",
+  "source": "By This Axe",
+  "key_attributes": [
+   "STR",
+   "CHA"
+  ],
+  "requirements": {
+   "CON": 9
+  },
+  "hit_die": 6,
+  "first_level_hp_bonus": 0,
+  "hp_after_9": 3,
+  "levels": [
+   {
+    "level": 1,
+    "xp": 0,
+    "title": "Tomb Sentry",
+    "attack": 10,
+    "paralysis": 9,
+    "death": 10,
+    "blast": 12,
+    "implements": 12,
+    "spells": 13,
+    "damage_bonus": 1
+   },
+   {
+    "level": 2,
+    "xp": 2200,
+    "title": "Tomb Warden",
+    "attack": 9,
+    "paralysis": 8,
+    "death": 9,
+    "blast": 11,
+    "implements": 11,
+    "spells": 12,
+    "damage_bonus": 1
+   },
+   {
+    "level": 3,
+    "xp": 4400,
+    "title": "Tomb Shielder",
+    "attack": 9,
+    "paralysis": 8,
+    "death": 9,
+    "blast": 11,
+    "implements": 11,
+    "spells": 12,
+    "damage_bonus": 2
+   },
+   {
+    "level": 4,
+    "xp": 8800,
+    "title": "Tomb Defender",
+    "attack": 8,
+    "paralysis": 7,
+    "death": 8,
+    "blast": 10,
+    "implements": 10,
+    "spells": 11,
+    "damage_bonus": 2
+   },
+   {
+    "level": 5,
+    "xp": 17500,
+    "title": "Tomb Sentinel",
+    "attack": 7,
+    "paralysis": 6,
+    "death": 7,
+    "blast": 9,
+    "implements": 9,
+    "spells": 10,
+    "damage_bonus": 2
+   },
+   {
+    "level": 6,
+    "xp": 35000,
+    "title": "Tomb Guardian",
+    "attack": 7,
+    "paralysis": 6,
+    "death": 7,
+    "blast": 9,
+    "implements": 9,
+    "spells": 10,
+    "damage_bonus": 3
+   },
+   {
+    "level": 7,
+    "xp": 70000,
+    "title": "Tomb Fortifier",
+    "attack": 6,
+    "paralysis": 5,
+    "death": 6,
+    "blast": 8,
+    "implements": 8,
+    "spells": 9,
+    "damage_bonus": 3
+   },
+   {
+    "level": 8,
+    "xp": 140000,
+    "title": "Tomb Sealer",
+    "attack": 5,
+    "paralysis": 4,
+    "death": 5,
+    "blast": 7,
+    "implements": 7,
+    "spells": 8,
+    "damage_bonus": 3
+   },
+   {
+    "level": 9,
+    "xp": 270000,
+    "title": "Reclamator of Vaults",
+    "attack": 5,
+    "paralysis": 4,
+    "death": 5,
+    "blast": 7,
+    "implements": 7,
+    "spells": 8,
+    "damage_bonus": 4
+   },
+   {
+    "level": 10,
+    "xp": 400000,
+    "title": "Reclamator of Vaults, 10th level",
+    "attack": 4,
+    "paralysis": 3,
+    "death": 4,
+    "blast": 6,
+    "implements": 6,
+    "spells": 7,
+    "damage_bonus": 4
+   },
+   {
+    "level": 11,
+    "xp": 530000,
+    "title": "Reclamator of Vaults, 11th level",
+    "attack": 3,
+    "paralysis": 2,
+    "death": 3,
+    "blast": 5,
+    "implements": 5,
+    "spells": 6,
+    "damage_bonus": 4
+   },
+   {
+    "level": 12,
+    "xp": 660000,
+    "title": "Reclamator of Vaults, 12th level",
+    "attack": 3,
+    "paralysis": 2,
+    "death": 3,
+    "blast": 5,
+    "implements": 5,
+    "spells": 6,
+    "damage_bonus": 5
+   },
+   {
+    "level": 13,
+    "xp": 790000,
+    "title": "Reclamator of Vaults, 13th level",
+    "attack": 2,
+    "paralysis": 1,
+    "death": 2,
+    "blast": 4,
+    "implements": 4,
+    "spells": 5,
+    "damage_bonus": 5
+   }
+  ],
+  "weapons": {
+   "all": false,
+   "missile_all": false,
+   "melee_sizes": [],
+   "categories": [],
+   "weapons": [
+    "arbalest",
+    "crossbow",
+    "battle_axe",
+    "great_axe",
+    "hand_axe",
+    "club",
+    "flail",
+    "mace",
+    "morning_star",
+    "warhammer",
+    "spear"
+   ],
+   "excluded": []
+  },
+  "armor": "heavy",
+  "styles": [
+   "single",
+   "missile",
+   "weapon_and_shield",
+   "two_handed"
+  ],
+  "damage_bonus_applies_to": "all",
+  "cleave": "level",
+  "backstab": false,
+  "ambush": false,
+  "weapon_finesse": false,
+  "animal_reflexes": false,
+  "notes": "Undead Slaying (+1 attack vs undead; identify undead 11+). Detect Evil (60', concentrate 1 turn). Lesser Rite of Sealing (wizard lock, 1/8 hours; doors = level). Manual of Arms (1 rank). Aura of Protection at 3rd (+1 AC and saves vs evil).",
+  "proficiency_list": [
+   "Alertness",
+   "Blind Fighting",
+   "Caving",
+   "Combat Reflexes",
+   "Combat Trickery (force back, knock down, overrun)",
+   "Command",
+   "Divine Blessing",
+   "Divine Health",
+   "Dungeon Bashing",
+   "Dwarven Brewing",
+   "Endurance",
+   "Fighting Style",
+   "Goblin-Slaying",
+   "Illusion Resistance",
+   "Intimidation",
+   "Laying on Hands",
+   "Land Surveying",
+   "Leadership",
+   "Mapping",
+   "Military Strategy",
+   "Mountaineering",
+   "Precise Shooting",
+   "Prospecting",
+   "Running",
+   "Sensing Power",
+   "Vermin-Slaying",
+   "Weapon Focus"
+  ],
+  "templates": [
+   {
+    "roll_min": 3,
+    "roll_max": 4,
+    "name": "Fallen Hero (Houseless (ex-Oathsworn))",
+    "proficiencies": [
+     "Running",
+     "Survival"
+    ],
+    "equipment": "Battle axe, hand axe, tattered leather armor, threadbare workborn tunic and pants, leather belt, high boots, backpack, tinderbox, 12 torches, 1 week's iron rations, waterskin",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 5,
+    "roll_max": 6,
+    "name": "Purified Soul (Oathsworn)",
+    "proficiencies": [
+     "Divine Health",
+     "Performance (chanting)"
+    ],
+    "equipment": "Rune-carved battle axe, wooden shield, dagger, ring mail armor, craftborn tunic and pants, leather belt, high boots, backpack, tinderbox, 12 torches, 1 week's iron rations, waterskin, 1gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 7,
+    "roll_max": 8,
+    "name": "Torchbearer (Oathsworn)",
+    "proficiencies": [
+     "Alertness",
+     "Signaling"
+    ],
+    "equipment": "Iron-shod spear, war hammer, wooden shield, banded plate armor, craftborn tunic and pants, leather belt, high boots, backpack, tinderbox, 12 torches, 1 week's iron rations, waterskin",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 9,
+    "roll_max": 10,
+    "name": "Defender (Oathsworn)",
+    "proficiencies": [
+     "Fighting Style (weapon and shield)",
+     "Manual of Arms 2"
+    ],
+    "equipment": "Iron-shod spear, war hammer, steel shield painted with clan emblem, banded plate armor, oathsworn tunic and pants, leather belt, high boots, backpack, tinderbox, 12 torches, 1 week's iron rations, waterskin, 4gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 11,
+    "roll_max": 12,
+    "name": "Crusader (Oathsworn)",
+    "proficiencies": [
+     "Combat Reflexes",
+     "Theology"
+    ],
+    "equipment": "Crossbow, case with 20 bolts, spear, hand axe, steel shield painted with ancestral symbols, chainmail armor, military cloak, oathsworn tunic and pants, leather belt, high boots, backpack, tinder box, 12 torches, flask of military oil, 1 week's iron rations, waterskin",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 13,
+    "roll_max": 14,
+    "name": "Re-Executioner (Oathsworn)",
+    "proficiencies": [
+     "Weapon Focus (axes)",
+     "Endurance"
+    ],
+    "equipment": "Crossbow, case with 20 bolts, battle axe, 2 hand axes, steel shield painted with ancestral symbols, banded plate armor, oathsworn tunic and pants, leather belt, high boots, backpack, tinderbox, 12 torches, 2 flasks of military oil, 1 week's iron rations, waterskin, 1gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 15,
+    "roll_max": 16,
+    "name": "Rescuer (Oathsworn)",
+    "proficiencies": [
+     "Dungeon Bashing",
+     "Siege Engineering"
+    ],
+    "equipment": "Arbalest, case with 20 bolts, spiked mace, heavy steel shield with many dents, banded plate armor, oathsworn tunic and pants, leather belt, high boots, backpack, crowbar, small hammer, 12 iron spikes, tinderbox, 12 torches, 2 flasks of military oil, 50' rope, 1 week's iron rations, waterskin, 7gp",
+    "book_encumbrance": null
+   },
+   {
+    "roll_min": 17,
+    "roll_max": 18,
+    "name": "Paladin (Oathsworn (ex-Highborn) or Highborn)",
+    "proficiencies": [
+     "Laying on Hands",
+     "Riding"
+    ],
+    "equipment": "Crossbow, case with 20 bolts, iron-shod spear, war hammer carved with clan emblem, 2 hand axes, steel shield painted with clan emblem, dwarf-forged plate armor, oathsworn tunic and pants, leather belt, high boots, mule, riding saddle and tack, saddlebags, tinderbox, 12 torches, 1 week's iron rations, waterskin, 1gp",
+    "book_encumbrance": null
+   }
+  ],
+  "transcription_notes": "Damage bonus taken from the level table (+1 at 1st, +2 3rd, +3 6th, +4 9th, +5 12th), which matches the prose; it applies to both missile and melee attacks. The weapon list says 'hammers' and 'war hammers'; both map to warhammer. The list covers every axe and bludgeon, but the specific weapons are listed rather than categories. Purified Soul's 'dagger' is not on the weapon list (as printed). Later powers: Battlefield Prowess and Stalwart Soul (5th), Rite of Discovery (7th), Greater Rite of Sealing and Renown (9th). Templates: the caste column is folded into the name, keeping the printed nested parentheses. A markdown table glitch put 'late' (from the 'Template' header) before 'Fallen Hero' and 'ent' (from 'Equipment') before its equipment; both were removed. 'tinder box' (Crusader) is as printed. 'Manual of Arms 2' is presumably 2 ranks, but the class already has 1 rank from its Manual of Arms power, so this may mean the total. Theology and Siege Engineering are not on the class list, so they are presumably general proficiencies. No (enc.) values given; book_encumbrance null."
+ }
+]

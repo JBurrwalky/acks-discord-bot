@@ -1,0 +1,4238 @@
+{
+ "bao_arborist": [
+  {
+   "level": 1,
+   "name": "Climbing",
+   "summary": "Climbs sheer surfaces with a Climbing throw per 100' (fall on failure, 1d6 per 10'); -5 at half combat speed, -10 at full. 6+ at 1st, improving."
+  },
+  {
+   "level": 1,
+   "name": "Dendromancy",
+   "summary": "Leads dendromantic rituals and cultivates sacred trees: 5gp cultivation/day and ritual throw 16+ at 1st, both improving with level."
+  },
+  {
+   "level": 1,
+   "name": "Forest Gardening",
+   "summary": "Counts as a skilled laborer (2sp/day construction); can force march 1 day + 1 per CON bonus without penalty. Like Labor proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Natural Medicine",
+   "summary": "Forages/identifies healing herbs as 1 rank of Naturalism (+4 if already proficient), uses them as Healing; 1 turn to make potent herbs (+1 effect, 24 hrs)."
+  },
+  {
+   "level": 1,
+   "name": "Attunement to Nature",
+   "summary": "+1 to surprise rolls in wilderness; Adventuring search/listen on 14+ (instead of 18+), or +2 Searching / +4 Listening if separately proficient."
+  },
+  {
+   "level": 1,
+   "name": "Connection to Nature",
+   "summary": "Immune to undead-caused diseases; +1 to Paralysis and Spells saves; +1 to 1st-level HD roll (already in tables)."
+  },
+  {
+   "level": 1,
+   "name": "Elf Tongues",
+   "summary": "Speaks Common, Elven, Gnoll, Hobgoblin, and Orc."
+  },
+  {
+   "level": 2,
+   "name": "Natural Magic",
+   "summary": "Performs minor natural cantrips (calm animals, clean odors, soothe stings, warm rooms), 1 turn each; or learns arcane cantrips if those rules are used."
+  },
+  {
+   "level": 3,
+   "name": "Green Sense",
+   "summary": "While stationary, senses direction/distance to nearest named animal or plant type within 180' (blocked by lead/gold). +4 to Naturalism herb-finding and Hunting."
+  },
+  {
+   "level": 4,
+   "name": "Forest Management",
+   "summary": "Spending 20 days/month managing a fastness's forests (as ruler or chief arborist) adds 1gp land revenue per peasant family."
+  },
+  {
+   "level": 5,
+   "name": "Green Growth",
+   "summary": "Casts plant growth once per day (1 turn); can sustain a number of plant growths equal to class level."
+  },
+  {
+   "level": 6,
+   "name": "Enchanted Forest",
+   "summary": "Casts forest enchantment once per week (1 turn); can sustain a number equal to class level (about 2 acres per level)."
+  },
+  {
+   "level": 7,
+   "name": "Green Tongue",
+   "summary": "Speak with plants at will in his territory; managing forests needs only ancillary activity; +4 to forage/hunt/track there; army +2 recon. Counts as 2 powers."
+  },
+  {
+   "level": 8,
+   "name": "Wood Waking",
+   "summary": "Once/day, full-round action: awakens a tree within 60' (mature 45'+ tree acts as a galdrtre; smaller ~1 HD per 6') that obeys orders for 12 turns."
+  },
+  {
+   "level": 9,
+   "name": "Fastness",
+   "summary": "With a 15,000gp+ fastness in a natural setting, attracts 3d6x10 1st level elven mercenaries within 1d3 months; must pay normal rates."
+  },
+  {
+   "level": 9,
+   "name": "Arboreal Authority",
+   "summary": "Concentrating: dominates plants in 20' area within 30' (sapient <2 HD save vs Spells); creatures there save vs Paralysis or restrained, 1d4 P + 1d4 Po/round."
+  },
+  {
+   "level": 10,
+   "name": "Green Ways",
+   "summary": "Steps into a large hollow tree and, after 10 rounds, emerges from another within 96 miles; once per hour, max 20 stone carried."
+  },
+  {
+   "level": 11,
+   "name": "Dendromantic Insight",
+   "summary": "Can create new dendromantic rituals (Judge sets tier; costs equal ritual base cost; requires a dendromancy throw; natural 20 lets others learn it)."
+  },
+  {
+   "level": 12,
+   "name": "Dendromantic Mastery",
+   "summary": "Adds fastness's current morale (if positive) to dendromancy throws; rituals with unmet prerequisites succeed if he and one other participant succeed."
+  }
+ ],
+ "bao_courtier": [
+  {
+   "level": 1,
+   "name": "Classical Education",
+   "summary": "Decipher runes, recall history, identify artifacts/monster parts on 18+ (-1 per level); identifies magic items as a 5th level mage. Like Loremastery."
+  },
+  {
+   "level": 1,
+   "name": "Diplomacy",
+   "summary": "+1 to all reaction rolls when parleying with intelligent creatures. Like Diplomacy proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Elven Glamour",
+   "summary": "+1 to reaction rolls to impress/intimidate; a total of 12+ leaves subjects bewitched while in your presence. Not vs. elven glamour. Like Mystic Aura."
+  },
+  {
+   "level": 1,
+   "name": "Elven Weapon Training",
+   "summary": "+1 to attack throws with weapons of elven make (not included in the attack table)."
+  },
+  {
+   "level": 1,
+   "name": "Gift-Giving",
+   "summary": "+1/+2/+3 reaction bonus for a gift worth a day's/week's/month's pay of the target; never charged with bribery. Like Bribery proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Inspire Courage",
+   "summary": "1 round of oration inspires up to 30 allies within 50' for 1 turn: +1 attack, AC, morale, and saves vs fear. Once/day per level; not once combat is joined."
+  },
+  {
+   "level": 1,
+   "name": "Performance",
+   "summary": "Could earn 10gp/month performing; identifies famous performers, works, and songs on 11+. One rank of Performance proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Attunement to Nature",
+   "summary": "+1 to surprise rolls in wilderness; Adventuring search/listen on 14+ (instead of 18+), or +2 Searching / +4 Listening if separately proficient."
+  },
+  {
+   "level": 1,
+   "name": "Connection to Nature",
+   "summary": "Immune to undead-caused diseases; +1 to Paralysis and Spells saves; +1 to 1st-level HD roll (already in tables)."
+  },
+  {
+   "level": 1,
+   "name": "Elf Tongues",
+   "summary": "Speaks Common, Elven, Gnoll, Hobgoblin, and Orc."
+  },
+  {
+   "level": 2,
+   "name": "Arcane Magic",
+   "summary": "Casts arcane spells per the Courtier Spell Progression (slower caster level); repertoire = spells listed + INT bonus; can cast in armor."
+  },
+  {
+   "level": 7,
+   "name": "Minor Magical Research",
+   "summary": "Can research spells, scribe scrolls, and brew potions as if a 5th level mage."
+  },
+  {
+   "level": 9,
+   "name": "Fastness",
+   "summary": "With a 15,000gp+ fastness in a natural setting, attracts 3d6x10 1st level elven mercenaries within 1d3 months; must pay normal rates."
+  },
+  {
+   "level": 12,
+   "name": "Major Magical Research",
+   "summary": "Can create more powerful magic items such as weapons, rings, and staffs. (Only beyond normal max level 11.)"
+  }
+ ],
+ "bao_druid": [
+  {
+   "level": 1,
+   "name": "Arcane Magic",
+   "summary": "Casts arcane spells per the Druid Arcane Spell Progression; studious caster with repertoire = spells listed + INT bonus."
+  },
+  {
+   "level": 1,
+   "name": "Divine Magic",
+   "summary": "Casts divine spells per the Divine Spell Progression, learned studiously like arcane spells with a separate divine repertoire."
+  },
+  {
+   "level": 1,
+   "name": "Secrets of the Sect",
+   "summary": "Chooses a sect (celestial, telluric, hypogean) granting powers at 1, 3, 5, 7, 9, 11; member of its hierarchy; can gain congregants; 1 rank of Theology."
+  },
+  {
+   "level": 1,
+   "name": "Celestial: Secrets of the Radiant Arts",
+   "summary": "Rebukes undead as a crusader of half level; -2 to targets' Paralysis saves; protection spells and research at +2 caster levels (+2 throw, +10% rate)."
+  },
+  {
+   "level": 1,
+   "name": "Telluric: Friend of Birds and Beasts",
+   "summary": "Identifies flora/fauna on 11+; understands animals; +2 reactions with normal animals; takes and trains animal henchmen without Animal Training."
+  },
+  {
+   "level": 1,
+   "name": "Hypogean: Kin of the Creeping and Crawling",
+   "summary": "Identifies vermin on 11+; understands crawling vermin (normal and giant); +2 reactions with them; takes and trains them as henchmen."
+  },
+  {
+   "level": 1,
+   "name": "Attunement to Nature",
+   "summary": "+1 to surprise rolls in wilderness; Adventuring search/listen on 14+ (instead of 18+), or +2 Searching / +4 Listening if separately proficient."
+  },
+  {
+   "level": 1,
+   "name": "Connection to Nature",
+   "summary": "Immune to undead-caused diseases; +1 to Paralysis and Spells saves; +1 to 1st-level HD roll (already in tables)."
+  },
+  {
+   "level": 1,
+   "name": "Elf Tongues",
+   "summary": "Speaks Common, Elven, Gnoll, Hobgoblin, and Orc."
+  },
+  {
+   "level": 1,
+   "name": "Code of Behavior",
+   "summary": "Must obey his sect's code; violations bring Judge-set penalties (curses, lost spells/powers) until atoned. Has 2 daily study requirements (arcane + divine)."
+  },
+  {
+   "level": 1,
+   "name": "Celestial: Code of Behavior",
+   "summary": "White robes and redwood staff/sprig; no reaped grain or slain meat; hymns at dawn and dusk; no chaotic magic or death/necromantic spells; vigil every 7th night."
+  },
+  {
+   "level": 1,
+   "name": "Telluric: Code of Behavior",
+   "summary": "Green/brown robes, oak staff or mistletoe; uncut hair; raw food; prays 4x/day; spares non-chaotic beasts; no metal armor/jewelry; tithes 10% income to forests."
+  },
+  {
+   "level": 1,
+   "name": "Hypogean: Code of Behavior",
+   "summary": "Black robes, yew staff/sprig, veiled by day; eats only fermented food, meat, fungi, roots; blood libations; won't heal mortal wounds or raise dead; sacrifices."
+  },
+  {
+   "level": 3,
+   "name": "Celestial: Astrology",
+   "summary": "Gains one rank of Knowledge (astrology) proficiency (or another general proficiency if already at 3 ranks)."
+  },
+  {
+   "level": 3,
+   "name": "Telluric: Nature Lore",
+   "summary": "Gains one rank of Naturalism proficiency (or another general proficiency if already at 3 ranks)."
+  },
+  {
+   "level": 3,
+   "name": "Hypogean: Bloodletting",
+   "summary": "Gains one rank of Healing proficiency (or another general proficiency if already at 3 ranks)."
+  },
+  {
+   "level": 5,
+   "name": "Minor Magical Research",
+   "summary": "Can research spells, scribe magical scrolls, and brew potions."
+  },
+  {
+   "level": 5,
+   "name": "Celestial: Aerial Dispatch",
+   "summary": "Can cast avian messenger once per day."
+  },
+  {
+   "level": 5,
+   "name": "Telluric: Wild Semblance",
+   "summary": "Can cast skinchange once per day."
+  },
+  {
+   "level": 5,
+   "name": "Hypogean: Judgment of the Dead",
+   "summary": "Can cast bestow curse once per day."
+  },
+  {
+   "level": 7,
+   "name": "Esoteric Contemplation",
+   "summary": "One hour of meditation regains one expended spell; max once per spell level per day (one per level per magic type with Contemplation)."
+  },
+  {
+   "level": 7,
+   "name": "Celestial: Auspicy",
+   "summary": "Takes auspices from bird flight for a divination-like omen about the coming week: 4+ for wild birds, or 16+ minus 1 per caged bird released."
+  },
+  {
+   "level": 7,
+   "name": "Telluric: Sortilege",
+   "summary": "Casts lots for a divination-like portent about the coming week: unique carved lots (1 hour) on 4+, or standard lots (1 turn) on 16+ minus caster level."
+  },
+  {
+   "level": 7,
+   "name": "Hypogean: Anthropomancy",
+   "summary": "Reads death throes for a divination-like portent about the coming week: sacrificial victims on 4+, battlefield casualties on 17+ minus the victim's HD."
+  },
+  {
+   "level": 9,
+   "name": "Major Magical Research",
+   "summary": "Can create more powerful magic items such as weapons, rings, and staffs."
+  },
+  {
+   "level": 9,
+   "name": "Nemeton",
+   "summary": "With a 15,000gp+ nemeton, attracts 1d6 1st-3rd level and 2d6 0th level apprentices within 1d3 months; they assist magic research for room and board."
+  },
+  {
+   "level": 9,
+   "name": "Celestial: Knowledge of the Cosmos",
+   "summary": "Studies the night sky instead of spellbooks; sky counts as a 10,000gp library per astrology rank; adds astrology ranks to experimentation breakthroughs."
+  },
+  {
+   "level": 9,
+   "name": "Telluric: Warden of the Wild",
+   "summary": "Bestial monstrosities and vermin count as animals for Friend of Birds and Beasts and for bewitch/dominate/infuriate/speak with beasts."
+  },
+  {
+   "level": 9,
+   "name": "Hypogean: Supper of Worms",
+   "summary": "Touching a corpse for 9 rounds then eating the grubs absorbs its full special component value as arcane or divine power, storable indefinitely."
+  },
+  {
+   "level": 11,
+   "name": "Supreme Magical Research",
+   "summary": "Can learn/cast 7th-9th level ritual arcane spells, craft constructs, create crossbreeds; if chaotic, create necromantic servants and become undead."
+  },
+  {
+   "level": 11,
+   "name": "Celestial: Cycle of the Heavens",
+   "summary": "Ancillary activity each day controls weather (as summon weather) over his domain (up to 16 hexes) or 1 hex; 21+ days/month adjusts land value by 1gp."
+  },
+  {
+   "level": 11,
+   "name": "Telluric: Congregation of the Green",
+   "summary": "As ruler or chaplain of an elven domain, gains weekly divine power equal to 10% of each forest hex's land revenue (1 day dedicated activity/week)."
+  },
+  {
+   "level": 11,
+   "name": "Hypogean: Root of All Evil",
+   "summary": "Crossbreeds plants with undead at half material and research cost; crossbreeds get +4 loyalty but turn hostile if he breaks his code."
+  }
+ ],
+ "bao_nightblade": [
+  {
+   "level": 1,
+   "name": "Acrobatics",
+   "summary": "+2 to saves where agility helps; adds level to DEX for jumping; can tumble past an engaged foe on a throw (18+ at 1st, improving). Like Acrobatics."
+  },
+  {
+   "level": 1,
+   "name": "Backstabbing",
+   "summary": "Backstab vulnerable foes in melee or at short missile range: +4 to hit and +1 damage die per 4 levels."
+  },
+  {
+   "level": 1,
+   "name": "Climbing",
+   "summary": "Climbs sheer surfaces with a Climbing throw per 100' (fall on failure, 1d6 per 10'); -5 at half combat speed, -10 at full. 6+ at 1st, improving."
+  },
+  {
+   "level": 1,
+   "name": "Hiding",
+   "summary": "Hides as a combat action in cover, dim light, or darkness (19+ at 1st, improving); foes -2 to surprise while he is stationary and concealed."
+  },
+  {
+   "level": 1,
+   "name": "Shadowy Senses",
+   "summary": "When moving at combat or exploration speed, 'sees' as if carrying a 30' radius dim light; cannot read or discern colors, faces, or images."
+  },
+  {
+   "level": 1,
+   "name": "Sneaking",
+   "summary": "Moves silently at up to half combat speed (17+ at 1st, improving; -5 faster, -10 running); foes -2 to surprise when he is out of sight."
+  },
+  {
+   "level": 1,
+   "name": "Streetwise",
+   "summary": "May belong to an assassins' guild; identifies home criminal signs/slang automatically, others on 11+. One rank of Streetwise proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Attunement to Nature",
+   "summary": "+1 to surprise rolls in wilderness; Adventuring search/listen on 14+ (instead of 18+), or +2 Searching / +4 Listening if separately proficient."
+  },
+  {
+   "level": 1,
+   "name": "Connection to Nature",
+   "summary": "Immune to undead-caused diseases; +1 to Paralysis and Spells saves; +1 to 1st-level HD roll (already in tables)."
+  },
+  {
+   "level": 1,
+   "name": "Elf Tongues",
+   "summary": "Speaks Common, Elven, Gnoll, Hobgoblin, and Orc."
+  },
+  {
+   "level": 2,
+   "name": "Arcane Magic",
+   "summary": "Casts arcane spells per the Nightblade Spell Progression (slower caster level); repertoire = spells listed + INT bonus; can cast in light armor."
+  },
+  {
+   "level": 2,
+   "name": "Quiet Magic",
+   "summary": "Casts with minimal words and gestures: a hear noise throw is needed to notice; must be fully bound and gagged to prevent casting."
+  },
+  {
+   "level": 7,
+   "name": "Minor Magical Research",
+   "summary": "Can research spells, scribe scrolls, and brew potions as if a 5th level mage."
+  },
+  {
+   "level": 9,
+   "name": "Hideout",
+   "summary": "With a 5,000gp+ hideout, attracts 2d6 1st level elven nightblades within 1d4 weeks (paid as henchmen; at least one is a rival's spy)."
+  },
+  {
+   "level": 12,
+   "name": "Major Magical Research",
+   "summary": "Can create more powerful magic items such as weapons, rings, and staffs. (Only beyond normal max level 11.)"
+  },
+  {
+   "level": 12,
+   "name": "Silent Sorcery",
+   "summary": "While stationary and sneaking, casts spells with no sound at all, without ending the sneaking condition. (Only beyond normal max level 11.)"
+  }
+ ],
+ "bao_purveyor": [
+  {
+   "level": 1,
+   "name": "Diplomacy",
+   "summary": "+1 to all reaction rolls when parleying with intelligent creatures. Like Diplomacy proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Gift-Giving",
+   "summary": "+1/+2/+3 reaction bonus for a gift worth a day's/week's/month's pay of the target; never charged with bribery. Like Bribery proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Humanoid Resources",
+   "summary": "+1 reaction on hiring offers of 1+ year; no penalty after party's failed hires; hirelings skip loyalty rolls on level-up absent calamities."
+  },
+  {
+   "level": 1,
+   "name": "Listening",
+   "summary": "One round of listening (once per turn if moving); Judge rolls secretly vs Listening throw (10+ at 1st, improving by level)."
+  },
+  {
+   "level": 1,
+   "name": "Mercantile Network",
+   "summary": "In previously visited markets, treat the market as one class larger or take +1 market impact (not for passive investments)."
+  },
+  {
+   "level": 1,
+   "name": "Salesmanship",
+   "summary": "Sells items for 10% over list (as Bargaining); +2 on reaction rolls to raise sale prices. Does not stack with Bargaining."
+  },
+  {
+   "level": 1,
+   "name": "Specialty Merchandiser",
+   "summary": "Chooses a specialty merchandise: identifies it on 7+, adds half level to market impact, shifts sale price one step, +1 passive investment."
+  },
+  {
+   "level": 1,
+   "name": "Treachery",
+   "summary": "After a Friendly reaction via Diplomacy/Gift-Giving, can attack to force all within 30' to roll surprise at -3. Not vs dwarves or rival treacherous negotiators."
+  },
+  {
+   "level": 1,
+   "name": "Attunement to Nature",
+   "summary": "+1 to surprise rolls in wilderness; Adventuring search/listen on 14+ (instead of 18+), or +2 Searching / +4 Listening if separately proficient."
+  },
+  {
+   "level": 1,
+   "name": "Connection to Nature",
+   "summary": "Immune to undead-caused diseases; +1 to Paralysis and Spells saves; +1 to 1st-level HD roll (already in tables)."
+  },
+  {
+   "level": 1,
+   "name": "Elf Tongues",
+   "summary": "Speaks Common, Elven, Gnoll, Hobgoblin, and Orc."
+  },
+  {
+   "level": 2,
+   "name": "Patient Negotiation",
+   "summary": "Cumulative +1 on each repeated spot-price negotiation roll or influence-over-time attempt until resolved. Doesn't stack with Mystic Aura."
+  },
+  {
+   "level": 4,
+   "name": "Trade Concessions",
+   "summary": "No concessions needed for grudging agreement on specialty goods; reduces tariffs on them by class level (negative tariff becomes a subsidy)."
+  },
+  {
+   "level": 6,
+   "name": "Specialty Merchandiser",
+   "summary": "Gains a second specialty merchandise with all the same benefits."
+  },
+  {
+   "level": 8,
+   "name": "Factorage",
+   "summary": "Delegates henchmen as factors in markets he has traded in, using his network, specialties, and concessions; max one factor per market per month."
+  },
+  {
+   "level": 9,
+   "name": "Guildhouse",
+   "summary": "With a 5,000gp+ guildhouse, attracts 2d6 1st level elven purveyors in 1d4 weeks; extra passive investments; can run a syndicate (half-value hideout)."
+  },
+  {
+   "level": 10,
+   "name": "Specialty Merchandiser",
+   "summary": "Gains a third specialty merchandise with all the same benefits."
+  },
+  {
+   "level": 12,
+   "name": "Reputational Investment",
+   "summary": "In his guildhouse market, raises specialty sale prices by the return rate of a related business worth enough for the market class (e.g. Class II 25,000gp)."
+  }
+ ],
+ "bao_ranger": [
+  {
+   "level": 1,
+   "name": "Animal Reflexes",
+   "summary": "+1 to initiative and +1 to avoid surprise (+2 in wilderness with Attunement to Nature)."
+  },
+  {
+   "level": 1,
+   "name": "Elven Weapon Training",
+   "summary": "+1 to attack throws with weapons of elven make (not included in the attack table)."
+  },
+  {
+   "level": 1,
+   "name": "Mobile Warfare",
+   "summary": "+1 AC in medium or lighter armor with 7 stone or less encumbrance; stacks with Swashbuckling in light armor at 5 stone or less."
+  },
+  {
+   "level": 1,
+   "name": "Natural Stealth",
+   "summary": "Opponents take -2 to surprise rolls when he approaches from out of sight or lies in wait in cover or darkness."
+  },
+  {
+   "level": 1,
+   "name": "Precise Shooting",
+   "summary": "Missile attacks on unengaged foes past cover or engaged allies without penalty; -4 vs engaged targets. One rank of Precise Shooting."
+  },
+  {
+   "level": 1,
+   "name": "Regrouping",
+   "summary": "Party (up to a company) can scatter to his last rendezvous point when evading; successful groups return without encounters or getting lost."
+  },
+  {
+   "level": 1,
+   "name": "Sylvan Ranging",
+   "summary": "Speed x1 in forest/forested hills, x2/3 in forested mountains/swamp; shares with 1 creature per level; ranger units count as cavalry for recon there."
+  },
+  {
+   "level": 1,
+   "name": "Tracking",
+   "summary": "Searches for tracks for 1 turn on an 11+ Tracking throw, then follows at half speed. One rank of Tracking proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Attunement to Nature",
+   "summary": "+1 to surprise rolls in wilderness; Adventuring search/listen on 14+ (instead of 18+), or +2 Searching / +4 Listening if separately proficient."
+  },
+  {
+   "level": 1,
+   "name": "Connection to Nature",
+   "summary": "Immune to undead-caused diseases; +1 to Paralysis and Spells saves; +1 to 1st-level HD roll (already in tables)."
+  },
+  {
+   "level": 1,
+   "name": "Elf Tongues",
+   "summary": "Speaks Common, Elven, Gnoll, Hobgoblin, and Orc."
+  },
+  {
+   "level": 3,
+   "name": "Waylaying",
+   "summary": "Up to one ally per level lying in wait with him in sight or earshot gains his Natural Stealth benefit."
+  },
+  {
+   "level": 5,
+   "name": "Experience and Hardiness",
+   "summary": "Hirelings on a wilderness adventure he leads get +1 morale (stacks with CHA and proficiencies)."
+  },
+  {
+   "level": 9,
+   "name": "Fastness",
+   "summary": "With a 15,000gp+ fastness in a natural setting, attracts 3d6x10 1st level elven mercenaries within 1d3 months; must pay normal rates."
+  },
+  {
+   "level": 11,
+   "name": "Cunning and Flexible Reconnaissance",
+   "summary": "Commanding scouts/screen or the army: enemy armies count one row closer on recon results (or one column better); enemies treat his army as one worse."
+  }
+ ],
+ "bao_spellsinger": [
+  {
+   "level": 1,
+   "name": "Arcane Spellsinging",
+   "summary": "Casts arcane spells with spell points (1/2/3/5/7/10 SP for spell levels 1-6); repertoire = listed + INT bonus; SP recover with 8 hours rest once per day."
+  },
+  {
+   "level": 1,
+   "name": "Ambient Magic Tapping",
+   "summary": "Can draw on places of power to fuel spells without spending SP; while sensing power, auto-identifies and ranks places of power."
+  },
+  {
+   "level": 1,
+   "name": "Extemporaneous Spells",
+   "summary": "Can improvise new spells on the fly from chords of power she knows; highly risky (see Elven Spellsinging chapter)."
+  },
+  {
+   "level": 1,
+   "name": "Elven Glamour",
+   "summary": "+1 to reaction rolls to impress/intimidate; a total of 12+ leaves subjects bewitched while in your presence. Not vs. elven glamour. Like Mystic Aura."
+  },
+  {
+   "level": 1,
+   "name": "Locus of Will",
+   "summary": "+2 bonus to all saving throws (already included in the saving throw table)."
+  },
+  {
+   "level": 1,
+   "name": "Memory Palace",
+   "summary": "Stores repertoire in a memory palace instead of a spellbook; no daily study; adding a spell takes 1 week with a written formula or a teacher."
+  },
+  {
+   "level": 1,
+   "name": "Performance",
+   "summary": "Could earn 10gp/month performing; identifies famous performers, works, and songs on 11+. One rank of Performance proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Sensing Power",
+   "summary": "After 1 round of concentration, detects casters within 45' and their relative power and magic used in 24 hrs; 1 round/level, once per turn."
+  },
+  {
+   "level": 1,
+   "name": "Shaded Magic",
+   "summary": "Lacks formulaic protection against black magic; learning and singing the wrong songs can endanger her soul (see Elven Spellsinging chapter)."
+  },
+  {
+   "level": 1,
+   "name": "Attunement to Nature",
+   "summary": "+1 to surprise rolls in wilderness; Adventuring search/listen on 14+ (instead of 18+), or +2 Searching / +4 Listening if separately proficient."
+  },
+  {
+   "level": 1,
+   "name": "Connection to Nature",
+   "summary": "Immune to undead-caused diseases; +1 to Paralysis and Spells saves; +1 to 1st-level HD roll (already in tables)."
+  },
+  {
+   "level": 1,
+   "name": "Elf Tongues",
+   "summary": "Speaks Common, Elven, Gnoll, Hobgoblin, and Orc."
+  },
+  {
+   "level": 5,
+   "name": "Minor Magical Research",
+   "summary": "Can research spells, scribe magical scrolls, and brew potions."
+  },
+  {
+   "level": 9,
+   "name": "Major Magical Research",
+   "summary": "Can create more powerful magic items such as weapons, rings, and staffs."
+  },
+  {
+   "level": 9,
+   "name": "Fastness",
+   "summary": "With a 15,000gp+ fastness in a natural setting, attracts 3d6x10 1st level elven mercenaries within 1d3 months; must pay normal rates."
+  },
+  {
+   "level": 11,
+   "name": "Supreme Magical Research",
+   "summary": "Can learn/cast 7th-9th level ritual arcane spells, craft constructs, create crossbreeds; if chaotic, create necromantic servants and become undead."
+  }
+ ],
+ "bao_spellsword": [
+  {
+   "level": 1,
+   "name": "Arcane Magic",
+   "summary": "Casts arcane spells per the Spellsword Spell Progression; repertoire = spells listed + INT bonus; can cast spells while wearing armor."
+  },
+  {
+   "level": 1,
+   "name": "Collegiate Wizardry",
+   "summary": "Can belong to a wizard's guild; auto-identifies own tradition's symbols, signatures, and grimoires, others on 11+. One rank of Collegiate Wizardry."
+  },
+  {
+   "level": 1,
+   "name": "Attunement to Nature",
+   "summary": "+1 to surprise rolls in wilderness; Adventuring search/listen on 14+ (instead of 18+), or +2 Searching / +4 Listening if separately proficient."
+  },
+  {
+   "level": 1,
+   "name": "Connection to Nature",
+   "summary": "Immune to undead-caused diseases; +1 to Paralysis and Spells saves; +1 to 1st-level HD roll (already in tables)."
+  },
+  {
+   "level": 1,
+   "name": "Elf Tongues",
+   "summary": "Speaks Common, Elven, Gnoll, Hobgoblin, and Orc."
+  },
+  {
+   "level": 5,
+   "name": "Minor Magical Research",
+   "summary": "Can research spells, scribe magical scrolls, and brew potions."
+  },
+  {
+   "level": 9,
+   "name": "Major Magical Research",
+   "summary": "Can create more powerful magic items such as weapons, rings, and staffs."
+  },
+  {
+   "level": 9,
+   "name": "Fastness",
+   "summary": "With a 15,000gp+ fastness in a natural setting, attracts 3d6x10 1st level elven mercenaries within 1d3 months; must pay normal rates."
+  },
+  {
+   "level": 11,
+   "name": "Supreme Magical Research",
+   "summary": "Can learn/cast 7th-9th level ritual spells, craft constructs, create crossbreeds and necromantic servants. (Only beyond normal max level 10.)"
+  }
+ ],
+ "bao_warrior": [
+  {
+   "level": 1,
+   "name": "Elven Weapon Training",
+   "summary": "+1 to attack throws with weapons of elven make (not included in the attack table)."
+  },
+  {
+   "level": 1,
+   "name": "Manual of Arms",
+   "summary": "Identifies homeland's military standards, gear, and insignia (others on 11+); fights as a regular in formed and loose units. One rank of Manual of Arms."
+  },
+  {
+   "level": 1,
+   "name": "Attunement to Nature",
+   "summary": "+1 to surprise rolls in wilderness; Adventuring search/listen on 14+ (instead of 18+), or +2 Searching / +4 Listening if separately proficient."
+  },
+  {
+   "level": 1,
+   "name": "Connection to Nature",
+   "summary": "Immune to undead-caused diseases; +1 to Paralysis and Spells saves; +1 to 1st-level HD roll (already in tables)."
+  },
+  {
+   "level": 1,
+   "name": "Elf Tongues",
+   "summary": "Speaks Common, Elven, Gnoll, Hobgoblin, and Orc."
+  },
+  {
+   "level": 3,
+   "name": "Battle Focus",
+   "summary": "Full-round action, once per day per level: +1 to attacks, proficiency throws, saves, and initiative for 1 turn or until felled."
+  },
+  {
+   "level": 5,
+   "name": "Heroic Presence",
+   "summary": "Henchmen and mercenaries he hires get +1 morale when he personally leads them (stacks with CHA and proficiencies)."
+  },
+  {
+   "level": 9,
+   "name": "Fastness",
+   "summary": "With a 15,000gp+ fastness in a natural setting, attracts 3d6x10 1st level elven mercenaries within 1d3 months; must pay normal rates."
+  },
+  {
+   "level": 11,
+   "name": "Unconquerable Soul",
+   "summary": "+1 to all saves (in table); at 0 hp or less can fight on up to 4 rounds: -2/-5/-10 on Mortal Wounds for 1/2/3 rounds, dies after the 4th."
+  }
+ ],
+ "bao_wizard": [
+  {
+   "level": 1,
+   "name": "Arcane Magic",
+   "summary": "Casts arcane spells per the Wizard Spell Progression; repertoire = spells listed + INT bonus."
+  },
+  {
+   "level": 1,
+   "name": "Collegiate Wizardry",
+   "summary": "Can belong to a wizard's guild; auto-identifies own tradition's symbols, signatures, and grimoires, others on 11+. One rank of Collegiate Wizardry."
+  },
+  {
+   "level": 1,
+   "name": "Tradition of Magic",
+   "summary": "Chooses a tradition (artifice, elementalism, ensorcellment; necromancy or transmogrification with Judge's OK) granting powers at 1, 3, 5, 7, 9, 11."
+  },
+  {
+   "level": 1,
+   "name": "Artifice: Mechanisms of Magic",
+   "summary": "+1 magic research throws, +5% research rate; recognizes common magic items/components on 11+ (1 turn); extracts special components from constructs."
+  },
+  {
+   "level": 1,
+   "name": "Elementalism: Elemental Mastery",
+   "summary": "Chosen element's spells: +1 damage per die, -2 to saves; its elementals +1 hp/HD; elemental mage missiles; auto-identifies its places of power."
+  },
+  {
+   "level": 1,
+   "name": "Ensorcellment: Master of Enchantments & Illusions",
+   "summary": "Enchantment/illusion spells at +2 caster levels, -2 to targets' saves; +2 research throws, +10% rate (+3 levels/-3 saves with the proficiency)."
+  },
+  {
+   "level": 1,
+   "name": "Necromancy: Secrets of the Dark Arts",
+   "summary": "Controls undead as a chaotic crusader of half level; -2 to saves vs his death spells; necromantic spells and research at +2 levels (+2 throw, +10% rate)."
+  },
+  {
+   "level": 1,
+   "name": "Transmogrification: Grotesque Arts of Transformation",
+   "summary": "Transmogrification spells at +2 caster levels, -2 to saves; crossbreed/transmog research at +2 levels, +2 throw, +10% rate (stacks with proficiency)."
+  },
+  {
+   "level": 1,
+   "name": "Attunement to Nature",
+   "summary": "+1 to surprise rolls in wilderness; Adventuring search/listen on 14+ (instead of 18+), or +2 Searching / +4 Listening if separately proficient."
+  },
+  {
+   "level": 1,
+   "name": "Connection to Nature",
+   "summary": "Immune to undead-caused diseases; +1 to Paralysis and Spells saves; +1 to 1st-level HD roll (already in tables)."
+  },
+  {
+   "level": 1,
+   "name": "Elf Tongues",
+   "summary": "Speaks Common, Elven, Gnoll, Hobgoblin, and Orc."
+  },
+  {
+   "level": 3,
+   "name": "Artifice: Mechanisms of War",
+   "summary": "Gains one rank of Siege Engineering proficiency (or another general proficiency if already at 2 ranks)."
+  },
+  {
+   "level": 3,
+   "name": "Elementalism: Elements of War",
+   "summary": "Gains one rank of Military Strategy proficiency (or another general proficiency if already at 3 ranks)."
+  },
+  {
+   "level": 3,
+   "name": "Ensorcellment: Influence",
+   "summary": "Gains his choice of Diplomacy, Intimidation, or Seduction proficiency."
+  },
+  {
+   "level": 3,
+   "name": "Necromancy: Mortuary Science",
+   "summary": "Gains one rank of Healing proficiency (or another general proficiency if already at 3 ranks)."
+  },
+  {
+   "level": 3,
+   "name": "Transmogrification: Alchemy",
+   "summary": "Gains one rank of Alchemy proficiency (or another general proficiency if already at 3 ranks)."
+  },
+  {
+   "level": 5,
+   "name": "Minor Magical Research",
+   "summary": "Can research spells, scribe magical scrolls, and brew potions."
+  },
+  {
+   "level": 5,
+   "name": "Artifice: Art of Unmaking",
+   "summary": "Can cast dispel magic once per day."
+  },
+  {
+   "level": 5,
+   "name": "Elementalism: Spellward",
+   "summary": "Can cast spellward once per day."
+  },
+  {
+   "level": 5,
+   "name": "Ensorcellment: Figments of Imagination",
+   "summary": "Can cast chimerical figment once per day."
+  },
+  {
+   "level": 5,
+   "name": "Necromancy: Speak with Dead",
+   "summary": "Can cast speak with the dead once per day."
+  },
+  {
+   "level": 5,
+   "name": "Transmogrification: Bestial Transformation",
+   "summary": "Can cast skinchange once per day."
+  },
+  {
+   "level": 7,
+   "name": "Personal Study",
+   "summary": "Gains one additional class proficiency from his class list."
+  },
+  {
+   "level": 7,
+   "name": "Artifice: Expanded Repertoire",
+   "summary": "+1 repertoire slot per castable spell level, which must hold blast or wall spells."
+  },
+  {
+   "level": 7,
+   "name": "Elementalism: Expanded Repertoire",
+   "summary": "+1 repertoire slot per castable spell level, which must hold elemental spells."
+  },
+  {
+   "level": 7,
+   "name": "Ensorcellment: Expanded Repertoire",
+   "summary": "+1 repertoire slot per castable spell level, which must hold enchantment or illusion spells."
+  },
+  {
+   "level": 7,
+   "name": "Necromancy: Expanded Repertoire",
+   "summary": "+1 repertoire slot per castable spell level, which must hold death or necromancy spells."
+  },
+  {
+   "level": 7,
+   "name": "Transmogrification: Expanded Repertoire",
+   "summary": "+1 repertoire slot per castable spell level, which must hold transmogrification spells."
+  },
+  {
+   "level": 9,
+   "name": "Major Magical Research",
+   "summary": "Can create more powerful magic items such as weapons, rings, and staffs."
+  },
+  {
+   "level": 9,
+   "name": "Sanctum",
+   "summary": "With a 15,000gp+ sanctum, attracts 1d6 1st-3rd level and 2d6 0th level apprentices within 1d3 months; they assist magic research for room and board."
+  },
+  {
+   "level": 9,
+   "name": "Artifice: Flawless Precision",
+   "summary": "Ordinary (non-experimental) magic research no longer fails automatically on natural 2-3; a natural 1 still fails."
+  },
+  {
+   "level": 9,
+   "name": "Elementalism: Elemental Exarchy",
+   "summary": "Elemental spells of any type are cast at +2 caster levels (+3 for the element of his Elementalism proficiency)."
+  },
+  {
+   "level": 9,
+   "name": "Ensorcellment: Bewitching Aura",
+   "summary": "+1 to reaction rolls to impress/intimidate; total 12+ bewitches while in his presence. With Mystic Aura, bewitchment lasts one day instead."
+  },
+  {
+   "level": 9,
+   "name": "Necromancy: Lordship Over the Undead",
+   "summary": "Controlled undead stay controlled 1 day per level instead of 1 turn per level; a 'D' result controls them indefinitely."
+  },
+  {
+   "level": 9,
+   "name": "Transmogrification: Hideous Servant",
+   "summary": "Gains a bonded servant like a shaman's totem animal, mixing two traits each from two animals with averaged base HD; no totem benefit."
+  },
+  {
+   "level": 11,
+   "name": "Supreme Magical Research",
+   "summary": "Can learn/cast 7th-9th level ritual arcane spells, craft constructs, create crossbreeds; if chaotic, create necromantic servants and become undead."
+  },
+  {
+   "level": 11,
+   "name": "Artifice: Marvelous Machines",
+   "summary": "Designs and builds constructs at half the usual material and research cost."
+  },
+  {
+   "level": 11,
+   "name": "Elementalism: Place of Power",
+   "summary": "Home/sanctum becomes a minor elemental place of power (9,000 sq ft), or rises one rank; inside it he is invulnerable to his element's damage type."
+  },
+  {
+   "level": 11,
+   "name": "Ensorcellment: Ensorcellment Unending",
+   "summary": "Perpetual enchantments/illusions count as half a spell toward his limit and persist after death while his memory lives (225+ years)."
+  },
+  {
+   "level": 11,
+   "name": "Necromancy: Secrets of Life and Death",
+   "summary": "Performs necromancy at half the usual material and research cost."
+  },
+  {
+   "level": 11,
+   "name": "Transmogrification: Shape Flesh and Bone",
+   "summary": "Creates magical crossbreeds at half the usual material and research cost."
+  }
+ ],
+ "bao_antiquarian": [
+  {
+   "level": 1,
+   "name": "Archeoturgy",
+   "summary": "Can use any elf-made (or elven-formula) activated/charged implement, ring, or misc. item without its command word; needs 4+ throw or it backfires."
+  },
+  {
+   "level": 1,
+   "name": "Collegiate Wizardry",
+   "summary": "May start in a museum or arcane order; auto-identifies own tradition's symbols, signatures, and grimoires, others on 11+. Equals 1 rank of the proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Deciphering",
+   "summary": "Deciphers ciphers, treasure maps, and dead languages (not magic writing): 1 turn per page, 4+ on 1d20; a failed page can't be retried until next level."
+  },
+  {
+   "level": 1,
+   "name": "Exegesis",
+   "summary": "Reads treatises in 3 days and references them in 3 turns. An ancillary activity in a library adds its gp value to his XP when figuring level for Loremastery."
+  },
+  {
+   "level": 1,
+   "name": "Lockpicking",
+   "summary": "Picks locks with thieves' tools: hasty (1 round; nat 1-3 jams lock) or methodical (1 turn, +4; nat 1 jams). Throw 18+ at 1st, improving to 3+ at 11th."
+  },
+  {
+   "level": 1,
+   "name": "Loremastery",
+   "summary": "18+ throw (-1 per level) to read occult runes, recall history, identify artifacts or monster parts. IDs magic items as 5th-lvl mage or +2 throw/+10% rate."
+  },
+  {
+   "level": 1,
+   "name": "Polyglottery",
+   "summary": "Gains three bonus languages, chosen now from tongues common in the starting region or later from languages met in play."
+  },
+  {
+   "level": 1,
+   "name": "Searching",
+   "summary": "Finds traps, secret doors, hidden items within 5': hasty (1 round) or methodical (1 turn, +4); can hastily search while exploring. 16+ at 1st, 1+ at 11th."
+  },
+  {
+   "level": 1,
+   "name": "Trapbreaking",
+   "summary": "Disarms traps with thieves' tools: hasty (1 round; nat 1-3 triggers it) or methodical (1 turn, +4; nat 1 triggers). Throw 18+ at 1st, improving to 3+ at 11th."
+  },
+  {
+   "level": 1,
+   "name": "Attunement to Nature",
+   "summary": "Racial: +1 to surprise rolls in wilderness. Adventuring search/listen succeeds on 14+; if proficient, +2 to Searching or +4 to Listening throws instead."
+  },
+  {
+   "level": 1,
+   "name": "Connection to Nature",
+   "summary": "Racial: immune to diseases caused by undead; +1 to Paralysis and Spells saves; +1 to 1st-level HD roll (already included in tables)."
+  },
+  {
+   "level": 1,
+   "name": "Elf Tongues",
+   "summary": "Racial: speaks Common, Elven, Gnoll, Hobgoblin, and Orc."
+  },
+  {
+   "level": 2,
+   "name": "Arcane Magic",
+   "summary": "Casts arcane spells from a repertoire per the Antiquarian Spell Progression (CL 1 at 2nd, up to 5th-level spells at 11th); can cast in medium or lighter armor."
+  },
+  {
+   "level": 5,
+   "name": "Mechanisms of Magic",
+   "summary": "+1 magic research throws and +5% research rate; IDs common magic items/special components in 1 turn on 11+; can harvest components from constructs."
+  },
+  {
+   "level": 7,
+   "name": "Minor Magical Research",
+   "summary": "Can research spells, scribe scrolls, and brew potions as if a 5th level mage."
+  },
+  {
+   "level": 9,
+   "name": "Museum",
+   "summary": "With a 15,000gp+ museum, gains 1d6 1st-3rd level apprentice antiquarians and 2d6 0th-level apprentices as research assistants; a menagerie draws monsters."
+  },
+  {
+   "level": 9,
+   "name": "Cataloguing",
+   "summary": "Base cost of identified magic items kept in his museum is added to its library's gp value for magic research by him, his assistants, and permitted casters."
+  },
+  {
+   "level": 12,
+   "name": "Major Magical Research",
+   "summary": "If he can reach 12th level, can create more powerful magic items such as weapons, rings, and staffs."
+  }
+ ],
+ "bao_duskveil": [
+  {
+   "level": 1,
+   "name": "Deadly Grace",
+   "summary": "+1 AC in medium or lighter armor with 7 st or less encumbrance; stacks with Swashbuckling if in light armor carrying 5 st or less."
+  },
+  {
+   "level": 1,
+   "name": "Performance",
+   "summary": "Trained dancer (could earn 10gp/month); identifies renowned performers, famous works, and unusual songs on 11+. Equals 1 rank of Performance."
+  },
+  {
+   "level": 1,
+   "name": "Provoke the Passions",
+   "summary": "Full round, stationary: a creature within 30' that sees/hears her saves vs Spells or is provoked 1d4 rds +1/level, shifting reaction (hostile to enraged, etc.)."
+  },
+  {
+   "level": 1,
+   "name": "Protective Ward",
+   "summary": "Designates a willing creature in sight as ward: +1 AC and Blast saves (stacks with her Defend). Ends if she ends initiative 5'+ away, falls, or picks another."
+  },
+  {
+   "level": 1,
+   "name": "Whirling Veils",
+   "summary": "In revealing armor: +1 AC or use CHA bonus in place of DEX for AC; both if STR, DEX, CON, CHA all 11+. Stacks with Deadly Grace and Swashbuckling."
+  },
+  {
+   "level": 1,
+   "name": "Attunement to Nature",
+   "summary": "Racial: +1 to surprise rolls in wilderness. Adventuring search/listen succeeds on 14+; if proficient, +2 to Searching or +4 to Listening throws instead."
+  },
+  {
+   "level": 1,
+   "name": "Connection to Nature",
+   "summary": "Racial: immune to diseases caused by undead; +1 to Paralysis and Spells saves; +1 to 1st-level HD roll (already included in tables)."
+  },
+  {
+   "level": 1,
+   "name": "Elf Tongues",
+   "summary": "Racial: speaks Common, Elven, Gnoll, Hobgoblin, and Orc."
+  },
+  {
+   "level": 2,
+   "name": "Arcane Magic",
+   "summary": "Casts arcane spells from a repertoire per the Duskveil Spell Progression (CL 1 at 2nd, up to 5th-level spells at 11th); can cast in medium or lighter armor."
+  },
+  {
+   "level": 2,
+   "name": "Flourish and Flow",
+   "summary": "With a cloak and a bladed weapon, counts as having a shield when Defending herself or ward; magic cloak raises ward's AC bonus vs thrown weapons to +4."
+  },
+  {
+   "level": 3,
+   "name": "Covering Withdrawal",
+   "summary": "A ward who starts initiative adjacent to her may withdraw or retreat from melee without declaring it first, as if he had Skirmishing."
+  },
+  {
+   "level": 4,
+   "name": "Defensive Veil",
+   "summary": "After damage is rolled, may cut damage to her ward by up to half (rounded up) by taking twice the amount deflected herself."
+  },
+  {
+   "level": 5,
+   "name": "Deadly Desire",
+   "summary": "Targets of Provoke the Passions take -2 on the save; on a failure she may shift their reaction one extra step in either direction."
+  },
+  {
+   "level": 6,
+   "name": "Death Healing",
+   "summary": "When she fells a sentient creature in melee, may expend a spell slot to heal 1d6 per slot level (max victim's starting hp); may still cleave afterward."
+  },
+  {
+   "level": 7,
+   "name": "Battle Hardened",
+   "summary": "Rolls twice on the Mortal Wounds table and picks the result; subtracts her class level from days of bed rest needed to recover."
+  },
+  {
+   "level": 7,
+   "name": "Minor Magical Research",
+   "summary": "Can research spells, scribe magical scrolls, and brew potions."
+  },
+  {
+   "level": 8,
+   "name": "Arcane Shielding",
+   "summary": "When she or her ward is hit by B/P/S damage, may expend a spell slot before damage to reduce it 1d6 per slot level; 0 damage means no other hit effects."
+  },
+  {
+   "level": 9,
+   "name": "Vigilant Ward",
+   "summary": "If stationary, she can use her movement action instead of her combat action to Defend her ward."
+  },
+  {
+   "level": 9,
+   "name": "Seraglio",
+   "summary": "With a 15,000gp+ seraglio (former wards may fund half), attracts 1d2x10 1st-level duskveils and 1d6x30 elven women trainees; trainees turn over yearly."
+  },
+  {
+   "level": 12,
+   "name": "Major Magical Research",
+   "summary": "If she can reach 12th level, can create more powerful magic items such as weapons, rings, and staffs."
+  }
+ ],
+ "bao_dweomerbow": [
+  {
+   "level": 1,
+   "name": "Elven Weapon Training",
+   "summary": "+1 to attack throws with weapons of elven make (not included in the attack throw table)."
+  },
+  {
+   "level": 1,
+   "name": "Long-Range Volleying",
+   "summary": "Treats medium range as short and long range as medium for attack penalties; still can't snipe beyond short range without Sniping. Equals the proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Manual of Arms",
+   "summary": "IDs military gear, standards, and ranks of his homeland; 11+ for other realms; fights as a regular in formed/loose units. Equals 1 rank of the proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Mobile Warfare",
+   "summary": "+1 AC when wearing medium or lighter armor and carrying 7 stones or less encumbrance."
+  },
+  {
+   "level": 1,
+   "name": "Precise Shooting",
+   "summary": "Missile attacks on unengaged foes take no penalty past cover or engaged allies; can shoot engaged foes at -4. Equals 1 rank of Precise Shooting."
+  },
+  {
+   "level": 1,
+   "name": "Predictive Positioning",
+   "summary": "+1 AC vs missile attacks and +1 Blast saves; rises to +2 at 7th level and +3 at 13th. (Save bonus already in table.)"
+  },
+  {
+   "level": 1,
+   "name": "Attunement to Nature",
+   "summary": "Racial: +1 to surprise rolls in wilderness. Adventuring search/listen succeeds on 14+; if proficient, +2 to Searching or +4 to Listening throws instead."
+  },
+  {
+   "level": 1,
+   "name": "Connection to Nature",
+   "summary": "Racial: immune to diseases caused by undead; +1 to Paralysis and Spells saves; +1 to 1st-level HD roll (already included in tables)."
+  },
+  {
+   "level": 1,
+   "name": "Elf Tongues",
+   "summary": "Racial: speaks Common, Elven, Gnoll, Hobgoblin, and Orc."
+  },
+  {
+   "level": 2,
+   "name": "Arcane Magic",
+   "summary": "Casts arcane spells from a repertoire per the Dweomerbow Spell Progression (CL 1 at 2nd, up to 5th-level spells at 11th); can cast while armored."
+  },
+  {
+   "level": 2,
+   "name": "Charged Shot",
+   "summary": "Full-round stationary shot: choose arcane, cold, electric, fire, or sonic damage, and may spend a spell slot for +1d6 per slot level. Miss loses ammo and slot."
+  },
+  {
+   "level": 3,
+   "name": "Impact of Impetus",
+   "summary": "On a charged shot, spend a slot for impetus: on a hit, target makes size-adjusted Paralysis save or is forced back damage + 1d6' per slot level."
+  },
+  {
+   "level": 4,
+   "name": "Redirection by Ricochet",
+   "summary": "On a charged shot, spend a slot to ricochet off objects (AC 0) up to slot level times, tracing sight from the projectile to hit flanks or around corners."
+  },
+  {
+   "level": 5,
+   "name": "Rain of Arrows",
+   "summary": "On a charged shot, spend a slot to gain extra attacks equal to slot level, each at a separate target; each extra attack uses up one of his cleaves."
+  },
+  {
+   "level": 7,
+   "name": "Minor Magical Research",
+   "summary": "Can research spells, scribe scrolls, and brew potions as if a 5th level mage."
+  },
+  {
+   "level": 7,
+   "name": "Loosing of Lightning",
+   "summary": "Ignores the cleave limit of composite and long bows, cleaving up to once per level (also raising Rain of Arrows extra attacks)."
+  },
+  {
+   "level": 9,
+   "name": "Fastness",
+   "summary": "With a 15,000gp+ fastness in a natural setting, attracts 3d6x10 1st-level elven mercenaries, who must be paid normal mercenary rates."
+  },
+  {
+   "level": 9,
+   "name": "Projection of Power",
+   "summary": "Charged shots can use no ammunition, gaining +1 initiative; must deal arcane, cold, electric, fire, or sonic damage rather than weapon damage."
+  },
+  {
+   "level": 12,
+   "name": "Major Magical Research",
+   "summary": "If he can reach 12th level, can create more powerful magic items such as weapons, rings, and staffs."
+  }
+ ],
+ "bao_dweomerwright": [
+  {
+   "level": 1,
+   "name": "Artisanship",
+   "summary": "Grandmaster (4 ranks) of one art/craft: IDs masterworks on 2+, builds 80gp/month, supervises up to 14 helpers; +4 breakthrough on related experiments."
+  },
+  {
+   "level": 1,
+   "name": "Dweomercraft",
+   "summary": "Creates magic items (not potions/scrolls) using repertoire spells or formulas; research rate 5gp/day and throw 16+ at 1st, improving by level. Needs a workshop."
+  },
+  {
+   "level": 1,
+   "name": "Repertoire of Effects",
+   "summary": "Keeps an arcane or divine (chosen at 1st) repertoire per the Repertoire Progression table +INT bonus; cannot cast these spells, only enchant them into items."
+  },
+  {
+   "level": 1,
+   "name": "Simple Sorcery",
+   "summary": "Performs minor cantrips (calm animals, clean odors, warm rooms) taking 1 turn each; can imbue them into items as 1/5th-level spells."
+  },
+  {
+   "level": 1,
+   "name": "Spiritual Investment",
+   "summary": "Pays special component costs with own divine power per day (1gp at 1st, 205gp at 13th); +10 per point from a fastness's sacred tree with the arborist's OK."
+  },
+  {
+   "level": 1,
+   "name": "Utilization of Items",
+   "summary": "Can use any magic item usable by casters of his repertoire type (arcane or divine) or matching his weapon/armor proficiencies; command words still needed."
+  },
+  {
+   "level": 1,
+   "name": "Attunement to Nature",
+   "summary": "Racial: +1 to surprise rolls in wilderness. Adventuring search/listen succeeds on 14+; if proficient, +2 to Searching or +4 to Listening throws instead."
+  },
+  {
+   "level": 1,
+   "name": "Connection to Nature",
+   "summary": "Racial: immune to diseases caused by undead; +1 to Paralysis and Spells saves; +1 to 1st-level HD roll (already included in tables)."
+  },
+  {
+   "level": 1,
+   "name": "Elf Tongues",
+   "summary": "Racial: speaks Common, Elven, Gnoll, Hobgoblin, and Orc."
+  },
+  {
+   "level": 1,
+   "name": "Feanor Did Nothing Wrong Rule",
+   "summary": "If his most powerful crafted permanent item is stolen, may become an elven warrior of equal level (Kin-Slaying/Goblin-Slaying/Berserkergang); can't be raised."
+  },
+  {
+   "level": 3,
+   "name": "Advanced Studies",
+   "summary": "Gains one bonus proficiency of his choice: Arcane Dabbling, Expanded Repertoire, Experimentation, Loremastery, Magical Engineering, or Sensing Power."
+  },
+  {
+   "level": 5,
+   "name": "Repertoire Research",
+   "summary": "Can research existing or new spells of levels he can learn and add them to his repertoire with a week of practice; still cannot cast them."
+  },
+  {
+   "level": 9,
+   "name": "Flawless Precision",
+   "summary": "On ordinary (non-experimental) magic research, unmodified rolls of 2-3 are no longer automatic failures; a natural 1 still fails."
+  },
+  {
+   "level": 9,
+   "name": "Atelier",
+   "summary": "With a 15,000gp+ atelier, gains 1d6 1st-3rd level apprentice dweomerwrights and 2d6 0th-level apprentices as crafting assistants; a menagerie draws monsters."
+  },
+  {
+   "level": 11,
+   "name": "Ritual Dweomercraft",
+   "summary": "Learns ritual spells as an 11th-level caster of his type and can imbue them into items (e.g. wand or ring), though he cannot perform rituals directly."
+  }
+ ],
+ "bao_envoy": [
+  {
+   "level": 1,
+   "name": "Ambassador's Insight",
+   "summary": "Knows the true reaction result of sapient creatures even if concealed, unless their CHA >= his INT; immune to their Mystic Aura and Treachery surprise."
+  },
+  {
+   "level": 1,
+   "name": "Deciphering",
+   "summary": "Deciphers contracts, treaties, ciphers, maps, and dead languages (not magic): 1 turn per page, 4+ on 1d20; failed page can't be retried until next level."
+  },
+  {
+   "level": 1,
+   "name": "Diplomacy",
+   "summary": "+1 to reaction rolls when parlaying with intelligent creatures. Equals Diplomacy proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Elven Weapon Training",
+   "summary": "+1 to attack throws with weapons of elven make (not included in the attack throw table)."
+  },
+  {
+   "level": 1,
+   "name": "Judicial Dueling",
+   "summary": "+1 to attack throws and +1 AC when in single combat (one foe, no allies engaging the same target), formal duel or not."
+  },
+  {
+   "level": 1,
+   "name": "Legal Expertise",
+   "summary": "11+ throw to identify laws, customs, and codes, judge legal implications, jurisdiction, and precedent. Equals 1 rank of Profession (lawyer)."
+  },
+  {
+   "level": 1,
+   "name": "Listening",
+   "summary": "Judge secretly rolls Listening (10+ at 1st, improving 1/level to -1+ at 11th) to hear noises in earshot; 1 round, once per turn if party is moving."
+  },
+  {
+   "level": 1,
+   "name": "Attunement to Nature",
+   "summary": "Racial: +1 to surprise rolls in wilderness. Adventuring search/listen succeeds on 14+; if proficient, +2 to Searching or +4 to Listening throws instead."
+  },
+  {
+   "level": 1,
+   "name": "Connection to Nature",
+   "summary": "Racial: immune to diseases caused by undead; +1 to Paralysis and Spells saves; +1 to 1st-level HD roll (already included in tables)."
+  },
+  {
+   "level": 1,
+   "name": "Elf Tongues",
+   "summary": "Racial: speaks Common, Elven, Gnoll, Hobgoblin, and Orc."
+  },
+  {
+   "level": 2,
+   "name": "Arcane Magic",
+   "summary": "Casts arcane spells from a repertoire per the Envoy Spell Progression (CL 1 at 2nd, up to 5th-level spells at 11th); can cast in light or very light armor."
+  },
+  {
+   "level": 3,
+   "name": "Ambassador's Inference",
+   "summary": "After 1 turn of talk, secret Listening throw (+INT, minus target's reaction mods) reveals if a creature is forthright; bad fail misleads. Can spy via Listening."
+  },
+  {
+   "level": 5,
+   "name": "Binding Compact",
+   "summary": "Seals a magical pact between two willing parties (1/month, max half level active); breakers are cursed with -2 to saves and reaction rolls."
+  },
+  {
+   "level": 7,
+   "name": "Minor Magical Research",
+   "summary": "Can research spells, scribe scrolls, and brew potions as if a 5th level mage."
+  },
+  {
+   "level": 9,
+   "name": "Embassy",
+   "summary": "With a 5,000gp+ embassy, attracts 2d6 1st-level envoys (one a spy); runs it as a hideout for carousing, slander, smuggling, soliciting, and spying hijinks."
+  },
+  {
+   "level": 9,
+   "name": "Seal of Accord",
+   "summary": "In 1 turn, makes a small object a token of an active compact; it glows gold or crimson to discern magic, and keeps the compact alive after his death."
+  },
+  {
+   "level": 11,
+   "name": "Ambassador's Intelligence",
+   "summary": "+4 to saves vs enchantments; counts as INT 18 (or 19 with +4 modifier if already 18) for Ambassador's Insight and Inference."
+  },
+  {
+   "level": 12,
+   "name": "Major Magical Research",
+   "summary": "If he can reach 12th level, can create more powerful magic items such as weapons, rings, and staffs."
+  }
+ ],
+ "bao_healer": [
+  {
+   "level": 1,
+   "name": "Divine Magic",
+   "summary": "Casts divine spells from the Elven Healer Repertoire list per the Healer Spell Progression (one 1st-level spell at 1st, up to 6th-level spells at 11th)."
+  },
+  {
+   "level": 1,
+   "name": "Healing",
+   "summary": "Tends 6 patients (+1d3 hp/day rest); diagnoses illness/poison on 3+; on 14+ can nonmagically cure disease, poison, or serious injury. Equals 3 ranks of Healing."
+  },
+  {
+   "level": 1,
+   "name": "Laying on Hands",
+   "summary": "Once per day by touch: heal 2 hp per level, give +half level (round up) to a Mortal Wounds throw, or cure paralysis. Equals 1 rank of the proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Mastery of Salving and Saving",
+   "summary": "Healing spells act as if 2 levels higher; +2 throw and +10% rate researching healing magic; touch healing spells reach 15'. Not for reversed spells."
+  },
+  {
+   "level": 1,
+   "name": "Rebuke Undead",
+   "summary": "Rebukes undead per the Healer Rebuking table (skeletons 10+ at 1st, auto-destroy at 6th); 2d6 HD affected flee for 1 turn. Lawful also rebuke demons."
+  },
+  {
+   "level": 1,
+   "name": "Attunement to Nature",
+   "summary": "Racial: +1 to surprise rolls in wilderness. Adventuring search/listen succeeds on 14+; if proficient, +2 to Searching or +4 to Listening throws instead."
+  },
+  {
+   "level": 1,
+   "name": "Connection to Nature",
+   "summary": "Racial: immune to diseases caused by undead; +1 to Paralysis and Spells saves; +1 to 1st-level HD roll (already included in tables)."
+  },
+  {
+   "level": 1,
+   "name": "Elf Tongues",
+   "summary": "Racial: speaks Common, Elven, Gnoll, Hobgoblin, and Orc."
+  },
+  {
+   "level": 1,
+   "name": "Code of Behavior",
+   "summary": "Demara's strictures: white robes and shawl in public, 1-hr dusk prayers, weekly night flame, hunting weapons only, chaste until 7th, no divine harm to elves."
+  },
+  {
+   "level": 3,
+   "name": "Radiant Garland",
+   "summary": "Hair shines like daylight to 30', torchlight to 60', dim to 90'; +1 to all saves while visible. Can be veiled with headwear at start of initiative."
+  },
+  {
+   "level": 5,
+   "name": "Spiritual Rejuvenation",
+   "summary": "Enervated patients under his Healing care get +1 to Death saves; after three successes in a row, they reroll max hp with full HD, keeping a higher result."
+  },
+  {
+   "level": 5,
+   "name": "Minor Magical Research",
+   "summary": "Can scribe magical scrolls and brew potions."
+  },
+  {
+   "level": 7,
+   "name": "Inspire Hope",
+   "summary": "1 round of oration gives allies within 30' temporary hp by max hp (1d2 to 6d10+) for 1 turn; 1/day, +1 use per level after 7th. +1 temp hp if Garland unveiled."
+  },
+  {
+   "level": 7,
+   "name": "Peaceful Aura",
+   "summary": "With Radiant Garland unveiled, +1 to reaction rolls; a total of 12+ grants sanctuary vs those creatures (Spells save to attack him) until he acts hostile."
+  },
+  {
+   "level": 9,
+   "name": "Fate of the Soul",
+   "summary": "After 1 turn studying a corpse, learns the result restore life and limb would have; prediction holds if acted on before the next sunrise or sunset."
+  },
+  {
+   "level": 9,
+   "name": "Major Magical Research",
+   "summary": "Can create more powerful magic items such as weapons, rings, and staffs."
+  },
+  {
+   "level": 9,
+   "name": "Hospital",
+   "summary": "With a 15,000gp+ hospital (former patients may fund half), attracts 1d2x10 1st-level healers and 1d6x30 aspirants; aspirants turn over yearly."
+  },
+  {
+   "level": 11,
+   "name": "Supreme Magical Research",
+   "summary": "Can learn and cast 7th-9th level ritual divine spells and craft magical constructs; if chaotic, can create necromantic servants and become undead."
+  },
+  {
+   "level": 11,
+   "name": "Amelioration of Suffering",
+   "summary": "1/month, 1 turn of prayer removes one side effect of tampering with mortality or cost of conception; recipient gets a Lawful quest. Once per lifetime each."
+  }
+ ],
+ "bao_lifeshaper": [
+  {
+   "level": 1,
+   "name": "Crossbreeding",
+   "summary": "Blends progenitors (HD up to his level) into crossbreeds at 2,000gp/HD plus ability costs; rate 5gp/day and throw 16+ at 1st, improving by level. Needs a lab."
+  },
+  {
+   "level": 1,
+   "name": "Crossbreed Bonding",
+   "summary": "+1 to reaction rolls with crossbreeds he made and +1 to their loyalty as henchmen; may keep one extra henchman if one is his crossbreed."
+  },
+  {
+   "level": 1,
+   "name": "Measure of the Specimen",
+   "summary": "1 hour ancillary activity and crossbreeding throw reveals a creature's attribute scores, which can be kept in crossbreeds; enables crossgrafting."
+  },
+  {
+   "level": 1,
+   "name": "Healing and Husbandry",
+   "summary": "Gains one rank of his choice of Animal Husbandry or Healing proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Laying on Hands",
+   "summary": "Once per day by touch: heal 2 hp per level, give +half level (round up) to a Mortal Wounds throw, or cure paralysis. Equals 1 rank of the proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Personal Crossbreed",
+   "summary": "Starts with a bonded 1 HD crossbreed follower (loyalty/morale +4); each level can upgrade or remake it with HD up to his level, -7,000gp cost, auto-success."
+  },
+  {
+   "level": 1,
+   "name": "Urgent Care",
+   "summary": "+1 bonus to surprise rolls and initiative rolls."
+  },
+  {
+   "level": 1,
+   "name": "Attunement to Nature",
+   "summary": "Racial: +1 to surprise rolls in wilderness. Adventuring search/listen succeeds on 14+; if proficient, +2 to Searching or +4 to Listening throws instead."
+  },
+  {
+   "level": 1,
+   "name": "Connection to Nature",
+   "summary": "Racial: immune to diseases caused by undead; +1 to Paralysis and Spells saves; +1 to 1st-level HD roll (already included in tables)."
+  },
+  {
+   "level": 1,
+   "name": "Elf Tongues",
+   "summary": "Racial: speaks Common, Elven, Gnoll, Hobgoblin, and Orc."
+  },
+  {
+   "level": 3,
+   "name": "Cure Disease",
+   "summary": "Can cure disease (as the spell) once per 8 hours; each use takes 1 turn."
+  },
+  {
+   "level": 9,
+   "name": "Vivarium",
+   "summary": "With a 15,000gp+ vivarium, gains 1d6 1st-3rd level apprentice lifeshapers and 2d6 0th-level apprentices as crossbreeding assistants; a menagerie draws monsters."
+  },
+  {
+   "level": 11,
+   "name": "Mass Crossbreeding",
+   "summary": "Runs any number of identical crossbreeding projects at once, paying research cost once and material cost per creature; one throw for the batch."
+  }
+ ],
+ "bao_oakheart": [
+  {
+   "level": 1,
+   "name": "Elven Weapon Training",
+   "summary": "+1 to attack throws with weapons of elven make (not included in the attack throw table)."
+  },
+  {
+   "level": 1,
+   "name": "Manual of Arms",
+   "summary": "IDs military gear, standards, and ranks of his homeland; 11+ for other realms; fights as a regular in formed/loose units. Equals 1 rank of the proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Robust Strength",
+   "summary": "1/day, full round: for 1 turn gains +2 melee attacks, +1 damage die (extraordinary), hurls boulders 1200' for 3d6, +8 Dungeonbashing, 2x carry, counts as huge."
+  },
+  {
+   "level": 1,
+   "name": "Unyielding",
+   "summary": "+2 to saves vs being grabbed, knocked down, restrained, wrestled, or forcibly moved; may use CON bonus in place of DEX bonus to AC."
+  },
+  {
+   "level": 1,
+   "name": "Plant-Like",
+   "summary": "Immune to humanoid-only effects, hit by plant-only ones; no food if working in sunlight; can't become undead or use max-level rituals; -1/level on Tampering."
+  },
+  {
+   "level": 1,
+   "name": "Lignification of the Flesh",
+   "summary": "Drawback: suffers a random tree-like affliction (1d10 table) at 1st level and again at 3rd, 5th, 7th, 9th, 11th, and possibly 13th."
+  },
+  {
+   "level": 1,
+   "name": "Attunement to Nature",
+   "summary": "Racial: +1 to surprise rolls in wilderness. Adventuring search/listen succeeds on 14+; if proficient, +2 to Searching or +4 to Listening throws instead."
+  },
+  {
+   "level": 1,
+   "name": "Connection to Nature",
+   "summary": "Racial: immune to diseases caused by undead; +1 to Paralysis and Spells saves; +1 to 1st-level HD roll (already included in tables)."
+  },
+  {
+   "level": 1,
+   "name": "Elf Tongues",
+   "summary": "Racial: speaks Common, Elven, Gnoll, Hobgoblin, and Orc."
+  },
+  {
+   "level": 3,
+   "name": "Bark Skin",
+   "summary": "Permanent +1 bonus to AC that stacks with all other AC bonuses."
+  },
+  {
+   "level": 5,
+   "name": "Buttress of the Elves",
+   "summary": "Elven henchmen and mercenaries he leads get +1 morale while he is present, stacking with CHA and proficiency modifiers."
+  },
+  {
+   "level": 5,
+   "name": "Life-Giving Sap",
+   "summary": "Dripping his sap on his own or an adjacent creature's wounds for 1 turn heals 1d6+1; unlimited uses, but each needs an extra pint of water within 1 hour."
+  },
+  {
+   "level": 7,
+   "name": "Bark Skin II",
+   "summary": "Another permanent +1 AC (total +2), but base speed drops to 90'."
+  },
+  {
+   "level": 9,
+   "name": "Tannic Tissue",
+   "summary": "Resists mundane poison and necrotic damage; immune to natural disease and swarm damage; biters save vs Poison or are queasy 1d4 rounds."
+  },
+  {
+   "level": 9,
+   "name": "Fastness",
+   "summary": "With a 15,000gp+ fastness in a natural setting, attracts 3d6x10 1st-level elven mercenaries, who must be paid normal mercenary rates."
+  },
+  {
+   "level": 11,
+   "name": "Bark Skin III",
+   "summary": "Another permanent +1 AC (total +3), but base speed drops to 60'."
+  },
+  {
+   "level": 13,
+   "name": "Call of the Forest",
+   "summary": "Choose: stop gaining XP, or take a final lignification and advance to 14th (1M more XP) to become a treeherder (HD 14, AC 10, 2 smashes 4d6)."
+  }
+ ],
+ "bao_skyknight": [
+  {
+   "level": 1,
+   "name": "Champion of the Banner",
+   "summary": "+1 to attack throws vs leaders, standard bearers, or solitary monsters with HD/level above his own; rises to +2 at 7th and +3 at 13th."
+  },
+  {
+   "level": 1,
+   "name": "Manual of Arms",
+   "summary": "IDs military gear, standards, and ranks of his homeland; 11+ for other realms; fights as a regular in formed/loose units. Equals 1 rank of the proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Right Stuff",
+   "summary": "When reduced to half max hp or less in an encounter, gains +1 to AC, attacks, proficiency throws, saves, and initiative for 1 turn or until healed."
+  },
+  {
+   "level": 1,
+   "name": "Saddleborn",
+   "summary": "Rides a saddled mount in combat without penalty and gets +1 to attacks while mounted; with Riding, needs no saddle or bridle. Equals Mounted Combat."
+  },
+  {
+   "level": 1,
+   "name": "Tight Grip",
+   "summary": "When knocked off his mount, makes a Paralysis save at +2; success means he catches hold instead of falling (still needs a move action to remount)."
+  },
+  {
+   "level": 1,
+   "name": "Attunement to Nature",
+   "summary": "Racial: +1 to surprise rolls in wilderness. Adventuring search/listen succeeds on 14+; if proficient, +2 to Searching or +4 to Listening throws instead."
+  },
+  {
+   "level": 1,
+   "name": "Connection to Nature",
+   "summary": "Racial: immune to diseases caused by undead; +1 to Paralysis and Spells saves; +1 to 1st-level HD roll (already included in tables)."
+  },
+  {
+   "level": 1,
+   "name": "Elf Tongues",
+   "summary": "Racial: speaks Common, Elven, Gnoll, Hobgoblin, and Orc."
+  },
+  {
+   "level": 2,
+   "name": "Arcane Magic",
+   "summary": "Casts arcane spells from a repertoire per the Skyknight Spell Progression (CL 1 at 2nd, up to 4th-level spells at 11th); can cast while armored."
+  },
+  {
+   "level": 2,
+   "name": "Strength of Spirit",
+   "summary": "Immune to all natural and magical fear effects."
+  },
+  {
+   "level": 4,
+   "name": "Binding of the Winged Steed",
+   "summary": "After 1 turn of prayer at an aerie, a pegasus arrives in ~1d10 hours as a follower (loyalty/morale +4). Hippogriff at 6th+, griffon at 9th+ for replacements."
+  },
+  {
+   "level": 6,
+   "name": "Battlespace Awareness",
+   "summary": "Never counts as flanked, subjacent, or vulnerable to rear attacks (still vulnerable when prone, helpless, surprised, grabbed, etc.)."
+  },
+  {
+   "level": 8,
+   "name": "Minor Magical Research",
+   "summary": "Can research spells, scribe magical scrolls, and brew potions."
+  },
+  {
+   "level": 8,
+   "name": "Spell Strafing",
+   "summary": "When charging on his winged steed's flight, can hastily cast a spell instead of attacking; needs an attack throw vs AC 1 per 60' moved or the spell is lost."
+  },
+  {
+   "level": 9,
+   "name": "Fastness",
+   "summary": "With a 15,000gp+ fastness in a natural setting, attracts 3d6x10 1st-level elven mercenaries, who must be paid normal mercenary rates."
+  },
+  {
+   "level": 10,
+   "name": "Winnowing of the Weak",
+   "summary": "While on his winged steed, cleaves as if twice his class level and deals an extra damage die on an unmodified 20."
+  },
+  {
+   "level": 12,
+   "name": "Sky-Streaming Banner",
+   "summary": "Flying on his pegasus over an army with its banner, the army auto-stands firm on its first morale roll (or rallies). Lost if he routs or loses the banner."
+  },
+  {
+   "level": 14,
+   "name": "Major Magical Research",
+   "summary": "If he can reach 14th level, can create more powerful magic items such as weapons, rings, and staffs."
+  }
+ ],
+ "bao_spelljack": [
+  {
+   "level": 1,
+   "name": "Arcane Magic",
+   "summary": "Casts arcane spells from a repertoire per the Spelljack Spell Progression (one 1st-level spell at 1st, up to 5th-level spells at 9th) plus INT bonus."
+  },
+  {
+   "level": 1,
+   "name": "Climbing",
+   "summary": "Climbs sheer surfaces with a throw per 100' (6+ at 1st, improving 1/level to -3+ at 10th); failure means a fall. -5/-10 for faster movement."
+  },
+  {
+   "level": 1,
+   "name": "Collegiate Wizardry",
+   "summary": "May start in a wizard's guild; auto-identifies own tradition's symbols, signatures, and grimoires, others on 11+. Equals 1 rank of the proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Hiding",
+   "summary": "Hides as a combat action in cover or dim light (19+ at 1st, 6+ at 10th); hidden means no line of sight on him. Foes get -2 surprise while he's stationary."
+  },
+  {
+   "level": 1,
+   "name": "Listening",
+   "summary": "Judge secretly rolls Listening (10+ at 1st, improving 1/level to 1+ at 10th) to hear noises in earshot; 1 round, once per turn if party is moving."
+  },
+  {
+   "level": 1,
+   "name": "Lockpicking",
+   "summary": "Picks locks with thieves' tools: hasty (1 round; nat 1-3 jams lock) or methodical (1 turn, +4; nat 1 jams). Throw 18+ at 1st, improving to 5+ at 10th."
+  },
+  {
+   "level": 1,
+   "name": "Magical Tradition",
+   "summary": "Starts with one of Black Lore of Zahar, Elementalism, Magical Engineering, Mastery of Enchantments & Illusions, or Transmogrification, to pass as a wizard."
+  },
+  {
+   "level": 1,
+   "name": "Quiet Magic",
+   "summary": "Casts with minimal words and gestures; hearing him cast needs a successful hear-noise throw, and only full binding and gagging stops his magic."
+  },
+  {
+   "level": 1,
+   "name": "Pickpocketing",
+   "summary": "Within 5', steals one pocket's contents or unheld item (17+ at 1st, 4+ at 10th; +4 if target unaware). Nat 1 or under half target: noticed."
+  },
+  {
+   "level": 1,
+   "name": "Searching",
+   "summary": "Finds traps, secret doors, hidden items within 5': hasty (1 round) or methodical (1 turn, +4); can hastily search while exploring. 16+ at 1st, 3+ at 10th."
+  },
+  {
+   "level": 1,
+   "name": "Shadowy Senses",
+   "summary": "At combat or exploration speed, perceives as if with a dim 30' light; can fight and find traps but not read or see colors. Fails in bright light or silence."
+  },
+  {
+   "level": 1,
+   "name": "Sneaking",
+   "summary": "Sneaks silently as a movement action (17+ at 1st, 4+ at 10th; -5/-10 if faster); foes outside his sight get -2 to surprise rolls."
+  },
+  {
+   "level": 1,
+   "name": "Streetwise",
+   "summary": "May join a thieves' guild and perform hijinks; IDs criminal signs and slang at home, 11+ in other cities. Equals 1 rank of Streetwise."
+  },
+  {
+   "level": 1,
+   "name": "Trapbreaking",
+   "summary": "Disarms traps with thieves' tools: hasty (1 round; nat 1-3 triggers it) or methodical (1 turn, +4; nat 1 triggers). Throw 18+ at 1st, improving to 5+ at 10th."
+  },
+  {
+   "level": 1,
+   "name": "Attunement to Nature",
+   "summary": "Racial: +1 to surprise rolls in wilderness. Adventuring search/listen succeeds on 14+; if proficient, +2 to Searching or +4 to Listening throws instead."
+  },
+  {
+   "level": 1,
+   "name": "Connection to Nature",
+   "summary": "Racial: immune to diseases caused by undead; +1 to Paralysis and Spells saves; +1 to 1st-level HD roll (already included in tables)."
+  },
+  {
+   "level": 1,
+   "name": "Elf Tongues",
+   "summary": "Racial: speaks Common, Elven, Gnoll, Hobgoblin, and Orc."
+  },
+  {
+   "level": 4,
+   "name": "Deciphering",
+   "summary": "Deciphers ciphers, treasure maps, and dead languages (not magic writing): 1 turn per page, 4+ on 1d20; a failed page can't be retried until next level."
+  },
+  {
+   "level": 5,
+   "name": "Minor Magical Research",
+   "summary": "Can research spells, scribe magical scrolls, and brew potions."
+  },
+  {
+   "level": 9,
+   "name": "Major Magical Research",
+   "summary": "Can create more powerful magic items such as weapons, rings, and staffs."
+  },
+  {
+   "level": 9,
+   "name": "Sanctum",
+   "summary": "With a 15,000gp+ sanctum, attracts 1d6 1st-3rd and 2d6 0th-level apprentices (each a spelljack if 1d20+8 <= DEX, else a wizard); a dungeon draws monsters."
+  },
+  {
+   "level": 10,
+   "name": "Spelljacking",
+   "summary": "Combat action: Pickpocketing throw at -2 per spell level steals a casting from a caster within 5'; he can use it for his own spells until he rests."
+  },
+  {
+   "level": 11,
+   "name": "Supreme Magical Research",
+   "summary": "If he can reach 11th level, can learn and cast 7th-9th level ritual arcane spells and craft constructs, crossbreeds, and necromantic servants."
+  }
+ ],
+ "bao_swordseer": [
+  {
+   "level": 1,
+   "name": "Ancient Memories",
+   "summary": "1 turn of focus grants +1 rank in any general proficiency for 6 turns (1 hour of focus: 8 hours); one memory at a time. Blocks Battle Foresight while active."
+  },
+  {
+   "level": 1,
+   "name": "Battle Foresight",
+   "summary": "Each round before initiative, choose +1 initiative, +1 attack, +1 AC, or +2 saves until next round (defaults to +1 AC). Not usable with Ancient Memories."
+  },
+  {
+   "level": 1,
+   "name": "Elven Weapon Training",
+   "summary": "+1 to attack throws with weapons of elven make (not included in the attack throw table)."
+  },
+  {
+   "level": 1,
+   "name": "Loremastery",
+   "summary": "18+ throw (-1 per level) to read occult runes, recall history, identify artifacts or monster parts. IDs magic items as 5th-lvl mage or +2 throw/+10% rate."
+  },
+  {
+   "level": 1,
+   "name": "Manual of Arms",
+   "summary": "IDs military gear, standards, and ranks of his homeland; 11+ for other realms; fights as a regular in formed/loose units. Equals 1 rank of the proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Attunement to Nature",
+   "summary": "Racial: +1 to surprise rolls in wilderness. Adventuring search/listen succeeds on 14+; if proficient, +2 to Searching or +4 to Listening throws instead."
+  },
+  {
+   "level": 1,
+   "name": "Connection to Nature",
+   "summary": "Racial: immune to diseases caused by undead; +1 to Paralysis and Spells saves; +1 to 1st-level HD roll (already included in tables)."
+  },
+  {
+   "level": 1,
+   "name": "Elf Tongues",
+   "summary": "Racial: speaks Common, Elven, Gnoll, Hobgoblin, and Orc."
+  },
+  {
+   "level": 2,
+   "name": "Arcane Magic",
+   "summary": "Casts arcane spells from a repertoire per the Swordseer Spell Progression (CL 1 at 2nd, up to 5th-level spells at 11th); can cast in medium or lighter armor."
+  },
+  {
+   "level": 3,
+   "name": "Moment of Reckoning",
+   "summary": "On an unmodified 6 for initiative, acting at once makes him momentous: +1 attack/round and +1d6 arcane damage per hit; heroic success extends it (max 10 rds)."
+  },
+  {
+   "level": 4,
+   "name": "Noetic Senses",
+   "summary": "Automatically tries to disbelieve any illusion met; +4 when deliberately disbelieving. With Illusion Resistance, rerolls first failed disbelief save each day."
+  },
+  {
+   "level": 6,
+   "name": "Prophetic Dreaming",
+   "summary": "Receives one prophetic dream per month from the Judge (two if he also has Prophecy). Equals Prophecy proficiency."
+  },
+  {
+   "level": 7,
+   "name": "Minor Magical Research",
+   "summary": "Can research spells, scribe scrolls, and brew potions as if a 5th level mage."
+  },
+  {
+   "level": 8,
+   "name": "Battlefield Awareness",
+   "summary": "Never counts as flanked, subjacent, or vulnerable to rear attacks (still vulnerable when prone, helpless, surprised, grabbed, etc.)."
+  },
+  {
+   "level": 9,
+   "name": "Fastness",
+   "summary": "With a 15,000gp+ fastness in a natural setting, attracts 3d6x10 1st-level elven mercenaries, who must be paid normal mercenary rates."
+  },
+  {
+   "level": 10,
+   "name": "Choice of Destiny",
+   "summary": "Once per day, rerolls or forces a reroll of an attack, save, or any random roll within 60', automatically taking the better result for him."
+  },
+  {
+   "level": 11,
+   "name": "Portents of War",
+   "summary": "Spending an ancillary activity on omens at the start of the day grants +1 to strategic initiative and reconnaissance rolls that day."
+  },
+  {
+   "level": 12,
+   "name": "Major Magical Research",
+   "summary": "If he can reach 12th level, can create more powerful magic items such as weapons, rings, and staffs."
+  }
+ ],
+ "bao_mountebank": [
+  {
+   "level": 1,
+   "name": "Alchemical Interest",
+   "summary": "IDs alchemicals on 1+, special components on 5+; extracts toxins on 6+ fresh/10+ dried; brews potions as a 5th-lvl mage at 50gp/day. Equals 3 ranks Alchemy."
+  },
+  {
+   "level": 1,
+   "name": "Arcane Dabbling",
+   "summary": "Can try to use wands, staffs, and other arcane-only magic items without knowing command words; needs 4+ on 1d20 or it backfires."
+  },
+  {
+   "level": 1,
+   "name": "Brewing Quacksalves",
+   "summary": "Brews cheap fake potions (50gp/spell level) from a real formula/sample; secret throw 10+ (+2/level) or it fails, deludes, or reverses. Max level: half his."
+  },
+  {
+   "level": 1,
+   "name": "Disguising Elixir",
+   "summary": "Brews in 1 turn (needs 800gp+ equipment) a self-only elixir to take any humanoid shape for 6 turns +1 turn per level; with Disguise can mimic a person."
+  },
+  {
+   "level": 1,
+   "name": "Deceptive Cantrip",
+   "summary": "1/day by touch, for 24 hours: mask a carried magic item from detection, or make a mundane item seem magical with a harmless trait."
+  },
+  {
+   "level": 1,
+   "name": "Listening",
+   "summary": "Judge secretly rolls Listening to hear noises in earshot; must be quiet and closest to the sound; 1 round, once per turn if the party is moving."
+  },
+  {
+   "level": 1,
+   "name": "Lying",
+   "summary": "+1 to all reaction rolls when parlaying with intelligent creatures. Equals Diplomacy proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Poisoning",
+   "summary": "Identifies poisons and venomous creatures, extracts venoms and plant toxins, and never botches extracting or using poison. Equals Poisoning proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Streetwise",
+   "summary": "May join a thieves' guild and perform hijinks; IDs criminal signs and slang at home, 11+ in other cities. Equals 1 rank of Streetwise."
+  },
+  {
+   "level": 1,
+   "name": "Swindling",
+   "summary": "Buys at 10% less and sells at 10% more than list price; vs another bargainer, higher reaction roll wins. Equals 1 rank of Bargaining."
+  },
+  {
+   "level": 1,
+   "name": "Treachery",
+   "summary": "After Lying (or Bribery) earns a Friendly reaction, a treacherous attack forces all within 30' to roll surprise at -3; his party is exempt if signaled."
+  },
+  {
+   "level": 1,
+   "name": "Gnome Tongues",
+   "summary": "Racial: speaks Common, Dwarven, Elven, Goblin, and Gnomish."
+  },
+  {
+   "level": 1,
+   "name": "Heartier Constitution",
+   "summary": "Racial: +3 bonus on all saving throws (already included in the saving throw table)."
+  },
+  {
+   "level": 1,
+   "name": "Nose for Potions",
+   "summary": "Racial: 11+ throw to identify a potion or oil's properties by taste. From 5th level, brews potions as a mage of his class level."
+  },
+  {
+   "level": 1,
+   "name": "Obsessive Interest",
+   "summary": "Racial: one bonus proficiency and +2 to throws for an obsession; for mountebanks this is Alchemical Interest (bonus already in target values)."
+  },
+  {
+   "level": 1,
+   "name": "Resistance to Illusions",
+   "summary": "Racial: automatically attempts to disbelieve any illusion encountered; +4 to the throw when deliberately disbelieving."
+  },
+  {
+   "level": 1,
+   "name": "Short-Statured",
+   "summary": "Racial: speed 90' unencumbered; cannot wield large melee weapons or long bows; must use two hands for medium weapons. Can use arbalests."
+  },
+  {
+   "level": 4,
+   "name": "Deciphering",
+   "summary": "Deciphers ciphers, treasure maps, and dead languages (not magic writing): 1 turn per page, 4+ on 1d20; a failed page can't be retried until next level."
+  },
+  {
+   "level": 5,
+   "name": "Alchemical Mastery",
+   "summary": "Brews potions as a mage of his class level; Alchemical Interest now gives +3 to alchemy research throws and +15% alchemy research rate."
+  },
+  {
+   "level": 9,
+   "name": "Dispensary",
+   "summary": "With a 5,000gp+ dispensary, attracts 2d6 1st-level mountebanks (one a spy); can run it as a hideout at half value and make extra alchemy-related investments."
+  },
+  {
+   "level": 10,
+   "name": "Scrollreading",
+   "summary": "Can cast from arcane and divine scrolls in 1 round with a 4+ throw on 1d20; failure may cause a horrible effect."
+  }
+ ],
+ "bta_delver": [
+  {
+   "level": 1,
+   "name": "Attention to Detail",
+   "summary": "+2 bonus on proficiency throws for every proficiency learned (already included in class abilities)."
+  },
+  {
+   "level": 1,
+   "name": "Backstabbing",
+   "summary": "+4 to hit an unaware foe in melee or at short range; on a hit, damage is multiplied x2 at 1st, x3 at 5th, and x4 at 9th level."
+  },
+  {
+   "level": 1,
+   "name": "Endurance",
+   "summary": "Needs no rest every 6 turns while exploring; can force march 1 day plus 1 day per point of CON bonus without penalty (as Endurance proficiency)."
+  },
+  {
+   "level": 1,
+   "name": "Expert Caving",
+   "summary": "Gauges length, width, and depth traveled almost without error; 9+ throw to recall the route taken if he was conscious (as Caving proficiency)."
+  },
+  {
+   "level": 1,
+   "name": "Shadowy Senses",
+   "summary": "At combat/exploration speed, senses as if by a 30' dim candle; no colors, faces, or reading. Not when running, deaf, in bright light, or magic dark/silence."
+  },
+  {
+   "level": 1,
+   "name": "Thief Skills",
+   "summary": "Hide in shadows 17+, move silently 15+, climb walls 4+, find traps 14+, hear noises 12+ at 1st level, improving with level; cannot disarm traps."
+  },
+  {
+   "level": 1,
+   "name": "Underdark Lore",
+   "summary": "9+ throw to identify edible or poisonous foods, healing herbs, and signs of unnatural danger underground (as Naturalism proficiency)."
+  },
+  {
+   "level": 1,
+   "name": "Dwarf Tongues",
+   "summary": "Speaks Common and Dwarvish, plus Goblin, Gnome, and Kobold."
+  },
+  {
+   "level": 1,
+   "name": "Hardy",
+   "summary": "Save targets are 3 lower vs Blast/Breath and 4 lower vs all other saves (already included in the saving throw table)."
+  },
+  {
+   "level": 1,
+   "name": "Sensitivity to Rock and Stone",
+   "summary": "+1 to surprise rolls underground; 14+ to find traps, false walls, hidden construction, and sloping passages when searching; hears noises on 14+."
+  },
+  {
+   "level": 9,
+   "name": "Renown",
+   "summary": "With a vault domain, attracts (1d4+1)x10 dwarven mercenaries and 1d6 delvers of 1st-3rd level within 1d3 months; they are paid normal rates."
+  }
+ ],
+ "bta_earthforger": [
+  {
+   "level": 1,
+   "name": "Attention to Detail",
+   "summary": "+3 bonus on proficiency throws for every proficiency learned (already included in class abilities)."
+  },
+  {
+   "level": 1,
+   "name": "Deep Knowledge",
+   "summary": "Expert in an earth or stone field (e.g. geology, architecture); earns up to 100gp/month; 2+ throw to recall expert lore (as 3 ranks of Knowledge)."
+  },
+  {
+   "level": 1,
+   "name": "Dwarven Throat-Singing",
+   "summary": "+1 to perform invocations; earns 10gp/month singing; 11+ throw to identify famous singers and songs (as 1 rank of Performance)."
+  },
+  {
+   "level": 1,
+   "name": "Gnostic Magic",
+   "summary": "Unlimited invocations, 1 turn each; throw 6+ at 1st (-1/level, +2 per invocation level over 1st); failure = stigma. Max level 1st, 2nd at 3rd ... 5th at 9th."
+  },
+  {
+   "level": 1,
+   "name": "Extemporaneous Invocations",
+   "summary": "Can improvise new invocations tailored to immediate needs by singing to earth and stone; harder to perform than known invocations."
+  },
+  {
+   "level": 1,
+   "name": "Sigil of Creation",
+   "summary": "Choose a sigil (Mountain's Bones, Eternal Forge, Iron Crucible, or Open Gate); it grants an invocation plus sigil features at 1st, 3rd, and 7th level."
+  },
+  {
+   "level": 1,
+   "name": "Trinkets of Power",
+   "summary": "Can create trinkets that store invocations for later use."
+  },
+  {
+   "level": 1,
+   "name": "Dwarf Tongues",
+   "summary": "Speaks Common and Dwarvish, plus Goblin, Gnome, and Kobold."
+  },
+  {
+   "level": 1,
+   "name": "Hardy",
+   "summary": "Save targets are 3 lower vs Blast/Breath and 4 lower vs all other saves (already included in the saving throw table)."
+  },
+  {
+   "level": 1,
+   "name": "Sensitivity to Rock and Stone",
+   "summary": "+1 to surprise rolls underground; 14+ to find traps, false walls, hidden construction, and sloping passages when searching; hears noises on 14+."
+  },
+  {
+   "level": 1,
+   "name": "Sigil of the Mountain's Bones: Sigil Invocation",
+   "summary": "Knows the Invocation of the Mountain's Bones (manipulating earth and stone, raising stone walls)."
+  },
+  {
+   "level": 1,
+   "name": "Sigil of the Mountain's Bones: Lesser Sigil Feature",
+   "summary": "Climbs walls as a thief of his level (as Climbing proficiency)."
+  },
+  {
+   "level": 1,
+   "name": "Sigil of the Eternal Forge: Sigil Invocation",
+   "summary": "Knows the Invocation of the Eternal Forge (creating weapons, armor, and equipment fitted to himself)."
+  },
+  {
+   "level": 1,
+   "name": "Sigil of the Eternal Forge: Lesser Sigil Feature",
+   "summary": "Counts as proficient with any axes or hammers he personally creates with the Invocation of the Eternal Forge."
+  },
+  {
+   "level": 1,
+   "name": "Sigil of the Iron Crucible: Sigil Invocation",
+   "summary": "Knows the Invocation of the Iron Crucible (conjuring constructs from earth and stone)."
+  },
+  {
+   "level": 1,
+   "name": "Sigil of the Iron Crucible: Lesser Sigil Feature",
+   "summary": "Can wear chain mail or lighter armor."
+  },
+  {
+   "level": 1,
+   "name": "Sigil of the Open Gate: Sigil Invocation",
+   "summary": "Knows the Invocation of the Open Gate (animating and manipulating bone, flesh, and soul); a forbidden sigil."
+  },
+  {
+   "level": 1,
+   "name": "Sigil of the Open Gate: Lesser Sigil Feature",
+   "summary": "Controls undead as a Chaotic cleric of half his level; foes take -2 on Death saves vs his invocations; +2 effective levels for death/necromantic effects."
+  },
+  {
+   "level": 1,
+   "name": "Code of Behavior",
+   "summary": "Must prefer to protect any work of art (2x normal value) and, whenever possible, any great art (100x); violation risks Corruption or loss of gnostic magic."
+  },
+  {
+   "level": 3,
+   "name": "Greater Sigil Feature",
+   "summary": "Gains the second ability granted by his sigil."
+  },
+  {
+   "level": 3,
+   "name": "Sigil of the Mountain's Bones: Greater Sigil Feature",
+   "summary": "+4 on throws to bash doors and perform other feats of strength (as Dungeon Bashing proficiency)."
+  },
+  {
+   "level": 3,
+   "name": "Sigil of the Eternal Forge: Greater Sigil Feature",
+   "summary": "Counts as proficient with any shields he personally creates with the Invocation of the Eternal Forge."
+  },
+  {
+   "level": 3,
+   "name": "Sigil of the Iron Crucible: Greater Sigil Feature",
+   "summary": "Can wear any armor."
+  },
+  {
+   "level": 3,
+   "name": "Sigil of the Open Gate: Greater Sigil Feature",
+   "summary": "Undead he controls stay controlled 1 day per level instead of 1 turn per level; a 'D' result makes control indefinite."
+  },
+  {
+   "level": 5,
+   "name": "Greater Gnosis",
+   "summary": "Learn one new invocation, or four spell effects of the Blast/Death/Healing/Protection/Summoning/Transmogrification/Wall types (-2 on research for items)."
+  },
+  {
+   "level": 5,
+   "name": "Minor Magical Research",
+   "summary": "Can create talismans, scribe scrolls, and brew potions."
+  },
+  {
+   "level": 7,
+   "name": "Master Sigil Feature",
+   "summary": "Gains the third ability granted by his sigil."
+  },
+  {
+   "level": 7,
+   "name": "Sigil of the Mountain's Bones: Master Sigil Feature",
+   "summary": "Gains infravision to 30'."
+  },
+  {
+   "level": 7,
+   "name": "Sigil of the Eternal Forge: Master Sigil Feature",
+   "summary": "+1 initiative when wielding a self-made weapon and shield or wearing self-made armor from the Invocation of the Eternal Forge."
+  },
+  {
+   "level": 7,
+   "name": "Sigil of the Iron Crucible: Master Sigil Feature",
+   "summary": "1 round: his constructs within 30' gain temp hp equal to the lower of 1/4 his or their hp, for 1 turn; usable once per day per level."
+  },
+  {
+   "level": 7,
+   "name": "Sigil of the Open Gate: Master Sigil Feature",
+   "summary": "1 round: undead he made or controls within 30' gain temp hp equal to the lower of 1/4 his or their hp, for 1 turn; once per day per level."
+  },
+  {
+   "level": 9,
+   "name": "Master Gnosis",
+   "summary": "Learn another invocation, or four more spell effects of the Blast/Death/Healing/Protection/Summoning/Transmogrification/Wall types, as Greater Gnosis."
+  },
+  {
+   "level": 9,
+   "name": "Major Magical Research",
+   "summary": "Can craft magical constructs such as golems; Sigil of the Open Gate earthforgers can also create undead."
+  },
+  {
+   "level": 9,
+   "name": "Renown",
+   "summary": "With a vault domain, attracts (1d4+1)x10 dwarven mercenaries and 1d6 earthforgers of 1st-3rd level within 1d3 months; they are paid normal rates."
+  }
+ ],
+ "bta_excavator": [
+  {
+   "level": 1,
+   "name": "Attention to Detail",
+   "summary": "+2 bonus on proficiency throws for every proficiency learned (already included in class abilities)."
+  },
+  {
+   "level": 1,
+   "name": "Expert Caving",
+   "summary": "Gauges length, width, and depth traveled almost without error; 9+ throw to recall the route taken if he was conscious (as Caving proficiency)."
+  },
+  {
+   "level": 1,
+   "name": "Loadbearing",
+   "summary": "Reduces his effective encumbrance by 2 stone when determining movement rate."
+  },
+  {
+   "level": 1,
+   "name": "Mine Working",
+   "summary": "Counts as a skilled mining laborer (2sp/day construction rate); force marches 1 day plus 1 per CON bonus point (as Labor proficiency)."
+  },
+  {
+   "level": 1,
+   "name": "Prospecting",
+   "summary": "1 day and a 15+ throw to learn if a 6-mile hex holds minable ore; +4 if he has Land Surveying (as Prospecting proficiency)."
+  },
+  {
+   "level": 1,
+   "name": "Pyroclastics",
+   "summary": "Attacks as a vaultguard with burning oil and petards; save vs Paralysis to avoid fumble mishaps; +1 damage, +1 more at 3rd, 6th, 9th; can cleave with oil."
+  },
+  {
+   "level": 1,
+   "name": "Dwarf Tongues",
+   "summary": "Speaks Common and Dwarvish, plus Goblin, Gnome, and Kobold."
+  },
+  {
+   "level": 1,
+   "name": "Hardy",
+   "summary": "Save targets are 3 lower vs Blast/Breath and 4 lower vs all other saves (already included in the saving throw table)."
+  },
+  {
+   "level": 1,
+   "name": "Sensitivity to Rock and Stone",
+   "summary": "+1 to surprise rolls underground; 14+ to find traps, false walls, hidden construction, and sloping passages when searching; hears noises on 14+."
+  },
+  {
+   "level": 3,
+   "name": "Dowsing",
+   "summary": "With a rod, concentrate 1 round and throw 6+ (2+ by 7th) plus INT to point to nearest precious metal within 240'; 1 turn gives +4; +4 to prospecting."
+  },
+  {
+   "level": 5,
+   "name": "Mine Management",
+   "summary": "Personally managing a mine (20 days/month) adds 1gp labor revenue per mining family; he must rule the domain or have the ruler's permission."
+  },
+  {
+   "level": 7,
+   "name": "Engineering",
+   "summary": "9+ throw to evaluate constructions; can plan and supervise construction projects of up to 100,000gp (as 4 ranks of Engineering)."
+  },
+  {
+   "level": 9,
+   "name": "Industrialism",
+   "summary": "Makes Industrial improvements to mines at half the normal cost and time, up to +6gp labor value per family."
+  },
+  {
+   "level": 9,
+   "name": "Renown",
+   "summary": "With a vault domain, attracts (1d4+1)x10 dwarven mercenaries and 1d6 excavators of 1st-3rd level within 1d3 months; they are paid normal rates."
+  },
+  {
+   "level": 11,
+   "name": "Deep Delving",
+   "summary": "When personally managing a mine that is delving deep, the Judge rolls twice on the Vagaries of the Deep table and uses the better result."
+  }
+ ],
+ "bta_furnacewife": [
+  {
+   "level": 1,
+   "name": "Attention to Detail",
+   "summary": "+3 bonus on proficiency throws for every proficiency learned (already included in class abilities)."
+  },
+  {
+   "level": 1,
+   "name": "Crafting",
+   "summary": "Master of a fire craft (e.g. smithing, smelting): 40gp/month, supervises 2 journeymen and 4 apprentices; 8+ to identify works (as 3 ranks of Craft)."
+  },
+  {
+   "level": 1,
+   "name": "Dwarven Throat-Singing",
+   "summary": "+1 to perform invocations; earns 10gp/month singing; 8+ throw to identify famous singers and songs (as 1 rank of Performance)."
+  },
+  {
+   "level": 1,
+   "name": "Fiery Cauterization",
+   "summary": "Heals herself or a touched creature for 2 hp per level (as a rank of Laying on Hands)."
+  },
+  {
+   "level": 1,
+   "name": "Fiery Resistance",
+   "summary": "Immune to minor heat and fire; +2 saves vs major fire, and -1 damage per die from it (minimum 1 per die)."
+  },
+  {
+   "level": 1,
+   "name": "Fiery Torch",
+   "summary": "Torch-shaped talisman she lights or douses in lieu of moving; lit, it acts as a +1 elemental fire talisman; bonus can grow via Personal Talisman."
+  },
+  {
+   "level": 1,
+   "name": "Gnostic Magic",
+   "summary": "Unlimited Invocation of the Maker's Fire, 1 turn each; throw 6+ at 1st (-1/level, +2 per inv. level over 1st). Max level 1st, 2nd at 3rd ... 5th at 9th."
+  },
+  {
+   "level": 1,
+   "name": "Trinkets of Power",
+   "summary": "Can create trinkets that store invocations for later use."
+  },
+  {
+   "level": 1,
+   "name": "Dwarf Tongues",
+   "summary": "Speaks Common and Dwarvish, plus Goblin, Gnome, and Kobold."
+  },
+  {
+   "level": 1,
+   "name": "Hardy",
+   "summary": "Save targets are 3 lower vs Blast/Breath and 4 lower vs all other saves (already included in the saving throw table)."
+  },
+  {
+   "level": 1,
+   "name": "Sensitivity to Rock and Stone",
+   "summary": "+1 to surprise rolls underground; 14+ to find traps, false walls, hidden construction, and sloping passages when searching; hears noises on 14+."
+  },
+  {
+   "level": 1,
+   "name": "Code of Behavior",
+   "summary": "Never uses magic to harm a Lawful sapient except in self-defense or defense of dwarves; must defend dwarven women and children at all costs, even her life."
+  },
+  {
+   "level": 3,
+   "name": "Fiery Speed",
+   "summary": "+1 initiative when using gnostic magic; counts as 2 levels higher to dispel magic or penetrate magic resistance (as Battle Magic)."
+  },
+  {
+   "level": 5,
+   "name": "Fiery Aura",
+   "summary": "+2 on reaction rolls to impress or intimidate; a total of 12+ makes subjects act as if charmed in her presence (as Mystic Aura)."
+  },
+  {
+   "level": 5,
+   "name": "Minor Magical Research",
+   "summary": "Can create talismans, scribe scrolls, and brew potions."
+  },
+  {
+   "level": 7,
+   "name": "Fiery Will",
+   "summary": "If damage or interruption makes an invocation fail, she keeps her action and may act and move normally; failure effects still apply (as Unflappable Casting)."
+  },
+  {
+   "level": 9,
+   "name": "Fiery Blessing",
+   "summary": "+2 to all saving throws (already in the table); if Adult or Middle Age, she becomes able to bear children despite prior mortal wounds."
+  },
+  {
+   "level": 9,
+   "name": "Major Magical Research",
+   "summary": "Can craft magical constructs such as golems."
+  },
+  {
+   "level": 9,
+   "name": "Renown",
+   "summary": "With a vault domain, attracts (1d4+1)x10 dwarven mercenaries and 1d6 furnacewives of 1st-3rd level within 1d3 months; they are paid normal rates."
+  }
+ ],
+ "bta_fury": [
+  {
+   "level": 1,
+   "name": "Flesh-Runes",
+   "summary": "+2 AC (no armor; stacks with rings/potions of protection) and -1 damage per die from nonmagical attacks; monsters of 5+ HD count as magical."
+  },
+  {
+   "level": 1,
+   "name": "Fighting Fury",
+   "summary": "Rage at any point in his initiative (no action): +2 damage, immune to fear; cannot retreat, withdraw, or move away from foes. Lasts until combat ends."
+  },
+  {
+   "level": 1,
+   "name": "Intimidation",
+   "summary": "+2 on reaction rolls when threatening violence or dire consequences; targets must be 5 HD or less, or outnumbered/outranked (as Intimidation)."
+  },
+  {
+   "level": 1,
+   "name": "Savage Resilience",
+   "summary": "Rolls twice on the Mortal Wounds table and picks the result; subtracts his class level from any days of bed rest required."
+  },
+  {
+   "level": 1,
+   "name": "Dwarf Tongues",
+   "summary": "Speaks Common and Dwarvish, plus Goblin, Gnome, and Kobold."
+  },
+  {
+   "level": 1,
+   "name": "Hardy",
+   "summary": "Save targets are 3 lower vs Blast/Breath and 4 lower vs all other saves (already included in the saving throw table)."
+  },
+  {
+   "level": 1,
+   "name": "Sensitivity to Rock and Stone",
+   "summary": "+1 to surprise rolls underground; 14+ to find traps, false walls, hidden construction, and sloping passages when searching; hears noises on 14+."
+  },
+  {
+   "level": 5,
+   "name": "Battlefield Prowess",
+   "summary": "Henchmen and mercenaries he personally leads gain +1 morale; stacks with CHA and proficiency modifiers."
+  },
+  {
+   "level": 7,
+   "name": "Improved Flesh-Runes",
+   "summary": "Flesh-runes now give +4 AC and -2 damage per die from nonmagical attacks; only monsters of 11+ HD count as magical."
+  },
+  {
+   "level": 9,
+   "name": "Renown",
+   "summary": "With a vault domain, attracts (1d4+1)x10 dwarven mercenaries and 1d6 furies of 1st-3rd level within 1d3 months; they are paid normal rates."
+  },
+  {
+   "level": 13,
+   "name": "Superior Flesh-Runes",
+   "summary": "Flesh-runes now give +6 AC and -3 damage per die from nonmagical attacks; only monsters of 17+ HD count as magical."
+  }
+ ],
+ "bta_machinist": [
+  {
+   "level": 1,
+   "name": "Attention to Detail",
+   "summary": "+3 bonus on proficiency throws for every proficiency learned (already included in class abilities)."
+  },
+  {
+   "level": 1,
+   "name": "Ballistics Expertise",
+   "summary": "Attacks as a vaultguard when crewing ballistae, catapults, trebuchets, or ranged automaton weapons; +1 damage, +1 more at 3rd, 6th, and 9th."
+  },
+  {
+   "level": 1,
+   "name": "Crafting",
+   "summary": "Master craftsman: 40gp/month, supervises 2 journeymen and 4 apprentices, 8+ to identify works; +50gp/day to automaton construction (as 3 ranks of Craft)."
+  },
+  {
+   "level": 1,
+   "name": "Design, Build, and Repair Automatons",
+   "summary": "Pays material and labor costs, then throws 14+ at 1st (5+ at 10th) to design, build, or repair automatons; construction rate 5gp/day at 1st, rising."
+  },
+  {
+   "level": 1,
+   "name": "Mechanic Knowledge",
+   "summary": "Opens locks 15+, finds traps 14+, and removes traps 15+ at 1st level, improving with level, as a thief."
+  },
+  {
+   "level": 1,
+   "name": "Personal Automaton",
+   "summary": "Starts with a personal automaton worth up to 7,000gp material and labor; only he can maintain it (5gp/day auto); replacements cost 7,000gp less."
+  },
+  {
+   "level": 1,
+   "name": "Siege Engineering",
+   "summary": "Builds temporary field defenses and builds and operates siege engines and war machines (as 2 ranks of Siege Engineering)."
+  },
+  {
+   "level": 1,
+   "name": "Dwarf Tongues",
+   "summary": "Speaks Common and Dwarvish, plus Goblin, Gnome, and Kobold."
+  },
+  {
+   "level": 1,
+   "name": "Hardy",
+   "summary": "Save targets are 3 lower vs Blast/Breath and 4 lower vs all other saves (already included in the saving throw table)."
+  },
+  {
+   "level": 1,
+   "name": "Sensitivity to Rock and Stone",
+   "summary": "+1 to surprise rolls underground; 14+ to find traps, false walls, hidden construction, and sloping passages when searching; hears noises on 14+."
+  },
+  {
+   "level": 9,
+   "name": "Renown",
+   "summary": "With a manufactory (as a mage's sanctum), attracts 1d6 apprentice machinists of 1st-3rd level and 2d6 dwarven engineers; apprentices need only food and lodging."
+  }
+ ],
+ "bta_pugilist": [
+  {
+   "level": 1,
+   "name": "Attention to Detail",
+   "summary": "+1 bonus on proficiency throws for every proficiency learned."
+  },
+  {
+   "level": 1,
+   "name": "Combat Trickery",
+   "summary": "Pick one maneuver (disarm, force back, knock down, overrun, sunder, wrestle): its penalty is reduced by 2 and the foe saves at -2 (as Combat Trickery)."
+  },
+  {
+   "level": 1,
+   "name": "Endurance",
+   "summary": "Needs no rest every 6 turns while exploring; can force march 1 day plus 1 day per point of CON bonus without penalty (as Endurance proficiency)."
+  },
+  {
+   "level": 1,
+   "name": "Intimidation",
+   "summary": "+2 on reaction rolls when threatening violence or dire consequences; targets must be 5 HD or less, or outnumbered/outranked (as Intimidation)."
+  },
+  {
+   "level": 1,
+   "name": "Pugilism",
+   "summary": "Two bare-handed attacks per round, 1d3 each (plus STR) at 1st; lethal or nonlethal; no harm from punching metal armor; may use Weapon Finesse with fists."
+  },
+  {
+   "level": 1,
+   "name": "Dwarf Tongues",
+   "summary": "Speaks Common and Dwarvish, plus Goblin, Gnome, and Kobold."
+  },
+  {
+   "level": 1,
+   "name": "Hardy",
+   "summary": "Save targets are 3 lower vs Blast/Breath and 4 lower vs all other saves (already included in the saving throw table)."
+  },
+  {
+   "level": 1,
+   "name": "Sensitivity to Rock and Stone",
+   "summary": "+1 to surprise rolls underground; 14+ to find traps, false walls, hidden construction, and sloping passages when searching; hears noises on 14+."
+  },
+  {
+   "level": 2,
+   "name": "Legwork",
+   "summary": "+1 AC in leather or lighter armor while lightly encumbered or less; rises to +2 at 4th, +3 at 6th, +4 at 8th, +5 at 10th, +6 at 12th."
+  },
+  {
+   "level": 3,
+   "name": "Old Man Bones",
+   "summary": "Fist damage becomes 1d4 per blow; rises to 1d6 at 5th, 1d8 at 7th, 1d10 at 9th, and 1d12 at 11th level."
+  },
+  {
+   "level": 5,
+   "name": "Eye of the Tiger",
+   "summary": "Henchmen and mercenaries he personally leads gain +1 morale; stacks with CHA and proficiency modifiers."
+  },
+  {
+   "level": 5,
+   "name": "Magic Hands",
+   "summary": "His fists count as magical weapons for damaging creatures harmed only by magic."
+  },
+  {
+   "level": 7,
+   "name": "Skirmishing",
+   "summary": "Can withdraw or retreat from melee without declaring it before initiative (as Skirmishing proficiency)."
+  },
+  {
+   "level": 8,
+   "name": "Hard to Kill",
+   "summary": "Rolls twice on the Mortal Wounds table and picks the result; subtracts his class level from any days of bed rest required."
+  },
+  {
+   "level": 9,
+   "name": "Renown",
+   "summary": "With a vault domain, attracts (1d4+1)x10 dwarven mercenaries and 1d6 pugilists of 1st-3rd level to train at his hall; they are paid normal rates."
+  },
+  {
+   "level": 10,
+   "name": "Second Wind",
+   "summary": "Once per day, spends an action instead of attacking to regain 20 hp; unusable while unconscious or otherwise unable to act."
+  },
+  {
+   "level": 12,
+   "name": "Unyielding Spirit",
+   "summary": "+1 to all saves (in table); at 0 hp or less may fight on up to 4 rounds, at -2/-5/-10 on Mortal Wounds for 1/2/3 rounds; dies after the 4th."
+  }
+ ],
+ "bta_rhetor": [
+  {
+   "level": 1,
+   "name": "Attention to Detail",
+   "summary": "+3 bonus on proficiency throws for every proficiency learned (already included in class abilities)."
+  },
+  {
+   "level": 1,
+   "name": "Endurance",
+   "summary": "Needs no rest every 6 turns while exploring; can force march 1 day plus 1 day per point of CON bonus without penalty (as Endurance proficiency)."
+  },
+  {
+   "level": 1,
+   "name": "Linguistics",
+   "summary": "Speaks, reads, and writes 4 extra languages; 2+ to read ciphers or foreign/ancient writing (a failed text can be retried only at a higher level)."
+  },
+  {
+   "level": 1,
+   "name": "Jurisprudence",
+   "summary": "8+ for expert legal commentary; earns 100gp/month as an attorney, supervising 2 practitioners and 4 apprentices at +50% output (as 3 ranks of Profession)."
+  },
+  {
+   "level": 1,
+   "name": "Loremastery",
+   "summary": "15+ at 1st, improving by 1 per level, to decipher runes, recall history or lore, or identify artifacts (as Loremastery proficiency)."
+  },
+  {
+   "level": 1,
+   "name": "Inspire Courage",
+   "summary": "1-round oration before battle: allies in 50' get +1 to attacks, damage, morale, and saves vs fear for 1 turn; once per day per level per character."
+  },
+  {
+   "level": 1,
+   "name": "Performance",
+   "summary": "Earns 10gp/month from speeches; 8+ to identify renowned rhetors and speeches; each extra Performance rank gives +1 to Rhetoric throws (max +2)."
+  },
+  {
+   "level": 1,
+   "name": "Rhetoric",
+   "summary": "Knows 2 rhetorical effects (1st-level enchantments, e.g. charm person, sleep); Rhetoric throw 8+ at 1st (2+ by 7th) vs listeners not in combat."
+  },
+  {
+   "level": 1,
+   "name": "Dwarf Tongues",
+   "summary": "Speaks Common and Dwarvish, plus Goblin, Gnome, and Kobold."
+  },
+  {
+   "level": 1,
+   "name": "Hardy",
+   "summary": "Save targets are 3 lower vs Blast/Breath and 4 lower vs all other saves (already included in the saving throw table)."
+  },
+  {
+   "level": 1,
+   "name": "Sensitivity to Rock and Stone",
+   "summary": "+1 to surprise rolls underground; 14+ to find traps, false walls, hidden construction, and sloping passages when searching; hears noises on 14+."
+  },
+  {
+   "level": 4,
+   "name": "Rhetorical Training",
+   "summary": "Learns two additional rhetorical effects."
+  },
+  {
+   "level": 6,
+   "name": "Tireless",
+   "summary": "Needs only 4 hours of rest per day; force marching moves at 200% rather than 150% of the normal rate."
+  },
+  {
+   "level": 8,
+   "name": "Rhetorical Training II",
+   "summary": "Learns two additional rhetorical effects."
+  },
+  {
+   "level": 9,
+   "name": "Renown",
+   "summary": "With a vault domain, attracts (1d4+1)x10 dwarven mercenaries and 1d6 rhetors of 1st-3rd level within 1d3 months; they are paid normal rates."
+  },
+  {
+   "level": 10,
+   "name": "Rule of Law",
+   "summary": "Personally adjudicating a domain's courts (20 days/month) adds 1gp revenue per urban family; he must rule or have the ruler's permission."
+  }
+ ],
+ "bta_sporecaster": [
+  {
+   "level": 1,
+   "name": "Attention to Detail",
+   "summary": "+3 bonus on proficiency throws for every proficiency learned (already included in class abilities)."
+  },
+  {
+   "level": 1,
+   "name": "Alchemy",
+   "summary": "2+ to identify potions by taste; brews potions as an arcane caster of his level; magic research for new brews (13+ at 1st); +3 to Dwarven Brewing."
+  },
+  {
+   "level": 1,
+   "name": "Conventional Brewing",
+   "summary": "Brews 10gp/month of ales and beers; 8+ to identify famous brews and brewers; +1 to Dwarven Brewing (as 1 rank of Craft)."
+  },
+  {
+   "level": 1,
+   "name": "Dwarven Brewing",
+   "summary": "Makes dwarven mushroom brews with equipment, piltbier, and special mushrooms; throw 9+ at 1st (1+ at 9th); knows clubhead plus 4 other recipes."
+  },
+  {
+   "level": 1,
+   "name": "Fungal Friendship",
+   "summary": "8+ to identify a fungus, mold, or ooze by touch; +2 on reactions with them; can take them as henchmen and command them at touch range."
+  },
+  {
+   "level": 1,
+   "name": "Fungal Immunity",
+   "summary": "Immune to fungal and mold toxins and yellow mold spores; no bad dwarven brew effects; unharmed by black puddings, gelatinous cubes, gray ooze, green slime."
+  },
+  {
+   "level": 1,
+   "name": "Necrosporing",
+   "summary": "1 turn touching a corpse makes a spore zombie (plant); total HD 8 at 1st per table, none over 2x his HD; rots in 1 day unless dosed with clubhead brew."
+  },
+  {
+   "level": 1,
+   "name": "Dwarf Tongues",
+   "summary": "Speaks Common and Dwarvish, plus Goblin, Gnome, and Kobold."
+  },
+  {
+   "level": 1,
+   "name": "Hardy",
+   "summary": "Save targets are 3 lower vs Blast/Breath and 4 lower vs all other saves (already included in the saving throw table)."
+  },
+  {
+   "level": 1,
+   "name": "Sensitivity to Rock and Stone",
+   "summary": "+1 to surprise rolls underground; 14+ to find traps, false walls, hidden construction, and sloping passages when searching; hears noises on 14+."
+  },
+  {
+   "level": 2,
+   "name": "Fungal Awareness",
+   "summary": "Concentrate 1 turn to detect fungus, molds, slimes, and oozes within 60'; lasts while concentrating, and he may move at half speed."
+  },
+  {
+   "level": 2,
+   "name": "Optional: Fungal Communion",
+   "summary": "Wet path pick at 2nd/4th/6th/8th, rolls a Gift of the Great Fungi. Contact other plane with the great fungi once per week; may swap madness for a random Gift."
+  },
+  {
+   "level": 2,
+   "name": "Optional: Kiss of Life",
+   "summary": "Wet path pick at 2nd/4th/6th/8th, rolls a Gift of the Great Fungi. Animates a spore zombie in 1 round by breath; it rots in 1 hour unless dosed."
+  },
+  {
+   "level": 2,
+   "name": "Optional: Mushroom Overlord",
+   "summary": "Wet path pick at 2nd/4th/6th/8th, rolls a Gift of the Great Fungi. Any sapient race can work his mushroom farms as work-gangs; forced gangs cut morale."
+  },
+  {
+   "level": 2,
+   "name": "Optional: Rotless Rot",
+   "summary": "Wet path pick at 2nd/4th/6th/8th, rolls a Gift of the Great Fungi. No aging ability penalties; failing an aging Death save gives a mutation, not death."
+  },
+  {
+   "level": 2,
+   "name": "Optional: Secretion",
+   "summary": "Wet path pick at 2nd/4th/6th/8th, rolls a Gift of the Great Fungi. Exudes one known dwarven brew's effect by touch, cast like a spell; can be taken repeatedly."
+  },
+  {
+   "level": 2,
+   "name": "Optional: Spore Calibration",
+   "summary": "Wet path pick at 2nd/4th/6th/8th, rolls a Gift of the Great Fungi. Spore zombies can work farms or mines; 5 equal 1 family; never rebel."
+  },
+  {
+   "level": 2,
+   "name": "Optional: Spore Fermentation",
+   "summary": "Wet path pick at 2nd/4th/6th/8th, rolls a Gift of the Great Fungi. 1 turn makes a zombie explosive: 2d6 in 10' when destroyed (Blast save half)."
+  },
+  {
+   "level": 2,
+   "name": "Optional: Spore Perception",
+   "summary": "Wet path pick at 2nd/4th/6th/8th, rolls a Gift of the Great Fungi. Uses the senses of one spore zombie or sporecalled henchman in spore range."
+  },
+  {
+   "level": 2,
+   "name": "Optional: Spore Synchronization",
+   "summary": "Wet path pick at 2nd/4th/6th/8th, rolls a Gift of the Great Fungi. His spore zombies in control range act on his initiative, not last."
+  },
+  {
+   "level": 3,
+   "name": "Blooming Spores",
+   "summary": "Range to identify mycoflora and command sporecalled henchmen and spore zombies rises to 15'; spores smell faintly of soil; fails in high winds."
+  },
+  {
+   "level": 4,
+   "name": "Fungal Humors",
+   "summary": "Immune to all diseases and poisons."
+  },
+  {
+   "level": 5,
+   "name": "Blossoming Spores",
+   "summary": "Spore communication and command range rises to 30' (still fails in high winds)."
+  },
+  {
+   "level": 6,
+   "name": "Mushroom Management",
+   "summary": "Personally managing mushroom farms (20 days/month) adds 1gp land revenue per piltgarin family; he must rule or have the ruler's permission."
+  },
+  {
+   "level": 7,
+   "name": "Billowing Spores",
+   "summary": "Spore communication and command range rises to 60' (still fails in high winds)."
+  },
+  {
+   "level": 8,
+   "name": "Spore Servitude",
+   "summary": "Controls creatures affected by clubhead brew or secretion, and vagary-made spore zombies, as his own; takes another's only if higher level."
+  },
+  {
+   "level": 9,
+   "name": "Mushroom Mutation",
+   "summary": "When personally managing experimental mushroom farms, the Judge rolls twice on Vagaries of Mycocultural Mutation and he picks the result."
+  },
+  {
+   "level": 9,
+   "name": "Renown",
+   "summary": "With a mycenium (as a mage's sanctum), attracts 1d6 apprentice sporecasters of 1st-3rd level plus 2d6 aspiring dwarves; apprentices need only food and lodging."
+  },
+  {
+   "level": 10,
+   "name": "Fungal Spawn",
+   "summary": "Creates fungal crossbreeds as an 11th-level mage (one progenitor must be fungus, mold, or ooze); results are Friendly and recruitable; may crossbreed himself."
+  }
+ ],
+ "bta_tombsealer": [
+  {
+   "level": 1,
+   "name": "Undead Slaying",
+   "summary": "+1 to attack throws vs undead; 11+ to identify an undead creature's abilities and vulnerabilities from its appearance."
+  },
+  {
+   "level": 1,
+   "name": "Detect Evil",
+   "summary": "Detects evil as the spell to 60' by concentrating 1 turn; evil includes all undead, summoned creatures, and hostile Chaotic beings."
+  },
+  {
+   "level": 1,
+   "name": "Lesser Rite of Sealing",
+   "summary": "Once per 8 hours, a 1-round rite seals a door, portal, or chest as wizard lock; maintains seals up to his level; seals end at his death."
+  },
+  {
+   "level": 1,
+   "name": "Manual of Arms",
+   "summary": "Trains up to 60 dwarven conscripts into heavy infantry in one month (as 1 rank of Manual of Arms)."
+  },
+  {
+   "level": 1,
+   "name": "Dwarf Tongues",
+   "summary": "Speaks Common and Dwarvish, plus Goblin, Gnome, and Kobold."
+  },
+  {
+   "level": 1,
+   "name": "Hardy",
+   "summary": "Save targets are 3 lower vs Blast/Breath and 4 lower vs all other saves (already included in the saving throw table)."
+  },
+  {
+   "level": 1,
+   "name": "Sensitivity to Rock and Stone",
+   "summary": "+1 to surprise rolls underground; 14+ to find traps, false walls, hidden construction, and sloping passages when searching; hears noises on 14+."
+  },
+  {
+   "level": 3,
+   "name": "Aura of Protection",
+   "summary": "+1 AC and +1 on saves vs attacks and effects of evil creatures; shows as a golden halo to detect good, detect magic, or true seeing."
+  },
+  {
+   "level": 5,
+   "name": "Battlefield Prowess",
+   "summary": "Henchmen and mercenaries he personally leads gain +1 morale; stacks with CHA and proficiency modifiers."
+  },
+  {
+   "level": 5,
+   "name": "Stalwart Soul",
+   "summary": "Immune to energy drain, mummy rot, and undead aging; never rises as undead and his remains cannot be made undead."
+  },
+  {
+   "level": 7,
+   "name": "Rite of Discovery",
+   "summary": "Once per week, a 1-turn rite senses direction and distance to nearest undead (or a known one) within 12 miles; lead or gold blocks it (locate haunting)."
+  },
+  {
+   "level": 9,
+   "name": "Greater Rite of Sealing",
+   "summary": "Once per week, a 1-round rite permanently seals a door, portal, or chest (persists after his death); each use lowers his max seals by 1 for good."
+  },
+  {
+   "level": 9,
+   "name": "Renown",
+   "summary": "With a vault domain, attracts (1d4+1)x10 dwarven mercenaries and 1d6 tombsealers of 1st-3rd level; they are paid normal mercenary rates."
+  }
+ ],
+ "fighter": [
+  {
+   "level": 1,
+   "name": "Manual of Arms",
+   "summary": "Knows homeland's military gear, standards, slang, ranks; 11+ for other realms. Fights as a regular in formed/loose units. = Manual of Arms 1 rank."
+  },
+  {
+   "level": 5,
+   "name": "Battlefield Prowess",
+   "summary": "Henchmen and mercenaries he hires get +1 morale while he personally leads them; stacks with CHA and proficiency modifiers."
+  },
+  {
+   "level": 9,
+   "name": "Castle",
+   "summary": "With a 15,000gp+ castle or fort, gains 5d6x10 0th-level troops and 1d6 1st-3rd level fighters within 1d3 months; must pay normal wages."
+  }
+ ],
+ "explorer": [
+  {
+   "level": 1,
+   "name": "Alertness",
+   "summary": "+1 to avoid surprise. Adventuring searches/listening succeed on 14+ (not 18+), or +2 if he has Searching/Listening proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Ambushing",
+   "summary": "Vs. vulnerable foes in melee or short-range missile: +4 to hit and +1 damage die. Equivalent to Ambushing proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Animal Reflexes",
+   "summary": "+1 initiative and +1 to avoid surprise (stacks with Alertness for +2 surprise total)."
+  },
+  {
+   "level": 1,
+   "name": "Endurance",
+   "summary": "No need to rest every 6 turns while exploring; force march 1 day without penalty, +1 day per CON bonus. Equivalent to Endurance proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Evasion",
+   "summary": "Guiding party in familiar territory: +5 to evade wilderness encounters, and can evade even when the party is surprised if he is not."
+  },
+  {
+   "level": 1,
+   "name": "Pathfinding",
+   "summary": "Guiding party in familiar territory: +4 to avoid getting lost. Familiar radius = settled lands + 1 24-mile hex per level."
+  },
+  {
+   "level": 1,
+   "name": "Natural Stealth",
+   "summary": "Foes take -2 on surprise rolls when he approaches from out of line of sight or lies in wait in cover or darkness."
+  },
+  {
+   "level": 5,
+   "name": "Experience and Hardiness",
+   "summary": "Hirelings on a wilderness adventure he leads get +1 morale; stacks with CHA and proficiency modifiers."
+  },
+  {
+   "level": 9,
+   "name": "Border Fort",
+   "summary": "15,000gp+ fort in outlands/unsettled land: 5d6x10 troops + 1d6 1st-3rd lvl explorers in 1d3 months. Within 24mi never lost, +4 more to evade."
+  }
+ ],
+ "thief": [
+  {
+   "level": 1,
+   "name": "Backstabbing",
+   "summary": "Vs. vulnerable foes in melee or short-range missile: +4 to hit and +1 damage die; extra die at 5th, 9th, and 13th level (up to +4d)."
+  },
+  {
+   "level": 1,
+   "name": "Climbing",
+   "summary": "Thief skill: Climbing throw 6+ at 1st level per 100' climbed (improves by level). -5 at half combat speed, -10 at full; failure means a fall."
+  },
+  {
+   "level": 1,
+   "name": "Hiding",
+   "summary": "Thief skill: Hiding 19+ at 1st level (improves by level), rolled secretly in cover/dim light/darkness. Hidden = no line of sight; foes -2 surprise regardless."
+  },
+  {
+   "level": 1,
+   "name": "Listening",
+   "summary": "Thief skill: Listening 14+ at 1st level (improves by level), rolled secretly. Hears noises beyond doors/passages; 1 round, once per turn if moving."
+  },
+  {
+   "level": 1,
+   "name": "Lockpicking",
+   "summary": "Thief skill: Lockpicking 18+ at 1st level (improves by level). Hasty: 1 round, nat 1-3 jams lock. Methodical: 1 turn at +4, nat 1 jams. Needs thieves' tools."
+  },
+  {
+   "level": 1,
+   "name": "Pickpocketing",
+   "summary": "Thief skill: Pickpocketing 17+ at 1st level (improves by level), within 5'; +4 if target unaware. Nat 1 or under half the target: noticed, reaction at -3."
+  },
+  {
+   "level": 1,
+   "name": "Searching",
+   "summary": "Thief skill: Searching 18+ at 1st level (improves by level), secret roll, finds hidden features within 5'. Hasty: 1 round. Methodical: 1 turn at +4."
+  },
+  {
+   "level": 1,
+   "name": "Shadowy Senses",
+   "summary": "At combat or exploration speed, senses as if carrying a 30' dim light. No colors, faces, or reading; fails if charging/running, deafened, or in bright light."
+  },
+  {
+   "level": 1,
+   "name": "Sneaking",
+   "summary": "Thief skill: Sneaking 17+ at 1st level (improves by level), secret roll; silent movement. -5 above half combat speed, -10 running; foes -2 surprise regardless."
+  },
+  {
+   "level": 1,
+   "name": "Streetwise",
+   "summary": "Knows criminal signs, slang, and turf of home settlement; 11+ for other cities. Can do hijinks; may start in a thieves' guild. = Streetwise 1 rank."
+  },
+  {
+   "level": 1,
+   "name": "Trapbreaking",
+   "summary": "Thief skill: Trapbreaking 18+ at 1st level (improves by level). Hasty: 1 round, nat 1-3 sets it off. Methodical: 1 turn at +4, nat 1 sets it off. Needs tools."
+  },
+  {
+   "level": 4,
+   "name": "Deciphering",
+   "summary": "Decipher ciphers, treasure maps, and dead languages (not magic) on 4+ on 1d20, 1 turn per page; a failed page can't be retried until next level."
+  },
+  {
+   "level": 9,
+   "name": "Hideout",
+   "summary": "With a 5,000gp+ hideout, 2d6 1st-level thieves join within 1d4 weeks (paid as ruffians, one is a rival's spy). Can found a criminal syndicate."
+  },
+  {
+   "level": 10,
+   "name": "Scrollreading",
+   "summary": "Can cast from arcane and divine scrolls on 4+ on 1d20 (1 round); must have deciphered the text. Failure can backfire horribly at Judge's discretion."
+  }
+ ],
+ "mage": [
+  {
+   "level": 1,
+   "name": "Arcane Magic",
+   "summary": "Casts arcane spells per Mage Spell Progression (1 1st-level spell/day at 1st level, up to 6th-level spells). Repertoire = slots + INT bonus per spell level."
+  },
+  {
+   "level": 1,
+   "name": "Collegiate Wizardry",
+   "summary": "Knows symbols, spell signatures, and grimoires of his own arcane order; 11+ for other traditions. May start in a wizards' guild. = Collegiate Wizardry 1 rank."
+  },
+  {
+   "level": 5,
+   "name": "Minor Magical Research",
+   "summary": "Can research new spells, scribe magical scrolls, and brew potions."
+  },
+  {
+   "level": 9,
+   "name": "Major Magical Research",
+   "summary": "Can create more powerful magic items such as weapons, rings, and staffs."
+  },
+  {
+   "level": 9,
+   "name": "Sanctum",
+   "summary": "With a 15,000gp+ sanctum, 1d6 1st-3rd lvl and 2d6 0th-lvl apprentices join in 1d3 months as research assistants (food/lodging only). Dungeon draws monsters."
+  },
+  {
+   "level": 11,
+   "name": "Supreme Magical Research",
+   "summary": "Can learn and cast 7th-9th level ritual arcane spells, build constructs, and make crossbreeds; if chaotic, can create necromantic servants and become undead."
+  }
+ ],
+ "crusader": [
+  {
+   "level": 1,
+   "name": "Divine Magic",
+   "summary": "Casts divine spells from his order's repertoire per Crusader Spell Progression (1 1st-level spell/day at 1st level, up to 6th-level spells)."
+  },
+  {
+   "level": 1,
+   "name": "Theology",
+   "summary": "Knows symbols, rites, and holy days of his faith; 11+ for other faiths. Can gain congregants by proselytizing; may start in a hierarchy. = Theology 1 rank."
+  },
+  {
+   "level": 1,
+   "name": "Rebuke Undead",
+   "summary": "Throw per Rebuking table (skeletons 10+ at 1st; becomes auto R/D by level); success rebukes 2d6 HD (min 1) of undead for 1 turn. Chaotic sects may control."
+  },
+  {
+   "level": 1,
+   "name": "Code of Behavior",
+   "summary": "Must keep his order's strictures (Ammonar: show winged sun, 1hr dawn prayer, no bladed/blood-shedding weapons, obey just laws) or face disfavor."
+  },
+  {
+   "level": 5,
+   "name": "Minor Magical Research",
+   "summary": "Can scribe magical scrolls and brew potions."
+  },
+  {
+   "level": 9,
+   "name": "Major Magical Research",
+   "summary": "Can create permanent magic items such as weapons, rings, and staffs."
+  },
+  {
+   "level": 9,
+   "name": "Fortified Church",
+   "summary": "15,000gp+ church (half cost if true to code): 5d6x10 troops + 1d6 1st-3rd lvl crusaders in 1d3 months, loyalty +4 and morale +4; must pay fair wages."
+  },
+  {
+   "level": 11,
+   "name": "Supreme Magical Research",
+   "summary": "Can learn and cast 7th-9th level ritual divine spells and craft constructs (golems, statues); if chaotic, create necromantic servants and become undead."
+  }
+ ],
+ "venturer": [
+  {
+   "level": 1,
+   "name": "Bribery",
+   "summary": "Bribes add +1 to reaction for a day's pay, +2 for a week's, +3 for a month's; deniable, only chargeable on an unmodified 2 on 2d6."
+  },
+  {
+   "level": 1,
+   "name": "Diplomacy",
+   "summary": "+1 to reaction rolls when parleying with intelligent creatures. Equivalent to Diplomacy proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Expert Bargaining",
+   "summary": "Buys at 10% under and sells at 10% over list price; opposed reaction roll vs. other bargainers (+2 on it). Equivalent to Bargaining 1 rank."
+  },
+  {
+   "level": 1,
+   "name": "Expert Traveling",
+   "summary": "Begins play with his choice of Driving or Seafaring proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Mercantile Network",
+   "summary": "In any market visited before, treat it as one class larger (Class I stays I) or take +1 market impact. Doesn't affect passive investments."
+  },
+  {
+   "level": 1,
+   "name": "Multilingual",
+   "summary": "Gains 3 bonus languages, chosen now from the starting region or later from those met in play."
+  },
+  {
+   "level": 1,
+   "name": "Pathfinding",
+   "summary": "Guiding party in familiar territory: +4 to avoid getting lost. Familiar radius = settled lands + 1 24-mile hex per level."
+  },
+  {
+   "level": 1,
+   "name": "Treachery",
+   "summary": "After a Friendly reaction via Diplomacy/Bribery, can strike so all within 30' roll surprise at -3. Party exempt if signaled/planned. Fails vs. another venturer."
+  },
+  {
+   "level": 2,
+   "name": "Steady Trade Route",
+   "summary": "Set up a route for 2 merchandise types between 2 visited markets; add half level (round up) to market impact there. +1 passive investment."
+  },
+  {
+   "level": 4,
+   "name": "Rumormongering",
+   "summary": "Learns 1d4 rumors from contacts on revisiting an urban settlement he has traded in; takes 1 day, once per month per settlement."
+  },
+  {
+   "level": 6,
+   "name": "Steady Trade Route",
+   "summary": "Gains a second steady trade route (new markets and/or merchandise), with its market impact bonus and +1 passive investment."
+  },
+  {
+   "level": 8,
+   "name": "Access to Capital",
+   "summary": "Borrow from the merchant guild at 3%/month unsecured or 1%/month with collateral, limited by market pool. Missed interest makes him disreputable there."
+  },
+  {
+   "level": 9,
+   "name": "Guildhouse",
+   "summary": "5,000gp+ guildhouse: 2d6 1st-lvl venturers join in 1d4 weeks (one a spy). Extra passive investments = value / market max. As syndicate = half-value hideout."
+  },
+  {
+   "level": 10,
+   "name": "Steady Trade Route",
+   "summary": "Gains a third steady trade route (new markets and/or merchandise), with its market impact bonus and +1 passive investment."
+  },
+  {
+   "level": 12,
+   "name": "Monopoly Power",
+   "summary": "With a guildhouse in a settlement, earn 1gp/month per urban family there as monopoly revenue; rival venturers must be eliminated or bargained with."
+  }
+ ],
+ "assassin": [
+  {
+   "level": 1,
+   "name": "Backstabbing",
+   "summary": "Vs. vulnerable foes in melee or short-range missile: +4 to hit and +1 damage die; extra die at 5th, 9th, 13th (up to +4d). Light armor or less only."
+  },
+  {
+   "level": 1,
+   "name": "Hiding",
+   "summary": "Hiding 19+ at 1st level (improves by level), secret roll in cover/dim light/darkness; hidden = no line of sight, foes -2 surprise. Light armor or less."
+  },
+  {
+   "level": 1,
+   "name": "Shadowy Senses",
+   "summary": "At combat/exploration speed, senses as if carrying a 30' dim light. No colors, faces, or reading; fails if charging/running, deafened, or magical dark/silence."
+  },
+  {
+   "level": 1,
+   "name": "Sneaking",
+   "summary": "Sneaking 17+ at 1st level (improves by level), secret roll; silent movement. -5 above half combat speed, -10 running; foes -2 surprise. Light armor or less."
+  },
+  {
+   "level": 1,
+   "name": "Streetwise",
+   "summary": "Knows criminal signs, slang, and turf of home settlement; 11+ for other cities. Can do hijinks; may start in an assassins' guild. = Streetwise 1 rank."
+  },
+  {
+   "level": 9,
+   "name": "Hideout",
+   "summary": "With a 5,000gp+ hideout, 2d6 1st-level assassins join within 1d4 weeks (paid as henchmen, one is a rival's spy). Can found a criminal syndicate."
+  }
+ ],
+ "barbarian": [
+  {
+   "level": 1,
+   "name": "Animal Reflexes",
+   "summary": "+1 bonus to initiative and +1 bonus to avoid surprise."
+  },
+  {
+   "level": 1,
+   "name": "Natural Proficiency",
+   "summary": "Free bonus proficiencies by region: Jutland Climbing + Seafaring; Skysostan Precise Shooting + Riding; Ivory Kingdoms Running + Endurance."
+  },
+  {
+   "level": 1,
+   "name": "Natural Stealth",
+   "summary": "Foes take -2 on surprise rolls when he approaches from out of line of sight or lies in wait in cover or darkness."
+  },
+  {
+   "level": 1,
+   "name": "Savage Resilience",
+   "summary": "Rolls twice on the Mortal Wounds table and picks the result; subtracts class level from days of bed rest needed to recover."
+  },
+  {
+   "level": 5,
+   "name": "Animal Magnetism",
+   "summary": "Henchmen and mercenaries he hires get +1 morale while he personally leads them; stacks with CHA and proficiency modifiers."
+  },
+  {
+   "level": 9,
+   "name": "Chieftain's Hall",
+   "summary": "With a 15,000gp+ chieftain's hall, gains 5d6x10 0th-level troops and 1d6 1st-3rd level barbarians within 1d3 months; must pay normal wages."
+  }
+ ],
+ "bard": [
+  {
+   "level": 1,
+   "name": "Arcane Dabbling",
+   "summary": "Can use wands, staffs and other arcane-only magic items without knowing command words on a 4+ proficiency throw; failure backfires (Judge's call)."
+  },
+  {
+   "level": 1,
+   "name": "Inspire Courage",
+   "summary": "1 round of oration: up to 30 allies in 50' get +1 to attacks, AC, morale and saves vs fear for 1 turn. Once/day per level; not usable once engaged."
+  },
+  {
+   "level": 1,
+   "name": "Jack of All Trades",
+   "summary": "Learn one class proficiency from any class, a thief skill (not backstab), a venturer power (not mercantile network), or a Judge-approved non-spell power."
+  },
+  {
+   "level": 1,
+   "name": "Listening",
+   "summary": "Judge rolls in secret for the bard to hear noises: 14+ at 1st, improving by 1 per level (1+ at 14th). Takes 1 round; once per turn if the party moves."
+  },
+  {
+   "level": 1,
+   "name": "Loremastery",
+   "summary": "Decipher runes, recall history, identify artifacts or monster parts on 18+, improving 1/level (5+ at 14th); identifies magic items as a 5th level mage."
+  },
+  {
+   "level": 1,
+   "name": "Multilingual",
+   "summary": "Gains three bonus languages, picked now from those common in the starting region or later from ones met in play (one rank of Language)."
+  },
+  {
+   "level": 1,
+   "name": "Performance",
+   "summary": "Trained performer: earns 10gp/month entertaining; identifies renowned performers, famous works and unusual songs on 11+ (one rank of Performance)."
+  },
+  {
+   "level": 3,
+   "name": "Jack of All Trades II",
+   "summary": "Learn another class proficiency from any class, a thief skill (not backstab), a venturer power (not mercantile network), or a Judge-approved non-spell power."
+  },
+  {
+   "level": 4,
+   "name": "Deciphering",
+   "summary": "Decipher ciphers, treasure maps and dead languages (not magical writing): 1 turn per page, 4+ on 1d20; a failed page can't be retried until next level."
+  },
+  {
+   "level": 5,
+   "name": "Chronicles of Battle",
+   "summary": "Henchmen and mercenaries hired by the bard gain +1 morale while he is present to witness their deeds; stacks with CHA and proficiency modifiers."
+  },
+  {
+   "level": 6,
+   "name": "Jack of All Trades III",
+   "summary": "Learn another class proficiency from any class, a thief skill (not backstab), a venturer power (not mercantile network), or a Judge-approved non-spell power."
+  },
+  {
+   "level": 7,
+   "name": "Inspire Hope",
+   "summary": "1 round: up to 30 allies in 30' gain temp hp (1d2 to 6d10+ by lower max hp of bard or ally) for 1 turn. 1/day at 7th, +1/day per level after."
+  },
+  {
+   "level": 8,
+   "name": "Jack of All Trades IV",
+   "summary": "Learn another class proficiency from any class, a thief skill (not backstab), a venturer power (not mercantile network), or a Judge-approved non-spell power."
+  },
+  {
+   "level": 9,
+   "name": "Great Hall",
+   "summary": "With a 15,000gp+ great hall, attracts 5d6x10 0th level troops and 1d6 1st-3rd level bards within 1d3 months; they must be paid normal wages."
+  },
+  {
+   "level": 10,
+   "name": "Scrollreading",
+   "summary": "Can cast spells from arcane and divine scrolls (once deciphered): 1 round and 4+ on 1d20; failure makes the spell misfire, possibly horribly."
+  },
+  {
+   "level": 11,
+   "name": "Jack of All Trades V",
+   "summary": "Learn another class proficiency from any class, a thief skill (not backstab), a venturer power (not mercantile network), or a Judge-approved non-spell power."
+  }
+ ],
+ "bladedancer": [
+  {
+   "level": 1,
+   "name": "Graceful Fighting",
+   "summary": "In light, very light or no armor and 5 st or less: +1 initiative and +1 AC (AC +2 at 7th, +3 at 13th). Swashbuckling stacks, capped at +1 unless unarmored."
+  },
+  {
+   "level": 1,
+   "name": "Divine Magic",
+   "summary": "Casts divine spells from her order's repertoire; spells per day by level follow the Bladedancer Spell Progression table (up to 6th level spells)."
+  },
+  {
+   "level": 1,
+   "name": "Strength of Faith",
+   "summary": "May apply her WIL modifier instead of her STR modifier to any damage roll affected by STR."
+  },
+  {
+   "level": 1,
+   "name": "Theology",
+   "summary": "Auto-identifies symbols, spell signatures and holy days of own faith, other faiths on 11+; may join a hierarchy and gain congregants (one rank of Theology)."
+  },
+  {
+   "level": 1,
+   "name": "Weapon Finesse",
+   "summary": "Uses DEX modifier instead of STR on melee attack throws with weapons she is proficient with; does not stack with the Weapon Finesse proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Code of Behavior",
+   "summary": "Must carry a weapon, pray to Ianna at dawn or dusk (1 hr), shun axes, hammers, bows, slings and shields, not wed before 7th; violations anger her goddess."
+  },
+  {
+   "level": 5,
+   "name": "Minor Magical Research",
+   "summary": "Can scribe scrolls and brew potions."
+  },
+  {
+   "level": 9,
+   "name": "Major Magical Research",
+   "summary": "Can create permanent magic items such as enchanted armor, rings, and weapons."
+  },
+  {
+   "level": 9,
+   "name": "Temple",
+   "summary": "With a 15,000gp+ temple (half price if in favor), attracts 5d6x10 0th level troops and 1d6 1st-3rd level bladedancers; loyalty +4, morale +4; must be paid."
+  },
+  {
+   "level": 11,
+   "name": "Supreme Magical Research",
+   "summary": "Can learn and cast 7th-9th level ritual divine spells and craft magical constructs; if chaotic, can create necromantic servants and become undead."
+  }
+ ],
+ "paladin": [
+  {
+   "level": 1,
+   "name": "Aura of Protection",
+   "summary": "+1 AC and +1 to saving throws against attacks and effects of evil creatures; appears as a golden halo to discern good, discern magic or true seeing."
+  },
+  {
+   "level": 1,
+   "name": "Lay on Hands",
+   "summary": "Once/day: heal 2 hp per level, add half level (round up) to a Mortal Wounds throw, or cure paralysis. Extra uses via Laying on Hands proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Manual of Arms",
+   "summary": "Auto-identifies homeland military standards, gear, captains and insignia; 11+ for other realms; fights as a regular in formed and loose units."
+  },
+  {
+   "level": 1,
+   "name": "Sanctified Body",
+   "summary": "Completely immune to disease, including magical diseases (equivalent to Divine Health proficiency)."
+  },
+  {
+   "level": 1,
+   "name": "Sense Evil",
+   "summary": "After 1 round of concentration, sees evil creatures, items and undead within 45' in line of sight for up to 1 round/level; once per turn (as Sensing Evil)."
+  },
+  {
+   "level": 5,
+   "name": "Holy Fervor",
+   "summary": "Hirelings of the paladin's religion gain +1 morale whenever he personally leads them; stacks with CHA and proficiency modifiers."
+  },
+  {
+   "level": 9,
+   "name": "Fortress",
+   "summary": "With a 15,000gp+ fortress, attracts 5d6x10 0th level troops and 1d6 1st-3rd level paladins within 1d3 months; they must be paid normal wages."
+  }
+ ],
+ "priestess": [
+  {
+   "level": 1,
+   "name": "Consolation",
+   "summary": "1 turn of prayer and counsel doubles a creature's natural healing from rest for the next day; only sapient targets of her alignment and religion."
+  },
+  {
+   "level": 1,
+   "name": "Diplomacy",
+   "summary": "+1 bonus on reaction rolls when parleying with intelligent creatures (equivalent to Diplomacy proficiency)."
+  },
+  {
+   "level": 1,
+   "name": "Divine Magic",
+   "summary": "Casts divine spells from her order's repertoire; spells per day by level follow the Priestess Spell Progression table (up to 6th level spells)."
+  },
+  {
+   "level": 1,
+   "name": "Lay on Hands",
+   "summary": "Once/day: heal 2 hp per level, add half level (round up) to a Mortal Wounds throw, or cure paralysis. Extra uses via Laying on Hands proficiency."
+  },
+  {
+   "level": 1,
+   "name": "Purity of the Body",
+   "summary": "Immune to all disease, including magical diseases from spells, mummies or lycanthropes (equivalent to Divine Health proficiency)."
+  },
+  {
+   "level": 1,
+   "name": "Theology",
+   "summary": "Auto-identifies symbols, spell signatures and holy days of own faith, other faiths on 11+; may join a hierarchy and gain congregants (one rank of Theology)."
+  },
+  {
+   "level": 1,
+   "name": "Code of Behavior",
+   "summary": "Wear white mantles in public, pray at dusk (1 hr), keep a flame lit every 7th night, never kill humans/demi-humans, chaste until 7th; else penalties."
+  },
+  {
+   "level": 5,
+   "name": "Minor Magical Research",
+   "summary": "Can scribe magical scrolls and brew potions."
+  },
+  {
+   "level": 9,
+   "name": "Cloister",
+   "summary": "With a 15,000gp+ cloister (matriarch may pay half), attracts 1d2x10 1st level priestesses and 1d6x30 women trainees in 1d3 months; 80% of trainees leave yearly."
+  },
+  {
+   "level": 9,
+   "name": "Major Magical Research",
+   "summary": "Can create more powerful magic items such as weapons, rings, and staffs."
+  },
+  {
+   "level": 11,
+   "name": "Supreme Magical Research",
+   "summary": "Can learn and cast 7th-9th level ritual divine spells and craft magical constructs; if chaotic, can create necromantic servants and become undead."
+  }
+ ],
+ "shaman": [
+  {
+   "level": 1,
+   "name": "Commune with Spirits",
+   "summary": "Once/week, a 1-turn helpless trance: ancestral or local spirits answer 3 yes/no questions; twice as many once a year on a sacred day."
+  },
+  {
+   "level": 1,
+   "name": "Divine Magic",
+   "summary": "Casts divine spells from his tradition's repertoire; spells per day by level follow the Shaman Spell Progression table (up to 6th level spells)."
+  },
+  {
+   "level": 1,
+   "name": "Tribal Traditions",
+   "summary": "Auto-identifies symbols, spell signatures and holy days of his tribe, other faiths on 11+; may gain congregants (one rank of Theology)."
+  },
+  {
+   "level": 1,
+   "name": "Totem Animal",
+   "summary": "Loyal, talking totem companion with HD = level-1 (1/2 at 1st), 4 hp/HD; grants its bonus proficiency within 30'. If slain, save vs Death or take its max hp."
+  },
+  {
+   "level": 1,
+   "name": "Code of Behavior",
+   "summary": "Show tribal holy symbol, dusk offerings (1 hr, 1cp), uphold totem's virtues, no foreign weapons, no magic harming tribe or called animals; else penalties."
+  },
+  {
+   "level": 3,
+   "name": "Spiritual Ritual",
+   "summary": "1-hour ecstatic ritual regains one expended spell of a level; repeatable, but each spell level can be regained only once per day."
+  },
+  {
+   "level": 5,
+   "name": "Minor Magical Research",
+   "summary": "Can scribe scrolls and brew potions."
+  },
+  {
+   "level": 5,
+   "name": "Shapechanging",
+   "summary": "Shapechange into totem animal (its move, AC, attacks; keeps own HD, hp, throws): 1/day at 5th, +1/day per level. Action in lieu of movement; not dispellable."
+  },
+  {
+   "level": 7,
+   "name": "Spiritwalking",
+   "summary": "After 1 turn of chanting, enters a trance and his spirit walks free in human or totem form, as the spell spiritwalk; once per week."
+  },
+  {
+   "level": 9,
+   "name": "Major Magical Research",
+   "summary": "Can create more powerful magic items such as weapons, rings, and staffs."
+  },
+  {
+   "level": 9,
+   "name": "Medicine Lodge",
+   "summary": "With a 15,000gp+ lodge (half price if in favor), attracts 5d6x10 0th level tribesmen and 1d6 1st level shamans; loyalty +4, morale +4; must be paid."
+  },
+  {
+   "level": 11,
+   "name": "Supreme Magical Research",
+   "summary": "Can learn and cast 7th-9th level ritual divine spells and craft magical constructs."
+  }
+ ],
+ "warlock": [
+  {
+   "level": 1,
+   "name": "Arcane Magic",
+   "summary": "Casts arcane spells from a repertoire sized by the Warlock Spell Progression table plus his INT bonus (up to 6th level spells)."
+  },
+  {
+   "level": 1,
+   "name": "Dark Path",
+   "summary": "Chooses demonology, necromancy or transmogrification; the path grants a power at 1st level and again at 3rd, 5th, 7th, 9th and 11th level."
+  },
+  {
+   "level": 1,
+   "name": "Occultism",
+   "summary": "On 11+, names chthonic powers' titles and symbols, identifies undead types, and recalls demonology/necromancy lore (one rank of Knowledge (Occult))."
+  },
+  {
+   "level": 1,
+   "name": "Demonology path: Conjure Dark Powers",
+   "summary": "Summoning spells and research at +2 caster levels; Spells save to keep concentration when hurt; +2 research throws, +10% rate for summoning magic."
+  },
+  {
+   "level": 1,
+   "name": "Necromancy path: Secrets of the Dark Arts",
+   "summary": "Controls undead as Chaotic crusader of half level; death spells give -2 saves; death/necromancy spells, research +2 caster levels, +2 throws, +10% rate."
+  },
+  {
+   "level": 1,
+   "name": "Transmogrification path: Grotesque Arts of Transformation",
+   "summary": "Transmogrification spells at +2 caster levels, targets -2 to saves; crossbreed/transmog research at +2 levels, +2 throws, +10% rate."
+  },
+  {
+   "level": 1,
+   "name": "Corrupting Weakness",
+   "summary": "Drawback: afflicted by a corrupting weakness (Judge picks or roll 1d10, e.g. Disfigured, Haunted, Nocturnal) at 1st and again at 3rd, 5th, 7th, 9th, 11th."
+  },
+  {
+   "level": 3,
+   "name": "Demonology path: Theology",
+   "summary": "Becomes a cultist of the chthonic powers; gains one rank of Theology proficiency."
+  },
+  {
+   "level": 3,
+   "name": "Necromancy path: Mortuary Science",
+   "summary": "Deep study of anatomy and vitality; gains one rank of Healing proficiency."
+  },
+  {
+   "level": 3,
+   "name": "Transmogrification path: Alchemy",
+   "summary": "Gains one rank of Alchemy proficiency."
+  },
+  {
+   "level": 5,
+   "name": "Demonology path: Conjure Hellion",
+   "summary": "Pacts with demon lords let him cast conjure hellion once per day."
+  },
+  {
+   "level": 5,
+   "name": "Necromancy path: Speak with Dead",
+   "summary": "Can cast speak with dead once per day."
+  },
+  {
+   "level": 5,
+   "name": "Transmogrification path: Skinchange",
+   "summary": "Can cast skinchange once per day."
+  },
+  {
+   "level": 5,
+   "name": "Minor Magical Research",
+   "summary": "Can research spells, scribe magical scrolls, and brew potions."
+  },
+  {
+   "level": 7,
+   "name": "Demonology path: Expanded Repertoire",
+   "summary": "+1 repertoire slot at each spell level he can cast; the extra spells must be conjuration or summoning spells, learned or researched separately."
+  },
+  {
+   "level": 7,
+   "name": "Necromancy path: Expanded Repertoire",
+   "summary": "+1 repertoire slot at each spell level he can cast; the extra spells must be death or necromancy spells, learned or researched separately."
+  },
+  {
+   "level": 7,
+   "name": "Transmogrification path: Expanded Repertoire",
+   "summary": "+1 repertoire slot at each spell level he can cast; the extra spells must be transmogrification spells, learned or researched separately."
+  },
+  {
+   "level": 9,
+   "name": "Demonology path: Words of Command and Obedience",
+   "summary": "Summoned creatures obey him faithfully instead of twisting his intent; conjured creatures depart without harming him if his concentration breaks."
+  },
+  {
+   "level": 9,
+   "name": "Necromancy path: Lordship Over the Undead",
+   "summary": "Undead he controls stay controlled 1 day/level instead of 1 turn/level; results that would give 1 day/level become indefinite control."
+  },
+  {
+   "level": 9,
+   "name": "Transmogrification path: Hideous Servant",
+   "summary": "Gains a bonded servant like a shaman's totem animal, taking two traits each from two animals; base HD is their average; no totem benefit."
+  },
+  {
+   "level": 9,
+   "name": "Major Magical Research",
+   "summary": "Can create more powerful magic items such as weapons, rings, and staffs."
+  },
+  {
+   "level": 9,
+   "name": "Sanctum",
+   "summary": "With a 15,000gp+ sanctum, attracts 1d6 1st-3rd level and 2d6 0th level apprentices in 1d3 months to aid research; a dungeon nearby draws monsters."
+  },
+  {
+   "level": 11,
+   "name": "Demonology path: Power of Sacrifice",
+   "summary": "Arcane power from blood sacrifice counts double its gp value and can be stored indefinitely, even when not researching."
+  },
+  {
+   "level": 11,
+   "name": "Necromancy path: Secrets of Life and Death",
+   "summary": "Performs necromancy at half the usual material cost and research cost."
+  },
+  {
+   "level": 11,
+   "name": "Transmogrification path: Shape Flesh and Bone",
+   "summary": "Creates magical crossbreeds at half the usual material cost and research cost."
+  },
+  {
+   "level": 11,
+   "name": "Supreme Magical Research",
+   "summary": "Can learn and cast 7th-9th level ritual arcane spells, craft constructs and create crossbreeds; if chaotic, can make necromantic servants and become undead."
+  }
+ ],
+ "witch": [
+  {
+   "level": 1,
+   "name": "Studious Divine Magic",
+   "summary": "Casts divine spells learned by study, using mage progression and rules; keeps divine spell books, learns from scrolls/other divine books; no arcane spells."
+  },
+  {
+   "level": 1,
+   "name": "Tradition",
+   "summary": "Belongs to a tradition (Antiquarian, Chthonic, Sylvan). Gains congregants; IDs own faith's symbols, 11+ others (1 rank Theology). Tradition power at 1/3/5/7."
+  },
+  {
+   "level": 1,
+   "name": "Village Wisdom",
+   "summary": "Minor hedge magic for village life (ease colds, childbirth pains, remove pests); 1 turn per use. With optional cantrip rules, casts divine cantrips."
+  },
+  {
+   "level": 1,
+   "name": "Antiquarian: Traditional Medicine",
+   "summary": "Forage/ID healing herbs as Naturalism (+4 if has it), use as Healing. 1 turn + equal gp components: potent herbs +1 effect, last 24 hours."
+  },
+  {
+   "level": 1,
+   "name": "Chthonic: Bedazzling Glamour",
+   "summary": "1 turn to activate glamour: +1 reactions (no stack with Mystic Aura), no age CHA penalty, ignores wound reaction penalties. Lasts until ended/dispelled."
+  },
+  {
+   "level": 1,
+   "name": "Sylvan: Friend of Birds and Beasts",
+   "summary": "ID plants/fauna 11+ (7+ w/ Beast Friendship), understands animals, +2 reactions with normal animals, takes and trains animal henchmen."
+  },
+  {
+   "level": 1,
+   "name": "Code of Behavior",
+   "summary": "Obligations to the powers: 1 at 1st, +1 per new spell level (3rd/5th/7th/9th/11th), ever more severe; breaking one brings Judge-set penalties until atoned."
+  },
+  {
+   "level": 3,
+   "name": "Brew Potions",
+   "summary": "Can brew potions; cannot yet research spells or scribe scrolls."
+  },
+  {
+   "level": 3,
+   "name": "Antiquarian: Healing Arts",
+   "summary": "Gains one rank of Healing proficiency (or Alchemy/Naturalism if already at 3 ranks of Healing)."
+  },
+  {
+   "level": 3,
+   "name": "Chthonic: Decadent Arts",
+   "summary": "Gains Seduction proficiency (or Diplomacy or Intimidation if she already has Seduction)."
+  },
+  {
+   "level": 3,
+   "name": "Sylvan: Natural Arts",
+   "summary": "Gains Naturalism proficiency (or second rank, Alchemy, or Healing if she already has it)."
+  },
+  {
+   "level": 5,
+   "name": "Minor Magical Research",
+   "summary": "Can research new spells; cannot yet scribe scrolls."
+  },
+  {
+   "level": 5,
+   "name": "Antiquarian: Second Sight",
+   "summary": "Sees innately or magically invisible creatures within 60'. They know she can see them. Does not see through cover or darkness."
+  },
+  {
+   "level": 5,
+   "name": "Chthonic: Subtle Beguilement",
+   "summary": "Enchantment spells count as Quiet Magic (or no gestures if she has it); targets save at -2, or -3 with Mastery of Enchantments & Illusions."
+  },
+  {
+   "level": 5,
+   "name": "Sylvan: Close Friend of Birds and Beasts",
+   "summary": "Speak with beasts at will. Friendly reaction from small cute animals (songbirds, squirrels) makes them act as if bewitched."
+  },
+  {
+   "level": 7,
+   "name": "Scribe Scrolls",
+   "summary": "Can create magic scrolls."
+  },
+  {
+   "level": 7,
+   "name": "Antiquarian: Magic Mirror",
+   "summary": "Cast scry once/day via a mirror or reflective surface (1 turn); can add clairaudiency or telepathy from repertoire while scrying."
+  },
+  {
+   "level": 7,
+   "name": "Chthonic: Evil Eye",
+   "summary": "Bestow curse as a spell-like ability once per week; no need to declare before initiative and not disrupted by damage or failed saves."
+  },
+  {
+   "level": 7,
+   "name": "Sylvan: Enchanted Forest",
+   "summary": "Cast forest enchantment once per week (1 turn); can sustain one per caster level (about 2 acres per level)."
+  },
+  {
+   "level": 9,
+   "name": "Witch's Cottage",
+   "summary": "With a 15,000gp+ cottage, attracts 1d6 1st-3rd level apprentices and 2d6 0th-level apprentices within 1d3 months; they assist magic research."
+  },
+  {
+   "level": 9,
+   "name": "Major Magical Research",
+   "summary": "Can create more powerful magic items such as weapons, rings, and staffs."
+  },
+  {
+   "level": 11,
+   "name": "Supreme Magical Research",
+   "summary": "Learns and casts 7th-9th level ritual divine spells, crafts constructs; if chaotic, can create necromantic servants and become undead."
+  }
+ ],
+ "craftpriest": [
+  {
+   "level": 1,
+   "name": "Attention to Detail",
+   "summary": "+3 bonus on proficiency throws for all proficiencies learned (already factored into class abilities)."
+  },
+  {
+   "level": 1,
+   "name": "Crafting",
+   "summary": "Master of one craft: 40gp of goods/month, supervises 2 journeymen and 4 apprentices; IDs masterworks/materials/artisans on 2+ (3 ranks Craft)."
+  },
+  {
+   "level": 1,
+   "name": "Rebuke Undead",
+   "summary": "Rebukes undead as a crusader of his level (Crusader Rebuking table; skeletons 10+ at 1st); success affects 2d6 HD for 1 turn. Needs holy symbol of his relic."
+  },
+  {
+   "level": 1,
+   "name": "Studious Divine Magic",
+   "summary": "Casts divine spells learned by study, using mage progression and rules; keeps divine spell books, learns from scrolls/other divine books; no arcane spells."
+  },
+  {
+   "level": 1,
+   "name": "Theology",
+   "summary": "Can gain congregants; auto-IDs dwarven religious symbols, trappings, holy days; other faiths on 8+ (1 rank Theology)."
+  },
+  {
+   "level": 1,
+   "name": "Dwarf Tongues",
+   "summary": "Speaks Common, Dwarvish, Goblin, Gnome, and Kobold."
+  },
+  {
+   "level": 1,
+   "name": "Hardy",
+   "summary": "Saving throw targets improved by 3 for Blast and by 4 for all other saves (already in the save table)."
+  },
+  {
+   "level": 1,
+   "name": "Sensitivity to Rock and Stone",
+   "summary": "+1 surprise underground; search/listen via Adventuring on 14+ (vs 18+), or +4 Searching / +2 Listening if proficient."
+  },
+  {
+   "level": 1,
+   "name": "Code of Behavior",
+   "summary": "Strictures: show holy symbol in public, sing hymns on holy days, use only dwarven weapons, recover/guard relics, no divine magic vs dwarves; breach = penalties."
+  },
+  {
+   "level": 5,
+   "name": "Minor Magical Research",
+   "summary": "Can research spells, scribe scrolls, and brew potions."
+  },
+  {
+   "level": 9,
+   "name": "Major Magical Research",
+   "summary": "Can create permanent magic items (weapons, rings, staffs) and magical constructs such as golems."
+  },
+  {
+   "level": 9,
+   "name": "Vault",
+   "summary": "With a 15,000gp+ vault, attracts (1d4+1)x10 dwarven mercenaries and 1d6 1st-3rd level craftpriests within 1d3 months; must pay them."
+  }
+ ],
+ "vaultguard": [
+  {
+   "level": 1,
+   "name": "Manual of Arms",
+   "summary": "IDs military gear/standards of own clan and vault; 11+ for others; fights as a regular in formed and loose units (1 rank Manual of Arms)."
+  },
+  {
+   "level": 1,
+   "name": "Dwarf Tongues",
+   "summary": "Speaks Common, Dwarvish, Goblin, Gnome, and Kobold."
+  },
+  {
+   "level": 1,
+   "name": "Hardy",
+   "summary": "Saving throw targets improved by 3 for Blast and by 4 for all other saves (already in the save table)."
+  },
+  {
+   "level": 1,
+   "name": "Sensitivity to Rock and Stone",
+   "summary": "+1 surprise underground; search/listen via Adventuring on 14+ (vs 18+), or +4 Searching / +2 Listening if proficient."
+  },
+  {
+   "level": 5,
+   "name": "Battlefield Prowess",
+   "summary": "Henchmen and mercenaries he personally leads get +1 morale; stacks with CHA and proficiency modifiers."
+  },
+  {
+   "level": 9,
+   "name": "Vault",
+   "summary": "With a 15,000gp+ vault, attracts 3d6x10 1st-level dwarven mercenaries within 1d3 months; must pay them standard rates."
+  }
+ ],
+ "nightblade": [
+  {
+   "level": 1,
+   "name": "Acrobatics",
+   "summary": "Skill throw 18+ at 1st level (improves by level). +2 saves vs agility dangers, adds level to DEX for jumps, tumble past engaged foe (max 5 st enc)."
+  },
+  {
+   "level": 1,
+   "name": "Backstabbing",
+   "summary": "+4 to hit vs vulnerable foes in melee or short-range missile; +1 damage die at 1st level, another at 5th, 9th, and 13th."
+  },
+  {
+   "level": 1,
+   "name": "Climbing",
+   "summary": "Skill throw 6+ at 1st level (improves by level). One throw per 100' climbed; failure means a fall. -5 at half combat speed, -10 at full."
+  },
+  {
+   "level": 1,
+   "name": "Hiding",
+   "summary": "Skill throw 19+ at 1st level (improves by level). Hide in cover/dim light/darkness; foes -2 surprise; can't be targeted, -4 to attack if located."
+  },
+  {
+   "level": 1,
+   "name": "Shadowy Senses",
+   "summary": "At combat/exploration speed, perceives as if carrying 30' radius dim light; can't read or see colors/faces. Fails if running, deafened, bright light."
+  },
+  {
+   "level": 1,
+   "name": "Sneaking",
+   "summary": "Skill throw 17+ at 1st level (improves by level). Silent movement; foes -2 surprise if out of sight. -5 above half combat speed, -10 running."
+  },
+  {
+   "level": 1,
+   "name": "Streetwise",
+   "summary": "May join an assassin's guild; can do hijinks; IDs criminal signs/slang of home city, 11+ for others (1 rank Streetwise)."
+  },
+  {
+   "level": 1,
+   "name": "Attunement to Nature",
+   "summary": "+1 surprise in wilderness; search/listen via Adventuring on 14+ (vs 18+), or +2 Searching / +4 Listening if proficient."
+  },
+  {
+   "level": 1,
+   "name": "Connection to Nature",
+   "summary": "Immune to undead-caused diseases; +1 to Paralysis and Spells saves; +1 to 1st-level HD roll (already in tables)."
+  },
+  {
+   "level": 1,
+   "name": "Elf Tongues",
+   "summary": "Speaks Common, Elven, Gnoll, Hobgoblin, and Orc."
+  },
+  {
+   "level": 2,
+   "name": "Arcane Magic",
+   "summary": "Casts arcane spells from a repertoire at a slower progression (caster level 1 at 2nd, 9 at 11th); can cast in light or very light armor."
+  },
+  {
+   "level": 2,
+   "name": "Quiet Magic",
+   "summary": "Casts with minimal words and gestures; Listening throw needed to hear; must be fully bound and gagged to stop casting."
+  },
+  {
+   "level": 7,
+   "name": "Minor Magical Research",
+   "summary": "Can research spells, scribe scrolls, and brew potions as a 5th-level mage."
+  },
+  {
+   "level": 9,
+   "name": "Hideout",
+   "summary": "With a 5,000gp+ hideout, attracts 2d6 1st-level elven nightblades within 1d4 weeks (one is a rival's spy); can found a syndicate."
+  }
+ ],
+ "spellsword": [
+  {
+   "level": 1,
+   "name": "Arcane Magic",
+   "summary": "Learns and casts arcane spells from a repertoire (spells per table + INT bonus); can cast while wearing armor."
+  },
+  {
+   "level": 1,
+   "name": "Collegiate Wizardry",
+   "summary": "May join a wizard's guild; auto-IDs arcane symbols, spell signatures, grimoires of own order; others on 11+ (1 rank Collegiate Wizardry)."
+  },
+  {
+   "level": 1,
+   "name": "Attunement to Nature",
+   "summary": "+1 surprise in wilderness; search/listen via Adventuring on 14+ (vs 18+), or +2 Searching / +4 Listening if proficient."
+  },
+  {
+   "level": 1,
+   "name": "Connection to Nature",
+   "summary": "Immune to undead-caused diseases; +1 to Paralysis and Spells saves; +1 to 1st-level HD roll (already in tables)."
+  },
+  {
+   "level": 1,
+   "name": "Elf Tongues",
+   "summary": "Speaks Common, Elven, Gnoll, Hobgoblin, and Orc."
+  },
+  {
+   "level": 5,
+   "name": "Minor Magical Research",
+   "summary": "Can research spells, scribe scrolls, and brew potions."
+  },
+  {
+   "level": 9,
+   "name": "Major Magical Research",
+   "summary": "Can create more powerful magic items such as weapons, rings, and staffs."
+  },
+  {
+   "level": 9,
+   "name": "Fastness",
+   "summary": "With a 15,000gp+ fastness in a natural setting, attracts 3d6x10 1st-level elven mercenaries within 1d3 months; must pay them."
+  }
+ ],
+ "wonderworker": [
+  {
+   "level": 1,
+   "name": "Arcane Magic",
+   "summary": "Learns and casts arcane spells as a mage from a repertoire (per Arcane Spell Progression table + INT bonus)."
+  },
+  {
+   "level": 1,
+   "name": "Collegiate Wizardry",
+   "summary": "May join a wizard's guild; auto-IDs arcane symbols, spell signatures, grimoires of own order; others on 11+ (1 rank Collegiate Wizardry)."
+  },
+  {
+   "level": 1,
+   "name": "Divine Magic",
+   "summary": "Also casts divine spells granted by prayer, per Divine Spell Progression table, using a crusader's repertoire for his faith."
+  },
+  {
+   "level": 1,
+   "name": "Divine Health",
+   "summary": "Immune to all disease, including magical diseases from spells, mummies, or lycanthropes."
+  },
+  {
+   "level": 1,
+   "name": "Lay on Hands",
+   "summary": "Once per day, heals 2 damage per class level by touch; Laying on Hands proficiency adds uses (1 rank Laying on Hands)."
+  },
+  {
+   "level": 1,
+   "name": "Blood of Ancient Kings",
+   "summary": "Can hire one more henchman than CHA allows; henchmen base loyalty +1."
+  },
+  {
+   "level": 1,
+   "name": "Favor of the Empyrean Powers",
+   "summary": "+2 bonus to all saving throws (already in the save table)."
+  },
+  {
+   "level": 1,
+   "name": "Longeval",
+   "summary": "No aging penalties, lifespan 3x normal; +1 to 1st-level HD roll; immune to undead-caused diseases."
+  },
+  {
+   "level": 1,
+   "name": "Code of Behavior",
+   "summary": "Must show holy symbol in public, pray at dawn and dusk (1 turn each), fight Chaos and uphold Law, never use divine magic for Chaotic ends; breach = penalties."
+  },
+  {
+   "level": 5,
+   "name": "Minor Magical Research",
+   "summary": "Can scribe scrolls, brew potions, and research arcane spells."
+  },
+  {
+   "level": 9,
+   "name": "Major Magical Research",
+   "summary": "Can create more powerful magic items such as weapons, rings, and staffs."
+  },
+  {
+   "level": 9,
+   "name": "Sanctum",
+   "summary": "With a 15,000gp+ sanctum, attracts 1d6 1st-3rd level and 2d6 0th-level apprentices within 1d3 months; a dungeon nearby draws monsters."
+  },
+  {
+   "level": 11,
+   "name": "Supreme Magical Research",
+   "summary": "Learns and casts 7th-9th level arcane and divine rituals, crafts constructs and crossbreeds; if chaotic, necromancy and undeath."
+  }
+ ],
+ "ruinguard": [
+  {
+   "level": 1,
+   "name": "Dark Blessing",
+   "summary": "+2 bonus to all saving throws (already in the save table)."
+  },
+  {
+   "level": 1,
+   "name": "Manual of Arms",
+   "summary": "IDs military gear/standards of homeland; 11+ for other realms; fights as a regular in formed and loose units (1 rank Manual of Arms)."
+  },
+  {
+   "level": 1,
+   "name": "Preternatural Quickening",
+   "summary": "+1 bonus to initiative and +1 bonus to avoid surprise."
+  },
+  {
+   "level": 1,
+   "name": "Weapon Focus",
+   "summary": "Gains Weapon Focus with one weapon type of choice: axes; maces, flails and hammers; or swords and daggers."
+  },
+  {
+   "level": 1,
+   "name": "After the Flesh",
+   "summary": "If made intelligent undead, keeps powers and advances HD without limit (3,500 XP to 2 HD +500 per *, doubling); abilities up to 14th."
+  },
+  {
+   "level": 1,
+   "name": "Ancient Pacts",
+   "summary": "+1 reactions with intelligent Chaotic monsters; they save at -2 vs his enchantment spells."
+  },
+  {
+   "level": 1,
+   "name": "Dark Souls",
+   "summary": "When dead and rolling on Tampering With Mortality, takes -1 per level of experience on the 1d20 roll."
+  },
+  {
+   "level": 1,
+   "name": "Inexorable",
+   "summary": "Immune to all natural and magical fear effects."
+  },
+  {
+   "level": 1,
+   "name": "Zaharan Tongues",
+   "summary": "Speaks Ancient Zaharan, Common, Goblin, Orc, and Kemeshi."
+  },
+  {
+   "level": 2,
+   "name": "Arcane Magic",
+   "summary": "Casts arcane spells from a repertoire at a slower progression (caster level 1 at 2nd, 9 at 11th); can cast in any armor."
+  },
+  {
+   "level": 2,
+   "name": "Arcane Striking",
+   "summary": "After a melee hit, expend a spell slot for +1d6 damage per slot level (arcane damage); a kill allows a cleave."
+  },
+  {
+   "level": 4,
+   "name": "Death Healing",
+   "summary": "On felling a sentient foe in melee, expend a spell slot to heal 1d6 per slot level, max the victim's starting hp; can still cleave."
+  },
+  {
+   "level": 5,
+   "name": "Dark Charisma",
+   "summary": "Chaotic characters and monsters in his service get +1 morale when he personally leads them; stacks with CHA and proficiencies."
+  },
+  {
+   "level": 7,
+   "name": "Minor Magical Research",
+   "summary": "Can research spells, scribe scrolls, and brew potions as a 5th-level mage."
+  },
+  {
+   "level": 9,
+   "name": "Dark Fortress",
+   "summary": "With a 15,000gp+ dark fortress, attracts 5d6x10 0th-level or beastman troops and 1d6 1st-3rd level ruinguards in 1d3 months; must pay them."
+  },
+  {
+   "level": 9,
+   "name": "Spell Storing",
+   "summary": "Casts a creature-targeted spell into his melee weapon; discharges on next hit; one at a time, lasts 1 turn. A kill by it allows no cleave."
+  },
+  {
+   "level": 12,
+   "name": "Major Magical Research",
+   "summary": "Can create more powerful magic items (weapons, rings, staffs) as a 9th-level mage."
+  }
+ ]
+}

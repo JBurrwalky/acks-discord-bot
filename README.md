@@ -1,0 +1,231 @@
+# ACKS II Character Sheet Bot
+
+A Discord bot that keeps **Adventurer Conqueror King System II** character sheets for your players and rolls
+attacks and saves straight from them.
+
+**Classes:** 53 classes in all: the 21 from the **Revised Rulebook**, 22 elven and gnomish classes from
+**Before All Others** (v37), and 10 dwarven classes from **By This Axe**. Each has its own XP, titles,
+attack-throw and saving-throw tables, combat proficiencies, and 8 templates.
+
+- **Creation wizard** (`/create`): roll attributes the ACKS II way (5d6 drop 2 / 4d6 drop 1 / 3d6), pick from
+  the classes you qualify for, roll hit points, roll 3d6 for a **class template** (all 168 templates from the
+  Revised Rulebook, with gear, proficiencies, and coins filled in and auto-equipped), then name the character.
+- **Sheets** (`/sheet`): attributes, HP bar, AC with its breakdown, attack throw, saving throws, melee and
+  missile attack lines, encumbrance and speeds, purse, proficiencies, with buttons for the Inventory and Notes pages.
+- **Attacks** (`/mattack`, `/rattack`): give the target's AC; the bot applies every bonus and penalty on the
+  sheet and reports the roll, the modifiers, the number needed, **HIT** or **MISS**, and damage on a hit.
+- **Saves** (`/save_paralysis`, `/save_death`, `/save_blast`, `/save_implements`, `/save_spells`).
+- **Inventory** in **stone**, **items** (6 = 1 stone), or **coins** (1,000 = 1 stone); a coin purse; equip and
+  unequip weapons, armor, and shields, with AC and to-hit updated to match.
+- **HP**, **XP**, **level-ups** (HP rerolled per the rules), **modifiers** for magic items and spells, **proficiencies**.
+
+## Setup
+
+1. **Create the bot in Discord**
+   1. Open <https://discord.com/developers/applications> → **New Application**.
+   2. **Bot** tab → **Reset Token** → copy the token.
+   3. **OAuth2 → URL Generator**: tick the scopes `bot` and `applications.commands`, and the bot permissions
+      **Send Messages**, **Embed Links**, and **Use External Emojis**. Open the generated URL and add the bot to your server.
+2. **Configure**: copy `.env.example` to `.env` and paste the token after `DISCORD_TOKEN=`.
+   Also set `GUILD_ID` to your server's ID (right-click the server → *Copy Server ID*, with Developer Mode on)
+   so commands appear instantly instead of after up to an hour.
+3. **Install and run** (Python 3.10+):
+
+   ```bash
+   python -m venv .venv
+   .venv\Scripts\activate
+   pip install -r requirements.txt
+   python bot.py
+   ```
+
+Characters are saved in `data/acks.db` (SQLite). Back that file up to keep your campaign safe.
+
+**Judges**: anyone with *Manage Server* permission, or a role named `Judge` (change it with `JUDGE_ROLE` in
+`.env`), can view and edit every character. Every command that takes a `character` option shows a Judge all
+characters in the server. Everyone else can only change their own characters, but can view anyone's sheet.
+
+## Commands
+
+Most commands take an optional `character`. If you leave it out, the command uses your **active** character,
+which you set with `/character select`.
+
+| Command | What it does |
+|---|---|
+| `/create` | Start the character creation wizard (private to you) |
+| `/sheet [character] [page] [private]` | Show a sheet: `sheet`, `inventory`, or `notes` page |
+| `/character list` · `select` · `delete` | Manage your characters |
+| `/character edit` · `notes` | Name, alignment, homeland, description; free-form notes (spells, languages...) |
+| `/character attributes str:… dex:…` | Change attribute scores |
+| `/character powers [all_levels]` | Class powers the character has at their level (and what's coming) |
+| `/character path` | Choose a tradition, sect, dark path, or sigil, so only that path's powers show |
+| `/character training` | Extra armor, weapons, or fighting styles from class choices or powers (e.g. `style_choice` for a courtier's dual weapons, an earthforger's sigil allowing heavier armor) |
+| `/character set_level` · `barbarian` · `give` | Fix a level; set a barbarian's region and damage type; reassign a character (Judge) |
+| `/xp amount` | Award XP. Applies the key-attribute bonus unless `apply_bonus:False` |
+| `/levelup` | Gain a level when you have the XP; rerolls HP per the rules |
+| `/mattack target_ac [situational] [backstab] [raging] [mounted] [blind] [foe]` | Melee attack with equipped weapon(s) |
+| `/rattack target_ac [range] [situational] [backstab] [raging] [mounted] [blind] [foe]` | Missile attack; `range` short / medium (−2) / long (−5) |
+| `/save_paralysis` `/save_death` `/save_blast` `/save_implements` `/save_spells` `[source] [agility]` | Saving throws (WIL, Divine Blessing, and modifiers applied) |
+| `/initiative [casting]` | 1d6 + DEX and other initiative bonuses |
+| `/spell slots` | Show remaining spell slots (also on the sheet) |
+| `/spell cast level [pool] [count] [spell]` · `cast points` | Spend slots of a spell level (or spell points for spellsingers) |
+| `/spell refresh [level] [count] [pool]` | With `level`: restore one slot (or `count`) of that level. Without: restore all slots |
+| `/spell set_slots level slots [pool]` · `set_points` | Set slots per day by hand (homebrew, bonuses, or classes the bot has no table for); `reset:True` goes back to the class table |
+| `/encounter start` | Initiative wizard: tick the party (pre-filled with everyone's active character), add monsters/NPCs/groups, then roll |
+| `/encounter next_round` · `add` · `add_character` · `remove` · `show` · `end` | Run the fight: reroll for a new round, add or remove combatants (newcomers roll right away), repost the roster, or end and delete it |
+| `/roll dice` · `/throw target modifier` | Any dice (`2d6+1`, `4d6kh3`); a generic d20 throw vs. a target |
+| `/help [public]` | List every command (only you see it unless `public:True`) |
+| `/item add name [quantity] [weight] [unit] [base] [magic] [notes]` | Add any item, from the books or not. `unit` = stone, items, or coins. Set `base` (e.g. *Sword*, *Chain Mail Armor*) to make it a book weapon or armor that can be equipped |
+| `/item add … damage size weapon_type range thrown` · `armor_ac armor_type` | Homebrew weapon or armor stats (see below) |
+| `/item remove` · `list` · `edit` | Remove, list, or edit items (`edit` can also change or clear homebrew stats) |
+| `/purse add` · `spend` · `set` | Coins (pp, gp, ep, sp, cp) |
+| `/equip item [slot]` · `/unequip slot` | Slots: main hand, off hand, both hands, missile, armor, shield |
+| `/hp damage` · `heal` · `set` · `show` | Hit points |
+| `/modifier add name target value` · `remove` · `list` | Ring of protection, *bless*, blindness... Targets: attacks, damage, AC, saves, initiative |
+| `/proficiency add` · `remove` | Proficiencies (autocompletes from your class list and the general list) |
+
+## Spell slots
+
+The bot tracks spell slots only, not spell rules. Each caster's slots per day come from their class table at
+their current level: the Revised Rulebook casters and 14 Before All Others classes, with separate **Arcane** and
+**Divine** pools for the Nobiran wonderworker and elven druid, and spell points for the spellsinger. By This
+Axe classes use invocations, rhetoric, or brewing rather than daily castings, so they have no slots.
+
+- `/spell cast level:2` spends a 2nd-level slot; add `pool:Divine` when a class has two pools, `count:2` for
+  several, and `spell:` to name it for the table. Spellsingers use `/spell cast points:3`.
+- `/spell refresh level:2` restores one 2nd-level slot; `/spell refresh` restores everything (after rest).
+- `/spell set_slots` overrides a level's slots (or gives slots to any class), and slots grow automatically
+  when the character levels up.
+- The sheet shows ◆ available and ◇ spent slots.
+
+## Encounters and initiative
+
+`/encounter start` opens a private two-step setup:
+
+1. **Party**: everyone's active character is pre-ticked; untick absentees, tick extras. Each character's
+   initiative bonus comes from their sheet (DEX, Combat Reflexes, Animal Reflexes, Graceful Fighting,
+   Fighting Style Specialization, modifiers) and is recalculated every round.
+2. **Everyone else**: press **Add combatant** for each monster, NPC, or group: name, initiative modifier, how
+   many, enemy or ally, and whether to roll each one separately. By default a group shares one roll, as ACKS
+   suggests for identical monsters.
+
+**Roll initiative!** posts the roster in the channel, highest number first, with buttons:
+🎲 **Next round** (everyone rolls 1d6 + modifiers again), ➕ **Add**, ➖ **Remove**, 🗑️ **End encounter**.
+Ties are marked ⇄ with who chooses the order (same side: they choose; otherwise the smaller side, or the
+Judge's side if equal). Combatants added mid-fight roll immediately and join the current round.
+
+There's one roster per channel and it's saved, so it survives a bot restart. Only the Judge or the person who
+started the encounter can change it; everyone can see it. To start over, `/encounter end` (or 🗑️) deletes the
+roster and `/encounter start` builds a new one. Starting a new one while another is running warns you and
+replaces it when you roll.
+
+## Homebrew weapons and armor
+
+Any item can be added, but to equip it as a weapon or armor it needs stats. Either borrow a book item's stats
+with `base`, give it its own stats, or both (your stats override the base's):
+
+```
+/item add name:Dragon-bone axe damage:1d12 size:large weapon_type:axes
+/item add name:Heirloom blade base:Sword damage:1d8/1d10 magic:1
+/item add name:Hand cannon damage:2d6 size:missile range:40/80/160
+/item add name:Throwing star damage:1d3 size:tiny thrown:True range:20/40/60
+/item add name:Mithral shirt armor_ac:5 armor_type:light weight:2 unit:stone
+/item add name:Tower shield armor_ac:2 armor_type:shield weight:2 unit:stone
+```
+
+- `damage` is dice only: `1d12`, or `1d6/1d8` for one-handed/two-handed (medium weapons). Flat bonuses go in
+  `magic` or a `/modifier`.
+- `size` decides hands and fighting styles (tiny/small one hand, medium either, large two hands; `missile` for
+  bows, slings and guns). `weapon_type` decides class proficiency for classes trained by weapon group, and
+  Weapon Focus.
+- Classes trained in a fixed list of weapons (mages, crusaders, venturers...) are only proficient with homebrew
+  weapons that have a `base` from their list. Otherwise use `/character training add_weapon`, which accepts
+  book weapons only, or set `base` to the closest book weapon they know.
+- Armor weighs 1 stone per point of AC unless you give a `weight`. `armor_type` decides which classes can wear it.
+
+## Class powers on the sheet
+
+Every class's powers (811 across the 53 classes, including racial traits) are listed with the level they're
+gained. The sheet shows the names of the powers the character has now and the next one coming; the **Notes**
+page and `/character powers` give a one-line summary of each (`all_levels:True` adds the ones still to come).
+Summaries paraphrase the books; check the book for the full rules.
+
+Per-level class skills (thief skills, hiding and sneaking, listening, loremastery, rebuke undead, caster level, dendromancy and crafting rates...) show their current value on the sheet, e.g. *Hiding 8+*.
+All class data was cross-checked against the PDFs of all three books: codes of behavior, skill tables and a few summaries were added or corrected; level tables, saves, attack throws, and spell slots matched.
+
+Classes that follow a path (wizard and witch traditions, druid sects, warlock dark paths, earthforger sigils)
+only show that path's powers once it's chosen with `/character path`. The sporecaster's optional powers are
+listed as choices; record the picks in `/character notes`.
+
+## Proficiencies and class powers that change rolls
+
+Applied automatically: Weapon Finesse, Weapon Focus (extra die on a natural 20), Fighting Style
+Specialization (all five styles), Swashbuckling, Combat Reflexes, **Divine Blessing** (+2 saves),
+**Combat Ferocity** (+1 cleave), **Running** (+30' speed in medium or lighter armor at 7 stone or less),
+Long Range Volleying, Martial Training and Armor Training; class damage bonuses, backstab and ambush,
+Animal Reflexes, Graceful Fighting, the pugilist's fists and Legwork, and the fury's Flesh-Runes.
+
+Situational options on the roll commands:
+
+| Option | Effect |
+|---|---|
+| `raging` (attacks) | Berserkergang: +2 melee/thrown (note: −2 AC). Dwarven fury: Fighting Fury +2 damage |
+| `mounted` (attacks) | Mounted Combat: +1 |
+| `blind` (attacks) | −4, or −2 with Blind Fighting |
+| `foe` (attacks) | Goblin-Slaying / Kin-Slaying (+1, +2 at 7th, +3 at 13th), Vermin-Slaying (+1) |
+| `backstab` with Sniping | Backstab or ambush with missiles beyond short range |
+| `source` (saves) | Paladin's Aura of Protection +1 vs evil; Vermin-Slaying +1 vs oozes and vermin |
+| `agility` (saves) | Acrobatics +2 where agility helps (pit traps, tilting floors) |
+| `casting` (initiative) | Battle Magic +1; Combat Reflexes doesn't apply while casting |
+
+Anything else situational (cover, flanking, charging, spells) goes in `situational` or a `/modifier`.
+Surprise rolls, thief skills, and other proficiency throws aren't rolled by the bot; use `/throw`.
+
+## What the bot calculates
+
+- **Attack throw** by class progression and level (fighter / thief-crusader / mage tables, plus the demi-human
+  tables). A roll hits if **d20 + modifiers ≥ attack throw + target AC**. A natural 20 always hits and a natural 1 always misses.
+- **Melee**: STR (or DEX with Weapon Finesse or a bladedancer's power), magic bonus, dual-weapon +1 (+1 more
+  with Fighting Style Specialization) plus the off-hand weapon's magic, and your modifiers.
+  **Damage**: the weapon's die (1d8 instead of 1d6 for medium weapons held in both hands), STR, the class
+  damage bonus by level, magic, and Fighting Style Specialization (two-handed).
+- **Missile**: DEX, magic, range penalty, Fighting Style Specialization (missile). Damage adds STR only for
+  thrown weapons, and adds the class damage bonus (not for paladins or ruinguards; barbarians choose melee or missile).
+- **Backstab / ambush**: +4 to hit, plus the class's extra damage dice (thieves, assassins, and nightblades by
+  level; explorers and anyone with Ambushing get +1 die). Missile backstabs only work at short range.
+- **Weapon Focus**: a natural 20 with the chosen weapon group adds an extra damage die.
+- **Non-proficiency**: armor, weapons, or fighting styles your class can't use make you attack as a 0th-level
+  fighter (11+), with no attribute bonuses to attacks or AC and no class powers. The sheet and roll results warn you when this happens.
+- **AC**: armor + shield (only for classes with the weapon & shield style) + Fighting Style Specialization +
+  DEX + Swashbuckling / Graceful Fighting (light armor and ≤ 5 stone) + modifiers.
+- **Saves**: class/level target values; rolls add WIL and any save modifiers.
+- **Encumbrance**: every item's weight + coins (1,000 per stone, counted in 1/6-stone steps) → speed band
+  (120' / 90' / 60' / 30', overloaded past 20 + STR modifier).
+
+## Notes and limits
+
+- Template gear weights are worked out from the equipment tables. About half match the book's stated
+  encumbrance exactly; the rest are within a fraction of a stone, or the book has put rations on a horse. Use
+  `/item edit` to adjust anything.
+- Situational modifiers the bot can't know about (flanking, cover, charging, Mounted Combat, the paladin's aura
+  against evil) go in the `situational` option or a `/modifier`.
+- Spells, thief skills, and other class powers are not automated. Keep them in `/character notes`.
+- Crusader weapons follow the default worshipper of Ammonar.
+- **Supplement classes**: the wizard asks for the book first, then the class. Classes that pick *either*
+  dual weapons *or* weapon & shield (courtier, warrior, envoy, oakheart, swordseer) or two of three styles
+  (ranger) pick them on the wizard's class step. A Before All Others template that begins with a style
+  ("Dual Weapons", "Sentinel (Weapon and Shield)") sets it instead. Change the pick later with
+  `/character training style_choice`; characters made before this show a reminder on the sheet. The pugilist's
+  fist damage and Legwork AC and the fury's Flesh-Runes AC are applied automatically; spells, spellsinging,
+  dendromancy, invocations, and other class powers go in `/character notes`.
+- By This Axe's vaultguard and craftpriest are the older ACKS 1e versions of Revised Rulebook classes, so
+  the Revised Rulebook versions are used. By This Axe templates don't list encumbrance, so the bot works it out.
+- Class data lives in `acks/data/classes/*.json` (one file per book) and can be corrected by hand; the bot
+  checks each class when it starts and skips any with missing table values.
+- `tools/extract_book_data.py` rebuilds `acks/data/templates.json` and `proficiencies.json` from the
+  Markdown export of the rulebook.
+
+## Tests
+
+```bash
+python tests/test_rules.py
+```

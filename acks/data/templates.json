@@ -1,0 +1,2180 @@
+{
+ "fighter": [
+  {
+   "roll_min": 3,
+   "roll_max": 4,
+   "name": "Thug",
+   "caste": null,
+   "proficiencies": [
+    "Combat Ferocity",
+    "Intimidation"
+   ],
+   "equipment": "Short bow, quiver with 20 arrows, morning star, scarred leather armor, wool tunic and pants, embossed belt, low boots, backpack, waterskin, 1 week's iron rations",
+   "book_encumbrance": "4 4/6 st"
+  },
+  {
+   "roll_min": 5,
+   "roll_max": 6,
+   "name": "Ravager",
+   "caste": null,
+   "proficiencies": [
+    "Berserkergang",
+    "Endurance"
+   ],
+   "equipment": "Long bearded axe, francisca, chain mail armor, thick wool cloak, wool tunic and pants, leather belt, low boots, belt pouch, small sack, waterskin, 1 week's iron rations",
+   "book_encumbrance": "6 4/6 st"
+  },
+  {
+   "roll_min": 7,
+   "roll_max": 8,
+   "name": "Corsair",
+   "caste": null,
+   "proficiencies": [
+    "Swashbuckling",
+    "Seafaring"
+   ],
+   "equipment": "Short bow, quiver with 20 arrows, scimitar, 2 well-balanced daggers with boot-sheathes, leather armor, colorful tunic and pants, silk girdle, leather duelist's gloves, high boots, small sack, 50' rope, grappling hook, waterskin, 1 week's iron rations, 4gp",
+   "book_encumbrance": "5 3/6 st"
+  },
+  {
+   "roll_min": 9,
+   "roll_max": 10,
+   "name": "Auxiliary",
+   "caste": null,
+   "proficiencies": [
+    "Skirmishing",
+    "Labor (construction)"
+   ],
+   "equipment": "3 javelins, short sword, wooden shield, chain mail armor, armiger's tunic and pants, embossed belt, high boots, backpack, laborer's tools, mess kit, flask of military oil, tinderbox, 1 week's iron rations, 10gp",
+   "book_encumbrance": "8 3/6 st"
+  },
+  {
+   "roll_min": 11,
+   "roll_max": 12,
+   "name": "Legionary",
+   "caste": null,
+   "proficiencies": [
+    "Fighting Style Spec. (weapon & shield)",
+    "Siege Engineering"
+   ],
+   "equipment": "Military-issue spear and short sword, steel shield re-painted many times, slightly battered banded plate armor, armiger's tunic and pants, embossed belt, high boots, backpack, laborer's tools, mess kit, flask of military oil, tinderbox, waterskin, 1 week's iron rations, 20gp",
+   "book_encumbrance": "10 st"
+  },
+  {
+   "roll_min": 13,
+   "roll_max": 14,
+   "name": "Gladiator",
+   "caste": null,
+   "proficiencies": [
+    "Weapon Focus (swords and daggers)",
+    "Seduction"
+   ],
+   "equipment": "2 swords, heavy arena armor, plumed heavy helmet with visor and crest, armiger's tunic and pants, sandals, small sack, amphora of oil (for polishing body), 1 week's iron rations, 38gp in arena winnings",
+   "book_encumbrance": "6 st"
+  },
+  {
+   "roll_min": 15,
+   "roll_max": 16,
+   "name": "Signifer",
+   "caste": null,
+   "proficiencies": [
+    "Command",
+    "Manual of Arms 2"
+   ],
+   "equipment": "Military-issue spear and sword, steel shield bearing Imperial eagle, banded plate armor, banner flag bearing winged sun, armiger's tunic and pants, low boots, short gloves, backpack, mess kit, tinderbox, waterskin, 1 week's iron rations, 57gp in back pay",
+   "book_encumbrance": "9 5/6 st, or 8 5/6 st without banner"
+  },
+  {
+   "roll_min": 17,
+   "roll_max": 18,
+   "name": "Cataphract",
+   "caste": null,
+   "proficiencies": [
+    "Mounted Combat",
+    "Military Strategy"
+   ],
+   "equipment": "Composite bow, quiver with 20 arrows, polished sword, steel shield bearing noble house's crest, lamellar armor, armiger's tunic and pants, high boots, medium riding horse, riding saddle and tack, saddlebag, waterskin, 1 week's iron rations, 2gp",
+   "book_encumbrance": "7 2/6 st with rations on horse"
+  }
+ ],
+ "explorer": [
+  {
+   "roll_min": 3,
+   "roll_max": 4,
+   "name": "Wanderer",
+   "caste": null,
+   "proficiencies": [
+    "Running",
+    "Labor (construction)"
+   ],
+   "equipment": "Short bow, quiver with 20 arrows, old spear, hand axe, battered leather armor, deep cowled traveler's cloak, wool tunic and pants, leather belt, well-worn high boots, backpack, tinderbox, 6 torches, waterskin, 2 weeks' iron rations",
+   "book_encumbrance": "7 st"
+  },
+  {
+   "roll_min": 5,
+   "roll_max": 6,
+   "name": "Cartographer",
+   "caste": null,
+   "proficiencies": [
+    "Land Surveying",
+    "Mapping"
+   ],
+   "equipment": "Short bow, quiver with 20 arrows, spear, hand axe, leather armor, hooded cloak, wool tunic and pants, embossed belt, sturdy low boots, backpack, tattered cartographic journal, quill and ink, tinderbox, 12 torches, 2 weeks' iron rations, 6gp",
+   "book_encumbrance": "8 2/6 st"
+  },
+  {
+   "roll_min": 7,
+   "roll_max": 8,
+   "name": "Mariner",
+   "caste": null,
+   "proficiencies": [
+    "Swashbuckling",
+    "Seafaring"
+   ],
+   "equipment": "Short bow, quiver with 20 arrows, scimitar, dagger, leather armor, mariner's tunic and pants, fancy red sash, polished high boots, backpack, 50' rope, grappling hook, tinderbox, 12 torches, wineskin, 2 weeks' iron rations, 4gp",
+   "book_encumbrance": "8 2/6 st"
+  },
+  {
+   "roll_min": 9,
+   "roll_max": 10,
+   "name": "Pathfinder",
+   "caste": null,
+   "proficiencies": [
+    "Precise Shooting",
+    "Tracking"
+   ],
+   "equipment": "Sturdy long bow, quiver with 20 arrows, spear, short sword, dagger, scale armor, wind-battered fur cloak, wool tunic and pants, leather belt, low boots, backpack, lantern, tinderbox, 1 flask of common oil, blanket, 50' rope, 12 iron spikes, small hammer, waterskin, 1 week's iron rations",
+   "book_encumbrance": "9 5/6 st"
+  },
+  {
+   "roll_min": 11,
+   "roll_max": 12,
+   "name": "Mountaineer",
+   "caste": null,
+   "proficiencies": [
+    "Climbing",
+    "Mountaineering"
+   ],
+   "equipment": "Crossbow, case with 30 bolts, net, short sword, dagger, chainmail armor, hooded cloak, dark tunic and pants, low hiking boots, backpack, small sack, 4 stakes and mallet, 6 iron spikes, 50' rope, 2 flasks of military oil, tinderbox, 6 torches, waterskin, 1 week's iron rations, 12gp",
+   "book_encumbrance": "10 st"
+  },
+  {
+   "roll_min": 13,
+   "roll_max": 14,
+   "name": "Scout",
+   "caste": null,
+   "proficiencies": [
+    "Passing without Trace",
+    "Survival"
+   ],
+   "equipment": "Composite bow, quiver with 20 arrows, 2 short swords, chain mail armor, grey-green traveler's cloak, wool tunic and pants, leather belt, high boots, backpack, 50' rope, grappling hook, tinderbox, 6 torches, 1 week's iron rations, 11gp",
+   "book_encumbrance": "9 1/6 st"
+  },
+  {
+   "roll_min": 15,
+   "roll_max": 16,
+   "name": "Monster Hunter",
+   "caste": null,
+   "proficiencies": [
+    "Skirmishing",
+    "Trapping"
+   ],
+   "equipment": "Shortbow, quiver with 20 arrows, spear, short sword, net, chain mail armor, hunter green cloak, tunic, and pants, leather belt, low boots, backpack, 2 lbs garlic, 2 lbs wolfsbane, 2 vials of holy water, 50' rope, 6 torches, tinderbox, waterskin, 1 week's iron rations, 19gp",
+   "book_encumbrance": "10 st"
+  },
+  {
+   "roll_min": 17,
+   "roll_max": 18,
+   "name": "Outrider",
+   "caste": null,
+   "proficiencies": [
+    "Mounted Combat",
+    "Riding"
+   ],
+   "equipment": "Composite bow, quiver with 20 arrows, scimitar, scale armor, traveler's tunic and pants, riding boots, light riding horse, riding saddle and tack, leather saddlebag, waterskin, 1 week's iron rations",
+   "book_encumbrance": "4 1/3 st with rations on horse"
+  }
+ ],
+ "thief": [
+  {
+   "roll_min": 3,
+   "roll_max": 4,
+   "name": "Outlaw",
+   "caste": null,
+   "proficiencies": [
+    "Skulking",
+    "Survival"
+   ],
+   "equipment": "Handmade short bow, quiver with 20 arrows, short sword, leather armor, tattered cloak, old freeholder's tunic and pants, embossed belt, well worn low boots, backpack, 50' rope, waterskin, 1 week's iron rations, 1gp",
+   "book_encumbrance": "4 5/6 st"
+  },
+  {
+   "roll_min": 5,
+   "roll_max": 6,
+   "name": "Thief-Acrobat",
+   "caste": null,
+   "proficiencies": [
+    "Acrobatics",
+    "Endurance"
+   ],
+   "equipment": "Bola, staff, supple leather armor, cloak, tunic and pants, embossed belt, low boots, backpack, 50' rope, grappling hook, waterskin, 1 week's iron rations, 1gp",
+   "book_encumbrance": "5 4/6 st"
+  },
+  {
+   "roll_min": 7,
+   "roll_max": 8,
+   "name": "Buccaneer",
+   "caste": null,
+   "proficiencies": [
+    "Swashbuckling",
+    "Seafaring"
+   ],
+   "equipment": "Short bow, quiver with 20 arrows, scimitar, well-balanced dagger with boot-sheath, leather armor, colorful tunic and pants, fancy sash, high boots, belt pouch, small sack, 50' rope, thieves' tools, waterskin, 1 week's iron rations, 7gp",
+   "book_encumbrance": "5 2/6 st"
+  },
+  {
+   "roll_min": 9,
+   "roll_max": 10,
+   "name": "Tomb Raider",
+   "caste": null,
+   "proficiencies": [
+    "Trapfinding",
+    "Mapping"
+   ],
+   "equipment": "Short bow, quiver with 20 arrows, 10' pole, short sword, throwing dagger, sturdy leather armor, tanned brown cloak, thick tunic and pants, leather belt, low boots, backpack, 2 large treasure sacks, thieves' tools, 50' rope, tinderbox, lantern, small hammer, 12 iron spikes, 2 flasks of common oil, 2 flasks of military oil, wineskin, 1 week's iron rations, 4gp",
+   "book_encumbrance": "8 st"
+  },
+  {
+   "roll_min": 11,
+   "roll_max": 12,
+   "name": "Cat Burglar",
+   "caste": null,
+   "proficiencies": [
+    "Cat Burglary",
+    "Gambling"
+   ],
+   "equipment": "Short bow, quiver with 20 arrows, short sword, 2 throwing daggers, supple leather armor, black cloak with hood and bandana, black tunic and pants, leather belt, padded sandals, backpack, large treasure sack, thieves' tools, crowbar, 50' rope, grappling hook, lantern, tinderbox, 2 flasks of common oil, small hammer, 12 iron spikes, waterskin, 1 week's iron rations",
+   "book_encumbrance": "7 5/6 st"
+  },
+  {
+   "roll_min": 13,
+   "roll_max": 14,
+   "name": "Lockbreaker",
+   "caste": null,
+   "proficiencies": [
+    "Lockpicking Expertise",
+    "Craft (locksmithing)"
+   ],
+   "equipment": "Crossbow, case with 20 bolts, short sword, leather armor, hooded cloak, freeholder's tunic and pants, leather belt, low boots, backpack, thieves' tools, 50' rope, grappling hook, tinderbox, lantern, flask of common oil, small hammer, 12 iron spikes, waterskin, 1 week's iron rations",
+   "book_encumbrance": "6 1/6 st"
+  },
+  {
+   "roll_min": 15,
+   "roll_max": 16,
+   "name": "Failed Apprentice",
+   "caste": null,
+   "proficiencies": [
+    "Arcane Dabbling",
+    "Collegiate Wizardry"
+   ],
+   "equipment": "Crossbow, case with 20 bolts, quarterstaff, 2 throwing daggers, leather armor under blue mage's cassock, high boots, backpack, belt pouch, thieves' tools, 50' rope, spellbook (blank), lantern, tinderbox, 4 flasks of military oil, 2 flasks of common oil, small hammer, 12 iron spikes, 1 lb garlic, 1 lb wolfsbane, wineskin, 1 week's iron rations, 12gp",
+   "book_encumbrance": "9 st"
+  },
+  {
+   "roll_min": 17,
+   "roll_max": 18,
+   "name": "Traveler",
+   "caste": null,
+   "proficiencies": [
+    "Skirmishing",
+    "Riding"
+   ],
+   "equipment": "Crossbow, case with 20 bolts, short sword, leather armor, traveler's tunic and pants, riding boots, light riding horse, riding saddle and tack, leather saddlebag, thieves' tools, waterskin, 1 week's iron rations",
+   "book_encumbrance": "2 5/6 st with rations on horse"
+  }
+ ],
+ "mage": [
+  {
+   "roll_min": 3,
+   "roll_max": 4,
+   "name": "Hedge Wizard",
+   "caste": null,
+   "proficiencies": [
+    "Mastery of Enchant. & Illusions",
+    "Healing",
+    "Survival"
+   ],
+   "equipment": "Musty old spellbook with beguile humanoid and auditory illusion , gnarled oaken staff, simple robe, leather shoes, medicine bag, 1 lb comfrey, waterskin, 1 week's iron rations, 1gp, 8sp",
+   "book_encumbrance": "3 st"
+  },
+  {
+   "roll_min": 5,
+   "roll_max": 6,
+   "name": "Necromancer",
+   "caste": null,
+   "proficiencies": [
+    "Black Lore of Zahar",
+    "Alchemy",
+    "Healing"
+   ],
+   "equipment": "Iron-bound snakeskin spellbook with unliving puppet and faithful companion , curved sacrificial dagger, grey robes, leather belt, leather gloves, high boots, backpack, belt pouch, quill and ink, 2 weeks' iron rations, 19gp",
+   "book_encumbrance": "2 2/6 st"
+  },
+  {
+   "roll_min": 7,
+   "roll_max": 8,
+   "name": "Occultist",
+   "caste": null,
+   "proficiencies": [
+    "Mastery of Conj. & Summoning",
+    "Knowledge (occult)",
+    "Theology"
+   ],
+   "equipment": "Rolled papyrus spellbook with conjure cacodemon spawn and summon manes , wavy-bladed dagger, black and gold robes, polished iron skullcap, embossed belt, low boots, backpack, quill and ink, waterskin, 2 weeks' iron rations, 56gp",
+   "book_encumbrance": "3 1/6 st"
+  },
+  {
+   "roll_min": 9,
+   "roll_max": 10,
+   "name": "Elementalist",
+   "caste": null,
+   "proficiencies": [
+    "Elementalism (fire)*",
+    "Naturalism",
+    "Alchemy"
+   ],
+   "equipment": "Wood-paneled spellbook with fan of flames and blinding flash , gnarled oaken staff, 5 darts, four-colored cassock with hood, embossed belt, low boots, backpack, quill and ink, waterskin, 1 week's iron rations, 60gp",
+   "book_encumbrance": "3 1/6 st"
+  },
+  {
+   "roll_min": 11,
+   "roll_max": 12,
+   "name": "Classicist",
+   "caste": null,
+   "proficiencies": [
+    "Loremastery",
+    "Knowledge (history)",
+    "Military Strategy"
+   ],
+   "equipment": "Well-kept spellbook with mage missile and illumination , rune-etched staff, blue mage's cassock, embossed belt, low boots, backpack, quill and ink, waterskin, 1 week's iron rations, 82gp",
+   "book_encumbrance": "3 st"
+  },
+  {
+   "roll_min": 13,
+   "roll_max": 14,
+   "name": "Warmage",
+   "caste": null,
+   "proficiencies": [
+    "Battle Magic",
+    "Military Strategy",
+    "Siege Engineering"
+   ],
+   "equipment": "Academy-issue spellbook with earth's excrescence and slicing blow, iron-shod staff, officer's dagger, red armiger's tunic and pants, high boots, backpack, quill and ink, waterskin, 1 week's iron rations, 94gp",
+   "book_encumbrance": "3 1/6 st"
+  },
+  {
+   "roll_min": 15,
+   "roll_max": 16,
+   "name": "Polymath",
+   "caste": null,
+   "proficiencies": [
+    "Expanded Repertoire",
+    "Naturalism",
+    "Language"
+   ],
+   "equipment": "Enameled spellbook with infuriate humanoid , discern magic , and one spell of character's choice; smooth-worn staff, blue robe with crescents, leather belt, low boots, backpack, ornamental crystal ball (20gp value), quill and ink, waterskin, 1 week's iron rations, 102gp",
+   "book_encumbrance": "3 1/6 st"
+  },
+  {
+   "roll_min": 17,
+   "roll_max": 18,
+   "name": "Noble Magist",
+   "caste": null,
+   "proficiencies": [
+    "Bright Lore of Aura",
+    "Diplomacy",
+    "Leadership"
+   ],
+   "equipment": "Bronze-framed spellbook with slumber and counterspell, staff tipped with glass gemstone (45gp value), 5 darts, white mage's cassock, extravagant hat, leather belt, leather gloves, high boots, backpack, quill and ink, medium riding horse, riding saddle and tack, leather saddlebag, 2 weeks' iron rations, 34gp, 5sp",
+   "book_encumbrance": "2 st with rations on horse"
+  }
+ ],
+ "crusader": [
+  {
+   "roll_min": 3,
+   "roll_max": 4,
+   "name": "Hermit",
+   "caste": null,
+   "proficiencies": [
+    "Laying on Hands",
+    "Naturalism"
+   ],
+   "equipment": "Hand-carved wood holy symbol (winged sun of Ammonar), staff, hide armor, itchy wool tunic and pants, sandals, small sack, waterskin, 2 weeks' iron rations",
+   "book_encumbrance": "4 2/6 st"
+  },
+  {
+   "roll_min": 5,
+   "roll_max": 6,
+   "name": "Prophet",
+   "caste": null,
+   "proficiencies": [
+    "Prophecy",
+    "Performance (storytelling)"
+   ],
+   "equipment": "Holy symbol (winged sun of Ammonar), sling, 30 sling stones, staff, leather armor, grey wool tunic and pants, embossed belt, low boots, backpack, 1 week's iron rations, 6gp",
+   "book_encumbrance": "4 5/6 st"
+  },
+  {
+   "roll_min": 7,
+   "roll_max": 8,
+   "name": "Mendicant",
+   "caste": null,
+   "proficiencies": [
+    "Beast Friendship",
+    "Animal Husbandry"
+   ],
+   "equipment": "Holy symbol (winged sun of Ammonar), wooden walking staff, leather backed scale armor, green traveler's cloak, green cassock, sandals, small sack, waterskin, 2 weeks' iron rations, trained hunting dog, 5gp",
+   "book_encumbrance": "6 4/6 st"
+  },
+  {
+   "roll_min": 9,
+   "roll_max": 10,
+   "name": "Proselytizer",
+   "caste": null,
+   "proficiencies": [
+    "Divine Health",
+    "Diplomacy"
+   ],
+   "equipment": "Holy symbol (winged sun of Ammonar), mace, wooden shield, ring mail armor, purple priest's cassock, embossed belt, high boots, small sack, holy book (The Laws of the Light), waterskin, 1 week's iron rations, 20sp for alms",
+   "book_encumbrance": "6 1/6 st"
+  },
+  {
+   "roll_min": 11,
+   "roll_max": 12,
+   "name": "Priest",
+   "caste": null,
+   "proficiencies": [
+    "Divine Blessing",
+    "Theology 2"
+   ],
+   "equipment": "Holy symbol (winged sun of Ammonar), mace, wooden shield, banded plate armor, purple priest's cassock, embossed belt, high boots, small sack, holy book (The Laws of the Light), waterskin, 1 week's iron rations, 25sp for alms",
+   "book_encumbrance": "8 1/6 st"
+  },
+  {
+   "roll_min": 13,
+   "roll_max": 14,
+   "name": "Undead Slayer",
+   "caste": null,
+   "proficiencies": [
+    "Righteous Rebuke",
+    "Healing"
+   ],
+   "equipment": "Holy symbol (winged sun of Ammonar), warhammer, steel shield, chain mail armor, blue priest's cassock, leather belt, low boots, backpack, 1 flask of holy water, 1 lb garlic, 1 lb wolfsbane, mirror, 4 stakes and mallet, waterskin, 1 week's iron rations, 8gp",
+   "book_encumbrance": "7 3/6 st"
+  },
+  {
+   "roll_min": 15,
+   "roll_max": 16,
+   "name": "Exorcist",
+   "caste": null,
+   "proficiencies": [
+    "Sensing Evil",
+    "Intimidation"
+   ],
+   "equipment": "Holy symbol (winged sun of Ammonar), warhammer, steel shield, banded plate armor, blue priest's cassock, leather belt, low boots, backpack, flask of holy water, 6 torches, tinderbox, 50' rope, manacles, waterskin, 1 week's iron rations, 33gp",
+   "book_encumbrance": "10 1/2 st"
+  },
+  {
+   "roll_min": 17,
+   "roll_max": 18,
+   "name": "Templar",
+   "caste": null,
+   "proficiencies": [
+    "Martial Training (swords/daggers)",
+    "Riding"
+   ],
+   "equipment": "Holy symbol (winged sun of Ammonar), polished sword and dagger, steel shield bearing symbol of the winged sun, banded plate armor, purple armiger's tunic and pants, embossed belt, riding boots, riding gloves, medium riding horse, riding saddle and tack, leather saddlebag, 1 week's iron rations, 15gp",
+   "book_encumbrance": "6 3/6 st with rations on horse"
+  }
+ ],
+ "venturer": [
+  {
+   "roll_min": 3,
+   "roll_max": 4,
+   "name": "Bankrupt",
+   "caste": null,
+   "proficiencies": [
+    "Running",
+    "Gambling",
+    "Driving"
+   ],
+   "equipment": "Slightly notched short sword, dagger, leather armor, shabby linen tunic and pants, once-fancy embossed belt, low boots, 2 belt pouches (one empty!), set of bone dice, waterskin, 1 week's iron rations, 4gp",
+   "book_encumbrance": "3 5/6 st"
+  },
+  {
+   "roll_min": 5,
+   "roll_max": 6,
+   "name": "Factotum",
+   "caste": null,
+   "proficiencies": [
+    "Arcane Dabbling",
+    "Bargaining",
+    "Seafaring"
+   ],
+   "equipment": "Short bow, quiver with 20 arrows, short sword, dagger, leather armor, wool tunic and pants, hooded cloak, leather belt, low boots, backpack, tinderbox, 12 torches, waterskin, 1 week's iron rations, 18gp",
+   "book_encumbrance": "6 1/6 st"
+  },
+  {
+   "roll_min": 7,
+   "roll_max": 8,
+   "name": "Merchant Mariner",
+   "caste": null,
+   "proficiencies": [
+    "Swashbuckling",
+    "Seafaring 2",
+    "Seafaring"
+   ],
+   "equipment": "Short bow, quiver with 20 arrows, scimitar, leather armor, mariner's tunic and pants, fancy gold sash, polished high boots, backpack, 50' rope, grappling hook, waterskin, 1 week's iron rations, 1gp",
+   "book_encumbrance": "5 st"
+  },
+  {
+   "roll_min": 9,
+   "roll_max": 10,
+   "name": "Merchant Traveler",
+   "caste": null,
+   "proficiencies": [
+    "Alertness",
+    "Navigation",
+    "Driving"
+   ],
+   "equipment": "Crossbow, case with 20 bolts, short sword, 2 throwing daggers, sturdy leather armor, tanned brown cloak, thick tunic and pants, leather belt, high boots, backpack, large treasure sack, 50' rope, tinderbox, lantern, small hammer, 12 iron spikes, flask of common oil, flask of military oil, waterskin, 1 week's iron rations, 1gp",
+   "book_encumbrance": "6 3/6 st"
+  },
+  {
+   "roll_min": 11,
+   "roll_max": 12,
+   "name": "Antiquary",
+   "caste": null,
+   "proficiencies": [
+    "Magical Engineering",
+    "Knowledge (history)",
+    "Driving"
+   ],
+   "equipment": "Crossbow, case with 20 bolts, short sword, dagger, well-maintained leather armor, traveler's tunic and pants, leather belt, sturdy low boots, backpack, collector's journal, quill and ink, collection of ancient coins (26gp value), waterskin, 1 week's iron rations",
+   "book_encumbrance": "4 3/6 st"
+  },
+  {
+   "roll_min": 13,
+   "roll_max": 14,
+   "name": "Caravaneer",
+   "caste": null,
+   "proficiencies": [
+    "Precise Shooting",
+    "Animal Husbandry",
+    "Driving"
+   ],
+   "equipment": "Crossbow, case with 20 bolts, short sword, dagger, leather armor under dusty robes, embossed belt, sturdy low boots, backpack, tinderbox, 12 torches, small cart, mule, draft harness and tack, 2 leather saddlebags, waterskin, 1 week's iron rations, 6gp",
+   "book_encumbrance": "6 1/6 st, or 4 1/6 st with rations and 6 torches on cart"
+  },
+  {
+   "roll_min": 15,
+   "roll_max": 16,
+   "name": "Comprador",
+   "caste": null,
+   "proficiencies": [
+    "Eavesdropping",
+    "Language",
+    "Seafaring"
+   ],
+   "equipment": "Crossbow, case with 20 bolts, short sword, pair of daggers, leather armor, embroidered cloak, armiger's tunic and pants, leather gloves, polished high boots, backpack, waterskin, 1 week's iron rations, 70gp for bribes",
+   "book_encumbrance": "4 2/6 st"
+  },
+  {
+   "roll_min": 17,
+   "roll_max": 18,
+   "name": "Magnate",
+   "caste": null,
+   "proficiencies": [
+    "Command",
+    "Riding",
+    "Seafaring"
+   ],
+   "equipment": "Crossbow, case with 20 bolts, short sword, dagger, leather armor, embroidered cloak, armiger's tunic and pants, gaudy silver rings (20gp value), riding boots, medium riding horse, riding saddle and tack, leather saddlebag, waterskin, 2 weeks' iron rations, 20gp",
+   "book_encumbrance": "2 5/6 st with rations on horse"
+  }
+ ],
+ "assassin": [
+  {
+   "roll_min": 3,
+   "roll_max": 4,
+   "name": "Cutthroat",
+   "caste": null,
+   "proficiencies": [
+    "Combat Reflexes",
+    "Gambling"
+   ],
+   "equipment": "Hand axe, dagger, leather armor, cheap tunic and pants, leather belt, high boots, backpack, 12 iron spikes, small hammer, flask of military oil, tinderbox, 12 torches, waterskin, 1 week's iron rations",
+   "book_encumbrance": "5 3/6 st"
+  },
+  {
+   "roll_min": 5,
+   "roll_max": 6,
+   "name": "Bounty Hunter",
+   "caste": null,
+   "proficiencies": [
+    "Combat Trickery (incapacitate)",
+    "Tracking"
+   ],
+   "equipment": "Bola, serrated sword, dagger, net, leather armor, black cloak, traveler's tunic and pants, high boots, backpack, crowbar, 50' rope, manacles, waterskin, 1 week's iron rations, 2gp",
+   "book_encumbrance": "6 1/6 st"
+  },
+  {
+   "roll_min": 7,
+   "roll_max": 8,
+   "name": "Pirate",
+   "caste": null,
+   "proficiencies": [
+    "Swashbuckling",
+    "Seafaring"
+   ],
+   "equipment": "Short bow, quiver with 20 arrows, scimitar, well-balanced dagger with boot-sheath, leather armor, colorful tunic and pants, silk sash, high boots, 50' rope, grappling hook, waterskin, 1 week's iron rations",
+   "book_encumbrance": "5 st"
+  },
+  {
+   "roll_min": 9,
+   "roll_max": 10,
+   "name": "Bravo",
+   "caste": null,
+   "proficiencies": [
+    "Fighting Style Spec. (dual weapon)",
+    "Intimidation"
+   ],
+   "equipment": "Crossbow, case with 20 bolts, serrated sword, left-hand dagger, black leather armor, duelist's cloak, armiger's tunic and pants, leather belt, leather duelist's gloves, high boots, belt pouch with bone dice made from last foe, backpack, waterskin, 1 week's iron rations, 9gp",
+   "book_encumbrance": "4 2/6 st"
+  },
+  {
+   "roll_min": 11,
+   "roll_max": 12,
+   "name": "Assassin-for-Hire",
+   "caste": null,
+   "proficiencies": [
+    "Precise Shooting",
+    "Bargaining"
+   ],
+   "equipment": "Arbalest, case with 20 bolts, pair of well-sharpened short swords, bloodstained leather armor, dark cloak with hood, black tunic and pants, low boots, leather belt, small sack, 2 flasks of military oil, tinderbox, 50' rope, waterskin, 1 week's iron rations, 15gp",
+   "book_encumbrance": "6 2/6 st"
+  },
+  {
+   "roll_min": 13,
+   "roll_max": 14,
+   "name": "Poisoner",
+   "caste": null,
+   "proficiencies": [
+    "Poisoning",
+    "Seduction"
+   ],
+   "equipment": "Slender short sword, dagger, long leather whip, tight leather armor, leather cloak, elegant linen tunic and pants, silk sash, high boots, backpack, manacles, 1 dose of giant centipede poison, 1 lb of dried belladonna, waterskin, 1 week's iron rations, 19gp",
+   "book_encumbrance": "4 2/6 st"
+  },
+  {
+   "roll_min": 15,
+   "roll_max": 16,
+   "name": "Infiltrator",
+   "caste": null,
+   "proficiencies": [
+    "Skulking",
+    "Disguise"
+   ],
+   "equipment": "Crossbow, case with 20 bolts, short sword, dagger, unmarked leather armor, simple hooded cloak, plain tunic and pants, leather belt, low boots, backpack, thieves' tools, disguise kit, waterskin, 1 week's iron rations, 33gp for bribes",
+   "book_encumbrance": "5 2/6 st"
+  },
+  {
+   "roll_min": 17,
+   "roll_max": 18,
+   "name": "Cult Deathbringer",
+   "caste": null,
+   "proficiencies": [
+    "Arcane Dabbling",
+    "Theology"
+   ],
+   "equipment": "Crossbow, case with 20 bolts, wavy-bladed sword and short sword, dagger in wrist sheath, leather armor under grey cassock with hood, long leather gloves, soft-soled shoes, leather belt, 2 belt pouches, holy symbol (eclipsed sun), 2 flasks of holy water, holy book (The Eclipse of Calefa), 6 torches, waterskin, 1 week's iron rations, 4gp",
+   "book_encumbrance": "6 2/6 st"
+  }
+ ],
+ "barbarian": [
+  {
+   "roll_min": 3,
+   "roll_max": 4,
+   "name": "Tribal Warrior (Ivory Kingdoms)",
+   "caste": null,
+   "proficiencies": [
+    "Ambushing",
+    "Tracking",
+    "Running",
+    "Endurance"
+   ],
+   "equipment": "Bola, 5 feathered darts, spear decorated with beads and feathers, club, cowhide shield, wildebeest hide armor, loincloth, sandals, hide belt, hide pouch, 2 small hide sacks, waterskin, 1 week's iron rations, 65sp",
+   "book_encumbrance": "5 st"
+  },
+  {
+   "roll_min": 5,
+   "roll_max": 6,
+   "name": "Berserker (Jutland)",
+   "caste": null,
+   "proficiencies": [
+    "Berserkergang",
+    "Intimidation",
+    "Climbing",
+    "Seafaring"
+   ],
+   "equipment": "Long bearded axe, chain mail armor, rough spun wool tunic and pants, embossed belt, low fur-lined boots, backpack, waterskin, 1 week's iron rations, 4gp",
+   "book_encumbrance": "6 2/6 st"
+  },
+  {
+   "roll_min": 7,
+   "roll_max": 8,
+   "name": "Sea Rover (Jutland)",
+   "caste": null,
+   "proficiencies": [
+    "Swashbuckling",
+    "Navigation",
+    "Climbing",
+    "Seafaring"
+   ],
+   "equipment": "Short bow, quiver with 20 arrows, iron-tipped spear, bearded axe, kite shield painted with a dragon, leather armor, rough spun wool tunic and pants, embossed belt, low boots, small sack, 50' rope, grappling hook, waterskin, 1 week's iron rations, 6gp",
+   "book_encumbrance": "6 5/6 st"
+  },
+  {
+   "roll_min": 9,
+   "roll_max": 10,
+   "name": "Skirmisher (Skysostan)",
+   "caste": null,
+   "proficiencies": [
+    "Skirmishing",
+    "Endurance",
+    "Precise Shooting",
+    "Riding"
+   ],
+   "equipment": "Composite bow, bowquiver with 20 arrows, pair of scimitars, leather backed scale armor, wool tunic and pants, embossed belt, low boots, backpack, waterskin, 1 week's iron rations, 2gp",
+   "book_encumbrance": "5 st"
+  },
+  {
+   "roll_min": 11,
+   "roll_max": 12,
+   "name": "Death Dealer (Jutland)",
+   "caste": null,
+   "proficiencies": [
+    "Combat Ferocity",
+    "Survival",
+    "Climbing",
+    "Seafaring"
+   ],
+   "equipment": "Two-handed iron sword, francisca, ring mail armor, wool tunic and pants, leather belt, low boots, silver arm-bands (20gp value), belt pouch, small sack, 50' rope, grappling hook, waterskin, 1 week's iron rations, 12gp",
+   "book_encumbrance": "7 st"
+  },
+  {
+   "roll_min": 13,
+   "roll_max": 14,
+   "name": "Pit Fighter (Ivory Kingdoms)",
+   "caste": null,
+   "proficiencies": [
+    "Combat Reflexes",
+    "Gambling",
+    "Running",
+    "Endurance"
+   ],
+   "equipment": "Spear, weighted net, hand axe, heavy arena armor, plumed heavy helmet with visor and crest, armiger's tunic and pants, strappy spiked belt, sandals, small sack, amphora of oil (for polishing body), 2 weeks' iron rations, 34gp in arena winnings",
+   "book_encumbrance": "9 st"
+  },
+  {
+   "roll_min": 15,
+   "roll_max": 16,
+   "name": "Housecarl (Jutland)",
+   "caste": null,
+   "proficiencies": [
+    "Fighting Style Specialization (weapon and shield)",
+    "Manual of Arms",
+    "Climbing",
+    "Seafaring"
+   ],
+   "equipment": "Short bow, quiver with 20 arrows, iron spear, iron sword, kite shield painted with house crest, chain mail armor, wool tunic and pants, silver arm-bands (20gp value), silver amulet (50gp value), embossed belt, low boots, backpack, 50' rope, grappling hook, waterskin, 1 week's meaty iron rations, 11gp",
+   "book_encumbrance": "9 2/6 st"
+  },
+  {
+   "roll_min": 17,
+   "roll_max": 18,
+   "name": "Nomad (Skysostan)",
+   "caste": null,
+   "proficiencies": [
+    "Mounted Combat",
+    "Survival",
+    "Precise Shooting",
+    "Riding"
+   ],
+   "equipment": "Composite bow, bowquiver with 20 arrows, scimitar, leather-backed scale armor, wool tunic and pants, riding boots, steppe riding horse, riding saddle and tack, leather saddlebag, 1 week's iron rations, 6gp",
+   "book_encumbrance": "3 4/6 st with rations on horse"
+  }
+ ],
+ "bard": [
+  {
+   "roll_min": 3,
+   "roll_max": 4,
+   "name": "Woodland Piper",
+   "caste": null,
+   "proficiencies": [
+    "Beast Friendship",
+    "Naturalism",
+    "Performance (instruments)",
+    "Familiar"
+   ],
+   "equipment": "2 javelins, hide armor, leather shoes, leather belt, belt pouch, pan pipes, waterskin, 1 week's iron rations, 1gp",
+   "book_encumbrance": "2 5/6 st"
+  },
+  {
+   "roll_min": 5,
+   "roll_max": 6,
+   "name": "Hedge Magician",
+   "caste": null,
+   "proficiencies": [
+    "Prestidigitation",
+    "Alchemy",
+    "Performance (oration)",
+    "Soothsaying"
+   ],
+   "equipment": "Staff, leather armor under mage's cassock, cloak with embroidered sigils, fancy silver sash, low boots, 2 small sacks, 2 tallow candles, tinderbox, 1 pint of rare wine in potion vial, leather-bound spellbook (blank), waterskin, 1 week's iron rations, 2gp",
+   "book_encumbrance": "5 4/6 st"
+  },
+  {
+   "roll_min": 7,
+   "roll_max": 8,
+   "name": "Swashbuckler",
+   "caste": null,
+   "proficiencies": [
+    "Swashbuckling",
+    "Seafaring",
+    "Performance (singing)",
+    "Fighting Style Specialization (dual weapons)"
+   ],
+   "equipment": "Short bow, quiver with 20 arrows, scimitar, well-balanced dagger with boot-sheath, leather armor, colorful tunic and pants, bright silk girdle, high boots, 50' rope, grappling hook, waterskin, 1 week's iron rations",
+   "book_encumbrance": "6 st"
+  },
+  {
+   "roll_min": 9,
+   "roll_max": 10,
+   "name": "Wandering Minstrel",
+   "caste": null,
+   "proficiencies": [
+    "Magical Music",
+    "Seduction",
+    "Performance (instruments)",
+    "Precise Shooting"
+   ],
+   "equipment": "Crossbow, case with 20 bolts, short sword, dagger, well-maintained leather armor, traveler's tunic and pants, embossed belt, sturdy low boots, belt pouch, small sack, lute, waterskin, 1 week's iron rations",
+   "book_encumbrance": "4 2/6 st"
+  },
+  {
+   "roll_min": 11,
+   "roll_max": 12,
+   "name": "Historian",
+   "caste": null,
+   "proficiencies": [
+    "Magical Engineering",
+    "Knowledge (history)",
+    "Performance (epic poetry)",
+    "Bright Lore of Aura"
+   ],
+   "equipment": "Crossbow, case with 20 bolts, short sword, dagger, well-maintained laminated linen armor, traveler's tunic and pants, polished high boots, backpack, parchment journal half-filled with entries, quill and ink, waterskin, 1 week's iron rations, 6gp",
+   "book_encumbrance": "6 2/6 st"
+  },
+  {
+   "roll_min": 13,
+   "roll_max": 14,
+   "name": "Beguiler",
+   "caste": null,
+   "proficiencies": [
+    "Mystic Aura",
+    "Diplomacy",
+    "Performance (singing)",
+    "Treachery (Venturer)"
+   ],
+   "equipment": "Crossbow, case with 20 bolts, sword, polished chain mail armor, flamboyant fur-lined cloak, fancy tunic and pants, long leather gloves, high boots, bright silk sash, purse, belt pouch, waterskin, 2 weeks' iron rations, 10gp",
+   "book_encumbrance": "7 st"
+  },
+  {
+   "roll_min": 15,
+   "roll_max": 16,
+   "name": "Spy",
+   "caste": null,
+   "proficiencies": [
+    "Disguise",
+    "Streetwise",
+    "Performance (acting)",
+    "Hiding (Thief)"
+   ],
+   "equipment": "Crossbow, case with 20 bolts, short sword, dagger, unmarked leather armor, simple hooded cloak, traveler's tunic and pants, embossed belt, low boots, backpack, disguise kit, crowbar, 50' rope, waterskin, 1 week's iron rations, 56gp for bribes",
+   "book_encumbrance": "6 2/6 st"
+  },
+  {
+   "roll_min": 17,
+   "roll_max": 18,
+   "name": "Aristocrat",
+   "caste": null,
+   "proficiencies": [
+    "Command",
+    "Leadership",
+    "Performance (oration)",
+    "Armor Training (heavy)"
+   ],
+   "equipment": "Matching sword and dagger with lacquered hilts, exquisitely made plate armor, shield, fur-lined cloak, armiger's tunic and pants, high boots, medium riding horse, riding saddle and tack, 2 leather saddlebags, waterskin, 1 week's iron rations, 10gp",
+   "book_encumbrance": "6 2/6 st with rations on horse"
+  }
+ ],
+ "bladedancer": [
+  {
+   "roll_min": 3,
+   "roll_max": 4,
+   "name": "Warrior Witch",
+   "caste": null,
+   "proficiencies": [
+    "Syncretism",
+    "Alchemy"
+   ],
+   "equipment": "Holy symbol (lion of Ianna), wickedly curved short sword, animal skin cloak, fur-lined leather girdle, leather breast band, loin cloth, high boots, small sack, waterskin, 1 week's iron rations, 3gp",
+   "book_encumbrance": "1 4/6 st"
+  },
+  {
+   "roll_min": 5,
+   "roll_max": 6,
+   "name": "Oracle",
+   "caste": null,
+   "proficiencies": [
+    "Prophecy",
+    "Theology"
+   ],
+   "equipment": "Holy symbol (9-pointed star of Ianna), wavy-bladed short sword, strappy leather armor, crimson and gold chiton, sandals, small sack, waterskin, 1 week's iron rations, 4gp",
+   "book_encumbrance": "3 4/6 st"
+  },
+  {
+   "roll_min": 7,
+   "roll_max": 8,
+   "name": "Bringer of Mercy",
+   "caste": null,
+   "proficiencies": [
+    "Laying on Hands",
+    "Healing"
+   ],
+   "equipment": "Holy symbol (9-pointed star of Ianna), slender-bladed sword, very sharp dagger, leather armor, white chiton, white sash, high sandals, backpack, 1 lb comfrey, waterskin, 2 weeks' iron rations, 5gp",
+   "book_encumbrance": "5 st"
+  },
+  {
+   "roll_min": 9,
+   "roll_max": 10,
+   "name": "Bladesinger",
+   "caste": null,
+   "proficiencies": [
+    "Magical Music",
+    "Performance (singing)"
+   ],
+   "equipment": "Holy symbol (9-pointed star of Ianna), long-bladed glaive, polished sword and dagger, strappy leather armor, bladedancer's head dress (20gp value), crimson chiton, gold silk sash, high boots, backpack, waterskin, 1 week's iron rations, 1gp",
+   "book_encumbrance": "4 5/6 st"
+  },
+  {
+   "roll_min": 11,
+   "roll_max": 12,
+   "name": "Temple Bladedancer",
+   "caste": null,
+   "proficiencies": [
+    "Swashbuckling",
+    "Performance (dancing)"
+   ],
+   "equipment": "Holy symbol (9-pointed star of Ianna), pair of gracefully curved swords, polished leather armor, bladedancer's head dress (20gp value), golden fur-trimmed cloak, white chiton, high boots, backpack, waterskin, 1 week's iron rations, 4gp",
+   "book_encumbrance": "3 5/6 st"
+  },
+  {
+   "roll_min": 13,
+   "roll_max": 14,
+   "name": "Veiled Assassin",
+   "caste": null,
+   "proficiencies": [
+    "Quiet Magic",
+    "Seduction"
+   ],
+   "equipment": "Holy symbol (9-pointed star of Ianna), slender short sword, dagger, leather armor, black fur-lined cloak, black silk veil and sash, black linen chiton, long leather gloves, gold bangles (20gp value), high boots, backpack, waterskin, 1 week's iron rations, 20gp",
+   "book_encumbrance": "4 st"
+  },
+  {
+   "roll_min": 15,
+   "roll_max": 16,
+   "name": "Consular",
+   "caste": null,
+   "proficiencies": [
+    "Contemplation",
+    "Diplomacy"
+   ],
+   "equipment": "Holy symbol (9-pointed star of Ianna), finely made sword and dagger, elegant leather armor, bladedancer's head dress (20gp value), white silk chiton, high boots, backpack, waterskin, 1 week's iron rations, 33gp",
+   "book_encumbrance": "3 2/3 st"
+  },
+  {
+   "roll_min": 17,
+   "roll_max": 18,
+   "name": "Warrior Princess",
+   "caste": null,
+   "proficiencies": [
+    "Martial Training (bows/crossbows)",
+    "Riding"
+   ],
+   "equipment": "Holy symbol (9-pointed star of Ianna), composite bow, quiver with 20 arrows, finely made glaive, elegant leather armor, crimson chiton, gold silk sash, high boots, bladedancer's head dress (20gp value), medium riding horse, riding tack and saddle, leather saddlebag, waterskin, 1 week's iron rations",
+   "book_encumbrance": "4 3/6 st with rations on horse"
+  }
+ ],
+ "paladin": [
+  {
+   "roll_min": 3,
+   "roll_max": 4,
+   "name": "Errant",
+   "caste": null,
+   "proficiencies": [
+    "Running",
+    "Survival"
+   ],
+   "equipment": "Hand-carved wood holy symbol (gallery of Naurivus), sword, peasant's wool tunic and pants, low sandals, small sack, waterskin, 1 week's iron rations, 1gp",
+   "book_encumbrance": "1 4/6 st"
+  },
+  {
+   "roll_min": 5,
+   "roll_max": 6,
+   "name": "Gallant",
+   "caste": null,
+   "proficiencies": [
+    "Mystic Aura",
+    "Diplomacy"
+   ],
+   "equipment": "Holy symbol (9-pointed star of Ianna), sword, leather armor, well-kept wool tunic and pants, embossed belt, low boots, 2 belt pouches, waterskin, 1 week's iron rations, 1gp",
+   "book_encumbrance": "3 5/6 st"
+  },
+  {
+   "roll_min": 7,
+   "roll_max": 8,
+   "name": "Temple Guard",
+   "caste": null,
+   "proficiencies": [
+    "Alertness",
+    "Manual of Arms 2"
+   ],
+   "equipment": "Holy symbol (winged sun of Ammonar), spear, round wooden shield, ring mail armor, purple military cloak, guard's tunic and pants, embossed belt, low boots, backpack, belt pouch, tinderbox, 6 torches, waterskin, 1 week's iron rations, 2gp",
+   "book_encumbrance": "7 5/6 st"
+  },
+  {
+   "roll_min": 9,
+   "roll_max": 10,
+   "name": "Champion",
+   "caste": null,
+   "proficiencies": [
+    "Divine Blessing",
+    "Theology"
+   ],
+   "equipment": "Holy symbol (winged sun of Ammonar), sword, steel shield bearing symbol of winged sun, laminated linen armor, wool tunic and pants, embossed belt, high boots, short gloves, backpack, tinderbox, 12 torches, waterskin. 1 week's iron rations, 7gp",
+   "book_encumbrance": "8 st"
+  },
+  {
+   "roll_min": 11,
+   "roll_max": 12,
+   "name": "Foe Hunter",
+   "caste": null,
+   "proficiencies": [
+    "Combat Ferocity",
+    "Military Strategy"
+   ],
+   "equipment": "Holy symbol (winged sun of Ammonar), two-handed sword, banded plate armor, wool tunic and pants, embossed belt, low boots, backpack, 1 lb garlic, 1 lb wolfsbane, 4 stakes and mallet, tinderbox, 6 torches, waterskin, 1 week's iron rations, 10gp",
+   "book_encumbrance": "9 1/6 st"
+  },
+  {
+   "roll_min": 13,
+   "roll_max": 14,
+   "name": "Vanguard",
+   "caste": null,
+   "proficiencies": [
+    "Combat Reflexes",
+    "Endurance"
+   ],
+   "equipment": "Holy symbol (hammer of Türas), razor-sharp glaive, short sword, steel shield bearing symbol of Türas, banded plate armor, blue armiger's tunic and pants, leather belt, high boots, backpack, flask of holy water, tinderbox, 6 torches, waterskin, 1 week's iron rations, 1gp",
+   "book_encumbrance": "10 st"
+  },
+  {
+   "roll_min": 15,
+   "roll_max": 16,
+   "name": "Inquisitor",
+   "caste": null,
+   "proficiencies": [
+    "Illusion Resistance",
+    "Theology"
+   ],
+   "equipment": "Holy symbol (hammer of Türas), polished sword, steel shield bearing symbol of Türas, banded plate armor, blue priest's cassock, leather belt, high boots, backpack, 2 flasks of holy water, tinderbox, 12 torches, manacles, 1 week's iron rations, waterskin, 3gp",
+   "book_encumbrance": "9 2/6 st"
+  },
+  {
+   "roll_min": 17,
+   "roll_max": 18,
+   "name": "Templar",
+   "caste": null,
+   "proficiencies": [
+    "Command",
+    "Riding"
+   ],
+   "equipment": "Holy symbol (winged sun of Ammonar), white lance, polished sword, steel shield bearing symbol of the winged sun, banded plate armor, purple armiger's tunic and pants, riding boots, medium riding horse, riding saddle and tack, leather saddlebag, waterskin, 1 week's iron rations, 12gp",
+   "book_encumbrance": "7 3/6 st with rations on horse"
+  }
+ ],
+ "priestess": [
+  {
+   "roll_min": 3,
+   "roll_max": 4,
+   "name": "Anchorite",
+   "caste": null,
+   "proficiencies": [
+    "Quiet Magic",
+    "Survival"
+   ],
+   "equipment": "Holy symbol (white lady of Mityara), aged and dusty staff, animal skin cloak, leather girdle, leather breast band, loin cloth, high boots, small sack, waterskin, 1 week's iron rations, 9gp",
+   "book_encumbrance": "2 3/6 st"
+  },
+  {
+   "roll_min": 5,
+   "roll_max": 6,
+   "name": "Oracle",
+   "caste": null,
+   "proficiencies": [
+    "Prophecy",
+    "Performance (storytelling)"
+   ],
+   "equipment": "Holy symbol (white lady of Mityara), slender whitewood staff, white chiton, sandals, small sack, flask of holy water, waterskin, 1 week's iron rations, 5gp",
+   "book_encumbrance": "2 4/6 st"
+  },
+  {
+   "roll_min": 7,
+   "roll_max": 8,
+   "name": "Chantress",
+   "caste": null,
+   "proficiencies": [
+    "Magical Music",
+    "Performance (singing)"
+   ],
+   "equipment": "Holy symbol (white lady of Mityara), slender whitewood staff, priestess's headdress (20gp), white chiton, gold sash, high boots, backpack, waterskin, 2 weeks' iron rations, 19gp",
+   "book_encumbrance": "3 3/6 st"
+  },
+  {
+   "roll_min": 9,
+   "roll_max": 10,
+   "name": "Canoness",
+   "caste": null,
+   "proficiencies": [
+    "Contemplation",
+    "Theology 2"
+   ],
+   "equipment": "Holy symbol (white lady of Mityara), slender whitewood staff, priestess's head dress (20gp value), white chiton, gold silk sash, high boots, backpack, flask of holy water, waterskin, 1 week's iron rations, 15gp",
+   "book_encumbrance": "3 3/6 st"
+  },
+  {
+   "roll_min": 11,
+   "roll_max": 12,
+   "name": "Medician",
+   "caste": null,
+   "proficiencies": [
+    "Laying on Hands",
+    "Healing"
+   ],
+   "equipment": "Holy symbol (white lady of Mityara), slender whitewood staff, white chiton, gold silk sash, high boots, backpack, 2 lb bitterwood, 2 lb blessed thistle, 2 lb comfrey, 2 horsetail, waterskin, 1 week's iron rations",
+   "book_encumbrance": "3 5/6 st"
+  },
+  {
+   "roll_min": 13,
+   "roll_max": 14,
+   "name": "Beatific",
+   "caste": null,
+   "proficiencies": [
+    "Mystic Aura",
+    "Seduction"
+   ],
+   "equipment": "Holy symbol (white lady of Mityara), slender white wood staff, priestess's head dress (20gp value), white chiton, gold silk sash and veil, high boots, backpack, flask of holy water, waterskin, 2 weeks' iron rations, 28gp",
+   "book_encumbrance": "3 4/6 st"
+  },
+  {
+   "roll_min": 15,
+   "roll_max": 16,
+   "name": "Missionary",
+   "caste": null,
+   "proficiencies": [
+    "Mastery of Enchantments & Illusions",
+    "Language"
+   ],
+   "equipment": "Holy symbol (white lady of Mityara), slender whitewood staff, priestess's head dress (20gp value), white silk chiton, white silk sash, high boots, backpack, flask of holy water, holy book (The Laws of the Light), waterskin, 1 week's iron rations, 12gp",
+   "book_encumbrance": "3 1/6 st"
+  },
+  {
+   "roll_min": 17,
+   "roll_max": 18,
+   "name": "Lightbringer",
+   "caste": null,
+   "proficiencies": [
+    "Divine Blessing",
+    "Leadership"
+   ],
+   "equipment": "Holy symbol (white lady of Mityara), slender whitewood staff, white silk chiton, gold silk sash, high boots, light riding horse, riding tack and saddle, 2 leather saddlebags, waterskin, 1 week's iron rations, 4gp",
+   "book_encumbrance": "1 2/6 st with rations on horse"
+  }
+ ],
+ "shaman": [
+  {
+   "roll_min": 3,
+   "roll_max": 4,
+   "name": "Pariah",
+   "caste": null,
+   "proficiencies": [
+    "Syncretism",
+    "Survival",
+    "Quiet Magic"
+   ],
+   "equipment": "Rat totem animal, heretical holy symbol (horned rat), club, hide armor, itchy wool tunic and pants, rawhide belt, sandals, small sack, waterskin, 2 weeks' iron rations",
+   "book_encumbrance": "3 4/6 st"
+  },
+  {
+   "roll_min": 5,
+   "roll_max": 6,
+   "name": "Wise Man",
+   "caste": null,
+   "proficiencies": [
+    "Loremastery",
+    "Knowledge (history)",
+    "Sensing Power"
+   ],
+   "equipment": "Owl totem animal, holy symbol (silver crescent), staff, leather armor, grey wool tunic and pants, embossed belt, low boots, backpack, waterskin, 2 weeks' iron rations, 7gp",
+   "book_encumbrance": "5 3/6 st"
+  },
+  {
+   "roll_min": 7,
+   "roll_max": 8,
+   "name": "Warchanter",
+   "caste": null,
+   "proficiencies": [
+    "Battle Magic",
+    "Performance (chanting)",
+    "Berserkergang"
+   ],
+   "equipment": "Bear totem animal, holy symbol (bear's teeth), iron spear, round wooden shield, leather armor, wool tunic and pants, embossed belt, low boots, backpack, waterskin, 1 week's iron rations",
+   "book_encumbrance": "5 3/61/2 st"
+  },
+  {
+   "roll_min": 9,
+   "roll_max": 10,
+   "name": "Runecaster",
+   "caste": null,
+   "proficiencies": [
+    "Elementalism",
+    "Craft (rune-carving)",
+    "Ambushing"
+   ],
+   "equipment": "Wolf totem animal, holy symbol (runestone), hand axe, wooden shield, leather armor, wool tunic and pants, embossed belt, low boots, backpack, carving knife, flask of holy water, waterskin, 1 week's iron rations, 1gp",
+   "book_encumbrance": "5 st"
+  },
+  {
+   "roll_min": 11,
+   "roll_max": 12,
+   "name": "Druid",
+   "caste": null,
+   "proficiencies": [
+    "Beast Friendship",
+    "Naturalism",
+    "Divine Blessing"
+   ],
+   "equipment": "Raven totem animal, holy symbol (golden sickle), whitewood spear, sickle sword, dagger, shield, leather armor under white druid's robes, leather belt, low boots, backpack, flask of holy water, 1 lb garlic, 1 lb wolfsbane, waterskin, 1 week's iron rations, 8gp",
+   "book_encumbrance": "6 2/6 st"
+  },
+  {
+   "roll_min": 13,
+   "roll_max": 14,
+   "name": "Snake Handler",
+   "caste": null,
+   "proficiencies": [
+    "Divine Health",
+    "Healing",
+    "Laying on Hands"
+   ],
+   "equipment": "Python totem animal, holy symbol (two snakes coiled around rod), long staff, dagger, leather armor under forest green robes, embossed belt, low boots, backpack, 2 lbs birthwort, 2 lbs comfrey, 2 lbs horsetail, 2 lbs woundwort, waterskin, 1 week's iron rations, 2gp",
+   "book_encumbrance": "6 st"
+  },
+  {
+   "roll_min": 15,
+   "roll_max": 16,
+   "name": "Spirit Raiser",
+   "caste": null,
+   "proficiencies": [
+    "Sensing Evil",
+    "Leadership",
+    "Command"
+   ],
+   "equipment": "Eagle totem animal, holy symbol (eagle on sun), staff, dagger, leather armor under blue robes, leather belt, low boots, backpack, belt pouch, 2 flasks of holy water, tinderbox, 6 tallow candles, 4 lbs garlic, waterskin, 1 week's iron rations, 25gp",
+   "book_encumbrance": "7 st"
+  },
+  {
+   "roll_min": 17,
+   "roll_max": 18,
+   "name": "Nomad Shaman",
+   "caste": null,
+   "proficiencies": [
+    "Unflappable Casting",
+    "Riding",
+    "Mounted Combat"
+   ],
+   "equipment": "Horse totem animal, holy symbol (engraved horn), scimitar, round wooden shield, leather armor, wool cloak, wool tunic and pants, leather gloves, leather belt, high boots, backpack, belt pouch, steppe riding horse, riding saddle and tack, 2 leather saddlebags, 2 weeks' iron rations, 21gp",
+   "book_encumbrance": "3 4/6 st with rations on horse"
+  }
+ ],
+ "warlock": [
+  {
+   "roll_min": 3,
+   "roll_max": 4,
+   "name": "Chthonicist (Necromancer)",
+   "caste": null,
+   "proficiencies": [
+    "Quiet Magic",
+    "Caving",
+    "Mapping"
+   ],
+   "equipment": "Musty old spellbook with choking grip and frighten humanoid , gnarled oaken staff, tattered robe, low boots, backpack, quill and ink, tinderbox, 24 torches, waterskin, 1 week's iron rations, 1gp",
+   "book_encumbrance": "7 1/6 st"
+  },
+  {
+   "roll_min": 5,
+   "roll_max": 6,
+   "name": "Furtive Cultist (Demonologist)",
+   "caste": null,
+   "proficiencies": [
+    "Mastery of Conj. & Sum.",
+    "Folkways",
+    "Signaling"
+   ],
+   "equipment": "Innocuous spellbook with conjure cacodemon spawn and summon manes , walking staff, sacrificial dagger, nondescript robe, low boots, backpack, quill and ink, tinderbox, 24 torches, waterskin, 1 week's iron rations, 18gp",
+   "book_encumbrance": "7 2/6 st"
+  },
+  {
+   "roll_min": 7,
+   "roll_max": 8,
+   "name": "Doppelganger (Transmogrifier)",
+   "caste": null,
+   "proficiencies": [
+    "Transmogrification",
+    "Disguise",
+    "Streetwise"
+   ],
+   "equipment": "Multi-colored spellbook with chameleon and silent step , concealed dagger in boot, 5 darts, freeholder's tunic and pants, leather belt, low boots, backpack, disguise kit, quill and ink, tinderbox, 12 torches, waterskin, 1 week's iron rations, 15gp",
+   "book_encumbrance": "5 3/6 st"
+  },
+  {
+   "roll_min": 9,
+   "roll_max": 10,
+   "name": "Mad Vivisectionist (Necromancer)",
+   "caste": null,
+   "proficiencies": [
+    "Black Lore of Zahar",
+    "Healing",
+    "Healing 2"
+   ],
+   "equipment": "Bloodstained spellbook with unliving puppet and slicing blow , chirugeon's scalpel, ear plugs (to mask screams), chirugeon's robe, low boots, backpack, large surgical saw, 1 lb comfrey, 1 lb horsetail, 1 lb willowbark, quill and ink, lantern, tinderbox, 1 lb common oil, waterskin, 1 week's iron rations, 9gp",
+   "book_encumbrance": "3 3/6 st"
+  },
+  {
+   "roll_min": 11,
+   "roll_max": 12,
+   "name": "Corrupted Mage (Demonologist)",
+   "caste": null,
+   "proficiencies": [
+    "Loremastery",
+    "Collegiate Wizardry",
+    "Knowledge (history)"
+   ],
+   "equipment": "Rusted iron-bound spellbook with summon manes and discern magic, rune- etched staff, silver dagger, black summoner's cassock, high boots, backpack, quill and ink, lantern, tinderbox, 4 lbs common oil, waterskin, 1 week's iron rations, 40gp",
+   "book_encumbrance": "4 1/6 st"
+  },
+  {
+   "roll_min": 13,
+   "roll_max": 14,
+   "name": "Deranged Alchemist (Transmogrifier)",
+   "caste": null,
+   "proficiencies": [
+    "Elementalism (water)",
+    "Alchemy",
+    "Alchemy 2"
+   ],
+   "equipment": "Chemical-stained spellbook with sharpness and slickness , wavy-bladed silver dagger, splotched alchemist's robe, long leather gloves, high boots, backpack, alchemist's tools, chemistry journal, quill and ink, lantern, tinderbox, 2 lbs common oil, 5 lbs military oil, 2 waterskins, 1 week's iron rations, 14gp",
+   "book_encumbrance": "6 st"
+  },
+  {
+   "roll_min": 15,
+   "roll_max": 16,
+   "name": "Undertaker (Necromancer)",
+   "caste": null,
+   "proficiencies": [
+    "Battle Magic",
+    "Military Strategy",
+    "Siege Engineering"
+   ],
+   "equipment": "Battle-scarred spellbook with slicing blow and counterspell , unholy symbol (crossed blades of Bel), iron-shod staff topped with skull, 2 wickedly curved silver daggers, 10 darts, black armiger's tunic and pants, leather gloves, high boots, iron skullcap, backpack, quill and ink, tinderbox, 2 lbs common oil, 2 waterskins, 1 week's iron rations, 13gp",
+   "book_encumbrance": "4 4/6 st"
+  },
+  {
+   "roll_min": 17,
+   "roll_max": 18,
+   "name": "Cult Leader (Demonologist)",
+   "caste": null,
+   "proficiencies": [
+    "Mystic Aura",
+    "Theology",
+    "Leadership"
+   ],
+   "equipment": "Rolled papyrus spellbook with beguile humanoid and conjure cacodemon spawn, unholy symbol (serpent of Iskara), serpent-carved staff, wavy-bladed dagger, black cultist's robes, long leather gloves, high boots, backpack, holy book (Book of the Awakening) quill and ink, lantern, tinderbox, 2 lbs common oil, 5lbs military oil, 1 week's iron rations, 1 week's iron rations, 44gp",
+   "book_encumbrance": "5 3/6 st"
+  }
+ ],
+ "witch": [
+  {
+   "roll_min": 3,
+   "roll_max": 4,
+   "name": "Crone (Antiquarian)",
+   "caste": null,
+   "proficiencies": [
+    "Familiar",
+    "Intimidation",
+    "Survival"
+   ],
+   "equipment": "Black cat familiar, tattered prayer book with sling stone, frighten beast, and sanctuary, gnarled oak staff, tattered cloak, patched wool dress, frayed leather belt, scuffed high boots, backpack, tinderbox, 5 musty tallow candles, 6 torches, waterskin, 1 week's iron rations, 11gp",
+   "book_encumbrance": "4 5/6 st"
+  },
+  {
+   "roll_min": 5,
+   "roll_max": 6,
+   "name": "Witch of the Woods (Sylvan)",
+   "caste": null,
+   "proficiencies": [
+    "Passing without Trace",
+    "Survival",
+    "Navigation"
+   ],
+   "equipment": "Leather-bound prayer book with call of the wolf, locate animal or plant, and frighten beast, holy symbol (oak tree), slender whitewood staff, bark-colored wool cloak, leaf-green wool dress, leather belt, high boots, backpack, tinderbox, 6 torches, waterskin, 1 week's iron rations, 7gp",
+   "book_encumbrance": "4 1/6 st"
+  },
+  {
+   "roll_min": 7,
+   "roll_max": 8,
+   "name": "Dark Oracle (Chthonic)",
+   "caste": null,
+   "proficiencies": [
+    "Prophecy",
+    "Knowledge (astrology)",
+    "Diplomacy"
+   ],
+   "equipment": "Bloodstained prayer book with bane-rune, tenebrosity, and discern evil, unholy symbol (purple circle on black), polished blackwood staff, purple and black linen chiton, embossed belt, high strappy sandals, backpack, tinderbox, 5 black tallow candles, 1 purple wax candle, 12 torches, flask of unholy water, waterskin, 1 week's iron rations, 1gp",
+   "book_encumbrance": "6 3/6 st"
+  },
+  {
+   "roll_min": 9,
+   "roll_max": 10,
+   "name": "Village Witch (Antiquarian)",
+   "caste": null,
+   "proficiencies": [
+    "Laying on Hands",
+    "Healing",
+    "Folkways"
+   ],
+   "equipment": "Handed-down prayer book with cure light injury, purify food and water , and salving rest, holy symbol (pair of horns around lunar disc), slender oak staff, wool freeholder's dress, embossed belt, high boots, backpack, 1 lb birthwort, 1 lb comfrey, 1 lb goldenrod, 1 lb woundwort, tinderbox, 3 scented wax candles, 12 torches, waterskin, 1 week's iron rations, 5gp",
+   "book_encumbrance": "6 2/6 st"
+  },
+  {
+   "roll_min": 11,
+   "roll_max": 12,
+   "name": "Lorelei (Sylvan)",
+   "caste": null,
+   "proficiencies": [
+    "Magical Music",
+    "Performance (singing)",
+    "Seduction"
+   ],
+   "equipment": "Bark-bound prayer book with remove fear, angelic choir, and counterspell, holy symbol (white bird), slender whitewood staff, elaborate bronze choker necklace (20gp value), elegant leaf-green dress, autumn-hued silk sash, low boots, backpack, tinderbox, 2 tallow candles, flask of holy water, waterskin, 1 week's iron rations, 6gp",
+   "book_encumbrance": "3 4/6 st"
+  },
+  {
+   "roll_min": 13,
+   "roll_max": 14,
+   "name": "Death Mistress (Chthonic)",
+   "caste": null,
+   "proficiencies": [
+    "Black Lore of Zahar",
+    "Knowledge (occult)",
+    "Alchemy"
+   ],
+   "equipment": "Flesh-bound prayer book with unliving puppet , allure , and bane-rune , unholy symbol (medusa's head), stiletto, black leather cloak and long gloves, black silk veil and sash, black linen chiton, high leather boots, silver bangles (20gp value), silver earrings (20gp), backpack, tinderbox, 6 black tallow candles, waterskin, 1 week's iron rations, 28gp",
+   "book_encumbrance": "3 2/6 st"
+  },
+  {
+   "roll_min": 15,
+   "roll_max": 16,
+   "name": "Wise Woman (Antiquarian)",
+   "caste": null,
+   "proficiencies": [
+    "Loremastery",
+    "Knowledge (history)",
+    "Healing"
+   ],
+   "equipment": "Ancient prayer book with counterspell, predict weather, and cure light injury, holy symbol (pair of horns around lunar disc), gnarled oak staff, sturdy wool cloak, well-made wool dress, low boots, backpack, belt pouch, tinderbox, lantern, 3 flasks of common oil, 1 lb birthwort, 1 lb comfrey, 1 lb goldenrod, 1 lb woundwort, flask of holy water, waterskin, 1 week's iron rations, 22gp",
+   "book_encumbrance": "4 5/6 st"
+  },
+  {
+   "roll_min": 17,
+   "roll_max": 18,
+   "name": "Faerie Princess (Sylvan)",
+   "caste": null,
+   "proficiencies": [
+    "Elven Bloodline",
+    "Riding",
+    "Leadership"
+   ],
+   "equipment": "Flowery prayer book with word of command, holy circle, and allure, holy symbol (flower garland), slender whitewood staff, gossamer head dress (15gp value), elegant white linen dress, colorful silk sash, high boots, tinderbox, 6 wood-scented tallow candles, light riding horse, riding tack and saddle, saddlebag, waterskin, 1 week's iron rations, 3gp",
+   "book_encumbrance": "3 st with rations on horse"
+  }
+ ],
+ "craftpriest": [
+  {
+   "roll_min": 3,
+   "roll_max": 4,
+   "name": "Outcast",
+   "caste": "Houseless (ex-Oathsworn)",
+   "proficiencies": [
+    "Quiet Magic",
+    "Caving",
+    "Craft (leatherworking) 3",
+    "Survival"
+   ],
+   "equipment": "Battered prayer book with sling stone and frighten beast, 2 hand axes, tattered workborn tunic and pants, rawhide leather belt, careworn low boots, backpack, 1 lb garlic, tinderbox, 12 torches, moldy waterskin, 1 week's iron rations, 5gp",
+   "book_encumbrance": "4 3/6 st"
+  },
+  {
+   "roll_min": 5,
+   "roll_max": 6,
+   "name": "Runeseer",
+   "caste": "Oathsworn",
+   "proficiencies": [
+    "Prophecy",
+    "Performance (chanting)",
+    "Craft (rune-carving) 3",
+    "Knowledge (astrology)"
+   ],
+   "equipment": "Prayer book with discern evil and word of command, carved stone holy symbol (rune-carver's insignia), hand axe, charcoal grey workborn tunic and pants, embossed belt, low boots, backpack, waterskin, 1 week's iron rations, 5gp",
+   "book_encumbrance": "2 1/6 st"
+  },
+  {
+   "roll_min": 7,
+   "roll_max": 8,
+   "name": "Reliquary Guardian",
+   "caste": "Oathsworn",
+   "proficiencies": [
+    "Battle Magic",
+    "Signaling",
+    "Craft (weapon-smithing) 3",
+    "Manual of Arms"
+   ],
+   "equipment": "Prayer book with remove fear and holy circle, iron holy symbol (weaponsmith's insignia), well-sharpened battle axe, leather armor, black workborn tunic and pants, embossed belt, low boots, backpack, waterskin, 1 week's iron rations, 2gp",
+   "book_encumbrance": "4 1/6 st"
+  },
+  {
+   "roll_min": 9,
+   "roll_max": 10,
+   "name": "Documentarian",
+   "caste": "Oathsworn",
+   "proficiencies": [
+    "Loremastery",
+    "Mapping",
+    "Craft (bookbinding) 3",
+    "Knowledge (history)"
+   ],
+   "equipment": "Beautifully-bound prayer book with discern gist and illumination, bronze holy symbol (bookbinder's insignia), battle axe, leather armor, dun craftborn tunic and pants, embossed belt, low boots, backpack with blank parchment journal half-filled with entries, quill and ink, waterskin, 1 week's iron rations, 4gp",
+   "book_encumbrance": "4 3/6 st"
+  },
+  {
+   "roll_min": 11,
+   "roll_max": 12,
+   "name": "Reclaimer",
+   "caste": "Oathsworn",
+   "proficiencies": [
+    "Magical Engineering",
+    "Knowledge (history)",
+    "Craft (stonemasonry) 3",
+    "Siege Engineering"
+   ],
+   "equipment": "Prayer book with counterspell and discern magic, steel holy symbol (stonemason's insignia), morning star with carved head, engraved banded plate armor, stone grey workborn tunic and pants, embossed belt, low boots, backpack, waterskin, 1 week's iron rations, 9gp",
+   "book_encumbrance": "8 st"
+  },
+  {
+   "roll_min": 13,
+   "roll_max": 14,
+   "name": "Sacrementalist",
+   "caste": "Oathsworn",
+   "proficiencies": [
+    "Dwarven Brewing",
+    "Alchemy",
+    "Craft (brewing) 3",
+    "Revelry"
+   ],
+   "equipment": "Prayer book with cure light injury and purify food and water, glass holy symbol (brewer's insignia), mace, round wooden shield painted with alchemical symbols, chain mail armor, brown craftborn tunic and pants, embossed belt, low boots, backpack, 1 flask of holy water, 1 flask of military oil, waterskin, 1 week's iron rations",
+   "book_encumbrance": "7 3/6 st"
+  },
+  {
+   "roll_min": 15,
+   "roll_max": 16,
+   "name": "Purifier",
+   "caste": "Oathsworn",
+   "proficiencies": [
+    "Righteous Rebuke",
+    "Knowledge (occult)",
+    "Craft (jewelling) 3",
+    "Alchemy"
+   ],
+   "equipment": "Prayer book with holy circle and bane-rune, bejeweled holy symbol (jeweler's insignia), mace with diamond-shaped head, steel shield with craft insignia, banded plate armor, red and white craftborn tunic and pants, embossed belt, low boots, backpack, 1 lb garlic, flask of holy water, 2 flasks of military oil, tinderbox, 6 torches, waterskin, 1 week's iron rations, 4gp (enc 10 st)",
+   "book_encumbrance": null
+  },
+  {
+   "roll_min": 17,
+   "roll_max": 18,
+   "name": "Seeker",
+   "caste": "Oathsworn (ex-Highborn)",
+   "proficiencies": [
+    "Sensing Evil",
+    "Riding",
+    "Craft (armor-making) 3",
+    "Leadership"
+   ],
+   "equipment": "Prayer book with bane-rune and word of command, steel holy symbol (armorer's insignia), flail, steel shield with craft insignia, plate armor, blue craftborn tunic and pants, embossed belt, low boots, mule, riding saddle and tack, leather saddlebag, waterskin, 1 week's iron rations, 3gp",
+   "book_encumbrance": "8 st with rations on mule"
+  }
+ ],
+ "vaultguard": [
+  {
+   "roll_min": 3,
+   "roll_max": 4,
+   "name": "Deserter",
+   "caste": "Houseless (ex-Oathsworn)",
+   "proficiencies": [
+    "Running",
+    "Survival"
+   ],
+   "equipment": "Battle axe, hand axe, undamaged leather armor, threadbare workborn tunic and pants, leather belt, high boots, backpack, tinderbox, 6 torches, waterskin, 1 week's iron rations, 3gp",
+   "book_encumbrance": "4 5/6 st"
+  },
+  {
+   "roll_min": 5,
+   "roll_max": 6,
+   "name": "Battlerager",
+   "caste": "Oathsworn",
+   "proficiencies": [
+    "Berserkergang",
+    "Intimidation"
+   ],
+   "equipment": "Rune-carved battle axe, wooden shield, dagger, ring mail armor, craftborn tunic and pants, leather belt, high boots, backpack, tinderbox, 6 torches, waterskin, 1 week's iron rations, 3gp",
+   "book_encumbrance": "6 5/6 st"
+  },
+  {
+   "roll_min": 7,
+   "roll_max": 8,
+   "name": "Sentinel",
+   "caste": "Oathsworn",
+   "proficiencies": [
+    "Alertness",
+    "Signaling"
+   ],
+   "equipment": "Iron-shod spear, warhammer, wooden shield, banded plate armor, craftborn tunic and pants, leather belt, high boots, backpack, tinderbox, 6 torches, waterskin, 1 week's iron rations, 5gp",
+   "book_encumbrance": "9 4/6 st"
+  },
+  {
+   "roll_min": 9,
+   "roll_max": 10,
+   "name": "Clansdwarf",
+   "caste": "Oathsworn",
+   "proficiencies": [
+    "Fight. Style Spec. (weapon & shield)",
+    "Manual of Arms 2"
+   ],
+   "equipment": "Iron-shod spear, warhammer, steel shield painted with clan emblem, banded plate armor, oathsworn tunic and pants, leather belt, high boots, backpack, tinderbox, 6 torches, waterskin, 1 week's iron rations, 17gp",
+   "book_encumbrance": "9 4/6 st"
+  },
+  {
+   "roll_min": 11,
+   "roll_max": 12,
+   "name": "Goblin Slayer",
+   "caste": "Oathsworn",
+   "proficiencies": [
+    "Goblin-Slaying",
+    "Caving"
+   ],
+   "equipment": "Crossbow, case with 20 bolts, spear notched with many kills, hand axe, steel shield painted with vault insignia, chainmail armor, military cloak, oathsworn tunic and pants, leather belt, high boots, backpack, tinderbox, 6 torches, 3 flasks of military oil, waterskin, 1 week's iron rations, 9gp",
+   "book_encumbrance": "9 3/6 st"
+  },
+  {
+   "roll_min": 13,
+   "roll_max": 14,
+   "name": "Axebearer",
+   "caste": "Oathsworn",
+   "proficiencies": [
+    "Weapon Focus (axes)",
+    "Endurance"
+   ],
+   "equipment": "Crossbow, case with 20 bolts, battle axe, 2 hand axes, steel shield repainted many times, banded plate armor, oathsworn tunic and pants, leather belt, high boots, backpack, tinderbox, 6 torches, 2 flasks of military oil, waterskin, 1 week's iron rations, 14gp",
+   "book_encumbrance": "9 4/6 st"
+  },
+  {
+   "roll_min": 15,
+   "roll_max": 16,
+   "name": "Besieger",
+   "caste": "Oathsworn",
+   "proficiencies": [
+    "Dungeonbashing Expertise",
+    "Siege Engineering"
+   ],
+   "equipment": "Crossbow, case with 20 bolts, spiked mace, heavy steel shield with many dents, banded plate armor, oathsworn tunic and pants, leather belt, high boots, backpack, crowbar, small hammer, 12 iron spikes, tinderbox, 6 torches, 2 flasks of military oil, waterskin, 1 week's iron rations, 19gp",
+   "book_encumbrance": "10 st"
+  },
+  {
+   "roll_min": 17,
+   "roll_max": 18,
+   "name": "Highborn",
+   "caste": "Oathsworn (ex-Highborn) or Highborn",
+   "proficiencies": [
+    "Command",
+    "Riding"
+   ],
+   "equipment": "Crossbow, case with 20 bolts, iron-shod spear, warhammer carved with clan emblem, hand axe, steel shield painted with clan emblem, dwarf-forged plate armor, oathsworn tunic and pants, leather belt, high boots, mule, riding saddle and tack, saddlebags, tinderbox, 6 torches, waterskin, 1 week's iron rations, 4gp",
+   "book_encumbrance": "10 st with rations on mule"
+  }
+ ],
+ "nightblade": [
+  {
+   "roll_min": 3,
+   "roll_max": 4,
+   "name": "Rogue",
+   "caste": null,
+   "proficiencies": [
+    "Prestidigitation",
+    "Survival",
+    "Navigation"
+   ],
+   "equipment": "Handmade short bow, quiver with 20 arrows, short sword, leather armor, patched cloak, stained tunic and pants, embossed belt, scuffed low boots, backpack, 50' rope, waterskin, 1 week's iron rations, 1gp",
+   "book_encumbrance": "4 5/6 st"
+  },
+  {
+   "roll_min": 5,
+   "roll_max": 6,
+   "name": "Pursuer",
+   "caste": null,
+   "proficiencies": [
+    "Sniping",
+    "Tracking",
+    "Endurance"
+   ],
+   "equipment": "Long bow, quiver with 20 arrows, bola, gracefully curved sword, dagger in boot-sheath, supple leather armor, grey-green cloak, dark tunic and pants, embossed belt, low boots, backpack, 50' rope, manacles, waterskin, 1 week's iron rations, 4gp",
+   "book_encumbrance": "6 1/6 st"
+  },
+  {
+   "roll_min": 7,
+   "roll_max": 8,
+   "name": "Antagonist",
+   "caste": null,
+   "proficiencies": [
+    "Skirmishing",
+    "Intimidation",
+    "Tracking"
+   ],
+   "equipment": "Long bow, quiver with 20 arrows, well-honed sword, 5 darts in bandoleer, dagger in boot sheathes, scarred leather armor, grey-green cloak, dark tunic and pants, embossed belt, low boots, backpack, waterskin, 1 week's iron rations, 22gp",
+   "book_encumbrance": "5 st"
+  },
+  {
+   "roll_min": 9,
+   "roll_max": 10,
+   "name": "Duelist-for-Hire",
+   "caste": null,
+   "proficiencies": [
+    "Fighting Style Specialization (dual weapons)",
+    "Manual of Arms",
+    "Bargaining"
+   ],
+   "equipment": "Composite bow, quiver with 20 arrows, dueling sword and short sword, throwing dagger, sturdy leather armor, duelist's cloak, tunic and pants, embossed belt, low boots, backpack, waterskin, 1 week's iron rations, 4gp",
+   "book_encumbrance": "5 st"
+  },
+  {
+   "roll_min": 11,
+   "roll_max": 12,
+   "name": "Silent Slayer",
+   "caste": null,
+   "proficiencies": [
+    "Skulking",
+    "Alchemy",
+    "Trapping"
+   ],
+   "equipment": "Composite bow, quiver with 20 arrows, gracefully curved short sword and dagger, supple leather armor, black cloak with hood and bandana, black tunic and pants, padded sandals, backpack, crowbar, 50' rope, grappling hook, small hammer, 12 iron spikes, waterskin, 1 week's iron rations, 3gp",
+   "book_encumbrance": "6 4/6 st"
+  },
+  {
+   "roll_min": 13,
+   "roll_max": 14,
+   "name": "Arcane Avenger",
+   "caste": null,
+   "proficiencies": [
+    "Battle Magic",
+    "Collegiate Wizardry",
+    "Alchemy"
+   ],
+   "equipment": "Composite bow, quiver with 20 arrows, short sword, wavy-bladed silver dagger, leather armor under midnight blue mage's cassock, leather belt, low boots, backpack, quill and ink, waterskin, 1 week's iron rations, 25gp (enc 5 st)",
+   "book_encumbrance": null
+  },
+  {
+   "roll_min": 15,
+   "roll_max": 16,
+   "name": "Deceiver",
+   "caste": null,
+   "proficiencies": [
+    "Poisoning",
+    "Seduction",
+    "Disguise"
+   ],
+   "equipment": "Composite bow, quiver with 20 arrows, slender short sword, dagger, coiled leather whip, light arena armor, leather cloak, elegant linen tunic and pants, silk sash, high boots, backpack, manacles, waterskin, 1 week's iron rations, 38gp",
+   "book_encumbrance": "5 1/6 st"
+  },
+  {
+   "roll_min": 17,
+   "roll_max": 18,
+   "name": "Royal Enforcer",
+   "caste": null,
+   "proficiencies": [
+    "Kin-Slaying",
+    "Riding",
+    "Intimidation"
+   ],
+   "equipment": "Composite bow, quiver with 20 arrows, pair of gracefully curved short swords, leather armor, traveler's tunic and pants, riding boots, light riding horse, riding saddle and tack, leather saddlebag, waterskin, 1 week's iron rations, 3gp",
+   "book_encumbrance": "3 4/6 st with rations on horse"
+  }
+ ],
+ "spellsword": [
+  {
+   "roll_min": 3,
+   "roll_max": 4,
+   "name": "Exile",
+   "caste": null,
+   "proficiencies": [
+    "Running",
+    "Survival",
+    "Navigation"
+   ],
+   "equipment": "Tattered spellbook with chameleon and slickness , short bow, quiver with 20 arrows, old short sword, dagger, threadbare tunic and pants, embossed belt, low boots, backpack, waterskin, 1 week's iron rations, 1gp",
+   "book_encumbrance": "2 3/6 st"
+  },
+  {
+   "roll_min": 5,
+   "roll_max": 6,
+   "name": "Beastmaster",
+   "caste": null,
+   "proficiencies": [
+    "Beast Friendship",
+    "Animal Husbandry",
+    "Naturalism"
+   ],
+   "equipment": "Hidebound spellbook with slumber and chameleon, long bow, quiver with 20 arrows, gracefully curved sword, dagger, well-stitched fur armor, thick wool cloak, wool tunic and pants, embossed belt, low boots, backpack, waterskin, 1 week's iron rations, 2gp",
+   "book_encumbrance": "4 2/6 st"
+  },
+  {
+   "roll_min": 7,
+   "roll_max": 8,
+   "name": "Dreamweaver",
+   "caste": null,
+   "proficiencies": [
+    "Mastery of Enchantments & Illusions",
+    "Mapping",
+    "Art (painting)"
+   ],
+   "equipment": "Multicolored leather spellbook with beguile humanoid and illusory figment, short bow, quiver with 20 arrows, shiny curved sword, well-polished dagger with boot-sheath, ring mail armor, multicolored tunic and pants, embossed belt, low boots, backpack, waterskin, 1 week's iron rations",
+   "book_encumbrance": "5 3/6 st"
+  },
+  {
+   "roll_min": 9,
+   "roll_max": 10,
+   "name": "Bladesinger",
+   "caste": null,
+   "proficiencies": [
+    "Magical Music",
+    "Performance (singing)",
+    "Diplomacy"
+   ],
+   "equipment": "Embossed spellbook with blinding flash and discern magic , short bow, quiver with 20 arrows, two-handed sword with elaborate hilt, chain mail armor, sea-green hooded cloak traveler's tunic and pants, leather belt, low boots, backpack, 1 week's iron rations, 6gp",
+   "book_encumbrance": "7 st"
+  },
+  {
+   "roll_min": 11,
+   "roll_max": 12,
+   "name": "Swordmage",
+   "caste": null,
+   "proficiencies": [
+    "Battle Magic",
+    "Military Strategy",
+    "Manual of Arms"
+   ],
+   "equipment": "Leather-bound spellbook with mage missile and sharpness , short bow, quiver with 20 arrows, gracefully curved sword and short sword, banded plate armor, traveler's tunic and pants, embossed belt, low boots, backpack, waterskin, 1 week's iron rations, 15gp",
+   "book_encumbrance": "7 3/6 st"
+  },
+  {
+   "roll_min": 13,
+   "roll_max": 14,
+   "name": "Flametongue",
+   "caste": null,
+   "proficiencies": [
+    "Elementalism",
+    "Naturalism",
+    "Survival"
+   ],
+   "equipment": "Redwood spellbook with fan of flames and kindle flame , long bow, quiver with 20 arrows, pair of gracefully curved swords, banded plate armor, armiger's tunic and pants, embossed belt, high boots, backpack, tinderbox, 6 torches, 3 flasks of military oil, waterskin, 21gp",
+   "book_encumbrance": "10 st"
+  },
+  {
+   "roll_min": 15,
+   "roll_max": 16,
+   "name": "Captain",
+   "caste": null,
+   "proficiencies": [
+    "Command",
+    "Leadership",
+    "Military Strategy"
+   ],
+   "equipment": "Battle-scarred spellbook with counterspell and seal portal , short bow, quiver with 20 arrows, whitewood spear with leaf-head, gracefully curved sword, steel shield bearing house crest, banded plate armor, armiger's tunic and pants, embossed belt, low boots, backpack, waterskin, 1 week's rations, 49gp",
+   "book_encumbrance": "9 1/3 st"
+  },
+  {
+   "roll_min": 17,
+   "roll_max": 18,
+   "name": "Winged Knight",
+   "caste": null,
+   "proficiencies": [
+    "Familiar (eagle)",
+    "Riding",
+    "Leadership"
+   ],
+   "equipment": "Eagle familiar, finely-made spellbook with thunderclap and leaping, lance with pennant, polished sword, steel shield bearing house crest, plate armor with eagle feather wings, armiger's tunic, high boots, medium riding horse, riding saddle and tack, saddlebag, waterskin, 1 week's iron rations, 9gp",
+   "book_encumbrance": "9 1/6 st with rations on horse"
+  }
+ ],
+ "wonderworker": [
+  {
+   "roll_min": 3,
+   "roll_max": 4,
+   "name": "Ferine",
+   "caste": null,
+   "proficiencies": [
+    "Beast Friendship",
+    "Naturalism",
+    "Survival"
+   ],
+   "equipment": "Tattered spellbook with kindle flame and chameleon, gnarled oaken staff, simple robe, leather shoes, small sack, fiercely loyal hunting dog, waterskin, 2 weeks' iron rations, 1gp",
+   "book_encumbrance": "3 5/6 st"
+  },
+  {
+   "roll_min": 5,
+   "roll_max": 6,
+   "name": "Scholar",
+   "caste": null,
+   "proficiencies": [
+    "Loremastery",
+    "Healing",
+    "Alchemy"
+   ],
+   "equipment": "Rolled papyrus spellbook with mage missile and discern gist, holy symbol (winged sun of Ammonar), gnarled oaken staff, purple robe, embossed belt, low boots, backpack, quill and ink (half-filled), waterskin, 1 week's iron rations, 1gp",
+   "book_encumbrance": "3 1/6 st"
+  },
+  {
+   "roll_min": 7,
+   "roll_max": 8,
+   "name": "Augur",
+   "caste": null,
+   "proficiencies": [
+    "Soothsaying",
+    "Performance (storytelling)",
+    "Theology"
+   ],
+   "equipment": "Rolled papyrus spellbook with thunderclap and auditory illusion, holy symbol (wheel of Calefa), elaborately-carved staff, blue robe with crescents, embossed belt, low boots, backpack, ornamental crystal ball (15gp value), quill and ink, waterskin, 2 weeks' iron rations, 1gp",
+   "book_encumbrance": "4 1/6 st"
+  },
+  {
+   "roll_min": 9,
+   "roll_max": 10,
+   "name": "Servant of Fire",
+   "caste": null,
+   "proficiencies": [
+    "Elementalism",
+    "Theology",
+    "Naturalism"
+   ],
+   "equipment": "Red leather spellbook with fan of flames and blinding flash, holy symbol (ivory torch of Mityara), gnarled oaken staff, 5 darts, flame red cassock with hood, embossed belt, low boots, backpack, quill and ink, flask of holy water, waterskin, 2 weeks' iron rations, 9gp",
+   "book_encumbrance": "4 3/6 st"
+  },
+  {
+   "roll_min": 11,
+   "roll_max": 12,
+   "name": "Astrologer",
+   "caste": null,
+   "proficiencies": [
+    "Sensing Power",
+    "Knowledge (astrology)",
+    "Theology"
+   ],
+   "equipment": "Bronze-framed spellbook with slumber and illusory figment, holy symbol (ankh of Teos), rune-etched staff, blue mage's cassock, embossed belt, low boots, backpack, flask of holy water, astrologer's journal tracking constellations, quill and ink, waterskin, 1 week's iron rations, 22gp",
+   "book_encumbrance": "3 3/6 st"
+  },
+  {
+   "roll_min": 13,
+   "roll_max": 14,
+   "name": "Corrupted Soul",
+   "caste": null,
+   "proficiencies": [
+    "Black Lore of Zahar",
+    "Alchemy",
+    "Knowledge (occult)"
+   ],
+   "equipment": "Iron-bound snakeskin spellbook with choking grip and unliving puppet, unholy symbol (serpent of Saqqara), silver sacrificial dagger, grey cassock, embossed belt, low boots, backpack, flask of unholy water, quill and ink, waterskin, 2 week's iron rations, 1gp",
+   "book_encumbrance": "3 3/6 st"
+  },
+  {
+   "roll_min": 15,
+   "roll_max": 16,
+   "name": "Wrathbringer",
+   "caste": null,
+   "proficiencies": [
+    "Martial Training (axes)",
+    "Manual of Arms",
+    "Profession (judge)"
+   ],
+   "equipment": "Iron-shod spellbook with sharpness and arcane armor, holy symbol (star of Indura), battle axe, hand axe, red and gold cassock, leather belt, leather gloves, high boots, backpack, belt pouch, quill and ink, 2 flasks of holy water, waterskin, 2 weeks' iron rations, 35gp",
+   "book_encumbrance": "4 st"
+  },
+  {
+   "roll_min": 17,
+   "roll_max": 18,
+   "name": "Messiah",
+   "caste": null,
+   "proficiencies": [
+    "Prophecy",
+    "Diplomacy",
+    "Leadership"
+   ],
+   "equipment": "White leather spellbook with counterspell and illumination, holy symbol (winged sun of Ammonar), staff tipped with glass gemstone (45gp value), white cassock, leather belt, leather gloves, high boots, backpack, belt pouch, quill and ink, medium riding horse, riding saddle and tack, saddlebags, waterskin, 1 week's iron rations, 17gp",
+   "book_encumbrance": "3 2/6 st"
+  }
+ ],
+ "ruinguard": [
+  {
+   "roll_min": 3,
+   "roll_max": 4,
+   "name": "Flesheater",
+   "caste": null,
+   "proficiencies": [
+    "Kin-Slaying",
+    "Craft (cooking)",
+    "Weapon Focus (swords)"
+   ],
+   "equipment": "Serrated sword, wooden shield, curiously pale-colored hide armor, blood- stained wool tunic and pants, belt embossed with tooth marks, low boots, backpack, waterskin, 2 weeks' dried white meat, 2gp",
+   "book_encumbrance": "4 3/6 st"
+  },
+  {
+   "roll_min": 5,
+   "roll_max": 6,
+   "name": "Hatemonger",
+   "caste": null,
+   "proficiencies": [
+    "Berserkergang",
+    "Intimidation",
+    "Weapon Focus (axes)"
+   ],
+   "equipment": "Great axe tipped with a spike, chain mail armor, torn wool tunic and pants, spiked belt, low boots, backpack, 1 week's iron rations, 4gp",
+   "book_encumbrance": "6 2/6 st"
+  },
+  {
+   "roll_min": 7,
+   "roll_max": 8,
+   "name": "Grimguard",
+   "caste": null,
+   "proficiencies": [
+    "Fighting Style Spec. (weapon and shield)",
+    "Manual of Arms 2",
+    "Weapon Focus (axes)"
+   ],
+   "equipment": "Jagged battle axe, iron-shod shield, grey banded plate armor, grey hooded cloak, wool tunic and pants, embossed belt, low boots, backpack, waterskin, 1 week's iron rations, 6gp",
+   "book_encumbrance": "7 3/6 st"
+  },
+  {
+   "roll_min": 9,
+   "roll_max": 10,
+   "name": "Avenger",
+   "caste": null,
+   "proficiencies": [
+    "Sensing Good",
+    "Profession (torturer)",
+    "Weapon Focus (swords)"
+   ],
+   "equipment": "Serrated sword, copper-barbed scourge, iron-shod shield, grey plate armor, wool tunic and pants, embossed belt, low boots, backpack, waterskin, 1 week's iron rations, 9gp",
+   "book_encumbrance": "8 4/6 st"
+  },
+  {
+   "roll_min": 11,
+   "roll_max": 12,
+   "name": "Doomwielder",
+   "caste": null,
+   "proficiencies": [
+    "Fighting Style Spec. (two-handed weapon)",
+    "Endurance",
+    "Weapon Focus (swords)"
+   ],
+   "equipment": "Serrated two-handed sword, barbed morning star, plate armor adorned with skulls, skull-shaped heavy helmet, blood-stained wool tunic and pants, embossed belt, low boots, backpack, waterskin, 1 week's iron rations, 9gp",
+   "book_encumbrance": "9 2/6 st"
+  },
+  {
+   "roll_min": 13,
+   "roll_max": 14,
+   "name": "Warmaster",
+   "caste": null,
+   "proficiencies": [
+    "Combat Ferocity",
+    "Military Strategy",
+    "Weapon Focus (maces, flails, and hammers)"
+   ],
+   "equipment": "Ball-and-chain, black steel shield bearing taloned hand of Bel, black plate armor, heavy black horned helmet, black armiger's tunic and pants, leather belt, high boots, backpack, crowbar, tinderbox, 6 torches, flask of military oil, waterskin, 1 week's iron rations, 27gp",
+   "book_encumbrance": "10 st"
+  },
+  {
+   "roll_min": 15,
+   "roll_max": 16,
+   "name": "Ruinbinder",
+   "caste": null,
+   "proficiencies": [
+    "Familiar (vulture)",
+    "Knowledge (occult)",
+    "Weapon Focus (swords)"
+   ],
+   "equipment": "Vulture familiar , rune-carved two-handed sword, red-lacquered plate armor, heavy helmet with crimson crest, red armiger's tunic and pants, embossed belt, low boots, backpack, 2 flasks of unholy water, waterskin, 1 week's iron rations, 1gp",
+   "book_encumbrance": "8 4/6 st"
+  },
+  {
+   "roll_min": 17,
+   "roll_max": 18,
+   "name": "Shadowcrown",
+   "caste": null,
+   "proficiencies": [
+    "Command",
+    "Riding",
+    "Weapon Focus (swords)"
+   ],
+   "equipment": "Polished sword, black steel shield bearing red eye of fire, black plate armor, heavy helmet affixed with black iron crown, black armiger's tunic and pants, riding boots, medium riding horse, riding saddle and tack, saddlebags, waterskin, 1 week's iron rations, 13gp",
+   "book_encumbrance": "7 2/6 st with rations on horse"
+  }
+ ]
+}
