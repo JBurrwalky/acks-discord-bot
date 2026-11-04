@@ -647,29 +647,61 @@ class AnimalPreset:
     max_load: int
     food: Fraction          # stone per day
     water: Fraction
-    size: str = "large"     # barding size
-    note: str = ""
+    size: str               # barding size
+    ac: int
+    hd: str
+    attacks: str            # parse_attacks() text; "or" marks the alternatives
+    save: str
+    morale: int             # untrained
+    # war training: "hoof" (+2 morale and an extra hoof), "morale" (+2), "no_charge" (+2, but no attacks when
+    # the rider charges), "trained" (already war-trained), None (can't be trained for war)
+    war: str | None
+    abilities: tuple[str, ...] = ()
 
 
-# Animal/Vehicle Speed and Encumbrance and the animal food & water table (RR pp. 161-162, 277)
+# Speed, loads, food and water: Animal/Vehicle Speed and Encumbrance and the daily food and water table
+# (RR pp. 161-162, 277). AC, HD, attacks, save, morale, senses and proficiencies: the Monstrous Manual
+# entries for each animal (oxen are huge herd animals with 40' / 120' speed).
 ANIMAL_PRESETS: dict[str, AnimalPreset] = {p.key: p for p in [
-    AnimalPreset("camel", "Camel", 150, 30, 60, Fraction(3), Fraction(6),
-                 note="Desert dromedary: never dehydrated unless without water for more than six months."),
-    AnimalPreset("dog_hunting", "Dog, hunting", 180, 2, 4, Fraction(1, 5), Fraction(2, 5), "man-sized",
-                 "Scent: equivalent of Tracking 3 (sight hounds can't track but have 240' speed)."),
-    AnimalPreset("dog_war", "Dog, war", 150, 6, 12, Fraction(3, 5), Fraction(6, 5), "man-sized"),
-    AnimalPreset("donkey", "Donkey", 120, 15, 30, Fraction(3, 2), Fraction(3),
-                 note="Efficient grazer; sure-footed (mountains ×2/3); freezes rather than flees when afraid."),
-    AnimalPreset("elephant", "Elephant", 120, 180, 360, Fraction(18), Fraction(36), "gigantic"),
-    AnimalPreset("horse_heavy", "Horse, heavy", 150, 40, 80, Fraction(4), Fraction(8)),
-    AnimalPreset("horse_light", "Horse, light", 240, 20, 40, Fraction(2), Fraction(4)),
-    AnimalPreset("horse_medium", "Horse, medium", 180, 30, 60, Fraction(3), Fraction(6)),
-    AnimalPreset("horse_steppe", "Horse, steppe", 210, 25, 40, Fraction(2), Fraction(4),
-                 note="Efficient grazer; can force march one day without penalty (+1 day per CON bonus)."),
-    AnimalPreset("mule", "Mule", 150, 25, 50, Fraction(5, 2), Fraction(5),
-                 note="Sure-footed (mountains ×2/3)."),
-    AnimalPreset("ox", "Ox", 120, 45, 90, Fraction(9, 2), Fraction(9), note="Efficient grazer."),
+    AnimalPreset("camel", "Camel", 150, 30, 60, Fraction(3), Fraction(6), "large", 2, "2", "bite 1, hoof 1d4",
+                 "F1", -1, "no_charge",
+                 ("Desert dromedary: never dehydrated unless without water for more than six months.",
+                  "Proficiencies: Endurance")),
+    AnimalPreset("dog_hunting", "Dog, hunting", 180, 2, 4, Fraction(1, 5), Fraction(2, 5), "man-sized", 2, "1+1",
+                 "bite 1d4", "F1", 0, "morale",
+                 ("Night vision; acute hearing and olfaction",
+                  "Proficiencies: Listening 8+, Swimming, Tracking 3+ (scent hound; sight hounds can't track "
+                  "but have 80' / 240' speed)")),
+    AnimalPreset("dog_war", "Dog, war", 150, 6, 12, Fraction(3, 5), Fraction(6, 5), "man-sized", 3, "2+2",
+                 "bite 1d6", "F1", 2, "trained",
+                 ("Night vision; acute hearing and olfaction", "Proficiencies: Listening 8+, Tracking 11+")),
+    AnimalPreset("donkey", "Donkey", 120, 15, 30, Fraction(3, 2), Fraction(3), "large", 2, "1+2",
+                 "hoof 1d4 or bite 1d3", "0-level human", 0, None,
+                 ("Efficient grazer; sure-footed (mountains ×2/3); freezes rather than flees when afraid.",
+                  "Night vision; acute hearing and olfaction", "Proficiencies: Listening 11+")),
+    AnimalPreset("elephant", "Elephant", 120, 180, 360, Fraction(18), Fraction(36), "gigantic", 4, "9",
+                 "2 tusk 2d4 or trample 4d8", "F5", 0, "morale",
+                 ("Night vision; acute hearing and olfaction", "Proficiencies: Listening 4+, Swimming")),
+    AnimalPreset("horse_heavy", "Horse, heavy", 150, 40, 80, Fraction(4), Fraction(8), "large", 2, "3+3",
+                 "hoof 1d8", "F2", -2, "hoof", ("Night vision",)),
+    AnimalPreset("horse_light", "Horse, light", 240, 20, 40, Fraction(2), Fraction(4), "large", 2, "2",
+                 "hoof 1d4", "F1", -2, "hoof", ("Night vision",)),
+    AnimalPreset("horse_medium", "Horse, medium", 180, 30, 60, Fraction(3), Fraction(6), "large", 2, "3",
+                 "hoof 1d6", "F2", -1, "hoof", ("Night vision",)),
+    AnimalPreset("horse_steppe", "Horse, steppe", 210, 25, 40, Fraction(2), Fraction(4), "large", 2, "2",
+                 "hoof 1d4", "F1", -1, "hoof",
+                 ("Efficient grazer; can force march one day without penalty (+1 day per CON bonus).",
+                  "Night vision", "Proficiencies: Endurance")),
+    AnimalPreset("mule", "Mule", 150, 25, 50, Fraction(5, 2), Fraction(5), "large", 2, "2",
+                 "hoof 1d4 or bite 1d3", "F1", 0, "morale",
+                 ("Sure-footed (mountains ×2/3).", "Night vision")),
+    AnimalPreset("ox", "Ox", 120, 45, 90, Fraction(9, 2), Fraction(9), "huge", 2, "5",
+                 "kick 1d8 or butt 1d12", "F3", 0, None,
+                 ("Efficient grazer.", "Night vision; acute hearing")),
 ]}
+
+WAR_TRAINED_NOTE = ("Trained for war: can attack with its natural weapons when its rider charges "
+                    "(the rider's lance deals double damage).")
 
 ANIMAL_SIZES = ["man-sized", "large", "huge", "gigantic", "colossal"]
 # barding is sized for large creatures; others multiply its weight (RR p. 141)

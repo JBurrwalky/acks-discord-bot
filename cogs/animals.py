@@ -10,7 +10,8 @@ from discord import app_commands
 from discord.ext import commands
 
 from acks import embeds, rules
-from acks.animal import Animal, attack_label, make_attack, new_animal_data, parse_attacks, roll_hd, store_stone
+from acks.animal import (Animal, attack_label, make_attack, new_animal_data, parse_attacks, roll_hd, routine_text,
+                         store_stone)
 from acks.storage import Storage
 
 from .common import (UserError, any_character_autocomplete, character_autocomplete, guild_id, is_judge,
@@ -35,6 +36,25 @@ STAT_HELP = {
     "food": "Stone/day (default normal load / 10)",
     "water": "Stone/day (default normal load / 5)",
 }
+
+
+def train_for_war(a: Animal, p: rules.AnimalPreset | None) -> None:
+    """War training (RR p. 147, MM): +2 morale; horses also gain a hoof attack; camels still don't attack on a
+    charge; war dogs already are trained; donkeys (and oxen) can't be."""
+    war = p.war if p else "morale"
+    if war is None:
+        raise UserError(f"The books don't train {p.name.lower()}s for war. If your Judge allows it, set "
+                        f"`morale` yourself and add the training with `/animal ability add`.")
+    if war == "trained":
+        return
+    a.data["morale"] = int(a.data["morale"]) + 2
+    if war == "hoof":
+        hoof = next((at for at in a.attacks() if at["name"] == "hoof" and not at.get("alt")), None)
+        if hoof:
+            hoof["count"] += 1
+    a.data["kind"] = f"{a.data['kind']} (war-trained)"
+    a.data["abilities"].append("Trained for war (+2 morale). War camels don't attack when their rider charges."
+                               if war == "no_charge" else rules.WAR_TRAINED_NOTE)
 
 
 def _stone(x: float | None) -> Fraction | None:
@@ -156,7 +176,8 @@ async def attack_autocomplete(interaction: discord.Interaction, current: str) ->
     a = _animal_from_namespace(interaction)
     if not a:
         return []
-    return [app_commands.Choice(name=f"{attack_label(at)} {at['damage']}"[:100], value=str(i))
+    return [app_commands.Choice(name=f"{'or ' if at.get('alt') else ''}{attack_label(at)} {at['damage']}"[:100],
+                                value=str(i))
             for i, at in enumerate(a.attacks(), 1) if current.casefold() in at["name"].casefold()][:25]
 
 
@@ -241,16 +262,17 @@ class Animals(commands.Cog):
 
     # -- create, show, list ---------------------------------------------------
     @animal.command(name="create", description="Create an animal sheet (mount, pack animal, war dog...)")
-    @app_commands.describe(name="Unique name", preset="Book speed, loads, food and water", hp="Default: rolled",
-                           **STAT_HELP)
+    @app_commands.describe(name="Unique name", preset="Fill in the book's stats", hp="Default: rolled",
+                           war_trained="+2 morale (and an extra hoof for horses)", **STAT_HELP)
     @app_commands.rename(save_as="save")
     @app_commands.choices(preset=PRESET_CHOICES)
     @app_commands.autocomplete(owner=character_autocomplete)
     async def create(self, interaction: discord.Interaction, name: str, preset: str | None = None,
-                     kind: str | None = None, owner: str | None = None, hd: str = "1",
-                     hp: app_commands.Range[int, 1, 2000] | None = None, ac: app_commands.Range[int, -5, 30] = 0,
-                     attacks: str | None = None, attack_throw: app_commands.Range[int, -10, 20] | None = None,
-                     save_as: str | None = None, morale: app_commands.Range[int, -6, 6] = 0,
+                     war_trained: bool = False, kind: str | None = None, owner: str | None = None,
+                     hd: str | None = None, hp: app_commands.Range[int, 1, 2000] | None = None,
+                     ac: app_commands.Range[int, -5, 30] | None = None, attacks: str | None = None,
+                     attack_throw: app_commands.Range[int, -10, 20] | None = None,
+                     save_as: str | None = None, morale: app_commands.Range[int, -6, 6] | None = None,
                      speed: app_commands.Range[int, 0, 2000] | None = None,
                      normal_load: app_commands.Range[float, 0, 100000] | None = None,
                      max_load: app_commands.Range[float, 0, 100000] | None = None, size: Size | None = None,
@@ -263,15 +285,16 @@ class Animals(commands.Cog):
         p = rules.ANIMAL_PRESETS.get(preset or "")
         if p:
             d.update(kind=p.name, speed=p.speed, normal_load=p.normal_load, max_load=p.max_load,
-                     food=store_stone(p.food), water=store_stone(p.water), size=p.size)
-            if p.note:
-                d["abilities"].append(p.note)
+                     food=store_stone(p.food), water=store_stone(p.water), size=p.size, ac=p.ac, hd=p.hd,
+                     attacks=parse_attacks(p.attacks), save=p.save, morale=p.morale, abilities=list(p.abilities))
         elif speed is None or normal_load is None:
             raise UserError("Pick a `preset`, or give at least `speed` and `normal_load` (the rest have defaults).")
         else:
             nl = _stone(normal_load)
             d.update(normal_load=store_stone(nl), max_load=store_stone(nl * 2), food=store_stone(nl / 10),
                      water=store_stone(nl / 5))
+        if war_trained:
+            train_for_war(a, p)
         self._apply_stats(interaction, a, kind=kind, owner=owner, hd=hd, ac=ac, attacks=attacks,
                           attack_throw=attack_throw, save_as=save_as, morale=morale, speed=speed,
                           normal_load=normal_load, max_load=max_load, size=size, food=food, water=water)
@@ -281,9 +304,9 @@ class Animals(commands.Cog):
             note = f" HP rolled from {d['hd']} HD: {detail} = **{hp}**."
         d["hp"] = {"current": hp, "max": hp}
         save_animal(interaction, a)
+        todo = "attacks with `/animal routine add`, " if not a.attacks() else ""
         await interaction.response.send_message(
-            f"🐴 Created **{a.name}**.{note} Add attacks with `/animal routine add`, gear with `/animal item add`, "
-            f"and barding with `/animal barding`.",
+            f"🐴 Created **{a.name}**.{note} Add {todo}gear with `/animal item add` and barding with `/animal barding`.",
             embed=embeds.animal_embed(a, owner_name(store, a)))
 
     @animal.command(name="sheet", description="Show an animal's sheet")
@@ -380,7 +403,10 @@ class Animals(commands.Cog):
         a = resolve_animal(interaction, animal)
         if not a.attacks():
             raise UserError(f"**{a.name}** has no attacks yet. Add them with `/animal routine add`.")
-        chosen = [a.attacks()[_pick(a.attacks(), attack, "attack", a)]] if attack else a.attacks()
+        if attack:
+            chosen = [a.attacks()[_pick(a.attacks(), attack, "attack", a)]]
+        else:   # the routine; alternatives ("or trample") are rolled by picking them
+            chosen = [at for at in a.attacks() if not at.get("alt")] or a.attacks()[:1]
         results = [a.roll_attack(at, target_ac, situational) for at in chosen for _ in range(at["count"])]
         await interaction.response.send_message(embed=embeds.animal_attack_embed(a, target_ac, results, situational))
 
@@ -478,19 +504,19 @@ class Animals(commands.Cog):
 
     # -- /animal routine ------------------------------------------------------
     @routine.command(name="add", description="Add an attack to the animal's routine")
-    @app_commands.describe(name="e.g. hoof, bite", damage="e.g. 1d6 or 1d4+1", count="Times per round")
+    @app_commands.describe(name="e.g. hoof, bite", damage="e.g. 1d6 or 1d4+1", count="Times per round",
+                           alternative="Made instead of the routine (e.g. trample)")
     @app_commands.autocomplete(animal=animal_autocomplete)
     async def routine_add(self, interaction: discord.Interaction, animal: str, name: app_commands.Range[str, 1, 40],
-                          damage: str, count: app_commands.Range[int, 1, 10] = 1) -> None:
+                          damage: str, count: app_commands.Range[int, 1, 10] = 1, alternative: bool = False) -> None:
         a = resolve_animal(interaction, animal)
         try:
-            at = make_attack(name, damage, count)
+            at = make_attack(name, damage, count, alternative)
         except ValueError as e:
             raise UserError(str(e)) from None
         a.attacks().append(at)
         save_animal(interaction, a)
-        await interaction.response.send_message(
-            f"⚔️ **{a.name}** attacks: " + ", ".join(f"{attack_label(x)} {x['damage']}" for x in a.attacks()))
+        await interaction.response.send_message(f"⚔️ **{a.name}** attacks: {routine_text(a.attacks())}")
 
     @routine.command(name="remove", description="Remove an attack from the animal's routine")
     @app_commands.autocomplete(animal=animal_autocomplete, attack=attack_autocomplete)

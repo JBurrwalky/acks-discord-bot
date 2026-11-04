@@ -100,7 +100,7 @@ which you set with `/character select`.
 | `/hp damage` · `heal` · `set` · `show` | Hit points |
 | `/modifier add name target value` · `remove` · `list` | Ring of protection, *bless*, blindness... Targets: attacks, damage, AC, saves, initiative |
 | `/proficiency add` · `remove` | Proficiencies (autocompletes from your class list and the general list) |
-| `/animal create name [preset] [owner] ...` | Make an animal sheet. `preset` fills speed, loads, food and water from the rulebook |
+| `/animal create name [preset] [war_trained] [owner] ...` | Make an animal sheet. `preset` fills in the book's stats |
 | `/animal sheet` · `list` · `edit` · `delete` | Show, list (all, or one character's), change, or delete animals |
 | `/animal attack animal target_ac [attack]` · `hp` | Roll its attack routine (or one attack); damage, heal, or set HP |
 | `/animal barding` · `equip` · `unequip` | Add book barding weighed for its size and put it on; swap barding |
@@ -127,7 +127,8 @@ Mounts, pack animals, war dogs, and other creatures get their own simple sheets:
 - **Stat block**: kind, Hit Dice, HP, AC, attack throw (from Hit Dice unless you set it, per the RR's
   *Attack Throws by Level and HD*), save, morale, special abilities, and notes.
 - **Attack routine**: e.g. `attacks:2 hoof 1d6, bite 1d4` on create, or `/animal routine add`.
-  `/animal attack` rolls every attack in the routine against the target's AC.
+  `/animal attack` rolls every attack in the routine against the target's AC. Attacks after `or` are
+  alternatives made instead of the routine (`2 tusk 2d4 or trample 4d8`); roll one by picking it in `attack`.
 - **Load and speed**: everything in the animal's gear counts. Up to its normal load it moves at full
   speed; up to its maximum load, half speed; beyond that it can't move. Tack, saddles, and harness aren't
   enforced: add them (and a rider, at 15 stone plus their gear) as items if you want them counted.
@@ -137,8 +138,11 @@ Mounts, pack animals, war dogs, and other creatures get their own simple sheets:
   and weight for the animal's size (man-sized ×2/3, huge ×3, gigantic ×12, colossal ×60), and puts it on.
   `half` halves the weight; `spiked` adds +1 damage per die to its attacks. Homebrew or magic barding:
   `/animal item add barding_ac:…`, then `/animal equip`.
-- **Presets** (Revised Rulebook): camel, hunting dog, war dog, donkey, elephant, heavy, light, medium and
-  steppe horses, mule, and ox. AC, HD, and attacks come from the *Monstrous Manual*; enter them yourself.
+- **Presets**: camel, hunting dog, war dog, donkey, elephant, heavy, light, medium and steppe horses, mule,
+  and ox. Speed, loads, food and water come from the Revised Rulebook; AC, Hit Dice, attacks, save, morale,
+  senses and proficiencies from the *Monstrous Manual* (an ox is its huge herd animal). Any option you give
+  overrides the preset. `war_trained:True` adds +2 morale, plus a second hoof attack for horses (war mules
+  and camels get only the morale; donkeys and oxen can't be trained for war). War dogs are already trained.
 - **Owner**: set `owner` to a character, and the animal is listed on that character's Inventory page. The
   owner's player (or a Judge) can change the animal; anyone can view it. Animals without an owner belong to
   whoever made them. Deleting a character leaves its animals with no owner.

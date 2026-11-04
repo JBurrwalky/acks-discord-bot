@@ -218,6 +218,15 @@ def test_animal_sheet():
     assert all(p.food == Fraction(p.normal_load, 10) and p.water == Fraction(p.normal_load, 5) for p in others)
     steppe = rules.ANIMAL_PRESETS["horse_steppe"]
     assert (steppe.food, steppe.water) == (2, 4)
+    # Monstrous Manual stat blocks print each animal's attack throw; the HD table must give the same value
+    printed = {"camel": 9, "dog_hunting": 9, "dog_war": 8, "donkey": 9, "elephant": 2, "horse_heavy": 7,
+               "horse_light": 9, "horse_medium": 8, "horse_steppe": 9, "mule": 9, "ox": 6}
+    assert {k: rules.monster_attack_throw(p.hd) for k, p in rules.ANIMAL_PRESETS.items()} == printed
+    elephant = parse_attacks(rules.ANIMAL_PRESETS["elephant"].attacks)
+    assert [(x["name"], x["count"], x["damage"], x.get("alt", False)) for x in elephant] == \
+           [("tusk", 2, "2d4", False), ("trample", 1, "4d8", True)]
+    camel = parse_attacks(rules.ANIMAL_PRESETS["camel"].attacks)
+    assert [(x["name"], x["damage"]) for x in camel] == [("bite", "1"), ("hoof", "1d4")]   # the bite deals 1 point
 
 
 def test_animal_storage(tmp=None):

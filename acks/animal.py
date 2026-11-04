@@ -12,7 +12,8 @@ from . import rules
 from .character import Bonus, ItemStore, _store_number
 from .dice import d, roll
 
-ATTACK_TEXT = re.compile(r"^\s*(?:(\d+)\s*[x×]?\s+)?(.+?)\s+(\d*d\d+(?:[+-]\d+)?)\s*$", re.I)
+DAMAGE = r"\d*d\d+(?:[+-]\d+)?|\d+"
+ATTACK_TEXT = re.compile(rf"^\s*(?:(\d+)\s*[x×]?\s+)?(.+?)\s+({DAMAGE})\s*$", re.I)
 
 
 def new_animal_data(guild_id: int, user_id: int, name: str) -> dict:
@@ -26,26 +27,41 @@ def new_animal_data(guild_id: int, user_id: int, name: str) -> dict:
 
 
 def parse_attacks(text: str) -> list[dict]:
-    """'2 hoof 1d6, bite 1d4' -> [{'name': 'hoof', 'count': 2, 'damage': '1d6'}, ...]"""
+    """'2 hoof 1d6, bite 1d4' -> [{'name': 'hoof', 'count': 2, 'damage': '1d6'}, ...]
+
+    Attacks after 'or' are alternatives, made instead of the routine: '2 tusk 2d4 or trample 4d8'.
+    """
+    routine, *alternatives = re.split(r"\s+or\s+", text.strip(), flags=re.I)
     out = []
-    for part in re.split(r"[;,\n]", text):
-        if not part.strip():
-            continue
-        m = ATTACK_TEXT.match(part)
-        if not m:
-            raise ValueError(f"Can't read the attack `{part.strip()}`. Write it like `2 hoof 1d6` or `bite 1d4+1`.")
-        out.append(make_attack(m.group(2), m.group(3), int(m.group(1) or 1)))
+    for chunk, alt in [(routine, False)] + [(a, True) for a in alternatives]:
+        for part in re.split(r"[;,\n]", chunk):
+            if not part.strip():
+                continue
+            m = ATTACK_TEXT.match(part)
+            if not m:
+                raise ValueError(f"Can't read the attack `{part.strip()}`. Write it like `2 hoof 1d6` or `bite 1d4+1`.")
+            out.append(make_attack(m.group(2), m.group(3), int(m.group(1) or 1), alt))
     return out
 
 
-def make_attack(name: str, damage: str, count: int = 1) -> dict:
+def make_attack(name: str, damage: str, count: int = 1, alternative: bool = False) -> dict:
     damage = damage.replace(" ", "").lower()
-    if not re.fullmatch(r"\d*d\d+([+-]\d+)?", damage):
-        raise ValueError(f"Damage must be dice like `1d6` or `1d4+1`, not `{damage}`.")
+    if not re.fullmatch(DAMAGE, damage):
+        raise ValueError(f"Damage must be dice like `1d6` or `1d4+1`, or a number, not `{damage}`.")
     roll(damage)   # checks the dice limits
     if not 1 <= count <= 10:
         raise ValueError("An attack can be repeated 1 to 10 times.")
-    return {"name": name.strip()[:40], "count": count, "damage": damage}
+    at = {"name": name.strip()[:40], "count": count, "damage": damage}
+    if alternative:
+        at["alt"] = True
+    return at
+
+
+def routine_text(attacks: list[dict]) -> str:
+    """Back to the text parse_attacks() reads: '2 hoof 1d6, bite 1d4 or trample 4d8'."""
+    main = ", ".join(f"{attack_label(a)} {a['damage']}" for a in attacks if not a.get("alt"))
+    alts = [f"{attack_label(a)} {a['damage']}" for a in attacks if a.get("alt")]
+    return " or ".join([main] + alts) if main else " or ".join(alts)
 
 
 def roll_hd(hd: str) -> tuple[int, str]:

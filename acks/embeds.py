@@ -418,8 +418,7 @@ def animal_embed(a: Animal, owner_name: str | None = None) -> discord.Embed:
              f"**Attack throw** {a.attack_throw()}+"]
     if d.get("save"):
         stats.append(f"**Save** {d['save']}")
-    if d.get("morale"):
-        stats.append(f"**Morale** {fmt_mod(int(d['morale']))}")
+    stats.append(f"**Morale** {fmt_mod(int(d.get('morale', 0)))}")
     lines.append(" · ".join(stats))
     if hp["current"] <= 0:
         lines.append("💀 **Down**: an animal at 0 hp is unconscious and possibly slain")
@@ -428,7 +427,8 @@ def animal_embed(a: Animal, owner_name: str | None = None) -> discord.Embed:
     if a.attacks():
         title = "⚔️ Attacks" + (" (spiked barding: +1 per die)" if a.spiked() else "")
         e.add_field(name=title, inline=False, value=_clip("\n".join(
-            f"{attack_label(at)} **{a.damage_expression(at)}**" for at in a.attacks())))
+            ("*or* " if at.get("alt") else "") + f"{attack_label(at)} **{a.damage_expression(at)}**"
+            for at in a.attacks())))
     sp = a.speeds()
     e.add_field(name="🐾 Speed", inline=True,
                 value=f"{sp['exploration']}' / {sp['combat']}' · run {sp['running']}'\n"
