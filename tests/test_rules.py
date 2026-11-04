@@ -153,25 +153,35 @@ def test_spend_makes_change():
     ch = make("fighter")
     p = ch.data["purse"]
     p["gp"] = 3
-    assert ch.spend_coins(35, "cp") == {"gp": 1}           # 1 gp -> 100 cp, 65 left
+    assert ch.spend_coins(35, "cp") == ({"gp": 1}, {})      # 1 gp -> 100 cp, 65 left
     assert (p["gp"], p["cp"]) == (2, 65)
-    assert ch.spend_coins(5, "sp") == {"gp": 1}            # 1 gp -> 10 sp
+    assert ch.spend_coins(5, "sp") == ({"gp": 1}, {})       # 1 gp -> 10 sp
     assert (p["gp"], p["sp"]) == (1, 5)
-    assert ch.spend_coins(50, "cp") == {}                  # enough cp: nothing broken
+    assert ch.spend_coins(50, "cp") == ({}, {})             # enough cp: nothing broken
     p.update(pp=1, gp=0, ep=1, sp=0, cp=0)
-    assert ch.spend_coins(70, "cp") == {"pp": 1}           # 1 ep can't cover 70 cp, so break the pp
+    assert ch.spend_coins(70, "cp") == ({"pp": 1}, {})      # 1 ep can't cover 70 cp, so break the pp
     assert (p["pp"], p["ep"], p["cp"]) == (0, 1, 430)
     p.update(pp=0, gp=1, ep=1, sp=0, cp=0)
-    assert ch.spend_coins(12, "sp") == {"ep": 1, "gp": 1}  # neither alone covers 12 sp: 5 + 10 sp, 3 change
+    assert ch.spend_coins(12, "sp") == ({"ep": 1, "gp": 1}, {})  # neither alone covers 12 sp: 5 + 10 sp, 3 change
     assert (p["gp"], p["ep"], p["sp"]) == (0, 0, 3)
-    p.update(pp=0, gp=1, ep=0, sp=0, cp=0)
-    for args in ((2, "gp"), (101, "cp"), (5, "cp", False)):
+    # paying in smaller coins when larger ones can't cover it
+    p.update(pp=0, gp=0, ep=0, sp=15, cp=0)
+    assert ch.spend_coins(1, "gp") == ({}, {"sp": 10})      # 1 gp paid as 10 sp
+    assert (p["gp"], p["sp"]) == (0, 5)
+    p.update(pp=0, gp=0, ep=1, sp=3, cp=30)
+    assert ch.spend_coins(1, "gp") == ({}, {"ep": 1, "sp": 3, "cp": 20})  # largest coins first
+    assert (p["ep"], p["sp"], p["cp"]) == (0, 0, 10)
+    p.update(pp=1, gp=0, ep=0, sp=20, cp=0)
+    assert ch.spend_coins(6, "gp") == ({"pp": 1}, {"sp": 10})  # 5 gp from the pp, 1 gp in silver
+    assert (p["pp"], p["gp"], p["sp"]) == (0, 0, 10)
+    p.update(pp=0, gp=1, ep=0, sp=5, cp=0)
+    for args in ((2, "gp"), (151, "cp"), (5, "cp", False)):
         try:
             ch.spend_coins(*args)
             raise AssertionError(f"{args} should fail")
         except ValueError:
             pass
-    assert p["gp"] == 1 and p["cp"] == 0                   # a failed spend changes nothing
+    assert (p["gp"], p["sp"], p["cp"]) == (1, 5, 0)        # a failed spend changes nothing
 
 
 def test_backstab():

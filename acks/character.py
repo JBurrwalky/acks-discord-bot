@@ -827,17 +827,22 @@ class Character:
         return sum((Fraction(int(self.data["purse"][c])) * rules.COIN_VALUES_GP[c] for c in rules.COIN_TYPES),
                    Fraction(0))
 
-    def spend_coins(self, amount: int, coin: str, make_change: bool = True) -> dict[str, int]:
+    def spend_coins(self, amount: int, coin: str, make_change: bool = True) -> tuple[dict[str, int], dict[str, int]]:
         """Spend coins of one kind. When short, break as few larger coins as needed into that kind
-        (1 gp -> 100 cp, 1 gp -> 10 sp...); the change stays in the purse. Returns the coins broken."""
+        (1 gp -> 100 cp, 1 gp -> 10 sp...) and keep the change; if the larger coins can't cover it, pay the
+        rest in smaller coins (1 gp as 10 sp). Returns (larger coins broken, smaller coins paid)."""
         purse, values = self.data["purse"], rules.COIN_VALUES_GP
         have = int(purse.get(coin, 0))
         broken: dict[str, int] = {}
+        paid: dict[str, int] = {}
         if amount > have:
+            if not make_change:
+                raise ValueError(f"**{self.name}** only has {have:,} {coin}; leave `make_change` on to use "
+                                 f"other coins.")
             short = (amount - have) * values[coin]
             # smallest coins first, so a pp is only broken when gp and ep can't cover it
             pool = sorted((c for c in rules.COIN_TYPES if values[c] > values[coin] and int(purse.get(c, 0))),
-                          key=values.get) if make_change else []
+                          key=values.get)
             while short > 0 and pool:
                 enough = next((c for c in pool if int(purse[c]) * values[c] >= short), None)
                 if enough:
@@ -847,17 +852,20 @@ class Character:
                     c = pool.pop(0)
                     broken[c] = int(purse[c])
                     short -= broken[c] * values[c]
+            # what's left is a whole number of each smaller coin's value, so paying largest-first comes out exact
+            for c in sorted((c for c in rules.COIN_TYPES if values[c] < values[coin]), key=values.get, reverse=True):
+                n = min(int(purse.get(c, 0)), short // values[c])
+                if n:
+                    paid[c] = n
+                    short -= n * values[c]
             if short > 0:
-                hint = (" and no larger coins to make change from" if make_change
-                        else "; leave `make_change` on to break larger coins")
-                raise ValueError(f"**{self.name}** only has {have:,} {coin}{hint}." if not broken
-                                 else f"**{self.name}** only has {have:,} {coin}, and breaking every larger coin "
-                                      f"still leaves them short (purse ≈ {float(self.purse_value_gp()):,.2f} gp).")
-        for c, n in broken.items():
+                raise ValueError(f"**{self.name}** can't pay {amount:,} {coin}: the whole purse is only worth "
+                                 f"≈ {float(self.purse_value_gp()):,.2f} gp.")
+        for c, n in (broken | paid).items():
             purse[c] = int(purse[c]) - n
-        gained = sum((n * values[c] for c, n in broken.items()), Fraction(0)) / values[coin]
+        gained = sum((n * values[c] for c, n in (broken | paid).items()), Fraction(0)) / values[coin]
         purse[coin] = have + int(gained) - amount   # larger coin values are whole multiples of smaller ones
-        return broken
+        return broken, paid
 
     # -- XP and levels -----------------------------------------------------
     def xp_for_next(self) -> int | None:

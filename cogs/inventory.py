@@ -271,22 +271,26 @@ class Inventory(commands.Cog):
         save(interaction, ch)
         await interaction.response.send_message(f"💰 **{ch.name}** gains {amount:,} {coin}.\n{_status_line(ch)}")
 
-    @purse.command(name="spend", description="Spend or lose coins (breaks larger coins for change if needed)")
-    @app_commands.describe(make_change="If short of this coin, break larger coins into it (default: on)")
+    @purse.command(name="spend", description="Spend or lose coins (makes change from other coins if needed)")
+    @app_commands.describe(make_change="If short of this coin, break larger coins or pay in smaller ones (default: on)")
     @app_commands.autocomplete(character=character_autocomplete)
     async def purse_spend(self, interaction: discord.Interaction, amount: app_commands.Range[int, 1, 10_000_000],
                           coin: Coin = "gp", make_change: bool = True, character: str | None = None) -> None:
         ch = resolve_character(interaction, character)
         try:
-            broken = ch.spend_coins(amount, coin, make_change)
+            broken, paid = ch.spend_coins(amount, coin, make_change)
         except ValueError as e:
             raise UserError(str(e)) from None
         save(interaction, ch)
-        note = ""
+        parts = []
         if broken:
             into = sum((n * rules.COIN_VALUES_GP[c] for c, n in broken.items()), Fraction(0)) / rules.COIN_VALUES_GP[coin]
-            note = (" (broke " + ", ".join(f"{n:,} {c}" for c, n in broken.items())
-                    + f" into {int(into):,} {coin}; {ch.data['purse'][coin]:,} {coin} left)")
+            parts.append("broke " + ", ".join(f"{n:,} {c}" for c, n in broken.items()) + f" into {int(into):,} {coin}")
+        if paid:
+            parts.append("paid " + ", ".join(f"{n:,} {c}" for c, n in paid.items()))
+        if broken or paid:
+            parts.append(f"{ch.data['purse'][coin]:,} {coin} left")
+        note = f" ({'; '.join(parts)})" if parts else ""
         await interaction.response.send_message(f"💸 **{ch.name}** spends {amount:,} {coin}{note}.\n{_status_line(ch)}")
 
     @purse.command(name="set", description="Set coin counts directly")

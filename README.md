@@ -95,7 +95,7 @@ which you set with `/character select`.
 | `/item add name [quantity] [weight] [unit] [base] [magic] [notes]` | Add any item, from the books or not. `unit` = stone, items, or coins. Set `base` (e.g. *Sword*, *Chain Mail Armor*) to make it a book weapon or armor that can be equipped |
 | `/item add … damage size weapon_type range thrown` · `armor_ac armor_type` | Homebrew weapon or armor stats (see below) |
 | `/item remove` · `list` · `edit` | Remove, list, or edit items (`edit` can also change or clear homebrew stats) |
-| `/purse add` · `spend` · `set` | Coins (pp, gp, ep, sp, cp). `spend` makes change: short of the coin you spend, it breaks the fewest larger coins (smallest first) and keeps the change, e.g. 35 cp from gold breaks 1 gp and leaves 65 cp. `make_change:False` turns this off |
+| `/purse add` · `spend` · `set` | Coins (pp, gp, ep, sp, cp). `spend` makes change: short of the coin you spend, it breaks the fewest larger coins (smallest first) and keeps the change, e.g. 35 cp from gold breaks 1 gp and leaves 65 cp. If the larger coins can't cover it, the rest is paid in smaller coins (largest first), e.g. 1 gp as 10 sp. `make_change:False` turns this off |
 | `/equip item [slot]` · `/unequip slot` | Slots: main hand, off hand, both hands, missile, armor, shield |
 | `/hp damage` · `heal` · `set` · `show` | Hit points |
 | `/modifier add name target value` · `remove` · `list` | Ring of protection, *bless*, blindness... Targets: attacks, damage, AC, saves, initiative |
