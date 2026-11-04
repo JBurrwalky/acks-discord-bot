@@ -149,6 +149,31 @@ def test_encumbrance_and_speed():
     assert rules.fmt_stone(Fraction(28, 6)) == "4 4/6 st"
 
 
+def test_spend_makes_change():
+    ch = make("fighter")
+    p = ch.data["purse"]
+    p["gp"] = 3
+    assert ch.spend_coins(35, "cp") == {"gp": 1}           # 1 gp -> 100 cp, 65 left
+    assert (p["gp"], p["cp"]) == (2, 65)
+    assert ch.spend_coins(5, "sp") == {"gp": 1}            # 1 gp -> 10 sp
+    assert (p["gp"], p["sp"]) == (1, 5)
+    assert ch.spend_coins(50, "cp") == {}                  # enough cp: nothing broken
+    p.update(pp=1, gp=0, ep=1, sp=0, cp=0)
+    assert ch.spend_coins(70, "cp") == {"pp": 1}           # 1 ep can't cover 70 cp, so break the pp
+    assert (p["pp"], p["ep"], p["cp"]) == (0, 1, 430)
+    p.update(pp=0, gp=1, ep=1, sp=0, cp=0)
+    assert ch.spend_coins(12, "sp") == {"ep": 1, "gp": 1}  # neither alone covers 12 sp: 5 + 10 sp, 3 change
+    assert (p["gp"], p["ep"], p["sp"]) == (0, 0, 3)
+    p.update(pp=0, gp=1, ep=0, sp=0, cp=0)
+    for args in ((2, "gp"), (101, "cp"), (5, "cp", False)):
+        try:
+            ch.spend_coins(*args)
+            raise AssertionError(f"{args} should fail")
+        except ValueError:
+            pass
+    assert p["gp"] == 1 and p["cp"] == 0                   # a failed spend changes nothing
+
+
 def test_backstab():
     t = make("thief", 5, dex=16)
     dg = t.add_item("Dagger", 1, Fraction(1, 6), "stone", "weapon", "dagger")

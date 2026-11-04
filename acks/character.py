@@ -5,6 +5,7 @@ computes AC, attack throws, saving throws, encumbrance, and speed from it.
 """
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass, field
 from fractions import Fraction
 
@@ -825,6 +826,38 @@ class Character:
     def purse_value_gp(self) -> Fraction:
         return sum((Fraction(int(self.data["purse"][c])) * rules.COIN_VALUES_GP[c] for c in rules.COIN_TYPES),
                    Fraction(0))
+
+    def spend_coins(self, amount: int, coin: str, make_change: bool = True) -> dict[str, int]:
+        """Spend coins of one kind. When short, break as few larger coins as needed into that kind
+        (1 gp -> 100 cp, 1 gp -> 10 sp...); the change stays in the purse. Returns the coins broken."""
+        purse, values = self.data["purse"], rules.COIN_VALUES_GP
+        have = int(purse.get(coin, 0))
+        broken: dict[str, int] = {}
+        if amount > have:
+            short = (amount - have) * values[coin]
+            # smallest coins first, so a pp is only broken when gp and ep can't cover it
+            pool = sorted((c for c in rules.COIN_TYPES if values[c] > values[coin] and int(purse.get(c, 0))),
+                          key=values.get) if make_change else []
+            while short > 0 and pool:
+                enough = next((c for c in pool if int(purse[c]) * values[c] >= short), None)
+                if enough:
+                    broken[enough] = math.ceil(short / values[enough])
+                    short = 0
+                else:
+                    c = pool.pop(0)
+                    broken[c] = int(purse[c])
+                    short -= broken[c] * values[c]
+            if short > 0:
+                hint = (" and no larger coins to make change from" if make_change
+                        else "; leave `make_change` on to break larger coins")
+                raise ValueError(f"**{self.name}** only has {have:,} {coin}{hint}." if not broken
+                                 else f"**{self.name}** only has {have:,} {coin}, and breaking every larger coin "
+                                      f"still leaves them short (purse ≈ {float(self.purse_value_gp()):,.2f} gp).")
+        for c, n in broken.items():
+            purse[c] = int(purse[c]) - n
+        gained = sum((n * values[c] for c, n in broken.items()), Fraction(0)) / values[coin]
+        purse[coin] = have + int(gained) - amount   # larger coin values are whole multiples of smaller ones
+        return broken
 
     # -- XP and levels -----------------------------------------------------
     def xp_for_next(self) -> int | None:

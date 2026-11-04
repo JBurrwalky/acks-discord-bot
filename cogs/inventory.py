@@ -271,18 +271,23 @@ class Inventory(commands.Cog):
         save(interaction, ch)
         await interaction.response.send_message(f"💰 **{ch.name}** gains {amount:,} {coin}.\n{_status_line(ch)}")
 
-    @purse.command(name="spend", description="Spend or lose coins")
+    @purse.command(name="spend", description="Spend or lose coins (breaks larger coins for change if needed)")
+    @app_commands.describe(make_change="If short of this coin, break larger coins into it (default: on)")
     @app_commands.autocomplete(character=character_autocomplete)
     async def purse_spend(self, interaction: discord.Interaction, amount: app_commands.Range[int, 1, 10_000_000],
-                          coin: Coin = "gp", character: str | None = None) -> None:
+                          coin: Coin = "gp", make_change: bool = True, character: str | None = None) -> None:
         ch = resolve_character(interaction, character)
-        have = int(ch.data["purse"].get(coin, 0))
-        if amount > have:
-            raise UserError(f"**{ch.name}** only has {have:,} {coin}. Make change with `/purse add` / "
-                            f"`/purse spend` in other coins first.")
-        ch.data["purse"][coin] = have - amount
+        try:
+            broken = ch.spend_coins(amount, coin, make_change)
+        except ValueError as e:
+            raise UserError(str(e)) from None
         save(interaction, ch)
-        await interaction.response.send_message(f"💸 **{ch.name}** spends {amount:,} {coin}.\n{_status_line(ch)}")
+        note = ""
+        if broken:
+            into = sum((n * rules.COIN_VALUES_GP[c] for c, n in broken.items()), Fraction(0)) / rules.COIN_VALUES_GP[coin]
+            note = (" (broke " + ", ".join(f"{n:,} {c}" for c, n in broken.items())
+                    + f" into {int(into):,} {coin}; {ch.data['purse'][coin]:,} {coin} left)")
+        await interaction.response.send_message(f"💸 **{ch.name}** spends {amount:,} {coin}{note}.\n{_status_line(ch)}")
 
     @purse.command(name="set", description="Set coin counts directly")
     @app_commands.autocomplete(character=character_autocomplete)
