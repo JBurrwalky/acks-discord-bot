@@ -1,4 +1,4 @@
-"""SQLite persistence. Each character is one row holding its JSON sheet."""
+"""SQLite persistence. Each character (and each animal) is one row holding its JSON sheet."""
 from __future__ import annotations
 
 import json
@@ -6,6 +6,7 @@ import sqlite3
 import threading
 from pathlib import Path
 
+from .animal import Animal
 from .character import Character
 
 SCHEMA = """
@@ -32,6 +33,18 @@ CREATE TABLE IF NOT EXISTS active_characters (
     character_id INTEGER NOT NULL,
     PRIMARY KEY (guild_id, user_id)
 );
+CREATE TABLE IF NOT EXISTS animals (
+    id            INTEGER PRIMARY KEY AUTOINCREMENT,
+    guild_id      INTEGER NOT NULL,
+    user_id       INTEGER NOT NULL,
+    owner_char_id INTEGER,
+    name          TEXT    NOT NULL,
+    data          TEXT    NOT NULL,
+    created_at    TEXT    NOT NULL DEFAULT (datetime('now')),
+    updated_at    TEXT    NOT NULL DEFAULT (datetime('now'))
+);
+CREATE UNIQUE INDEX IF NOT EXISTS idx_animal_name ON animals (guild_id, name COLLATE NOCASE);
+CREATE INDEX IF NOT EXISTS idx_animal_owner ON animals (owner_char_id);
 """
 
 
@@ -74,11 +87,17 @@ class Storage:
             row = self._conn.execute("SELECT id, data FROM characters WHERE id = ?", (char_id,)).fetchone()
         return Character(json.loads(row["data"]), row["id"]) if row else None
 
-    def delete(self, char_id: int) -> None:
+    def delete(self, char_id: int) -> list[Animal]:
+        """Delete a character; its animals stay, with no owner. Returns those animals."""
+        orphans = self.animals_owned_by(char_id)
+        for a in orphans:
+            a.data["owner_char"] = None
+            self.save_animal(a)
         with self._lock:
             self._conn.execute("DELETE FROM characters WHERE id = ?", (char_id,))
             self._conn.execute("DELETE FROM active_characters WHERE character_id = ?", (char_id,))
             self._conn.commit()
+        return orphans
 
     def list_for_user(self, guild_id: int, user_id: int) -> list[Character]:
         with self._lock:
@@ -122,6 +141,53 @@ class Storage:
             rows = self._conn.execute("SELECT character_id FROM active_characters WHERE guild_id = ?",
                                       (guild_id,)).fetchall()
         return {r["character_id"] for r in rows}
+
+    # -- animals -----------------------------------------------------------
+    def save_animal(self, a: Animal) -> None:
+        """Insert or update. Raises ValueError if another animal in the server has the same name."""
+        row = (a.data["guild_id"], a.data["user_id"], a.owner_char, a.name, json.dumps(a.data))
+        with self._lock:
+            try:
+                if a.id is None:
+                    cur = self._conn.execute(
+                        "INSERT INTO animals (guild_id, user_id, owner_char_id, name, data) VALUES (?, ?, ?, ?, ?)",
+                        row)
+                    a.id = cur.lastrowid
+                else:
+                    self._conn.execute(
+                        "UPDATE animals SET guild_id = ?, user_id = ?, owner_char_id = ?, name = ?, data = ?, "
+                        "updated_at = datetime('now') WHERE id = ?", (*row, a.id))
+                self._conn.commit()
+            except sqlite3.IntegrityError:
+                self._conn.rollback()
+                raise ValueError(f"There's already an animal called **{a.name}** in this server.") from None
+
+    def get_animal(self, animal_id: int) -> Animal | None:
+        with self._lock:
+            row = self._conn.execute("SELECT id, data FROM animals WHERE id = ?", (animal_id,)).fetchone()
+        return Animal(json.loads(row["data"]), row["id"]) if row else None
+
+    def delete_animal(self, animal_id: int) -> None:
+        with self._lock:
+            self._conn.execute("DELETE FROM animals WHERE id = ?", (animal_id,))
+            self._conn.commit()
+
+    def animals_for_guild(self, guild_id: int) -> list[Animal]:
+        with self._lock:
+            rows = self._conn.execute("SELECT id, data FROM animals WHERE guild_id = ? ORDER BY name COLLATE NOCASE",
+                                      (guild_id,)).fetchall()
+        return [Animal(json.loads(r["data"]), r["id"]) for r in rows]
+
+    def animals_owned_by(self, char_id: int) -> list[Animal]:
+        with self._lock:
+            rows = self._conn.execute(
+                "SELECT id, data FROM animals WHERE owner_char_id = ? ORDER BY name COLLATE NOCASE",
+                (char_id,)).fetchall()
+        return [Animal(json.loads(r["data"]), r["id"]) for r in rows]
+
+    def animal_name_taken(self, guild_id: int, name: str, except_id: int | None = None) -> bool:
+        wanted = name.strip().casefold()
+        return any(a.name.casefold() == wanted and a.id != except_id for a in self.animals_for_guild(guild_id))
 
     # -- encounters (one initiative roster per channel) --------------------
     def get_encounter(self, guild_id: int, channel_id: int) -> dict | None:

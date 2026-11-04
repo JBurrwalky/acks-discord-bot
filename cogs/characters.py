@@ -62,7 +62,7 @@ class Characters(commands.Cog):
     async def sheet(self, interaction: discord.Interaction, character: str | None = None, page: Page = "sheet",
                     private: bool = False) -> None:
         ch = resolve_character(interaction, character, write=False)
-        await interaction.response.send_message(embed=page_embed(ch, page, interaction.guild),
+        await interaction.response.send_message(embed=page_embed(ch, page, interaction.guild, storage(interaction)),
                                                 view=sheet_view(ch, page), ephemeral=private)
 
     # -- /character group ------------------------------------------------
@@ -325,9 +325,11 @@ class ConfirmDelete(discord.ui.View):
 
     @discord.ui.button(label="Delete forever", style=discord.ButtonStyle.danger, emoji="🗑️")
     async def confirm(self, interaction: discord.Interaction, button: discord.ui.Button) -> None:
-        storage(interaction).delete(self.char_id)
+        orphans = storage(interaction).delete(self.char_id)
         self.stop()
-        await interaction.response.edit_message(content=f"🗑️ **{self.name}** has been deleted.", view=None)
+        note = ("\n-# Their animals now have no owner: " + ", ".join(f"**{a.name}**" for a in orphans)
+                + ". Give them a new one with `/animal edit owner:`.") if orphans else ""
+        await interaction.response.edit_message(content=f"🗑️ **{self.name}** has been deleted.{note}", view=None)
 
     @discord.ui.button(label="Keep", style=discord.ButtonStyle.secondary)
     async def cancel(self, interaction: discord.Interaction, button: discord.ui.Button) -> None:

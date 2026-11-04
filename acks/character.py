@@ -108,7 +108,69 @@ class AttackProfile:
         return f"{dice}{fmt_mod(b) if b else ''}"
 
 
-class Character:
+class ItemStore:
+    """An inventory kept in data["items"] (shared by characters and animals)."""
+    data: dict
+
+    def items(self) -> list[dict]:
+        return self.data["items"]
+
+    def item(self, item_id: int | None) -> dict | None:
+        if item_id is None:
+            return None
+        for it in self.data["items"]:
+            if it["id"] == item_id:
+                return it
+        return None
+
+    @staticmethod
+    def item_stone_each(it: dict) -> Fraction:
+        w = Fraction(str(it.get("weight", 0)))
+        unit = it.get("unit", "stone")
+        if unit == "items":
+            return w / 6
+        if unit == "coins":
+            return w / rules.COINS_PER_STONE
+        return w
+
+    def add_item(self, name: str, qty: int = 1, weight: float | Fraction = 0, unit: str = "stone",
+                 kind: str = "gear", base: str | None = None, magic: int = 0, notes: str = "",
+                 custom: dict | None = None) -> dict:
+        # stack identical plain items
+        for it in self.data["items"]:
+            if (it["name"].lower() == name.lower() and it.get("kind") == kind and it.get("base") == base
+                    and (it.get("custom") or None) == (custom or None)
+                    and int(it.get("magic", 0)) == magic and it.get("unit") == unit
+                    and Fraction(str(it.get("weight", 0))) == Fraction(str(weight))):
+                it["qty"] += qty
+                return it
+        it = {
+            "id": self.data["next_item_id"], "name": name, "qty": qty,
+            "weight": _store_number(weight), "unit": unit, "kind": kind, "base": base,
+            "magic": magic, "notes": notes,
+        }
+        if custom:
+            it["custom"] = custom
+        self.data["next_item_id"] += 1
+        self.data["items"].append(it)
+        return it
+
+    def remove_item(self, item_id: int, qty: int | None = None) -> tuple[dict, int]:
+        it = self.item(item_id)
+        if it is None:
+            raise KeyError(item_id)
+        take = it["qty"] if qty is None else min(qty, it["qty"])
+        it["qty"] -= take
+        if it["qty"] <= 0:
+            self.data["items"].remove(it)
+        self._fix_equipped()
+        return it, take
+
+    def _fix_equipped(self) -> None:
+        """Drop equipped references to items that are gone."""
+
+
+class Character(ItemStore):
     def __init__(self, data: dict, char_id: int | None = None):
         self.data = data
         self.id = char_id
@@ -150,27 +212,6 @@ class Character:
         return b
 
     # -- items -------------------------------------------------------------
-    def items(self) -> list[dict]:
-        return self.data["items"]
-
-    def item(self, item_id: int | None) -> dict | None:
-        if item_id is None:
-            return None
-        for it in self.data["items"]:
-            if it["id"] == item_id:
-                return it
-        return None
-
-    @staticmethod
-    def item_stone_each(it: dict) -> Fraction:
-        w = Fraction(str(it.get("weight", 0)))
-        unit = it.get("unit", "stone")
-        if unit == "items":
-            return w / 6
-        if unit == "coins":
-            return w / rules.COINS_PER_STONE
-        return w
-
     def item_weapon(self, it: dict | None) -> WeaponDef | None:
         if not it or it.get("kind") != "weapon":
             return None
@@ -186,39 +227,6 @@ class Character:
         if it.get("custom"):
             return rules.custom_armor(base, it["custom"], it["name"])
         return base
-
-    def add_item(self, name: str, qty: int = 1, weight: float | Fraction = 0, unit: str = "stone",
-                 kind: str = "gear", base: str | None = None, magic: int = 0, notes: str = "",
-                 custom: dict | None = None) -> dict:
-        # stack identical plain items
-        for it in self.data["items"]:
-            if (it["name"].lower() == name.lower() and it.get("kind") == kind and it.get("base") == base
-                    and (it.get("custom") or None) == (custom or None)
-                    and int(it.get("magic", 0)) == magic and it.get("unit") == unit
-                    and Fraction(str(it.get("weight", 0))) == Fraction(str(weight))):
-                it["qty"] += qty
-                return it
-        it = {
-            "id": self.data["next_item_id"], "name": name, "qty": qty,
-            "weight": _store_number(weight), "unit": unit, "kind": kind, "base": base,
-            "magic": magic, "notes": notes,
-        }
-        if custom:
-            it["custom"] = custom
-        self.data["next_item_id"] += 1
-        self.data["items"].append(it)
-        return it
-
-    def remove_item(self, item_id: int, qty: int | None = None) -> tuple[dict, int]:
-        it = self.item(item_id)
-        if it is None:
-            raise KeyError(item_id)
-        take = it["qty"] if qty is None else min(qty, it["qty"])
-        it["qty"] -= take
-        if it["qty"] <= 0:
-            self.data["items"].remove(it)
-        self._fix_equipped()
-        return it, take
 
     def _fix_equipped(self) -> None:
         eq = self.data["equipped"]

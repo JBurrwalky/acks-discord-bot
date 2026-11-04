@@ -184,6 +184,67 @@ def test_spend_makes_change():
     assert (p["gp"], p["sp"], p["cp"]) == (1, 5, 0)        # a failed spend changes nothing
 
 
+def test_animal_sheet():
+    from acks.animal import Animal, new_animal_data, parse_attacks
+    # Attack Throws by Level and HD (RR p. 296)
+    assert [rules.monster_attack_throw(h) for h in ("1/2", "1-1", "1", "2", "3+1", "10", "20", "25")] == \
+           [12, 11, 10, 9, 7, 1, -9, -9]
+    p = rules.ANIMAL_PRESETS["horse_medium"]
+    a = Animal(new_animal_data(1, 1, "Thunder"))
+    a.data.update(speed=p.speed, normal_load=p.normal_load, max_load=p.max_load, hd="2", ac=1,
+                  attacks=parse_attacks("2 hoof 1d6, bite 1d4+1"))
+    assert [(x["name"], x["count"], x["damage"]) for x in a.attacks()] == [("hoof", 2, "1d6"), ("bite", 1, "1d4+1")]
+    assert a.attack_throw() == 9
+    assert a.speeds()["exploration"] == 180 and a.speeds()["combat"] == 60
+    a.add_item("Rider and gear", 1, 25)
+    assert a.speeds()["exploration"] == 180                         # 25 st <= 30 normal load
+    a.add_item("Saddlebags", 1, Fraction(9, 2))
+    assert a.speeds()["exploration"] == 180                         # 29.5 st: still within normal load
+    it = a.add_item("Chain barding", 1, rules.barding_weight("chain", "large"), kind="barding",
+                    custom={"ac": 3, "spiked": True})
+    a.equip_barding(it["id"])
+    assert a.ac() == 4 and a.encumbrance() == 34
+    assert (a.speeds()["exploration"], a.speeds()["expedition"]) == (90, 18)   # book: 90' and 18 miles encumbered
+    assert a.damage_expression(a.attacks()[0]) == "1d6+1" and a.damage_expression(a.attacks()[1]) == "1d4+2"
+    a.add_item("Gold", 30000, 1, "coins")
+    assert a.speeds()["exploration"] == 0                           # over the 60 st maximum load
+    a.remove_item(it["id"])
+    assert a.data["barding"] is None and a.ac() == 1
+    # barding sizes (RR p. 141): man-sized 2/3, huge x3, gigantic x12; half-barding is half
+    assert rules.barding_weight("plate", "man-sized") == 5 and rules.barding_weight("leather", "huge") == Fraction(9, 2)
+    assert rules.barding_weight("scale", "gigantic") == 36 and rules.barding_weight("plate", "large", half=True) == Fraction(15, 4)
+    # food and water: normal load / 10 and / 5, except the steppe horse (the table gives 2 st and 4 st)
+    others = [p for p in rules.ANIMAL_PRESETS.values() if p.key != "horse_steppe"]
+    assert all(p.food == Fraction(p.normal_load, 10) and p.water == Fraction(p.normal_load, 5) for p in others)
+    steppe = rules.ANIMAL_PRESETS["horse_steppe"]
+    assert (steppe.food, steppe.water) == (2, 4)
+
+
+def test_animal_storage(tmp=None):
+    import tempfile
+    from acks.animal import Animal, new_animal_data
+    from acks.storage import Storage
+    with tempfile.TemporaryDirectory() as tmp:
+        store = Storage(Path(tmp) / "t.db")
+        ch = make("fighter")
+        ch.data["name"] = "Marcus"
+        store.create(ch)
+        a = Animal(new_animal_data(1, 1, "Thunder"))
+        a.data["owner_char"] = ch.id
+        store.save_animal(a)
+        assert [x.name for x in store.animals_owned_by(ch.id)] == ["Thunder"]
+        assert store.animal_name_taken(1, "thunder") and not store.animal_name_taken(2, "Thunder")
+        try:
+            store.save_animal(Animal(new_animal_data(1, 2, "THUNDER")))
+            raise AssertionError("duplicate name should fail")
+        except ValueError:
+            pass
+        store.save_animal(Animal(new_animal_data(2, 2, "Thunder")))   # another server is fine
+        orphans = store.delete(ch.id)
+        assert [x.name for x in orphans] == ["Thunder"] and store.get_animal(a.id).owner_char is None
+        store.close()
+
+
 def test_backstab():
     t = make("thief", 5, dex=16)
     dg = t.add_item("Dagger", 1, Fraction(1, 6), "stone", "weapon", "dagger")

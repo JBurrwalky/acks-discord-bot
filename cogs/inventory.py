@@ -13,7 +13,7 @@ from acks.character import SLOT_LABELS, Character
 from acks.dice import fmt_mod
 
 from .common import (UserError, catalog_autocomplete, character_autocomplete, equippable_autocomplete,
-                     find_item, inventory_autocomplete, resolve_character, save)
+                     find_item, inventory_autocomplete, resolve_character, save, storage)
 
 Coin = Literal["pp", "gp", "ep", "sp", "cp"]
 SlotChoice = Literal["main hand", "off hand", "both hands", "missile", "armor", "shield"]
@@ -196,7 +196,9 @@ class Inventory(commands.Cog):
     async def item_list(self, interaction: discord.Interaction, character: str | None = None,
                         private: bool = False) -> None:
         ch = resolve_character(interaction, character, write=False)
-        await interaction.response.send_message(embed=embeds.inventory_embed(ch), ephemeral=private)
+        animals = storage(interaction).animals_owned_by(ch.id)
+        await interaction.response.send_message(embed=embeds.inventory_embed(ch, animals),
+                                                ephemeral=private)
 
     @item.command(name="edit", description="Change an item's name, weight, magic, notes, or weapon/armor stats")
     @app_commands.describe(**ITEM_OPTION_HELP, clear_stats="Remove all homebrew stats from the item")

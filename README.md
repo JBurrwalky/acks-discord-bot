@@ -100,6 +100,11 @@ which you set with `/character select`.
 | `/hp damage` · `heal` · `set` · `show` | Hit points |
 | `/modifier add name target value` · `remove` · `list` | Ring of protection, *bless*, blindness... Targets: attacks, damage, AC, saves, initiative |
 | `/proficiency add` · `remove` | Proficiencies (autocompletes from your class list and the general list) |
+| `/animal create name [preset] [owner] ...` | Make an animal sheet. `preset` fills speed, loads, food and water from the rulebook |
+| `/animal sheet` · `list` · `edit` · `delete` | Show, list (all, or one character's), change, or delete animals |
+| `/animal attack animal target_ac [attack]` · `hp` | Roll its attack routine (or one attack); damage, heal, or set HP |
+| `/animal barding` · `equip` · `unequip` | Add book barding weighed for its size and put it on; swap barding |
+| `/animal item add` · `remove` · `ability add` · `remove` · `routine add` · `remove` | Its gear, special abilities, and attacks |
 
 ## Spell slots
 
@@ -114,6 +119,33 @@ Axe classes use invocations, rhetoric, or brewing rather than daily castings, so
 - `/spell set_slots` overrides a level's slots (or gives slots to any class), and slots grow automatically
   when the character levels up.
 - The sheet shows ◆ available and ◇ spent slots.
+
+## Animals
+
+Mounts, pack animals, war dogs, and other creatures get their own simple sheets:
+
+- **Stat block**: kind, Hit Dice, HP, AC, attack throw (from Hit Dice unless you set it, per the RR's
+  *Attack Throws by Level and HD*), save, morale, special abilities, and notes.
+- **Attack routine**: e.g. `attacks:2 hoof 1d6, bite 1d4` on create, or `/animal routine add`.
+  `/animal attack` rolls every attack in the routine against the target's AC.
+- **Load and speed**: everything in the animal's gear counts. Up to its normal load it moves at full
+  speed; up to its maximum load, half speed; beyond that it can't move. Tack, saddles, and harness aren't
+  enforced: add them (and a rider, at 15 stone plus their gear) as items if you want them counted.
+- **Daily needs**: stones of food and water per day (normal load / 10 and / 5 unless the table differs),
+  and the cost of working-animal feed at 2 sp per stone.
+- **Barding**: `/animal barding material:chain` adds barding with the book's AC (leather +1 to plate +5)
+  and weight for the animal's size (man-sized ×2/3, huge ×3, gigantic ×12, colossal ×60), and puts it on.
+  `half` halves the weight; `spiked` adds +1 damage per die to its attacks. Homebrew or magic barding:
+  `/animal item add barding_ac:…`, then `/animal equip`.
+- **Presets** (Revised Rulebook): camel, hunting dog, war dog, donkey, elephant, heavy, light, medium and
+  steppe horses, mule, and ox. AC, HD, and attacks come from the *Monstrous Manual*; enter them yourself.
+- **Owner**: set `owner` to a character, and the animal is listed on that character's Inventory page. The
+  owner's player (or a Judge) can change the animal; anyone can view it. Animals without an owner belong to
+  whoever made them. Deleting a character leaves its animals with no owner.
+- **Names** are unique among the server's animals.
+
+Horses and mules from class templates stay as items in the character's inventory; make a sheet for any you
+want to track.
 
 ## Encounters and initiative
 

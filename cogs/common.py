@@ -194,9 +194,9 @@ async def send_error(interaction: discord.Interaction, message: str) -> None:
 PAGES = {"sheet": "Sheet", "inventory": "Inventory", "notes": "Notes"}
 
 
-def page_embed(ch: Character, page: str, guild: discord.Guild | None) -> discord.Embed:
+def page_embed(ch: Character, page: str, guild: discord.Guild | None, store: Storage | None = None) -> discord.Embed:
     if page == "inventory":
-        return embeds.inventory_embed(ch)
+        return embeds.inventory_embed(ch, store.animals_owned_by(ch.id) if store else None)
     if page == "notes":
         return embeds.notes_embed(ch)
     owner = guild.get_member(ch.data["owner_id"]) if guild else None
@@ -221,7 +221,7 @@ class SheetPageButton(discord.ui.DynamicItem[discord.ui.Button], template=r"acks
         if ch is None:
             await interaction.response.send_message("That character no longer exists.", ephemeral=True)
             return
-        await interaction.response.edit_message(embed=page_embed(ch, self.page, interaction.guild),
+        await interaction.response.edit_message(embed=page_embed(ch, self.page, interaction.guild, storage(interaction)),
                                                 view=sheet_view(ch, self.page))
 
 

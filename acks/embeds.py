@@ -1,9 +1,12 @@
-"""Discord embeds for character sheets and roll results."""
+"""Discord embeds for character and animal sheets and roll results."""
 from __future__ import annotations
+
+from fractions import Fraction
 
 import discord
 
 from . import rules, spells
+from .animal import Animal, AttackResult, attack_label
 from .character import MODIFIER_TARGETS, AttackProfile, Character
 from .dice import fmt_mod
 
@@ -182,7 +185,7 @@ def sheet_embed(ch: Character, owner_name: str | None = None) -> discord.Embed:
     return e
 
 
-def inventory_embed(ch: Character) -> discord.Embed:
+def inventory_embed(ch: Character, animals: list[Animal] | None = None) -> discord.Embed:
     e = discord.Embed(title=f"🎒 {ch.name} — Inventory", color=SHEET_COLOR)
     eq = ch.data["equipped"]
     equipped_ids = {}
@@ -225,6 +228,8 @@ def inventory_embed(ch: Character) -> discord.Embed:
     e.add_field(name="Coins", value=f"{coins:,} coins = {rules.fmt_stone(ch.coin_stone())}", inline=True)
     e.add_field(name="Total", value=f"**{rules.fmt_stone(enc)}** / {ch.max_encumbrance()} st\n{sp['band']} "
                                      f"({sp['exploration']}' / {sp['combat']}')", inline=True)
+    if animals:
+        e.add_field(name="🐴 Animals", value=_clip("\n".join(animal_line(a) for a in animals)), inline=False)
     e.set_footer(text="Item numbers (#) can be used with /item remove and /equip. 6 items = 1 stone; 1,000 coins = 1 stone.")
     return e
 
@@ -383,4 +388,94 @@ def save_embed(ch: Character, save: str, roll: int, bonus, target: int) -> disco
                       color=HIT_COLOR if ok else MISS_COLOR)
     e.description = (f"🎲 d20 **{roll}**{nat} {fmt_mod(bonus.total)} = **{total}**  vs  **{target}+**\n"
                      f"-# Modifiers: {bonus.describe()}")
+    return e
+
+
+# ---------------------------------------------------------------------------
+# Animals
+# ---------------------------------------------------------------------------
+
+def stone_number(x) -> str:
+    return rules.fmt_stone(Fraction(str(x))).removesuffix(" st")
+
+
+def animal_line(a: Animal) -> str:
+    """One line for a character's inventory page and /animal list."""
+    sp = a.speeds()
+    hp = a.data["hp"]
+    return (f"**{a.name}** ({a.data['kind']}) · AC {a.ac()} · HP {hp['current']}/{hp['max']} · "
+            f"{rules.fmt_stone(a.encumbrance())} / {stone_number(a.data['normal_load'])} st · {sp['exploration']}'")
+
+
+def animal_embed(a: Animal, owner_name: str | None = None) -> discord.Embed:
+    d = a.data
+    hp = d["hp"]
+    e = discord.Embed(title=f"🐴 {a.name}", color=SHEET_COLOR)
+    lines = [f"*{d['kind']}*" + (f" · owned by **{owner_name}**" if owner_name else "")]
+    lines.append(f"**HD** {d['hd']} · **HP** {hp['current']}/{hp['max']} {hp_bar(hp['current'], hp['max'])}")
+    ac = a.armor_class()
+    stats = [f"**AC** {a.ac()}" + (f" ({ac.describe()})" if len(ac.parts) > 1 else ""),
+             f"**Attack throw** {a.attack_throw()}+"]
+    if d.get("save"):
+        stats.append(f"**Save** {d['save']}")
+    if d.get("morale"):
+        stats.append(f"**Morale** {fmt_mod(int(d['morale']))}")
+    lines.append(" · ".join(stats))
+    if hp["current"] <= 0:
+        lines.append("💀 **Down**: an animal at 0 hp is unconscious and possibly slain")
+    e.description = "\n".join(lines)
+
+    if a.attacks():
+        title = "⚔️ Attacks" + (" (spiked barding: +1 per die)" if a.spiked() else "")
+        e.add_field(name=title, inline=False, value=_clip("\n".join(
+            f"{attack_label(at)} **{a.damage_expression(at)}**" for at in a.attacks())))
+    sp = a.speeds()
+    e.add_field(name="🐾 Speed", inline=True,
+                value=f"{sp['exploration']}' / {sp['combat']}' · run {sp['running']}'\n"
+                      f"{sp['expedition']} miles/day\n-# {sp['band']}")
+    e.add_field(name="⚖️ Load", inline=True,
+                value=f"**{rules.fmt_stone(a.encumbrance())}** carried\nNormal {stone_number(d['normal_load'])} st · "
+                      f"max {stone_number(d['max_load'])} st")
+    feed_sp = a.daily_food() * rules.ANIMAL_FEED_SP_PER_STONE
+    e.add_field(name="🌾 Daily needs", inline=True,
+                value=f"Food {rules.fmt_stone(a.daily_food())}\nWater {rules.fmt_stone(a.daily_water())}\n"
+                      f"-# working-animal feed ≈ {float(feed_sp):g} sp/day")
+    if d.get("abilities"):
+        e.add_field(name="✨ Special abilities", inline=False,
+                    value=_clip("\n".join(f"{i}. {t}" for i, t in enumerate(d["abilities"], 1))))
+    items = []
+    for it in a.items():
+        tag = " `[worn]`" if it["id"] == d.get("barding") else ""
+        extra = ""
+        if it.get("kind") == "barding":
+            bs = a.barding_stats(it)
+            extra = f" · AC +{int(bs.get('ac', 0)) + int(it.get('magic', 0))}" + (" · spiked" if bs.get("spiked") else "")
+        qty = f"{it['qty']}× " if it["qty"] != 1 else ""
+        note = f" — *{it['notes']}*" if it.get("notes") else ""
+        items.append(f"`#{it['id']:>3}` {qty}**{it['name']}**{tag}{extra} · "
+                     f"{rules.fmt_stone(a.item_stone_each(it) * int(it['qty']))}{note}")
+    e.add_field(name="🎒 Carrying", value=_clip("\n".join(items)) if items else "*Nothing carried.*", inline=False)
+    if d.get("notes"):
+        e.add_field(name="📖 Notes", value=_clip(d["notes"]), inline=False)
+    e.set_footer(text=f"Animal #{a.id} · item numbers (#) work with /animal item remove and /animal equip")
+    return e
+
+
+def animal_attack_embed(a: Animal, target_ac: int, results: list[AttackResult], situational: int) -> discord.Embed:
+    hits = sum(r.hit for r in results)
+    damage = sum(r.damage or 0 for r in results)
+    e = discord.Embed(title=f"🐾 {a.name} → AC {target_ac}: {hits}/{len(results)} hit"
+                            + (f", **{damage}** damage" if hits else ""),
+                      color=HIT_COLOR if hits else MISS_COLOR)
+    lines = []
+    for r in results:
+        nat = " (natural 20!)" if r.natural == 20 else (" (natural 1!)" if r.natural == 1 else "")
+        mod = f" {fmt_mod(situational)}" if situational else ""
+        line = (f"**{r.attack['name']}**: 🎲 **{r.natural}**{nat}{mod} = {r.total} vs {r.need}+ → "
+                + ("**HIT**" if r.hit else "MISS"))
+        if r.hit:
+            line += f" · 💥 **{r.damage}** ({r.damage_detail})"
+        lines.append(line)
+    lines.append(f"-# Needed = attack throw {a.attack_throw()}+ {fmt_mod(target_ac)} target AC")
+    e.description = _clip("\n".join(lines), 4000)
     return e

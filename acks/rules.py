@@ -635,6 +635,78 @@ def fmt_stone(st: Fraction) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Animals
+# ---------------------------------------------------------------------------
+
+@dataclass(frozen=True)
+class AnimalPreset:
+    key: str
+    name: str
+    speed: int              # exploration speed (feet/turn) at normal load or less
+    normal_load: int        # stone
+    max_load: int
+    food: Fraction          # stone per day
+    water: Fraction
+    size: str = "large"     # barding size
+    note: str = ""
+
+
+# Animal/Vehicle Speed and Encumbrance and the animal food & water table (RR pp. 161-162, 277)
+ANIMAL_PRESETS: dict[str, AnimalPreset] = {p.key: p for p in [
+    AnimalPreset("camel", "Camel", 150, 30, 60, Fraction(3), Fraction(6),
+                 note="Desert dromedary: never dehydrated unless without water for more than six months."),
+    AnimalPreset("dog_hunting", "Dog, hunting", 180, 2, 4, Fraction(1, 5), Fraction(2, 5), "man-sized",
+                 "Scent: equivalent of Tracking 3 (sight hounds can't track but have 240' speed)."),
+    AnimalPreset("dog_war", "Dog, war", 150, 6, 12, Fraction(3, 5), Fraction(6, 5), "man-sized"),
+    AnimalPreset("donkey", "Donkey", 120, 15, 30, Fraction(3, 2), Fraction(3),
+                 note="Efficient grazer; sure-footed (mountains ×2/3); freezes rather than flees when afraid."),
+    AnimalPreset("elephant", "Elephant", 120, 180, 360, Fraction(18), Fraction(36), "gigantic"),
+    AnimalPreset("horse_heavy", "Horse, heavy", 150, 40, 80, Fraction(4), Fraction(8)),
+    AnimalPreset("horse_light", "Horse, light", 240, 20, 40, Fraction(2), Fraction(4)),
+    AnimalPreset("horse_medium", "Horse, medium", 180, 30, 60, Fraction(3), Fraction(6)),
+    AnimalPreset("horse_steppe", "Horse, steppe", 210, 25, 40, Fraction(2), Fraction(4),
+                 note="Efficient grazer; can force march one day without penalty (+1 day per CON bonus)."),
+    AnimalPreset("mule", "Mule", 150, 25, 50, Fraction(5, 2), Fraction(5),
+                 note="Sure-footed (mountains ×2/3)."),
+    AnimalPreset("ox", "Ox", 120, 45, 90, Fraction(9, 2), Fraction(9), note="Efficient grazer."),
+]}
+
+ANIMAL_SIZES = ["man-sized", "large", "huge", "gigantic", "colossal"]
+# barding is sized for large creatures; others multiply its weight (RR p. 141)
+BARDING_SIZE_FACTOR = {"man-sized": Fraction(2, 3), "large": Fraction(1), "huge": Fraction(3),
+                       "gigantic": Fraction(12), "colossal": Fraction(60)}
+# material: (AC bonus, encumbrance for a large creature)
+BARDING = {"leather": (1, Fraction(3, 2)), "scale": (2, Fraction(3)), "chain": (3, Fraction(9, 2)),
+           "lamellar": (4, Fraction(6)), "plate": (5, Fraction(15, 2))}
+ANIMAL_FEED_SP_PER_STONE = 2   # feed for working animals
+
+
+def barding_weight(material: str, size: str, half: bool = False) -> Fraction:
+    w = BARDING[material][1] * BARDING_SIZE_FACTOR[size]
+    return w / 2 if half else w
+
+
+def monster_attack_throw(hd: str) -> int:
+    """Attack throw value by Hit Dice (RR p. 296): '1/2' 12+, '1-1' 11+, '1' 10+ ... '20' -9+.
+    A hp bonus ('2+1') rounds HD up."""
+    whole, frac, bonus = parse_hd(hd)
+    if frac or whole == 0:
+        return 12
+    if bonus < 0:
+        return 11 if whole == 1 else 11 - whole
+    return max(-9, 11 - whole - (1 if bonus > 0 else 0))
+
+
+def parse_hd(hd: str) -> tuple[int, bool, int]:
+    """'3+1' -> (3, False, 1); '1/2' -> (0, True, 0). Asterisks (special abilities) are ignored."""
+    m = re.fullmatch(r"\s*(\d+)\s*(/\s*2)?\s*(?:([+-])\s*(\d+))?\s*\**\s*", hd or "")
+    if not m:
+        raise ValueError(f"Hit Dice should look like `2`, `1/2`, `3+1`, or `1-1`, not `{hd}`.")
+    bonus = int(m.group(4) or 0) * (-1 if m.group(3) == "-" else 1)
+    return (0 if m.group(2) else int(m.group(1))), bool(m.group(2)), bonus
+
+
+# ---------------------------------------------------------------------------
 # Proficiencies
 # ---------------------------------------------------------------------------
 

@@ -13,6 +13,7 @@ CATEGORIES: list[tuple[str, list[str]]] = [
     ("⚔️ Combat", ["mattack", "rattack", "initiative", "encounter"]),
     ("🛡️ Saving Throws", ["save_paralysis", "save_death", "save_blast", "save_implements", "save_spells"]),
     ("🎒 Inventory & Equipment", ["item", "purse", "equip", "unequip"]),
+    ("🐴 Animals", ["animal"]),
     ("❤️ Hit Points, Modifiers & Proficiencies", ["hp", "modifier", "proficiency"]),
     ("✨ Spells", ["spell"]),
     ("🎲 Dice", ["roll", "throw"]),
@@ -22,7 +23,13 @@ CATEGORIES: list[tuple[str, list[str]]] = [
 
 def _lines_for(cmd: app_commands.Command | app_commands.Group) -> list[str]:
     if isinstance(cmd, app_commands.Group):
-        return [f"`/{cmd.name} {sub.name}` — {sub.description}" for sub in cmd.commands]
+        lines = []
+        for sub in cmd.commands:
+            if isinstance(sub, app_commands.Group):   # e.g. /animal item add
+                lines += [f"`/{cmd.name} {sub.name} {leaf.name}` — {leaf.description}" for leaf in sub.commands]
+            else:
+                lines.append(f"`/{cmd.name} {sub.name}` — {sub.description}")
+        return lines
     required = " ".join(p.name for p in cmd.parameters if p.required)
     usage = f"/{cmd.name}" + (f" {required}" if required else "")
     return [f"`{usage}` — {cmd.description}"]
