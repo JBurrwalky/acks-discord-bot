@@ -61,6 +61,7 @@ def new_character_data(guild_id: int, owner_id: int) -> dict:
         "purse": {c: 0 for c in rules.COIN_TYPES},
         "modifiers": [],
         "notes": "",
+        "employer": None,   # character id when this character is someone's henchman
     }
 
 
@@ -187,6 +188,15 @@ class Character(ItemStore):
     @property
     def level(self) -> int:
         return int(self.data["level"])
+
+    @property
+    def zero_level(self) -> bool:
+        """A 0th-level normal man, who advances into a human class at 500 XP."""
+        return bool(self.cls.zero_level)
+
+    @property
+    def employer_id(self) -> int | None:
+        return self.data.get("employer")
 
     def score(self, attr: str) -> int:
         return int(self.data["attributes"][attr])
@@ -508,6 +518,10 @@ class Character(ItemStore):
         return reasons
 
     # -- combat numbers ----------------------------------------------------
+    def nonproficient_throw(self) -> int:
+        """1st level and up: as a 0th-level fighter, 11+. Normal men just take -1 (JJ p. 254), so 12+."""
+        return self.attack_throw() + 1 if self.zero_level else rules.NONPROFICIENT_ATTACK_THROW
+
     def attack_throw(self) -> int:
         row = self.cls.row(self.level)
         if row:
@@ -704,8 +718,8 @@ class Character(ItemStore):
         else:
             weapon_name = main_it["name"]
             die = w.damage_2h if (style == "two_handed" and w.damage_2h) else w.damage
-        throw = rules.NONPROFICIENT_ATTACK_THROW if nonprof else self.attack_throw()
-        if not nonprof:
+        throw = self.nonproficient_throw() if nonprof else self.attack_throw()
+        if not nonprof or self.zero_level:
             attr, attr_val = "STR", self.mod("STR")
             finesse = (self.has_prof("weapon finesse") and (w is None or w.size in ("tiny", "small", "medium"))) or \
                       (self.cls.weapon_finesse and self.weapon_proficient(w))
@@ -756,9 +770,9 @@ class Character(ItemStore):
         reasons = self.missile_nonproficiency()
         nonprof = bool(reasons)
         notes: list[str] = []
-        throw = rules.NONPROFICIENT_ATTACK_THROW if nonprof else self.attack_throw()
+        throw = self.nonproficient_throw() if nonprof else self.attack_throw()
         b = Bonus()
-        if not nonprof:
+        if not nonprof or self.zero_level:
             b.add("DEX", self.mod("DEX"))
         b.add("magic weapon", int(it.get("magic", 0)))
         penalty_band = range_band
@@ -877,11 +891,15 @@ class Character(ItemStore):
 
     # -- XP and levels -----------------------------------------------------
     def xp_for_next(self) -> int | None:
+        if self.zero_level:
+            return rules.ZERO_LEVEL_XP
         if self.level >= self.cls.max_level:
             return None
         return self.cls.xp[self.level]
 
     def xp_bonus_pct(self) -> int:
+        if not self.cls.key_attributes:   # normal men have no key attributes
+            return 0
         return min(rules.xp_bonus(self.score(a)) for a in self.cls.key_attributes)
 
     def can_level(self) -> bool:
@@ -889,6 +907,8 @@ class Character(ItemStore):
         return nxt is not None and self.data["xp"] >= nxt
 
     def hit_dice_label(self, level: int | None = None) -> str:
+        if self.zero_level:
+            return {"1/2": "1/2 HD (1d4)", "1-1": "1-1 HD (1d8-1)"}.get(self.cls.zero_level, self.cls.zero_level)
         level = level or self.level
         hd = self.cls.hit_die
         if level == 1 and self.cls.first_level_hp_bonus:
@@ -902,8 +922,16 @@ class Character(ItemStore):
 
     # -- hit points --------------------------------------------------------
     def roll_first_level_hp(self, maximize: bool = False) -> tuple[int, str]:
-        """1 HD, a roll of 4 or less counts as 4, plus CON (never below 1)."""
+        """1 HD, a roll of 4 or less counts as 4, plus CON (never below 1).
+
+        Normal men roll 1d4 (1/2 HD) or 1d8-1 (1-1 HD) plus CON, with no minimum roll (JJ p. 253)."""
         hd, con = self.cls.hit_die, self.mod("CON")
+        if self.zero_level:
+            minus = 1 if self.cls.zero_level == "1-1" else 0
+            raw = hd if maximize else d(hd)
+            hp = max(1, raw - minus + con)
+            how = "max" if maximize else f"rolled {raw}"
+            return hp, f"1d{hd}{'-1' if minus else ''} ({how}) {fmt_mod(con)} CON = **{hp}**"
         raw = hd if maximize else d(hd)
         die = max(4, raw)
         bonus = self.cls.first_level_hp_bonus
@@ -925,8 +953,38 @@ class Character(ItemStore):
             detail += f" +{flat}"
         return total, detail
 
+    def advance_from_zero(self, class_key: str) -> tuple[int, int, str]:
+        """A normal man becomes a 1st-level human (RR p. 313): he gains the class's attack throws, saves and
+        powers and the Adventuring proficiency, and re-rolls hp with the new Hit Die, keeping the new total or
+        his prior hp +1 if that is higher. Returns (old max hp, new max hp, roll detail)."""
+        if not self.zero_level:
+            raise ValueError(f"**{self.name}** isn't a 0th-level character.")
+        if class_key not in rules.HUMAN_CLASSES:
+            raise ValueError("Normal men advance into a human class.")
+        c = rules.CLASSES[class_key]
+        if not eligible_for(c, self.data["attributes"]):
+            raise ValueError(f"**{self.name}** doesn't meet the {c.name.lower()}'s key attributes or requirements.")
+        old = int(self.data["hp"]["max"])
+        self.data.update(class_key=class_key, level=1, options={})
+        if "Adventuring" not in self.data["proficiencies"]:
+            self.data["proficiencies"].insert(0, "Adventuring")
+        hd, con = c.hit_die, self.mod("CON")
+        raw = d(hd)
+        rolled = max(1, raw + c.first_level_hp_bonus + con)
+        bonus = f" +{c.first_level_hp_bonus}" if c.first_level_hp_bonus else ""
+        detail = f"1d{hd} [{raw}]{bonus} {fmt_mod(con)} CON = {rolled}"
+        new = rolled if rolled > old else old + 1
+        if rolled <= old:
+            detail += f" (not more than {old}, so +1)"
+        self.data["hp"]["max"] = new
+        self.data["hp"]["current"] = int(self.data["hp"]["current"]) + (new - old)
+        return old, new, detail
+
     def level_up(self) -> tuple[int, int, str]:
         """Advance one level. Returns (old max hp, new max hp, roll detail)."""
+        if self.zero_level:
+            raise ValueError(f"**{self.name}** is a normal man: pick the human class they advance into with "
+                             f"`/levelup into:`.")
         if self.level >= self.cls.max_level:
             raise ValueError(f"{self.cls.name}s can't advance past level {self.cls.max_level}.")
         old = int(self.data["hp"]["max"])

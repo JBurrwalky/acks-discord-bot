@@ -52,24 +52,42 @@ def weapon_line(ch: Character, p: AttackProfile) -> str:
     line = (f"**{weapon}** ({style})\n"
             f"Hit AC 0 on **{needed_vs_ac0(p)}** · {fmt_mod(p.bonus.total)} to hit · dmg **{p.damage_expression()}**")
     if p.nonproficient:
-        line += f"\n⚠️ Non-proficient ({'; '.join(p.nonproficient)}): attacks as 0th-level fighter (11+)"
+        line += f"\n⚠️ Non-proficient ({'; '.join(p.nonproficient)}): {nonproficient_effect(ch)}"
     return line
 
 
-def sheet_embed(ch: Character, owner_name: str | None = None) -> discord.Embed:
+def nonproficient_effect(ch: Character) -> str:
+    if ch.zero_level:
+        return f"-1 to hit ({ch.nonproficient_throw()}+)"
+    return "attacks as 0th-level fighter (11+)"
+
+
+def level_label(ch: Character) -> str:
+    """'L3 Fighter', or '0th-level Normal Man (commoner)'."""
+    return f"0th-level {ch.cls.name}" if ch.zero_level else f"L{ch.level} {ch.cls.name}"
+
+
+def henchman_line(employer_name: str | None) -> str:
+    return (f"🤝 Henchman of **{employer_name}** · `/character promote` makes them a full party member"
+            if employer_name else "")
+
+
+def sheet_embed(ch: Character, owner_name: str | None = None, employer_name: str | None = None,
+                henchmen: list[Character] | None = None) -> discord.Embed:
     d = ch.data
     c = ch.cls
-    title_line = f"Level {ch.level} {c.name} — *{c.title(ch.level)}*"
+    title_line = f"0th level · {c.name}" if ch.zero_level else f"Level {ch.level} {c.name} — *{c.title(ch.level)}*"
     nxt = ch.xp_for_next()
     xp_line = f"XP **{d['xp']:,}**" + (f" / {nxt:,}" if nxt else " (max level)")
     bonus = ch.xp_bonus_pct()
     if bonus:
         xp_line += f" (+{bonus}% XP)"
     if ch.can_level():
-        xp_line += " · ⬆️ **ready to level up!** `/levelup`"
+        xp_line += (" · ⬆️ **ready for 1st level!** `/levelup into:` a human class" if ch.zero_level
+                    else " · ⬆️ **ready to level up!** `/levelup`")
     bits = [b for b in (d.get("alignment"), d.get("homeland"), d.get("sex"),
                         f"Age {d['age']}" if d.get("age") else "") if b]
-    desc = [title_line, " · ".join(bits) if bits else "", xp_line]
+    desc = [title_line, " · ".join(bits) if bits else "", xp_line, henchman_line(employer_name)]
     if d.get("template"):
         desc.append(f"Template: {d['template']}")
     e = discord.Embed(title=f"📜 {ch.name}", description="\n".join(x for x in desc if x), color=SHEET_COLOR)
@@ -178,6 +196,10 @@ def sheet_embed(ch: Character, owner_name: str | None = None) -> discord.Embed:
             extra += f" Region: {region.get('label', 'not set')}; damage bonus applies to " \
                      f"{ch.options.get('barbarian_damage', 'melee')} attacks."
         e.add_field(name="Class Notes", value=_clip(extra.strip()), inline=False)
+    if henchmen:
+        e.add_field(name="🤝 Henchmen", inline=False, value=_clip("\n".join(
+            f"**{h.name}** · {level_label(h)} · HP {h.data['hp']['current']}/{h.data['hp']['max']}"
+            for h in henchmen)))
     footer = f"Character #{ch.id}" if ch.id else "Preview"
     if owner_name:
         footer += f" · Player: {owner_name}"
@@ -367,8 +389,9 @@ def attack_embed(ch: Character, p: AttackProfile, target_ac: int, roll: int, hit
     if crit_note:
         lines.append(f"⭐ {crit_note}")
     if p.nonproficient:
-        lines.append(f"⚠️ Non-proficient: {'; '.join(p.nonproficient)} — attacks as 0th-level fighter, "
-                     f"no attribute bonuses or class powers.")
+        lines.append(f"⚠️ Non-proficient: {'; '.join(p.nonproficient)} — "
+                     + (f"-1 to hit ({p.throw}+)." if ch.zero_level
+                        else "attacks as 0th-level fighter, no attribute bonuses or class powers."))
     for n in p.notes:
         lines.append(f"-# {n}")
     e.description = "\n".join(lines)

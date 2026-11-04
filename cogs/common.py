@@ -94,7 +94,7 @@ async def character_autocomplete(interaction: discord.Interaction, current: str)
     out = []
     for c in pool:
         if cur in c.name.lower():
-            label = f"{c.name} — L{c.level} {c.cls.name}"
+            label = f"{c.name} — {embeds.level_label(c)}"
             if c.data["owner_id"] != interaction.user.id:
                 label += " (other player)"
             out.append(app_commands.Choice(name=label[:100], value=str(c.id)))
@@ -110,7 +110,7 @@ async def any_character_autocomplete(interaction: discord.Interaction,
     out = []
     for c in storage(interaction).list_for_guild(interaction.guild_id):
         if cur in c.name.lower():
-            out.append(app_commands.Choice(name=f"{c.name} — L{c.level} {c.cls.name}"[:100], value=str(c.id)))
+            out.append(app_commands.Choice(name=f"{c.name} — {embeds.level_label(c)}"[:100], value=str(c.id)))
     return out[:25]
 
 
@@ -200,7 +200,9 @@ def page_embed(ch: Character, page: str, guild: discord.Guild | None, store: Sto
     if page == "notes":
         return embeds.notes_embed(ch)
     owner = guild.get_member(ch.data["owner_id"]) if guild else None
-    return embeds.sheet_embed(ch, owner.display_name if owner else None)
+    employer = store.get(ch.employer_id) if store and ch.employer_id else None
+    return embeds.sheet_embed(ch, owner.display_name if owner else None, employer.name if employer else None,
+                              store.henchmen_of(ch) if store else None)
 
 
 class SheetPageButton(discord.ui.DynamicItem[discord.ui.Button], template=r"acks:page:(?P<cid>\d+):(?P<page>\w+)"):

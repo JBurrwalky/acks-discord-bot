@@ -8,6 +8,7 @@ from discord import app_commands
 from discord.ext import commands
 
 from acks import embeds, rules
+from acks.character import eligible_for
 
 from .common import (UserError, any_character_autocomplete, catalog_autocomplete, character_autocomplete, guild_id,
                      is_judge, page_embed, resolve_character, save, sheet_view, storage)
@@ -39,6 +40,49 @@ async def _style_choice_autocomplete(interaction: discord.Interaction,
     return out[:25]
 
 
+async def _human_class_autocomplete(interaction: discord.Interaction,
+                                    current: str) -> list[app_commands.Choice[str]]:
+    """Human classes the normal man qualifies for."""
+    try:
+        ch = resolve_character(interaction, getattr(interaction.namespace, "character", None), write=False)
+    except UserError:
+        ch = None
+    out = []
+    for key in rules.HUMAN_CLASSES:
+        c = rules.CLASSES[key]
+        if ch and not eligible_for(c, ch.data["attributes"]):
+            continue
+        if current.lower() in c.name.lower():
+            out.append(app_commands.Choice(name=c.name, value=key))
+    return out[:25]
+
+
+async def _henchman_autocomplete(interaction: discord.Interaction, current: str) -> list[app_commands.Choice[str]]:
+    if interaction.guild_id is None:
+        return []
+    chars = storage(interaction).list_for_guild(interaction.guild_id)
+    names = {c.id: c.name for c in chars}
+    mine = {c.id for c in chars if c.data["owner_id"] == interaction.user.id}
+    judge = is_judge(interaction)
+    out = []
+    for c in chars:
+        if not c.employer_id or not (judge or c.id in mine or c.employer_id in mine):
+            continue
+        if current.lower() in c.name.lower():
+            label = f"{c.name} — {embeds.level_label(c)}, henchman of {names.get(c.employer_id, '?')}"
+            out.append(app_commands.Choice(name=label[:100], value=str(c.id)))
+    return out[:25]
+
+
+def _class_key(text: str) -> str:
+    text = text.strip().lower()
+    for key in rules.HUMAN_CLASSES:
+        if text in (key, rules.CLASSES[key].name.lower()):
+            return key
+    raise UserError(f"**{text}** isn't a human class. Normal men advance into: "
+                    + ", ".join(rules.CLASSES[k].name for k in rules.HUMAN_CLASSES) + ".")
+
+
 class Characters(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
@@ -50,7 +94,10 @@ class Characters(commands.Cog):
     @app_commands.command(name="create", description="Create a new ACKS II character with a step-by-step wizard")
     @app_commands.guild_only()
     async def create(self, interaction: discord.Interaction) -> None:
-        wiz = CreationWizard(interaction.user, guild_id(interaction))
+        store, gid = storage(interaction), guild_id(interaction)
+        # characters this player could employ a henchman under (a Judge can use anyone's)
+        employers = store.list_for_guild(gid) if is_judge(interaction) else store.list_for_user(gid, interaction.user.id)
+        wiz = CreationWizard(interaction.user, gid, employers)
         await interaction.response.send_message(embed=wiz.embed(), view=wiz, ephemeral=True)
         wiz.message = await interaction.original_response()
 
@@ -75,11 +122,13 @@ class Characters(commands.Cog):
         if not chars:
             raise UserError("No characters yet. Start one with `/create`.")
         lines = []
+        names = {c.id: c.name for c in store.list_for_guild(gid)}
         for c in chars:
             hp = c.data["hp"]
             mark = "⭐ " if active and c.id == active.id else ""
+            hench = f", henchman of {names.get(c.employer_id, '?')}" if c.employer_id else ""
             owner = "" if c.data["owner_id"] == interaction.user.id else f" · <@{c.data['owner_id']}>"
-            lines.append(f"{mark}**{c.name}** (#{c.id}) — L{c.level} {c.cls.name} · HP {hp['current']}/{hp['max']} "
+            lines.append(f"{mark}**{c.name}** (#{c.id}) — {embeds.level_label(c)}{hench} · HP {hp['current']}/{hp['max']} "
                          f"· AC {c.ac()}{owner}")
         e = discord.Embed(title="Characters", description="\n".join(lines)[:4000], color=embeds.SHEET_COLOR)
         e.set_footer(text="⭐ = your active character")
@@ -98,7 +147,7 @@ class Characters(commands.Cog):
         ch = resolve_character(interaction, character, write=True)
         view = ConfirmDelete(interaction.user.id, ch.id, ch.name)
         await interaction.response.send_message(
-            f"Really delete **{ch.name}** (L{ch.level} {ch.cls.name})? This can't be undone.", view=view,
+            f"Really delete **{ch.name}** ({embeds.level_label(ch)})? This can't be undone.", view=view,
             ephemeral=True)
 
     @character.command(name="edit", description="Edit name, alignment, homeland and description")
@@ -142,6 +191,9 @@ class Characters(commands.Cog):
     async def set_level(self, interaction: discord.Interaction, level: app_commands.Range[int, 1, 14],
                         character: str | None = None) -> None:
         ch = resolve_character(interaction, character)
+        if ch.zero_level:
+            raise UserError(f"**{ch.name}** is a 0th-level normal man. Advance them with `/levelup into:` "
+                            f"(Judges can add `force:True`), then set the level.")
         if level > ch.cls.max_level:
             raise UserError(f"{ch.cls.name}s max out at level {ch.cls.max_level}.")
         ch.data["level"] = level
@@ -267,6 +319,24 @@ class Characters(commands.Cog):
         save(interaction, ch)
         await interaction.response.send_message(f"🤝 **{ch.name}** now belongs to {player.mention}.")
 
+    @character.command(name="promote", description="Promote a henchman to a full party member")
+    @app_commands.describe(character="The henchman")
+    @app_commands.autocomplete(character=_henchman_autocomplete)
+    async def promote(self, interaction: discord.Interaction, character: str) -> None:
+        store = storage(interaction)
+        ch = resolve_character(interaction, character, write=False)
+        employer = store.get(ch.employer_id) if ch.employer_id else None
+        if not ch.employer_id:
+            raise UserError(f"**{ch.name}** isn't anyone's henchman.")
+        allowed = {ch.data["owner_id"]} | ({employer.data["owner_id"]} if employer else set())
+        if interaction.user.id not in allowed and not is_judge(interaction):
+            raise UserError(f"Only {ch.name}'s player, their employer's player, or a Judge can promote them.")
+        ch.data["employer"] = None
+        save(interaction, ch)
+        was = f" and leaves **{employer.name}**'s service" if employer else ""
+        await interaction.response.send_message(
+            f"🎖️ **{ch.name}** ({embeds.level_label(ch)}) is promoted to a full party member{was}.")
+
     # -- experience --------------------------------------------------------
     @app_commands.command(name="xp", description="Award (or remove) experience points")
     @app_commands.guild_only()
@@ -286,16 +356,22 @@ class Characters(commands.Cog):
         nxt = ch.xp_for_next()
         msg += f" → {ch.data['xp']:,}" + (f" / {nxt:,}" if nxt else "")
         if ch.can_level():
-            msg += f"\n⬆️ Enough XP for level {ch.level + 1}! Use `/levelup`."
+            msg += ("\n⬆️ Enough XP for 1st level! Choose a human class with `/levelup into:`." if ch.zero_level
+                    else f"\n⬆️ Enough XP for level {ch.level + 1}! Use `/levelup`.")
         await interaction.response.send_message(msg)
 
     @app_commands.command(name="levelup", description="Advance a level and re-roll hit points")
     @app_commands.guild_only()
-    @app_commands.describe(force="Judge only: level up even without enough XP")
-    @app_commands.autocomplete(character=character_autocomplete)
-    async def levelup(self, interaction: discord.Interaction, force: bool = False,
+    @app_commands.describe(force="Judge only: level up even without enough XP",
+                           into="Normal men only: the human class they become at 1st level")
+    @app_commands.autocomplete(character=character_autocomplete, into=_human_class_autocomplete)
+    async def levelup(self, interaction: discord.Interaction, force: bool = False, into: str | None = None,
                       character: str | None = None) -> None:
         ch = resolve_character(interaction, character)
+        if ch.zero_level and not into:
+            raise UserError(f"**{ch.name}** is a normal man: choose the human class they become with `into`.")
+        if into and not ch.zero_level:
+            raise UserError("`into` is only for 0th-level normal men.")
         if not ch.can_level():
             if not (force and is_judge(interaction)):
                 nxt = ch.xp_for_next()
@@ -303,13 +379,19 @@ class Characters(commands.Cog):
                     raise UserError(f"**{ch.name}** is already at maximum level.")
                 raise UserError(f"**{ch.name}** needs {nxt:,} XP for level {ch.level + 1} "
                                 f"(has {ch.data['xp']:,}).")
+        was = ch.cls.name
         try:
-            old, new, detail = ch.level_up()
+            old, new, detail = ch.advance_from_zero(_class_key(into)) if into else ch.level_up()
         except ValueError as e:
             raise UserError(str(e)) from e
         save(interaction, ch)
-        e = discord.Embed(title=f"⬆️ {ch.name} reaches level {ch.level}!",
-                          description=f"*{ch.cls.title(ch.level)}*", color=embeds.HIT_COLOR)
+        title = f"⬆️ {ch.name} becomes a 1st-level {ch.cls.name}!" if into else \
+            f"⬆️ {ch.name} reaches level {ch.level}!"
+        e = discord.Embed(title=title, description=f"*{ch.cls.title(ch.level)}*", color=embeds.HIT_COLOR)
+        if into:
+            e.description += (f"\nNo longer a {was.lower()}: gains Adventuring and the {ch.cls.name.lower()}'s "
+                              f"attack throws, saves, and class powers. Proficiencies they already had are kept; "
+                              f"check them against the class list.")
         e.add_field(name="Hit points", value=f"{detail}\nMax HP **{old} → {new}**", inline=False)
         e.add_field(name="Attack throw", value=f"{ch.attack_throw()}+", inline=True)
         e.add_field(name="Saves", value=" · ".join(f"{rules.SAVE_LABELS[s][:4]} {ch.save_target(s)}+"
@@ -325,10 +407,13 @@ class ConfirmDelete(discord.ui.View):
 
     @discord.ui.button(label="Delete forever", style=discord.ButtonStyle.danger, emoji="🗑️")
     async def confirm(self, interaction: discord.Interaction, button: discord.ui.Button) -> None:
-        orphans = storage(interaction).delete(self.char_id)
+        orphans, released = storage(interaction).delete(self.char_id)
         self.stop()
         note = ("\n-# Their animals now have no owner: " + ", ".join(f"**{a.name}**" for a in orphans)
                 + ". Give them a new one with `/animal edit owner:`.") if orphans else ""
+        if released:
+            note += ("\n-# Their henchmen are no longer employed: " + ", ".join(f"**{h.name}**" for h in released)
+                     + ".")
         await interaction.response.edit_message(content=f"🗑️ **{self.name}** has been deleted.{note}", view=None)
 
     @discord.ui.button(label="Keep", style=discord.ButtonStyle.secondary)

@@ -69,7 +69,7 @@ which you set with `/character select`.
 
 | Command | What it does |
 |---|---|
-| `/create` | Start the character creation wizard (private to you) |
+| `/create` | Start the character creation wizard (private to you). It can also make 0th-level normal men and henchmen |
 | `/sheet [character] [page] [private]` | Show a sheet: `sheet`, `inventory`, or `notes` page |
 | `/character list` · `select` · `delete` | Manage your characters |
 | `/character edit` · `notes` | Name, alignment, homeland, description; free-form notes (spells, languages...) |
@@ -79,7 +79,8 @@ which you set with `/character select`.
 | `/character training` | Extra armor, weapons, or fighting styles from class choices or powers (e.g. `style_choice` for a courtier's dual weapons, an earthforger's sigil allowing heavier armor) |
 | `/character set_level` · `barbarian` · `give` | Fix a level; set a barbarian's region and damage type; reassign a character (Judge) |
 | `/xp amount` | Award XP. Applies the key-attribute bonus unless `apply_bonus:False` |
-| `/levelup` | Gain a level when you have the XP; rerolls HP per the rules |
+| `/levelup [into]` | Gain a level when you have the XP; rerolls HP per the rules. Normal men pick the human class they become with `into` |
+| `/character promote character` | Make a henchman a full party member (their player, their employer's player, or a Judge) |
 | `/mattack target_ac [situational] [backstab] [raging] [mounted] [blind] [foe]` | Melee attack with equipped weapon(s) |
 | `/rattack target_ac [range] [situational] [backstab] [raging] [mounted] [blind] [foe]` | Missile attack; `range` short / medium (−2) / long (−5) |
 | `/save_paralysis` `/save_death` `/save_blast` `/save_implements` `/save_spells` `[source] [agility]` | Saving throws (WIL, Divine Blessing, and modifiers applied) |
@@ -119,6 +120,29 @@ Axe classes use invocations, rhetoric, or brewing rather than daily castings, so
 - `/spell set_slots` overrides a level's slots (or gives slots to any class), and slots grow automatically
   when the character levels up.
 - The sheet shows ◆ available and ◇ spent slots.
+
+## Henchmen and normal men
+
+**Henchmen.** On the wizard's last step, turn on **Henchman** and pick the character who employs them (one of
+yours; a Judge can pick anyone's). Any class can be a henchman. For one above 1st level, create them and then
+use `/character set_level`. A henchman's sheet says whom they serve, and the employer's sheet lists their
+henchmen. Making a henchman doesn't change your active character. `/character promote` makes a henchman a full
+party member, and deleting an employer leaves their henchmen unemployed.
+
+**0th-level normal men** are the wizard's **0th Level** book (Judges Journal, *0th Level NPC Hit Dice*):
+
+| | Commoner | Militia/mercenary |
+|---|---|---|
+| Hit Dice | 1/2 HD (1d4 hp + CON) | 1-1 HD (1d8-1 hp + CON) |
+| Attack throw | 11+, but no weapon proficiencies: −1, so 12+ | 11+, any weapon and armor |
+| Fighting styles | Single weapon | Single, missile, two-handed, weapon & shield |
+
+Both have AC 0, save as F0 (14+ 15+ 16+ 17+ 18+), have no class powers or templates, and start with no
+Adventuring proficiency; choose their 4 general proficiencies (plus INT bonus) with `/proficiency add`. The
+militia's training is an approximation, so adjust it with `/character training`. At 500 XP,
+`/levelup into:Thief` (or another of the 15 **human** classes they qualify for) makes them 1st level, as on
+RR p. 313: they gain Adventuring and the class's throws and powers, keep their proficiencies, and re-roll HP
+with the new Hit Die, keeping that or their old HP + 1, whichever is higher.
 
 ## Animals
 

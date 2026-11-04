@@ -87,17 +87,25 @@ class Storage:
             row = self._conn.execute("SELECT id, data FROM characters WHERE id = ?", (char_id,)).fetchone()
         return Character(json.loads(row["data"]), row["id"]) if row else None
 
-    def delete(self, char_id: int) -> list[Animal]:
-        """Delete a character; its animals stay, with no owner. Returns those animals."""
+    def henchmen_of(self, ch: Character) -> list[Character]:
+        return [c for c in self.list_for_guild(ch.data["guild_id"]) if c.employer_id == ch.id]
+
+    def delete(self, char_id: int) -> tuple[list[Animal], list[Character]]:
+        """Delete a character. Its animals and henchmen stay, with no owner or employer; returns them."""
         orphans = self.animals_owned_by(char_id)
         for a in orphans:
             a.data["owner_char"] = None
             self.save_animal(a)
+        ch = self.get(char_id)
+        released = self.henchmen_of(ch) if ch else []
+        for h in released:
+            h.data["employer"] = None
+            self.save(h)
         with self._lock:
             self._conn.execute("DELETE FROM characters WHERE id = ?", (char_id,))
             self._conn.execute("DELETE FROM active_characters WHERE character_id = ?", (char_id,))
             self._conn.commit()
-        return orphans
+        return orphans, released
 
     def list_for_user(self, guild_id: int, user_id: int) -> list[Character]:
         with self._lock:

@@ -249,9 +249,53 @@ def test_animal_storage(tmp=None):
         except ValueError:
             pass
         store.save_animal(Animal(new_animal_data(2, 2, "Thunder")))   # another server is fine
-        orphans = store.delete(ch.id)
+        orphans, _released = store.delete(ch.id)
         assert [x.name for x in orphans] == ["Thunder"] and store.get_animal(a.id).owner_char is None
         store.close()
+
+
+def test_normal_men():
+    # 0th level human: AC 0, attack throw 11+, saves as F0 (Fighter Saving Throws, level 0), 1/2 HD
+    n = make("normal_man", 0, con=13)
+    assert n.zero_level and n.attack_throw() == 11
+    assert [n.save_target(s) for s in rules.SAVES] == [14, 15, 16, 17, 18]
+    assert n.cls.title(0) == "Normal man" and n.xp_for_next() == 500 and n.xp_bonus_pct() == 0
+    for _ in range(50):
+        hp, _detail = n.roll_first_level_hp()
+        assert 2 <= hp <= 5                                  # 1d4 +1 CON
+    assert n.roll_first_level_hp(maximize=True)[0] == 5
+    m = make("normal_man_militia", 0)
+    assert m.roll_first_level_hp(maximize=True)[0] == 7   # 1d8-1
+    # a commoner has no weapon proficiency: -1, so 12+, keeping his STR bonus
+    club = n.add_item("Club", 1, Fraction(1, 6), "stone", "weapon", "club")
+    n.equip(club["id"], "main")
+    p = n.melee_profile()
+    assert p.throw == 12 and p.nonproficient
+    m.equip(m.add_item("Spear", 1, Fraction(1, 6), "stone", "weapon", "spear")["id"], "main")
+    assert m.melee_profile().throw == 11 and not m.melee_profile().nonproficient
+    # 500 XP: advance into a human class, re-roll hp with its Hit Die, keep new or old + 1
+    try:
+        n.level_up()
+        raise AssertionError("normal men must pick a class")
+    except ValueError:
+        pass
+    for bad in ("nightblade", "bao_warrior", "normal_man_militia"):
+        try:
+            make("normal_man", 0).advance_from_zero(bad)
+            raise AssertionError(f"{bad} isn't a human class")
+        except ValueError:
+            pass
+    n.data["hp"] = {"current": 3, "max": 3}
+    n.data["xp"] = 500
+    old, new, _detail = n.advance_from_zero("fighter")
+    assert (n.cls.key, n.level, old) == ("fighter", 1, 3) and new >= 4 and "Adventuring" in n.data["proficiencies"]
+    assert n.attack_throw() == 10 and n.save_target("paralysis") == 13
+    weak = make("normal_man", 0, str=8)
+    try:
+        weak.advance_from_zero("fighter")   # key attribute STR below 9
+        raise AssertionError("ineligible class")
+    except ValueError:
+        pass
 
 
 def test_backstab():
@@ -297,7 +341,7 @@ def test_supplement_classes_load():
     assert rules.SKIPPED_CLASSES == {}
     assert len(rules.classes_by_source("Before All Others")) == 22
     assert len(rules.classes_by_source("By This Axe")) == 10
-    assert all(len(templates.templates_for(k)) == 8 for k in rules.CLASSES)
+    assert all(len(templates.templates_for(k)) == 8 for k, c in rules.CLASSES.items() if not c.zero_level)
 
 
 def test_supplement_tables_match_book():
@@ -544,7 +588,7 @@ def test_situational_toggles():
 
 def test_class_powers():
     from acks import embeds
-    assert all(rules.class_powers(k) for k in rules.CLASSES)
+    assert all(rules.class_powers(k) for k, c in rules.CLASSES.items() if not c.zero_level)
     have, upcoming = embeds.powers_split(make("fighter", 5))
     assert [p["name"] for p in have] == ["Manual of Arms", "Battlefield Prowess"]
     assert upcoming[0]["name"] == "Castle" and upcoming[0]["level"] == 9

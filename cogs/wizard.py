@@ -20,9 +20,11 @@ ALIGNMENTS = ["Lawful", "Neutral", "Chaotic"]
 class CreationWizard(discord.ui.View):
     """One ephemeral message that walks a player through creation."""
 
-    def __init__(self, owner: discord.abc.User, guild_id: int):
+    def __init__(self, owner: discord.abc.User, guild_id: int, employers: list[Character] | None = None):
         super().__init__(timeout=1800)
         self.owner = owner
+        self.employers = employers or []   # existing characters a henchman could serve
+        self.henchman = False
         self.data = new_character_data(guild_id, owner.id)
         self.ch = Character(self.data)
         self.step = "attributes"
@@ -105,7 +107,12 @@ class CreationWizard(discord.ui.View):
             if len(rules.SOURCES) > 1 else ""
         e.description = ("**Choose a class.** Only classes whose key attributes (and any requirements) "
                          "you meet are listed.\n" + book + self._attr_block())
-        if self.data["class_key"] and self.step == "class" and self.data.get("_class_chosen"):
+        if self.data["class_key"] and self.step == "class" and self.data.get("_class_chosen") and self.ch.zero_level:
+            c = self.ch.cls
+            e.add_field(name=c.name, value=(
+                f"*0th level* · {self.ch.hit_dice_label()} · attack throw 11+ · saves as F0\n"
+                f"Armor: {c.armor} · Styles: {rules.describe_styles(c)}\n{c.notes}"), inline=False)
+        elif self.data["class_key"] and self.step == "class" and self.data.get("_class_chosen"):
             c = self.ch.cls
             e.add_field(name=c.name, value=(
                 f"*{c.source}* · HD d{c.hit_die} · Key: {', '.join(c.key_attributes)} · Max level {c.max_level}\n"
@@ -127,6 +134,12 @@ class CreationWizard(discord.ui.View):
 
     def _embed_hp(self, e: discord.Embed) -> None:
         c = self.ch.cls
+        if self.ch.zero_level:
+            e.description = (f"**Roll hit points.** A {c.name.lower()} has {self.ch.hit_dice_label()}: roll it and "
+                             f"add your CON modifier ({fmt_mod(self.ch.mod('CON'))}), minimum 1.")
+            if self.hp_detail:
+                e.add_field(name="Hit points", value=self.hp_detail, inline=False)
+            return
         e.description = (f"**Roll hit points.** {c.name}s roll **1d{c.hit_die}"
                          f"{'+' + str(c.first_level_hp_bonus) if c.first_level_hp_bonus else ''}** at 1st level. "
                          f"A roll of 4 or less counts as 4, then add your CON modifier "
@@ -135,6 +148,12 @@ class CreationWizard(discord.ui.View):
             e.add_field(name="Hit points", value=self.hp_detail, inline=False)
 
     def _embed_template(self, e: discord.Embed) -> None:
+        if self.ch.zero_level:
+            e.description = ("**Starting money.** Normal men have no class templates. Roll 3d6 × 10 gp to buy gear "
+                             "(or ask your Judge what they own).")
+            if self.template_detail:
+                e.add_field(name="Selected", value=self.template_detail[:1024], inline=False)
+            return
         e.description = ("**Pick a template.** Roll 3d6 for your template; you may take the one rolled "
                          "or any **lower** one. Or skip templates and roll 3d6 × 10 gp to buy gear yourself.")
         if self.template_roll is not None:
@@ -147,13 +166,25 @@ class CreationWizard(discord.ui.View):
         e.description = ("**Name your character** and fill in the details, then press **Create character**.\n"
                          "A preview of the finished sheet is below.")
         todo = []
-        if not self.data.get("template"):
+        if self.ch.zero_level:
+            todo.append("Choose 4 general proficiencies with `/proficiency add` (no Adventuring until 1st level).")
+        elif not self.data.get("template"):
             todo.append("Choose 1 class proficiency and 1 general proficiency with `/proficiency add`.")
         if int_bonus:
             todo.append(f"Your Intellect lets you pick **{int_bonus}** more general proficienc"
                         f"{'y' if int_bonus == 1 else 'ies'} with `/proficiency add` (or leave slots open).")
         todo.append("Starting age, languages and spell repertoire can go in `/character notes`.")
+        if self.henchman:
+            todo.append("For a higher-level henchman, use `/character set_level` after creating them.")
         e.add_field(name="After creation", value="\n".join(f"• {t}" for t in todo), inline=False)
+        employer = next((c for c in self.employers if c.id == self.data.get("employer")), None)
+        if self.henchman:
+            hench = f"Employed by **{employer.name}**" if employer else "⚠️ Choose the employer in the menu below."
+        elif self.employers:
+            hench = "No. Turn on **Henchman** to have them serve an existing character."
+        else:
+            hench = "No (there's no existing character for them to serve yet)."
+        e.add_field(name="🤝 Henchman", value=hench, inline=False)
 
     # ------------------------------------------------------------------
     def render(self) -> None:
@@ -209,7 +240,9 @@ class CreationWizard(discord.ui.View):
         self.add_item(cont)
 
     def _render_template(self) -> None:
-        if self.template_roll is None:
+        if self.ch.zero_level:
+            self.add_item(_Button("Roll 3d6×10 gp", discord.ButtonStyle.success, self._do_no_template, emoji="💰"))
+        elif self.template_roll is None:
             self.add_item(_Button("Roll 3d6 for template", discord.ButtonStyle.success, self._do_roll_template,
                                   emoji="🎲"))
             self.add_item(_Button("No template (3d6×10 gp)", discord.ButtonStyle.secondary, self._do_no_template,
@@ -222,9 +255,16 @@ class CreationWizard(discord.ui.View):
 
     def _render_details(self) -> None:
         self.add_item(_Button("Name & details", discord.ButtonStyle.primary, self._do_details, emoji="✏️"))
+        toggle = _Button(f"Henchman: {'yes' if self.henchman else 'no'}",
+                         discord.ButtonStyle.primary if self.henchman else discord.ButtonStyle.secondary,
+                         self._do_toggle_henchman, emoji="🤝")
+        toggle.disabled = not self.employers
+        self.add_item(toggle)
         create = _Button("Create character", discord.ButtonStyle.success, self._do_create, emoji="✅")
-        create.disabled = self.data["name"] == "Unnamed"
+        create.disabled = self.data["name"] == "Unnamed" or (self.henchman and not self.data.get("employer"))
         self.add_item(create)
+        if self.henchman:
+            self.add_item(_EmployerSelect(self))
 
     # ------------------------------------------------------------------
     def _goto(self, step: str):
@@ -295,6 +335,13 @@ class CreationWizard(discord.ui.View):
                                 "Buy gear with `/item add` and `/purse spend`, then `/equip` it.")
         await self.refresh(interaction)
 
+    async def _do_toggle_henchman(self, interaction: discord.Interaction) -> None:
+        self.henchman = not self.henchman
+        if not self.henchman:
+            self.data["employer"] = None
+        self.render()
+        await interaction.response.edit_message(embeds=[self.embed(), embeds.sheet_embed(self.ch)], view=self)
+
     async def _do_details(self, interaction: discord.Interaction) -> None:
         await interaction.response.send_modal(_DetailsModal(self))
 
@@ -303,15 +350,26 @@ class CreationWizard(discord.ui.View):
             raise UserError(f"**{self.ch.name}** has already been created.")
         self.data.pop("_class_chosen", None)
         store = storage(interaction)
+        employer = store.get(self.data["employer"]) if self.henchman and self.data.get("employer") else None
+        if self.henchman and employer is None:
+            raise UserError("Choose who employs this henchman first.")
+        if not self.henchman:
+            self.data["employer"] = None
         store.create(self.ch)
-        store.set_active(self.data["guild_id"], self.owner.id, self.ch.id)
+        # a henchman doesn't replace the player's active character (unless they have none yet)
+        if not employer or store.get_active(self.data["guild_id"], self.owner.id) is None:
+            store.set_active(self.data["guild_id"], self.owner.id, self.ch.id)
+            done = "is now your active character"
+        else:
+            done = f"serves **{employer.name}**. Use them with `/character select` or the `character` option"
         self.stop()
-        await interaction.response.edit_message(
-            content=f"✅ **{self.ch.name}** has been created and is now your active character.",
-            embeds=[], view=None)
+        await interaction.response.edit_message(content=f"✅ **{self.ch.name}** has been created and {done}.",
+                                                embeds=[], view=None)
+        welcome = (f"🤝 **{employer.name}** takes on **{self.ch.name}** as a henchman." if employer
+                   else f"🎉 {interaction.user.mention} welcomes a new adventurer to the party!")
         await interaction.followup.send(
-            content=f"🎉 {interaction.user.mention} welcomes a new adventurer to the party!",
-            embed=embeds.sheet_embed(self.ch, interaction.user.display_name), view=sheet_view(self.ch))
+            content=welcome, view=sheet_view(self.ch),
+            embed=embeds.sheet_embed(self.ch, interaction.user.display_name, employer.name if employer else None))
 
     # ------------------------------------------------------------------
     def reset_gear(self) -> None:
@@ -320,7 +378,8 @@ class CreationWizard(discord.ui.View):
         self.data["equipped"] = {"main": None, "off": None, "two_handed": False, "missile": None, "armor": None,
                                  "shield": None}
         self.data["purse"] = {c: 0 for c in rules.COIN_TYPES}
-        self.data["proficiencies"] = ["Adventuring"] + self.natural_proficiencies()
+        # normal men gain Adventuring when they reach 1st level (RR p. 313)
+        self.data["proficiencies"] = ([] if self.ch.zero_level else ["Adventuring"]) + self.natural_proficiencies()
         if self.style_pick is not None:
             self.data["options"]["style_choice"] = list(self.style_pick)
 
@@ -433,13 +492,15 @@ class _ClassSelect(discord.ui.Select):
         chosen = wiz.data["class_key"] if wiz.data.get("_class_chosen") else None
         opts = [discord.SelectOption(
             label=c.name, value=c.key, default=(c.key == chosen),
-            description=f"d{c.hit_die} HD · key {'/'.join(c.key_attributes)} · {c.armor} armor"[:100])
+            description=(f"0th level · {c.zero_level} HD · {c.armor} armor" if c.zero_level else
+                         f"d{c.hit_die} HD · key {'/'.join(c.key_attributes)} · {c.armor} armor")[:100])
             for c in options[:25]]
         super().__init__(placeholder="Choose your class", options=opts, row=1)
         self.wiz = wiz
 
     async def callback(self, interaction: discord.Interaction) -> None:
         self.wiz.data["class_key"] = self.values[0]
+        self.wiz.data["level"] = 0 if rules.CLASSES[self.values[0]].zero_level else 1
         self.wiz.data["_class_chosen"] = True
         self.wiz.data["options"] = {}
         self.wiz.style_pick = None
@@ -496,6 +557,22 @@ class _StyleChoiceSelect(discord.ui.Select):
         self.wiz.ch.set_style_choice(self.values)
         self.wiz.style_pick = list(self.wiz.ch.options["style_choice"])
         await self.wiz.refresh(interaction)
+
+
+class _EmployerSelect(discord.ui.Select):
+    def __init__(self, wiz: CreationWizard):
+        chosen = wiz.data.get("employer")
+        opts = [discord.SelectOption(label=c.name[:100], value=str(c.id), default=(c.id == chosen),
+                                     description=embeds.level_label(c)[:100])
+                for c in wiz.employers[:25]]
+        super().__init__(placeholder="Who employs this henchman?", options=opts, row=1)
+        self.wiz = wiz
+
+    async def callback(self, interaction: discord.Interaction) -> None:
+        self.wiz.data["employer"] = int(self.values[0])
+        self.wiz.render()
+        await interaction.response.edit_message(embeds=[self.wiz.embed(), embeds.sheet_embed(self.wiz.ch)],
+                                                view=self.wiz)
 
 
 class _TemplateSelect(discord.ui.Select):

@@ -11,6 +11,7 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
+from acks import embeds
 from acks import encounter as enc_rules
 from acks.character import Character
 from acks.dice import fmt_mod
@@ -437,7 +438,7 @@ class WizardButton(discord.ui.Button):
 class PartySelect(discord.ui.Select):
     def __init__(self, wiz: EncounterWizard):
         opts = [discord.SelectOption(label=c.name[:100], value=str(c.id), default=c.id in wiz.selected,
-                                     description=f"L{c.level} {c.cls.name} · init "
+                                     description=f"{embeds.level_label(c)} · init "
                                                  f"{fmt_mod(c.initiative_bonus().total)}"[:100])
                 for c in wiz.characters]
         super().__init__(placeholder="Party members", options=opts, min_values=0, max_values=len(opts), row=0)

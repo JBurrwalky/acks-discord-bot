@@ -139,6 +139,8 @@ class ClassDef:
     # Styles the player picks at creation: {"options": [styles], "pick": how many}. Styles in "options"
     # are only granted once chosen (until then, all of them are, as before the choice existed).
     style_choice: dict | None = None
+    # 0th-level normal men: their Hit Dice, "1/2" (1d4 hp) or "1-1" (1d8-1 hp). They advance into another class.
+    zero_level: str | None = None
 
     @property
     def max_level(self) -> int:
@@ -342,6 +344,32 @@ _add(ClassDef(
     WeaponProficiency(weapons=("battle_axe", "great_axe", "flail", "sword", "two_handed_sword", "whip")),
     "heavy", {"single", "missile", "weapon_and_shield", "two_handed"}, 2,
     requirements={"INT": 9, "WIL": 9, "CHA": 9}, damage_bonus="ruinguard", cleave="level"))
+
+# ---------------------------------------------------------------------------
+# 0th level normal men (JJ pp. 253-254, 0th Level NPC Hit Dice; RR p. 313)
+# ---------------------------------------------------------------------------
+# They have AC 0, attack throw 11+ and save as F0 (Fighter Saving Throws, level 0). At 500 XP they advance
+# to 1st level in a human class (RR p. 313), chosen with /levelup into:.
+
+ZERO_LEVEL_SOURCE = "0th Level"
+HUMAN_CLASSES = ("fighter", "explorer", "thief", "mage", "crusader", "venturer", "assassin", "barbarian", "bard",
+                 "bladedancer", "paladin", "priestess", "shaman", "warlock", "witch")   # RR p. 25
+ZERO_LEVEL_XP = 500
+_F0 = {"level": 0, "xp": 0, "attack": 11, "paralysis": 14, "death": 15, "blast": 16, "implements": 17,
+       "spells": 18, "damage_bonus": 0}
+
+_add(ClassDef(
+    "normal_man", "Normal Man (commoner)", (), 4, [ZERO_LEVEL_XP], ["Normal man"], "fighter", "fighter",
+    FIGHTER_SAVES, WeaponProficiency(), "none", {"single"}, 0, cleave="none", source=ZERO_LEVEL_SOURCE,
+    level_table=[dict(_F0, title="Normal man")], zero_level="1/2",
+    notes="Noncombatant: 1/2 HD (1d4 hp), single weapon style only, no weapon proficiencies (-1 to hit, so 12+). "
+          "Four general proficiencies plus INT bonus. Becomes a 1st-level human class at 500 XP."))
+_add(ClassDef(
+    "normal_man_militia", "Normal Man (militia/mercenary)", (), 8, [ZERO_LEVEL_XP], ["Militiaman"], "fighter",
+    "fighter", FIGHTER_SAVES, ALL_WEAPONS, "heavy", {"single", "missile", "two_handed", "weapon_and_shield"}, 0,
+    cleave="none", source=ZERO_LEVEL_SOURCE, level_table=[dict(_F0, title="Militiaman")], zero_level="1-1",
+    notes="Trained in arms: 1-1 HD (1d8-1 hp), any weapon and armor, attack throw 11+. Change their training with "
+          "/character training. Becomes a 1st-level human class at 500 XP."))
 
 
 # Revised Rulebook spell progressions: castings per day of spell levels 1..6, by class level.
@@ -818,7 +846,7 @@ def weapon_in_group(weapon: WeaponDef, group: str) -> bool:
 # Supplement classes (acks/data/classes/*.json)
 # ---------------------------------------------------------------------------
 
-SOURCES: list[str] = ["Revised Rulebook"]
+SOURCES: list[str] = ["Revised Rulebook", ZERO_LEVEL_SOURCE]
 SAVE_KEYS = ("attack", "paralysis", "death", "blast", "implements", "spells")
 
 
