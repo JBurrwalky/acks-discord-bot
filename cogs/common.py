@@ -8,6 +8,7 @@ import discord
 from discord import app_commands
 
 from acks import embeds, rules
+from acks.animal import Animal
 from acks.character import Character
 from acks.storage import Storage
 
@@ -178,6 +179,91 @@ async def catalog_autocomplete(interaction: discord.Interaction, current: str) -
         if cur in label.lower():
             out.append(app_commands.Choice(name=label, value=a.key))
     return out[:25]
+
+
+# ---------------------------------------------------------------------------
+# Giving items: any character or animal in the server can receive them
+# ---------------------------------------------------------------------------
+
+def resolve_recipient(interaction: discord.Interaction, ref: str) -> Character | Animal:
+    """A character or an animal, from autocomplete ('c:12' / 'a:5') or a typed name. Anyone's will do."""
+    store = storage(interaction)
+    gid = guild_id(interaction)
+    m = re.fullmatch(r"([ca]):(\d+)", ref.strip())
+    if m:
+        target = store.get(int(m.group(2))) if m.group(1) == "c" else store.get_animal(int(m.group(2)))
+        if target and target.data["guild_id"] == gid:
+            return target
+        raise UserError("I couldn't find who that's for.")
+    wanted = ref.strip().casefold()
+    pool: list[Character | Animal] = [*store.list_for_guild(gid), *store.animals_for_guild(gid)]
+    hits = [x for x in pool if x.name.casefold() == wanted] or [x for x in pool if wanted in x.name.casefold()]
+    if not hits:
+        raise UserError(f"There's no character or animal called **{ref}** in this server.")
+    if len(hits) > 1:
+        raise UserError(f"More than one character or animal matches **{ref}**: "
+                        + ", ".join(holder_label(x) for x in hits[:10]) + ". Pick one from the list.")
+    return hits[0]
+
+
+def holder_label(x: Character | Animal) -> str:
+    return f"🐴 {x.name} ({x.data['kind']})" if isinstance(x, Animal) else f"🧙 {x.name} ({embeds.level_label(x)})"
+
+
+def load_line(x: Character | Animal) -> str:
+    sp = x.speeds()
+    limit = f" / {x.max_encumbrance()} st" if isinstance(x, Character) else \
+        f" (normal {embeds.stone_number(x.data['normal_load'])} st)"
+    return f"-# {x.name}: {rules.fmt_stone(x.encumbrance())}{limit} · {sp['band']} ({sp['exploration']}' / {sp['combat']}')"
+
+
+async def recipient_autocomplete(interaction: discord.Interaction, current: str) -> list[app_commands.Choice[str]]:
+    if interaction.guild_id is None:
+        return []
+    store = storage(interaction)
+    cur = current.casefold()
+    out = []
+    for c in store.list_for_guild(interaction.guild_id):
+        if cur in c.name.casefold():
+            mine = "" if c.data["owner_id"] == interaction.user.id else " · other player"
+            out.append(app_commands.Choice(name=f"{holder_label(c)}{mine}"[:100], value=f"c:{c.id}"))
+    for a in store.animals_for_guild(interaction.guild_id):
+        if cur in a.name.casefold() or cur in a.data["kind"].casefold():
+            out.append(app_commands.Choice(name=holder_label(a)[:100], value=f"a:{a.id}"))
+    return out[:25]
+
+
+def give(interaction: discord.Interaction, giver: Character | Animal, it: dict, qty: int | None,
+         target: Character | Animal) -> str:
+    """Move an item between inventories, save both, and describe it (with both loads afterwards)."""
+    try:
+        moved, took, unequipped = giver.give_item(it["id"], qty, target)
+    except ValueError as e:
+        raise UserError(str(e)) from None
+    save_holder(interaction, target)
+    save_holder(interaction, giver)
+    left = giver.item(it["id"])
+    notes = []
+    if unequipped:
+        notes.append("taken off first" if isinstance(giver, Animal) else "unequipped first")
+    if left:
+        notes.append(f"{left['qty']} left")
+    extra = f" ({', '.join(notes)})" if notes else ""
+    hint = "\n-# Equip it with `/equip`." if isinstance(target, Character) and moved["kind"] in (
+        "weapon", "armor", "shield") else ("\n-# Put it on with `/animal equip`." if isinstance(target, Animal)
+                                            and moved["kind"] == "barding" else "")
+    return (f"🎁 **{giver.name}** gives {took}× **{moved['name']}**{extra} to **{target.name}** "
+            f"(#{moved['id']} in their gear).\n{load_line(giver)}\n{load_line(target)}{hint}")
+
+
+def save_holder(interaction: discord.Interaction, x: Character | Animal) -> None:
+    if isinstance(x, Animal):
+        try:
+            storage(interaction).save_animal(x)
+        except ValueError as e:
+            raise UserError(str(e)) from None
+    else:
+        storage(interaction).save(x)
 
 
 async def send_error(interaction: discord.Interaction, message: str) -> None:

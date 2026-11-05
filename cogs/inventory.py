@@ -13,7 +13,8 @@ from acks.character import SLOT_LABELS, Character
 from acks.dice import fmt_mod
 
 from .common import (UserError, catalog_autocomplete, character_autocomplete, equippable_autocomplete,
-                     find_item, inventory_autocomplete, resolve_character, save, storage)
+                     find_item, give, inventory_autocomplete, recipient_autocomplete, resolve_character,
+                     resolve_recipient, save, storage)
 
 Coin = Literal["pp", "gp", "ep", "sp", "cp"]
 SlotChoice = Literal["main hand", "off hand", "both hands", "missile", "armor", "shield"]
@@ -192,6 +193,19 @@ class Inventory(commands.Cog):
         left = f" ({removed['qty']} left)" if removed["qty"] > 0 else ""
         await interaction.response.send_message(
             f"➖ **{ch.name}** removes {n}× **{removed['name']}**{left}\n{_status_line(ch)}")
+
+    @item.command(name="give", description="Give an item to another character or to an animal (anyone's)")
+    @app_commands.describe(item="Item to give", to="The character or animal receiving it",
+                           quantity="How many (default: all of them)", character="Who gives it (default: yours)")
+    @app_commands.autocomplete(item=inventory_autocomplete, to=recipient_autocomplete,
+                               character=character_autocomplete)
+    async def item_give(self, interaction: discord.Interaction, item: str, to: str,
+                        quantity: app_commands.Range[int, 1, 100000] | None = None,
+                        character: str | None = None) -> None:
+        ch = resolve_character(interaction, character)
+        it = find_item(ch, item)
+        target = resolve_recipient(interaction, to)
+        await interaction.response.send_message(give(interaction, ch, it, quantity, target))
 
     @item.command(name="list", description="Show inventory and encumbrance")
     @app_commands.autocomplete(character=character_autocomplete)

@@ -15,7 +15,7 @@ from acks.animal import (Animal, attack_label, make_attack, new_animal_data, par
 from acks.storage import Storage
 
 from .common import (UserError, any_character_autocomplete, character_autocomplete, guild_id, is_judge,
-                     resolve_character, storage)
+                     give, recipient_autocomplete, resolve_character, resolve_recipient, storage)
 
 Size = Literal["man-sized", "large", "huge", "gigantic", "colossal"]
 Material = Literal["leather", "scale", "chain", "lamellar", "plate"]
@@ -494,6 +494,16 @@ class Animals(commands.Cog):
         it, took = a.remove_item(_find_item(a, item)["id"], quantity)
         save_animal(interaction, a)
         await interaction.response.send_message(f"🎒 Removed {took}× **{it['name']}** from **{a.name}**.\n{_status(a)}")
+
+    @item.command(name="give", description="Move gear from an animal to a character or another animal (anyone's)")
+    @app_commands.describe(to="Who receives it", quantity="How many (default: all of them)")
+    @app_commands.autocomplete(animal=animal_autocomplete, item=animal_item_autocomplete, to=recipient_autocomplete)
+    async def item_give(self, interaction: discord.Interaction, animal: str, item: str, to: str,
+                        quantity: app_commands.Range[int, 1, 100000] | None = None) -> None:
+        a = resolve_animal(interaction, animal)
+        it = _find_item(a, item)
+        target = resolve_recipient(interaction, to)
+        await interaction.response.send_message(give(interaction, a, it, quantity, target))
 
     # -- /animal ability ------------------------------------------------------
     @ability.command(name="add", description="Add a special power or ability")

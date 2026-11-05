@@ -162,6 +162,9 @@ class Animal(ItemStore):
         self.data["barding"] = None
         return it
 
+    def equipped_ids(self) -> list[int]:
+        return [self.data["barding"]] if self.data.get("barding") is not None else []
+
     def _fix_equipped(self) -> None:
         if self.barding_item() is None:
             self.data["barding"] = None

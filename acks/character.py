@@ -112,6 +112,7 @@ class AttackProfile:
 class ItemStore:
     """An inventory kept in data["items"] (shared by characters and animals)."""
     data: dict
+    id: int | None
 
     def items(self) -> list[dict]:
         return self.data["items"]
@@ -166,6 +167,25 @@ class ItemStore:
             self.data["items"].remove(it)
         self._fix_equipped()
         return it, take
+
+    def give_item(self, item_id: int, qty: int | None, other: ItemStore) -> tuple[dict, int, bool]:
+        """Move `qty` (default: all) of an item into another inventory, keeping its weight, stats, magic and notes.
+
+        Returns (the item as it now is in `other`, how many moved, whether a worn/wielded one was taken off).
+        """
+        if other is self or (type(other) is type(self) and other.id is not None and other.id == self.id):
+            raise ValueError("They can't give something to themselves.")
+        before = self.equipped_ids().count(item_id)
+        it, took = self.remove_item(item_id, qty)
+        unequipped = self.equipped_ids().count(item_id) < before
+        moved = other.add_item(it["name"], took, Fraction(str(it.get("weight", 0))), it.get("unit", "stone"),
+                               it.get("kind", "gear"), it.get("base"), int(it.get("magic", 0)), it.get("notes", ""),
+                               it.get("custom"))
+        return moved, took, unequipped
+
+    def equipped_ids(self) -> list[int]:
+        """The item id in each slot that holds something (an id twice for, say, a dagger in each hand)."""
+        return []
 
     def _fix_equipped(self) -> None:
         """Drop equipped references to items that are gone."""
@@ -237,6 +257,10 @@ class Character(ItemStore):
         if it.get("custom"):
             return rules.custom_armor(base, it["custom"], it["name"])
         return base
+
+    def equipped_ids(self) -> list[int]:
+        eq = self.data["equipped"]
+        return [eq[slot] for slot in EQUIP_SLOTS if eq.get(slot) is not None]
 
     def _fix_equipped(self) -> None:
         eq = self.data["equipped"]

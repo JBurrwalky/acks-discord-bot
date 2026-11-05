@@ -238,6 +238,39 @@ def test_item_weights():
     assert templates.item_weight("Gems") == (sixth, False)          # unknown: 1 item
 
 
+def test_give_items():
+    from acks.animal import Animal, new_animal_data
+    a, b = make("fighter"), make("thief")
+    a.id, b.id = 1, 2
+    torches = a.add_item("Torches", 6, Fraction(1, 6), "stone")
+    b.add_item("Torches", 2, Fraction(1, 6), "stone")
+    moved, took, off = a.give_item(torches["id"], 4, b)
+    assert (took, off, moved["qty"], a.item(torches["id"])["qty"]) == (4, False, 6, 2)   # stacks with b's torches
+    sword = a.add_item("Flametongue", 1, Fraction(1, 6), "stone", "weapon", "sword", magic=1, notes="glows")
+    a.equip(sword["id"], "main")
+    moved, took, off = a.give_item(sword["id"], None, b)
+    assert off and a.equipped("main") is None and a.item(sword["id"]) is None
+    assert (moved["kind"], moved["base"], moved["magic"], moved["notes"]) == ("weapon", "sword", 1, "glows")
+    daggers = a.add_item("Dagger", 2, Fraction(1, 6), "stone", "weapon", "dagger")
+    a.equip(daggers["id"], "main")
+    a.equip(daggers["id"], "off")
+    _, _, off = a.give_item(daggers["id"], 1, b)
+    assert off and a.equipped("main") and a.equipped("off") is None              # one dagger left, in the main hand
+    # to and from an animal: worn barding comes off when it's given away
+    mule = Animal(new_animal_data(1, 1, "Mule"), 7)
+    bard = mule.add_item("Leather barding", 1, Fraction(3, 2), "stone", kind="barding", custom={"ac": 1})
+    mule.equip_barding(bard["id"])
+    moved, took, off = mule.give_item(bard["id"], None, a)
+    assert off and mule.data["barding"] is None and a.encumbrance() >= Fraction(3, 2)
+    a.give_item(a.item(torches["id"])["id"], None, mule)
+    assert mule.encumbrance() == Fraction(2, 6)
+    try:
+        a.give_item(a.items()[0]["id"], 1, a)
+        raise AssertionError("giving to yourself")
+    except ValueError:
+        pass
+
+
 def test_animal_storage(tmp=None):
     import tempfile
     from acks.animal import Animal, new_animal_data

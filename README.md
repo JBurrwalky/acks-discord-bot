@@ -96,6 +96,7 @@ which you set with `/character select`.
 | `/item add name [quantity] [weight] [unit] [base] [magic] [notes]` | Add any item, from the books or not. `unit` = stone, items, or coins. Leave out `weight` and common gear gets its usual weight, counted as the templates do (*Quiver with 20 arrows* or *20 arrows* = 1 item, 6 torches = 1 stone, rope = 1 stone); anything unrecognised counts as 1 item. Set `base` (e.g. *Sword*, *Chain Mail Armor*) to make it a book weapon or armor that can be equipped |
 | `/item add … damage size weapon_type range thrown` · `armor_ac armor_type` | Homebrew weapon or armor stats (see below) |
 | `/item remove` · `list` · `edit` | Remove, list, or edit items (`edit` can also change or clear homebrew stats) |
+| `/item give item to [quantity]` | Hand an item to any character or animal in the server, including other players' characters, henchmen, and animals. Weight, stats, magic, and notes go with it; equipped items are taken off first |
 | `/purse add` · `spend` · `set` | Coins (pp, gp, ep, sp, cp). `spend` makes change: short of the coin you spend, it breaks the fewest larger coins (smallest first) and keeps the change, e.g. 35 cp from gold breaks 1 gp and leaves 65 cp. If the larger coins can't cover it, the rest is paid in smaller coins (largest first), e.g. 1 gp as 10 sp. `make_change:False` turns this off |
 | `/equip item [slot]` · `/unequip slot` | Slots: main hand, off hand, both hands, missile, armor, shield |
 | `/hp damage` · `heal` · `set` · `show` | Hit points |
@@ -105,7 +106,7 @@ which you set with `/character select`.
 | `/animal sheet` · `list` · `edit` · `delete` | Show, list (all, or one character's), change, or delete animals |
 | `/animal attack animal target_ac [attack]` · `hp` | Roll its attack routine (or one attack); damage, heal, or set HP |
 | `/animal barding` · `equip` · `unequip` | Add book barding weighed for its size and put it on; swap barding |
-| `/animal item add` · `remove` · `ability add` · `remove` · `routine add` · `remove` | Its gear, special abilities, and attacks |
+| `/animal item add` · `remove` · `give` · `ability add` · `remove` · `routine add` · `remove` | Its gear (`give` unloads it onto any character or animal), special abilities, and attacks |
 
 ## Spell slots
 
