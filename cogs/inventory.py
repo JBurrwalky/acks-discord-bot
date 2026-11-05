@@ -8,7 +8,7 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from acks import embeds, rules
+from acks import embeds, rules, templates
 from acks.character import SLOT_LABELS, Character
 from acks.dice import fmt_mod
 
@@ -39,7 +39,7 @@ ArmorType = Literal["very light", "light", "medium", "heavy", "shield"]
 ITEM_OPTION_HELP = {
     "name": "Item name (anything: 'Rope, 50 ft', 'Flametongue', 'Dragon-bone axe')",
     "quantity": "How many",
-    "weight": "Weight of ONE item in the chosen unit (default: 1 item, or the weapon/armor's usual weight)",
+    "weight": "Weight of ONE item in the chosen unit (default: its usual weight if known, else 1 item)",
     "unit": "stone, items (6 items = 1 stone), or coins (1,000 coins = 1 stone)",
     "base": "Book weapon/armor it works like (e.g. Sword). Homebrew stats below override it",
     "magic": "Magic bonus, e.g. 1 for a +1 sword (adds to hit and damage, or to AC)",
@@ -91,13 +91,15 @@ def _kind_for(w, a, custom: dict) -> str:
 
 
 def _default_weight(ch: Character, it: dict) -> tuple[Fraction, str]:
-    """Usual weight for weapons/armor (armor: 1 stone per point of AC); 1 item for anything else."""
+    """Usual weight for weapons/armor (armor: 1 stone per point of AC); otherwise the weight the templates use
+    for that kind of gear (20 arrows = 1 item, 6 torches = 1 stone...), or 1 item if it isn't recognised."""
     w, a = ch.item_weapon(it), ch.item_armor(it)
     if w:
         return (Fraction(1) if w.size == "large" else w.enc), "stone"
     if a:
         return (Fraction(1) if a.category == "shield" else Fraction(max(a.ac, 1))), "stone"
-    return Fraction(1), "items"
+    stone, known = templates.item_weight(it["name"])
+    return (stone, "stone") if known else (Fraction(1), "items")
 
 
 def _stats_text(ch: Character, it: dict) -> str:

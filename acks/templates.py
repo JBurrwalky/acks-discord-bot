@@ -18,6 +18,7 @@ class ParsedItem:
     stone_each: Fraction
     kind: str = "gear"          # gear | weapon | armor | shield | clothing | animal
     base: str | None = None
+    known: bool = True          # False: not recognised, so counted as 1 item
 
 
 @dataclass
@@ -148,7 +149,19 @@ def parse_piece(piece: str) -> ParsedItem | tuple[str, int] | None:
             return ParsedItem(name, qty, stone / bundle)
     if "stakes" in rlow:
         return ParsedItem(name, 1, rules.SIXTH)
-    return ParsedItem(name, qty, rules.SIXTH)
+    return ParsedItem(name, qty, rules.SIXTH, known=False)
+
+
+def item_weight(name: str) -> tuple[Fraction, bool]:
+    """Stone for one of `name`, counted the way templates are, and whether the name was recognised.
+
+    A count in the name is a bundle: 'Quiver with 20 arrows' and '20 arrows' are 1/6 stone, 'Arrows' is
+    1/120 (20 to the item). Unrecognised things count as 1 item (1/6 stone).
+    """
+    parsed = parse_piece(name)
+    if not isinstance(parsed, ParsedItem):
+        return rules.SIXTH, False
+    return parsed.stone_each * parsed.qty, parsed.known
 
 
 def parse_equipment(text: str) -> ParsedEquipment:

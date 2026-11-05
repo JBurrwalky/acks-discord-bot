@@ -229,6 +229,15 @@ def test_animal_sheet():
     assert [(x["name"], x["damage"]) for x in camel] == [("bite", "1"), ("hoof", "1d4")]   # the bite deals 1 point
 
 
+def test_item_weights():
+    # /item add and /animal item add count gear the way templates do (RR equipment encumbrance)
+    sixth = Fraction(1, 6)
+    cases = {"Quiver with 20 arrows": sixth, "20 arrows": sixth, "Arrows": Fraction(1, 120), "6 torches": 1,
+             "Rope, 50 ft": 1, "Backpack": sixth, "Chain mail armor": 4, "Spear": 1, "Wool tunic": 0}
+    assert {n: templates.item_weight(n)[0] for n in cases} == cases
+    assert templates.item_weight("Gems") == (sixth, False)          # unknown: 1 item
+
+
 def test_animal_storage(tmp=None):
     import tempfile
     from acks.animal import Animal, new_animal_data

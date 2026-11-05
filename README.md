@@ -93,7 +93,7 @@ which you set with `/character select`.
 | `/encounter next_round` · `add` · `add_character` · `remove` · `show` · `end` | Run the fight: reroll for a new round, add or remove combatants (newcomers roll right away), repost the roster, or end and delete it |
 | `/roll dice` · `/throw target modifier` | Any dice (`2d6+1`, `4d6kh3`); a generic d20 throw vs. a target |
 | `/help [public]` | List every command (only you see it unless `public:True`) |
-| `/item add name [quantity] [weight] [unit] [base] [magic] [notes]` | Add any item, from the books or not. `unit` = stone, items, or coins. Set `base` (e.g. *Sword*, *Chain Mail Armor*) to make it a book weapon or armor that can be equipped |
+| `/item add name [quantity] [weight] [unit] [base] [magic] [notes]` | Add any item, from the books or not. `unit` = stone, items, or coins. Leave out `weight` and common gear gets its usual weight, counted as the templates do (*Quiver with 20 arrows* or *20 arrows* = 1 item, 6 torches = 1 stone, rope = 1 stone); anything unrecognised counts as 1 item. Set `base` (e.g. *Sword*, *Chain Mail Armor*) to make it a book weapon or armor that can be equipped |
 | `/item add … damage size weapon_type range thrown` · `armor_ac armor_type` | Homebrew weapon or armor stats (see below) |
 | `/item remove` · `list` · `edit` | Remove, list, or edit items (`edit` can also change or clear homebrew stats) |
 | `/purse add` · `spend` · `set` | Coins (pp, gp, ep, sp, cp). `spend` makes change: short of the coin you spend, it breaks the fewest larger coins (smallest first) and keeps the change, e.g. 35 cp from gold breaks 1 gp and leaves 65 cp. If the larger coins can't cover it, the rest is paid in smaller coins (largest first), e.g. 1 gp as 10 sp. `make_change:False` turns this off |
@@ -153,7 +153,9 @@ Mounts, pack animals, war dogs, and other creatures get their own simple sheets:
 - **Attack routine**: e.g. `attacks:2 hoof 1d6, bite 1d4` on create, or `/animal routine add`.
   `/animal attack` rolls every attack in the routine against the target's AC. Attacks after `or` are
   alternatives made instead of the routine (`2 tusk 2d4 or trample 4d8`); roll one by picking it in `attack`.
-- **Load and speed**: everything in the animal's gear counts. Up to its normal load it moves at full
+- **Load and speed**: everything in the animal's gear counts. `/animal item add` fills in the usual weight
+  when you leave `weight` out (as `/item add` does), and homebrew barding weighs like book barding of the
+  same AC. Up to its normal load it moves at full
   speed; up to its maximum load, half speed; beyond that it can't move. Tack, saddles, and harness aren't
   enforced: add them (and a rider, at 15 stone plus their gear) as items if you want them counted.
 - **Daily needs**: stones of food and water per day (normal load / 10 and / 5 unless the table differs),

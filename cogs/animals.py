@@ -9,7 +9,7 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from acks import embeds, rules
+from acks import embeds, rules, templates
 from acks.animal import (Animal, attack_label, make_attack, new_animal_data, parse_attacks, roll_hd, routine_text,
                          store_stone)
 from acks.storage import Storage
@@ -456,22 +456,34 @@ class Animals(commands.Cog):
 
     # -- /animal item ---------------------------------------------------------
     @item.command(name="add", description="Load gear onto an animal (counts against its load)")
-    @app_commands.describe(weight="Weight of each", unit="6 items or 1,000 coins = 1 stone",
+    @app_commands.describe(weight="Weight of each (default: its usual weight)", unit="6 items or 1,000 coins = 1 stone",
                            barding_ac="Makes it barding with this AC bonus", spiked="Barding: +1 damage per die")
     @app_commands.autocomplete(animal=animal_autocomplete)
     async def item_add(self, interaction: discord.Interaction, animal: str, name: app_commands.Range[str, 1, 80],
                        quantity: app_commands.Range[int, 1, 100000] = 1,
-                       weight: app_commands.Range[float, 0, 100000] = 0,
+                       weight: app_commands.Range[float, 0, 100000] | None = None,
                        unit: Literal["stone", "items", "coins"] = "stone", notes: str = "",
                        barding_ac: app_commands.Range[int, 0, 10] | None = None, spiked: bool = False) -> None:
         a = resolve_animal(interaction, animal)
         custom = {"ac": barding_ac, "spiked": spiked} if barding_ac is not None else None
-        it = a.add_item(name.strip(), quantity, _stone(weight), unit, kind="barding" if custom else "gear",
+        guessed = ""
+        if weight is not None:
+            each = _stone(weight)
+        elif custom:   # homebrew barding weighs like book barding of the same AC, for this animal's size
+            material = list(rules.BARDING)[min(max(barding_ac, 1), 5) - 1]
+            each, unit = rules.barding_weight(material, a.data.get("size", "large")), "stone"
+            guessed = f" (weighed like {material} barding; set `weight` to change)"
+        else:
+            each, known = templates.item_weight(name)
+            unit = "stone"
+            guessed = "" if known else " (not a recognised item, so counted as 1 item; set `weight` to change)"
+        it = a.add_item(name.strip(), quantity, each, unit, kind="barding" if custom else "gear",
                         notes=notes.strip()[:200], custom=custom)
         save_animal(interaction, a)
         hint = " Put it on with `/animal equip`." if custom else ""
+        total = rules.fmt_stone(a.item_stone_each(it) * quantity)
         await interaction.response.send_message(
-            f"🎒 **{a.name}** carries {quantity}× **{it['name']}** (#{it['id']}).{hint}\n{_status(a)}")
+            f"🎒 **{a.name}** carries {quantity}× **{it['name']}** (#{it['id']}, {total}){guessed}.{hint}\n{_status(a)}")
 
     @item.command(name="remove", description="Unload gear from an animal")
     @app_commands.describe(quantity="How many (default: all of them)")
