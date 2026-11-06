@@ -82,7 +82,7 @@ which you set with `/character select`.
 | `/levelup [into]` | Gain a level when you have the XP; rerolls HP per the rules. Normal men pick the human class they become with `into` |
 | `/character promote character` | Make a henchman a full party member (their player, their employer's player, or a Judge) |
 | `/mattack target_ac [situational] [backstab] [raging] [mounted] [blind] [foe]` | Melee attack with equipped weapon(s) |
-| `/rattack target_ac [range] [situational] [backstab] [raging] [mounted] [blind] [foe]` | Missile attack; `range` short / medium (−2) / long (−5) |
+| `/rattack target_ac [range] [situational] [backstab] [raging] [mounted] [blind] [foe] [ammo] [use_ammo]` | Missile attack; `range` short / medium (−2) / long (−5). Uses up one arrow, bolt, or sling stone (or the thrown weapon) |
 | `/save_paralysis` `/save_death` `/save_blast` `/save_implements` `/save_spells` `[source] [agility]` | Saving throws (WIL, Divine Blessing, and modifiers applied) |
 | `/initiative [casting]` | 1d6 + DEX and other initiative bonuses |
 | `/spell slots` | Show remaining spell slots (also on the sheet) |
@@ -96,6 +96,8 @@ which you set with `/character select`.
 | `/item add name [quantity] [weight] [unit] [base] [magic] [notes]` | Add any item, from the books or not. `unit` = stone, items, or coins. Leave out `weight` and common gear gets its usual weight, counted as the templates do (*Quiver with 20 arrows* or *20 arrows* = 1 item, 6 torches = 1 stone, rope = 1 stone); anything unrecognised counts as 1 item. Set `base` (e.g. *Sword*, *Chain Mail Armor*) to make it a book weapon or armor that can be equipped |
 | `/item add … damage size weapon_type range thrown` · `armor_ac armor_type` | Homebrew weapon or armor stats (see below) |
 | `/item remove` · `list` · `edit` | Remove, list, or edit items (`edit` can also change or clear homebrew stats) |
+| `/item use item [quantity]` | Use up some of a stack (1 by default): arrows after a volley, a day of rations, torches |
+| `/eat [days]` | Eat a day's rations (standard first, as they spoil sooner); warns when a character goes hungry |
 | `/item give item to [quantity]` | Hand an item to any character or animal in the server, including other players' characters, henchmen, and animals. Weight, stats, magic, and notes go with it; equipped items are taken off first |
 | `/purse add` · `spend` · `set` | Coins (pp, gp, ep, sp, cp). `spend` makes change: short of the coin you spend, it breaks the fewest larger coins (smallest first) and keeps the change, e.g. 35 cp from gold breaks 1 gp and leaves 65 cp. If the larger coins can't cover it, the rest is paid in smaller coins (largest first), e.g. 1 gp as 10 sp. `make_change:False` turns this off |
 | `/equip item [slot]` · `/unequip slot` | Slots: main hand, off hand, both hands, missile, armor, shield |
@@ -106,6 +108,7 @@ which you set with `/character select`.
 | `/animal sheet` · `list` · `edit` · `delete` | Show, list (all, or one character's), change, or delete animals |
 | `/animal attack animal target_ac [attack]` · `hp` | Roll its attack routine (or one attack); damage, heal, or set HP |
 | `/animal barding` · `equip` · `unequip` | Add book barding weighed for its size and put it on; swap barding |
+| `/animal feed animal [days]` | Feed it its daily food from the feed it carries |
 | `/animal item add` · `remove` · `give` · `ability add` · `remove` · `routine add` · `remove` | Its gear (`give` unloads it onto any character or animal), special abilities, and attacks |
 
 ## Spell slots
@@ -121,6 +124,27 @@ Axe classes use invocations, rhetoric, or brewing rather than daily castings, so
 - `/spell set_slots` overrides a level's slots (or gives slots to any class), and slots grow automatically
   when the character levels up.
 - The sheet shows ◆ available and ◇ spent slots.
+
+## Rations, ammunition, and feed
+
+- **Rations are counted in days.** A week of iron or standard rations (1 stone in the book) is 7 days at 1/7
+  stone each, so the load drops as they're eaten. Templates and `/item add` read "1 week's iron rations",
+  "2 weeks' rations", or "5 days of rations"; rations with no "day" in the name count as weeks, since the book
+  sells them by the week (`/item add name:Iron rations quantity:2` is 14 days). `/eat` eats standard rations
+  first, then iron, and warns when a character is short (hungry: −1 to attack throws, proficiency throws, and
+  saves). The sheet shows the days left.
+- **Arrows, bolts, and sling stones are counted one at a time**: a quiver or case of 20 or a pouch of 30 sling
+  stones is 1/6 stone. "Quiver with 20 arrows" becomes 20 Arrows, and "Sling with 30 bullets" becomes a
+  sling and 30 sling stones. Each `/rattack` with a bow, crossbow, or sling uses one (the biggest ordinary
+  stack, or the one picked in `ammo`); silver and magic ammunition is only shot when picked. Thrown weapons
+  (darts, javelins, daggers) use themselves up, and the missile slot empties after the last. `use_ammo:False`
+  shoots without using anything. The sheet's missile line shows what's left.
+- **Feed** (feed, fodder, hay, oats, grain) is kept as stone in an animal's gear. `/animal item add name:Feed
+  quantity:7` loads 7 days of that animal's food; with a `weight`, it's that many stone. `/animal feed` eats
+  its daily food (normal load / 10, or the book's table) and warns when it runs short. Water isn't tracked.
+- Characters saved before this kept rations and ammunition as plain gear. `python tools/convert_supplies.py`
+  lists what it would change, and `--apply` converts them (backing up the database first); unclear rations
+  count as a week each.
 
 ## Henchmen and normal men
 

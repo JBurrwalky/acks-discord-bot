@@ -7,11 +7,11 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from acks import embeds
+from acks import embeds, supplies
 from acks.character import AttackProfile, Character
 from acks.dice import d, fmt_mod, roll
 
-from .common import UserError, character_autocomplete, resolve_character
+from .common import UserError, character_autocomplete, resolve_character, save
 
 
 def resolve_attack(ch: Character, p: AttackProfile, target_ac: int) -> discord.Embed:
@@ -62,6 +62,18 @@ SAVE_HELP = {"source": "Who or what caused it (paladin aura vs evil, Vermin-Slay
              "agility": "Agility could help avoid it, e.g. pit traps (Acrobatics +2)"}
 
 
+async def _ammo_autocomplete(interaction: discord.Interaction, current: str) -> list[app_commands.Choice[str]]:
+    """Stacks of the ammunition the equipped missile weapon shoots."""
+    try:
+        ch = resolve_character(interaction, getattr(interaction.namespace, "character", None), write=False)
+    except UserError:
+        return []
+    base = supplies.ammo_for(ch.equipped("missile"))
+    return [app_commands.Choice(name=f"{it['name']} ×{it['qty']}"[:100], value=str(it["id"]))
+            for it in ch.items() if base and it.get("kind") == "ammo" and it.get("base") == base
+            and current.lower() in it["name"].lower()][:25]
+
+
 def _conditions(raging: bool, mounted: bool, blind: bool) -> set[str]:
     return {name for name, on in (("berserk", raging), ("mounted", mounted), ("blind", blind)) if on}
 
@@ -96,19 +108,56 @@ class Combat(commands.Cog):
                            raging="In a berserker rage (Berserkergang: +2 with thrown weapons)",
                            mounted="Shooting from horseback (Mounted Combat: +1)",
                            blind="Blinded or the target is invisible (-4, or -2 with Blind Fighting)",
-                           foe="Target type, for Goblin-/Kin-/Vermin-Slaying and the paladin's aura")
-    @app_commands.autocomplete(character=character_autocomplete)
+                           foe="Target type, for Goblin-/Kin-/Vermin-Slaying and the paladin's aura",
+                           ammo="Which arrows/bolts/stones to shoot (default: the biggest stack)",
+                           use_ammo="Use up an arrow, bolt, stone, or the thrown weapon (default: yes)")
+    @app_commands.autocomplete(character=character_autocomplete, ammo=_ammo_autocomplete)
     async def rattack(self, interaction: discord.Interaction, target_ac: app_commands.Range[int, -10, 30],
                       range: Literal["short", "medium", "long"] = "short", situational: int = 0,
                       backstab: bool = False, raging: bool = False, mounted: bool = False, blind: bool = False,
-                      foe: Foe | None = None, character: str | None = None) -> None:
+                      foe: Foe | None = None, ammo: str | None = None, use_ammo: bool = True,
+                      character: str | None = None) -> None:
         ch = resolve_character(interaction, character)
         try:
             p = ch.missile_profile(range_band=range, situational=situational, sneak=backstab,
                                    conditions=_conditions(raging, mounted, blind), foe=FOE_KEYS.get(foe))
         except ValueError as e:
             raise UserError(str(e)) from e
-        await interaction.response.send_message(embed=resolve_attack(ch, p, target_ac))
+        weapon_item = ch.equipped("missile")
+        base = supplies.ammo_for(weapon_item)
+        shot = None   # the stack this shot comes out of
+        if use_ammo and base:
+            shot = supplies.ammo_stack(ch, base, ammo)
+            if shot is None:
+                kind = supplies.AMMO[base][0].lower()
+                special = supplies.special_ammo(ch, base) if not ammo else []
+                if special:
+                    raise UserError(f"**{ch.name}** has only special {kind} left ("
+                                    + ", ".join(f"{it['qty']}× {it['name']}" for it in special)
+                                    + "). Pick them with the `ammo` option to shoot them.")
+                raise UserError(f"**{ch.name}** has no {kind} for the {weapon_item['name']}"
+                                + (f" called **{ammo}**" if ammo else "")
+                                + f". Add some with `/item add name:{supplies.AMMO[base][0]} quantity:20`, "
+                                  f"or shoot with `use_ammo:False`.")
+        elif use_ammo and p.weapon and p.weapon.thrown:
+            shot = weapon_item
+        embed = resolve_attack(ch, p, target_ac)
+        if shot:
+            name = shot["name"]
+            left_stack, _ = ch.remove_item(shot["id"], 1)
+            save(interaction, ch)
+            rest = int(left_stack["qty"])
+            if base:
+                total = supplies.ammo_count(ch, base)
+                note = f"🎯 Shot from **{name}**: {rest} left"
+                note += f" ({supplies.ammo_label(base, total)} in all)." if total != rest else "."
+                if rest == 0:
+                    note += " ⚠️ That was the last one!" if total == 0 else " That stack is used up."
+            else:
+                note = (f"🎯 Thrown from **{name}**: {rest} left." if rest
+                        else f"🎯 Threw the last of the **{name}**: the missile slot is empty.")
+            embed.description += f"\n{note}"
+        await interaction.response.send_message(embed=embed)
 
     async def _save(self, interaction: discord.Interaction, save: str, situational: int, source: str | None,
                     agility: bool, character: str | None) -> None:

@@ -404,7 +404,7 @@ class CreationWizard(discord.ui.View):
                 self.data["proficiencies"].append(p)
         parsed = templates.parse_equipment(t["equipment"])
         for it in parsed.items:
-            kind = it.kind if it.kind in ("weapon", "armor", "shield", "clothing", "animal") else "gear"
+            kind = it.kind if it.kind in ("weapon", "armor", "shield", "clothing", "animal", "rations", "ammo") else "gear"
             self.ch.add_item(it.name, it.qty, it.stone_each, "stone", kind, it.base)
         for coin, amount in parsed.coins.items():
             self.data["purse"][coin] = self.data["purse"].get(coin, 0) + amount

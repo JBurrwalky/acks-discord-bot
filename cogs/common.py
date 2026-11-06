@@ -3,11 +3,12 @@ from __future__ import annotations
 
 import os
 import re
+from fractions import Fraction
 
 import discord
 from discord import app_commands
 
-from acks import embeds, rules
+from acks import embeds, rules, supplies
 from acks.animal import Animal
 from acks.character import Character
 from acks.storage import Storage
@@ -254,6 +255,27 @@ def give(interaction: discord.Interaction, giver: Character | Animal, it: dict, 
                                             and moved["kind"] == "barding" else "")
     return (f"🎁 **{giver.name}** gives {took}× **{moved['name']}**{extra} to **{target.name}** "
             f"(#{moved['id']} in their gear).\n{load_line(giver)}\n{load_line(target)}{hint}")
+
+
+UNIT_STONE = {"stone": Fraction(1), "items": Fraction(1, 6), "coins": Fraction(1, rules.COINS_PER_STONE)}
+
+
+def add_supply(holder: Character | Animal, s: supplies.Supply, quantity: int, weight: float | None, unit: str,
+               magic: int = 0, notes: str = "") -> str:
+    """Add rations (as days), ammunition (one per shot) or feed (as stone). `weight`, if given, is for one of
+    what was named (a week of rations, a quiver of arrows). Returns a description like '14 days of Iron rations'."""
+    given = Fraction(str(weight)) * UNIT_STONE[unit] if weight is not None else None
+    if s.kind == "feed":
+        stone = quantity * (given if given is not None else rules.SIXTH)
+        it = supplies.add_feed(holder, s.name, stone, notes)
+        return f"**{it['name']}** (feed, #{it['id']}): {rules.fmt_stone(stone)}, now {rules.fmt_stone(supplies.feed_stone(holder))}"
+    units = quantity * s.count
+    each = given / s.count if given is not None else s.each
+    it = holder.add_item(s.name, units, each, "stone", s.kind, s.base, magic, notes)
+    what = f"{units} day{'s' if units != 1 else ''} of **{it['name']}**" if s.kind == "rations" \
+        else f"{units}× **{it['name']}**"
+    total = f"{it['qty']} days" if s.kind == "rations" else f"{it['qty']}"
+    return f"{what} (#{it['id']}, {rules.fmt_stone(each * units)}; {total} in all)"
 
 
 def save_holder(interaction: discord.Interaction, x: Character | Animal) -> None:

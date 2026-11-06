@@ -9,13 +9,13 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from acks import embeds, rules, templates
+from acks import embeds, rules, supplies, templates
 from acks.animal import (Animal, attack_label, make_attack, new_animal_data, parse_attacks, roll_hd, routine_text,
                          store_stone)
 from acks.storage import Storage
 
 from .common import (UserError, any_character_autocomplete, character_autocomplete, guild_id, is_judge,
-                     give, recipient_autocomplete, resolve_character, resolve_recipient, storage)
+                     add_supply, give, recipient_autocomplete, resolve_character, resolve_recipient, storage)
 
 Size = Literal["man-sized", "large", "huge", "gigantic", "colossal"]
 Material = Literal["leather", "scale", "chain", "lamellar", "plate"]
@@ -466,6 +466,15 @@ class Animals(commands.Cog):
                        barding_ac: app_commands.Range[int, 0, 10] | None = None, spiked: bool = False) -> None:
         a = resolve_animal(interaction, animal)
         custom = {"ac": barding_ac, "spiked": spiked} if barding_ac is not None else None
+        s = supplies.recognize(name) if custom is None else None
+        if s:
+            if s.kind == "feed" and weight is None:   # no weight: that many days of this animal's food
+                weight, unit = float(a.daily_food() or rules.SIXTH), "stone"
+            line = add_supply(a, s, quantity, weight, unit, 0, notes.strip()[:200])
+            save_animal(interaction, a)
+            days = f"\n-# Feed carried: {embeds.feed_days(a)}" if s.kind == "feed" else ""
+            await interaction.response.send_message(f"🎒 **{a.name}** carries {line}{days}\n{_status(a)}")
+            return
         guessed = ""
         if weight is not None:
             each = _stone(weight)
@@ -504,6 +513,26 @@ class Animals(commands.Cog):
         it = _find_item(a, item)
         target = resolve_recipient(interaction, to)
         await interaction.response.send_message(give(interaction, a, it, quantity, target))
+
+    @animal.command(name="feed", description="Feed an animal a day of its food from the feed it carries")
+    @app_commands.describe(days="How many days (default: 1)")
+    @app_commands.autocomplete(animal=animal_autocomplete)
+    async def feed(self, interaction: discord.Interaction, animal: str,
+                   days: app_commands.Range[int, 1, 365] = 1) -> None:
+        a = resolve_animal(interaction, animal)
+        need = a.daily_food() * days
+        if not need:
+            raise UserError(f"**{a.name}** has no daily food need set. Set it with `/animal edit food:`.")
+        if not supplies.feed_stone(a):
+            raise UserError(f"**{a.name}** isn't carrying any feed. Add some with `/animal item add name:Feed "
+                            f"quantity:7` (7 days of its food).")
+        eaten, short = supplies.feed(a, need)
+        save_animal(interaction, a)
+        msg = (f"🌾 **{a.name}** eats {rules.fmt_stone(eaten)} of feed ({days} day{'s' if days != 1 else ''}). "
+               f"Feed left: {embeds.feed_days(a)}.")
+        if short:
+            msg += f"\n⚠️ Short by {rules.fmt_stone(short)}: it didn't get a full ration."
+        await interaction.response.send_message(f"{msg}\n{_status(a)}")
 
     # -- /animal ability ------------------------------------------------------
     @ability.command(name="add", description="Add a special power or ability")

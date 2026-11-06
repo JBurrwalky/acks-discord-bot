@@ -8,12 +8,12 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from acks import embeds, rules, templates
+from acks import embeds, rules, supplies, templates
 from acks.character import SLOT_LABELS, Character
 from acks.dice import fmt_mod
 
 from .common import (UserError, catalog_autocomplete, character_autocomplete, equippable_autocomplete,
-                     find_item, give, inventory_autocomplete, recipient_autocomplete, resolve_character,
+                     add_supply, find_item, give, inventory_autocomplete, recipient_autocomplete, resolve_character,
                      resolve_recipient, save, storage)
 
 Coin = Literal["pp", "gp", "ep", "sp", "cp"]
@@ -163,6 +163,18 @@ class Inventory(commands.Cog):
                        character: str | None = None) -> None:
         ch = resolve_character(interaction, character)
         custom = _custom_stats(damage, size, weapon_type, range, thrown, armor_ac, armor_type)
+        ammo_too = None
+        if base is None and not custom:
+            split = supplies.split_weapon_and_ammo(name, rules.find_weapon)   # 'Sling with 30 bullets'
+            if split:
+                name, ammo_too = split[0], supplies.recognize(split[1])
+            else:
+                s = supplies.recognize(name)
+                if s:
+                    line = add_supply(ch, s, quantity, weight, unit, magic, notes or "")
+                    save(interaction, ch)
+                    await interaction.response.send_message(f"➕ **{ch.name}** adds {line}\n{_status_line(ch)}")
+                    return
         w, a = _resolve_base(base, name if not custom else None)
         kind = _kind_for(w, a, custom)
         base_key = (w or a).key if (w or a) else None
@@ -172,12 +184,13 @@ class Inventory(commands.Cog):
         else:
             weight_val = Fraction(str(weight))
         it = ch.add_item(name.strip(), quantity, weight_val, unit, kind, base_key, magic, notes or "", custom or None)
+        also = f"\nand {add_supply(ch, ammo_too, quantity, None, 'stone', 0, '')}" if ammo_too else ""
         save(interaction, ch)
         each = ch.item_stone_each(it)
         desc = f"{quantity}× " if quantity != 1 else ""
         await interaction.response.send_message(
             f"➕ **{ch.name}** adds {desc}**{name}**{f' {fmt_mod(magic)}' if magic else ''}{_stats_text(ch, it)} "
-            f"(#{it['id']}, {rules.fmt_stone(each * quantity)})\n{_status_line(ch)}"
+            f"(#{it['id']}, {rules.fmt_stone(each * quantity)}){also}\n{_status_line(ch)}"
             + ("\n-# Equip it with `/equip`." if kind != "gear" else ""))
 
     @item.command(name="remove", description="Remove (drop, use up, sell) an item")
@@ -206,6 +219,44 @@ class Inventory(commands.Cog):
         it = find_item(ch, item)
         target = resolve_recipient(interaction, to)
         await interaction.response.send_message(give(interaction, ch, it, quantity, target))
+
+    @item.command(name="use", description="Use up some of a stack: arrows after a volley, a day of rations, torches")
+    @app_commands.describe(item="What's used up", quantity="How many (default: 1)")
+    @app_commands.autocomplete(item=inventory_autocomplete, character=character_autocomplete)
+    async def item_use(self, interaction: discord.Interaction, item: str,
+                       quantity: app_commands.Range[int, 1, 100000] = 1, character: str | None = None) -> None:
+        ch = resolve_character(interaction, character)
+        it = find_item(ch, item)
+        if quantity > int(it["qty"]):
+            raise UserError(f"**{ch.name}** only has {supplies.describe_qty(it) or '1 '}**{it['name']}**.")
+        if it.get("kind") == "feed":
+            raise UserError("Feed is eaten by an animal: give it to the animal and use `/animal feed`.")
+        removed, n = ch.remove_item(it["id"], quantity)
+        save(interaction, ch)
+        rations = it.get("kind") == "rations"
+        used = f"eats {n} day{'s' if n != 1 else ''} of" if rations else f"uses {n}×"
+        rest = int(removed["qty"])
+        left = (f" ({rest} day{'s' if rest != 1 else ''} left)" if rations else f" ({rest} left)") if rest else \
+            " (that was the last)"
+        await interaction.response.send_message(f"➖ **{ch.name}** {used} **{removed['name']}**{left}\n{_status_line(ch)}")
+
+    @app_commands.command(name="eat", description="Eat a day's rations (standard first, as they spoil sooner)")
+    @app_commands.guild_only()
+    @app_commands.describe(days="How many days' worth (default: 1)")
+    @app_commands.autocomplete(character=character_autocomplete)
+    async def eat(self, interaction: discord.Interaction, days: app_commands.Range[int, 1, 365] = 1,
+                  character: str | None = None) -> None:
+        ch = resolve_character(interaction, character)
+        eaten, short = supplies.eat(ch, days)
+        save(interaction, ch)
+        if not eaten:
+            raise UserError(f"**{ch.name}** has no rations. Add some with `/item add name:Iron rations` (a week).")
+        what = ", ".join(f"{n} day{'s' if n != 1 else ''} of {name}" for name, n in eaten)
+        msg = f"🍞 **{ch.name}** eats {what}. **{supplies.ration_days(ch)}** day(s) of rations left."
+        if short:
+            msg += (f"\n⚠️ Short by {short} day{'s' if short != 1 else ''}: after a day with less than full "
+                    f"rations a character is **hungry** (-1 to attack throws, proficiency throws, and saves).")
+        await interaction.response.send_message(f"{msg}\n{_status_line(ch)}")
 
     @item.command(name="list", description="Show inventory and encumbrance")
     @app_commands.autocomplete(character=character_autocomplete)

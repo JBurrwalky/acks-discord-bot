@@ -238,6 +238,53 @@ def test_item_weights():
     assert templates.item_weight("Gems") == (sixth, False)          # unknown: 1 item
 
 
+def test_supplies():
+    from acks import supplies
+    from acks.animal import Animal, new_animal_data
+    r = supplies.recognize
+    assert (r("1 week's iron rations").count, r("2 weeks’ iron rations").count, r("5 day's iron rations").count) == (7, 14, 5)
+    assert r("Week's Standard Rations").base == "standard" and r("Rations").count == 7      # unclear: a week
+    assert (r("quiver with 20 arrows").count, r("2 cases with 20 bolts each").count, r("30 sling stones").count) == \
+           (20, 40, 30)
+    assert r("Silver arrow").name == "Silver arrows" and r("Inferior Feed").kind == "feed"
+    for not_supply in ("12 ballista bolts", "blue cassock embroidered with gold thunderbolts",
+                       "tattered prayer book with sling stone", "Quiver", "Stones", "Waterskin"):
+        assert r(not_supply) is None, not_supply
+    # templates: a week of rations is 7 days at 1/7 st (still 1 stone); 20 arrows are 1/6 st; the sling keeps its bullets
+    p = templates.parse_equipment("Short bow, quiver with 20 arrows, 1 week's iron rations, sling with 30 sling bullets")
+    assert [(i.name, i.qty, i.kind) for i in p.items] == [("Short bow", 1, "weapon"), ("Arrows", 20, "ammo"),
+                                                         ("Iron rations", 7, "rations"), ("Sling", 1, "weapon"),
+                                                         ("Sling stones", 30, "ammo")]
+    assert p.encumbrance() == Fraction(1, 6) * 3 + 1 + Fraction(1, 6)
+    # eating: standard rations first, then iron; short days reported
+    ch = make("fighter")
+    ch.add_item("Iron rations", 7, supplies.RATION_DAY, "stone", "rations", "iron")
+    ch.add_item("Standard rations", 2, supplies.RATION_DAY, "stone", "rations", "standard")
+    eaten, short = supplies.eat(ch, 3)
+    assert eaten == [("Standard rations", 2), ("Iron rations", 1)] and short == 0 and supplies.ration_days(ch) == 6
+    assert ch.encumbrance() == Fraction(6, 7)
+    assert supplies.eat(ch, 10) == ([("Iron rations", 6)], 4)
+    # feed: a medium horse eats 3 st a day from 4 1/2 st of feed
+    horse = Animal(new_animal_data(1, 1, "Thunder"))
+    horse.data.update(food=3, normal_load=30, max_load=60)
+    supplies.add_feed(horse, "Oats", Fraction(3))
+    supplies.add_feed(horse, "Oats", Fraction(3, 2))
+    assert len(horse.items()) == 1 and supplies.feed_stone(horse) == Fraction(9, 2)
+    assert supplies.feed(horse, Fraction(3)) == (3, 0) and supplies.feed_stone(horse) == Fraction(3, 2)
+    assert supplies.feed(horse, Fraction(3)) == (Fraction(3, 2), Fraction(3, 2)) and not horse.items()
+    # converting old plain-gear entries
+    old = make("explorer")
+    old.add_item("quiver, 20 arrows", 3, 1, "items")
+    old.add_item("Week's iron rations", 1, 1, "stone")
+    old.add_item("Iron Rations", 4, 1, "stone")
+    old.add_item("Waterskin", 1, Fraction(1, 6), "stone")
+    changes = supplies.convert_legacy(old)
+    assert len(changes) == 3
+    stacks = {i["name"]: (i["qty"], i["kind"]) for i in old.items()}
+    assert stacks == {"Arrows": (60, "ammo"), "Iron rations": (35, "rations"), "Waterskin": (1, "gear")}
+    assert supplies.convert_legacy(old) == []          # running it again changes nothing
+
+
 def test_give_items():
     from acks.animal import Animal, new_animal_data
     a, b = make("fighter"), make("thief")

@@ -5,7 +5,7 @@ from fractions import Fraction
 
 import discord
 
-from . import rules, spells
+from . import rules, spells, supplies
 from .animal import Animal, AttackResult, attack_label
 from .character import MODIFIER_TARGETS, AttackProfile, Character
 from .dice import fmt_mod
@@ -54,6 +54,19 @@ def weapon_line(ch: Character, p: AttackProfile) -> str:
     if p.nonproficient:
         line += f"\n⚠️ Non-proficient ({'; '.join(p.nonproficient)}): {nonproficient_effect(ch)}"
     return line
+
+
+def ammo_note(ch: Character) -> str:
+    """' · 🎯 19 arrows' for a bow, ' · 🎯 4 left' for thrown darts, a warning when there's none."""
+    it = ch.equipped("missile")
+    base = supplies.ammo_for(it)
+    if base:
+        n = supplies.ammo_count(ch, base)
+        return f" · 🎯 {supplies.ammo_label(base, n)}" if n else f" · ⚠️ no {supplies.AMMO[base][0].lower()}"
+    w = ch.item_weapon(it)
+    if w and w.thrown and int(it["qty"]) > 1:
+        return f" · 🎯 {it['qty']} to throw"
+    return ""
 
 
 def nonproficient_effect(ch: Character) -> str:
@@ -130,7 +143,7 @@ def sheet_embed(ch: Character, owner_name: str | None = None, employer_name: str
         missile = ch.missile_profile()
         rng = f" · {missile.weapon.ranges[0]}'/{missile.weapon.ranges[1]}'/{missile.weapon.ranges[2]}'" \
             if missile.weapon and missile.weapon.ranges else ""
-        e.add_field(name="🏹 Missile", value=_clip(weapon_line(ch, missile) + rng), inline=False)
+        e.add_field(name="🏹 Missile", value=_clip(weapon_line(ch, missile) + rng + ammo_note(ch)), inline=False)
     except ValueError:
         e.add_field(name="🏹 Missile", value="*none equipped*", inline=False)
 
@@ -154,7 +167,8 @@ def sheet_embed(ch: Character, owner_name: str | None = None, employer_name: str
     e.add_field(
         name="🎒 Encumbrance",
         value=f"**{rules.fmt_stone(enc)}** / {ch.max_encumbrance()} st · {sp['band']}\n"
-              f"Speed {sp['exploration']}' turn · {sp['combat']}' rd · run {sp['running']}' · {sp['expedition']} mi/day",
+              f"Speed {sp['exploration']}' turn · {sp['combat']}' rd · run {sp['running']}' · {sp['expedition']} mi/day"
+              f"\n🍞 Rations: **{supplies.ration_days(ch)}** day{'s' if supplies.ration_days(ch) != 1 else ''}",
         inline=True)
 
     purse = d["purse"]
@@ -222,7 +236,7 @@ def inventory_embed(ch: Character, animals: list[Animal] | None = None) -> disco
         total = each * int(it["qty"])
         tag = f" `[{', '.join(equipped_ids[it['id']])}]`" if it["id"] in equipped_ids else ""
         magic = f" {fmt_mod(int(it['magic']))}" if it.get("magic") else ""
-        qty = f"{it['qty']}× " if it["qty"] != 1 else ""
+        qty = supplies.describe_qty(it)
         weight = "worn" if it["kind"] == "clothing" else ("—" if it["kind"] == "animal" else rules.fmt_stone(total))
         extra = ""
         w = ch.item_weapon(it)
@@ -422,6 +436,16 @@ def stone_number(x) -> str:
     return rules.fmt_stone(Fraction(str(x))).removesuffix(" st")
 
 
+def feed_days(a: Animal) -> str:
+    """'1 3/6 st (0.5 days)': how long the feed in its packs lasts at its daily food need."""
+    stone = supplies.feed_stone(a)
+    if not stone:
+        return "none"
+    need = a.daily_food()
+    days = f" ({float(stone / need):.1f} days)".replace(".0 days", " days") if need else ""
+    return f"{rules.fmt_stone(stone)}{days}"
+
+
 def animal_line(a: Animal) -> str:
     """One line for a character's inventory page and /animal list."""
     sp = a.speeds()
@@ -462,6 +486,7 @@ def animal_embed(a: Animal, owner_name: str | None = None) -> discord.Embed:
     feed_sp = a.daily_food() * rules.ANIMAL_FEED_SP_PER_STONE
     e.add_field(name="🌾 Daily needs", inline=True,
                 value=f"Food {rules.fmt_stone(a.daily_food())}\nWater {rules.fmt_stone(a.daily_water())}\n"
+                      f"Feed carried: {feed_days(a)}\n"
                       f"-# working-animal feed ≈ {float(feed_sp):g} sp/day")
     if d.get("abilities"):
         e.add_field(name="✨ Special abilities", inline=False,
@@ -473,7 +498,7 @@ def animal_embed(a: Animal, owner_name: str | None = None) -> discord.Embed:
         if it.get("kind") == "barding":
             bs = a.barding_stats(it)
             extra = f" · AC +{int(bs.get('ac', 0)) + int(it.get('magic', 0))}" + (" · spiked" if bs.get("spiked") else "")
-        qty = f"{it['qty']}× " if it["qty"] != 1 else ""
+        qty = supplies.describe_qty(it)
         note = f" — *{it['notes']}*" if it.get("notes") else ""
         items.append(f"`#{it['id']:>3}` {qty}**{it['name']}**{tag}{extra} · "
                      f"{rules.fmt_stone(a.item_stone_each(it) * int(it['qty']))}{note}")

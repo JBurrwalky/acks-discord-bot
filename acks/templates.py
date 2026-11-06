@@ -5,7 +5,7 @@ import re
 from dataclasses import dataclass, field
 from fractions import Fraction
 
-from . import rules
+from . import rules, supplies
 
 WORD_NUMBERS = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "a pair of": 2, "pair of": 2}
 CONTAINER_WORDS = ("bowquiver", "pouch", "sack", "bag", "backpack", "purse", "quiver", "case", "satchel", "rucksack")
@@ -88,6 +88,9 @@ def _split_pieces(text: str) -> list[str]:
 
 def _split_weapon_pairs(piece: str) -> list[str]:
     """'Military-issue spear and short sword' -> two pieces, but leave 'tunic and pants' alone."""
+    split = supplies.split_weapon_and_ammo(piece, rules.find_weapon)   # 'sling with 30 sling bullets'
+    if split:
+        return list(split)
     if " and " not in piece or "book" in piece.lower():
         return [piece]
     left, right = piece.split(" and ", 1)
@@ -127,6 +130,9 @@ def parse_piece(piece: str) -> ParsedItem | tuple[str, int] | None:
         return ParsedItem(name, qty, Fraction(0), "animal")
     if re.search(r"(spell|prayer|holy) ?book|grimoire", rlow):
         return ParsedItem(name, qty, Fraction(1, 2))
+    s = supplies.recognize(piece)   # rations by the day, arrows/bolts/sling stones one at a time
+    if s and s.kind in ("rations", "ammo"):
+        return ParsedItem(s.name, s.count, s.each, s.kind, s.base)
     if "shield" in rlow or "armor" in rlow or "armour" in rlow or re.search(r"\bmail\b", rlow):
         a = rules.find_armor(rlow)
         if a:
