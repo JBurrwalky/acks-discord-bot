@@ -22,7 +22,7 @@ from cogs.common import SheetPageButton, UserError, send_error  # noqa: E402
 log = logging.getLogger("acks")
 
 EXTENSIONS = ["cogs.characters", "cogs.combat", "cogs.inventory", "cogs.status", "cogs.spells", "cogs.encounter",
-              "cogs.animals", "cogs.help"]
+              "cogs.animals", "cogs.party", "cogs.help"]
 
 
 class ACKSBot(commands.Bot):

@@ -9,10 +9,10 @@ from acks import embeds
 
 # Display order and grouping. Commands not listed here land in "Other".
 CATEGORIES: list[tuple[str, list[str]]] = [
-    ("🧙 Characters", ["create", "sheet", "character", "xp", "levelup"]),
+    ("🧙 Characters", ["create", "sheet", "character", "xp", "levelup", "party"]),
     ("⚔️ Combat", ["mattack", "rattack", "initiative", "encounter"]),
     ("🛡️ Saving Throws", ["save_paralysis", "save_death", "save_blast", "save_implements", "save_spells"]),
-    ("🎒 Inventory & Equipment", ["item", "purse", "equip", "unequip"]),
+    ("🎒 Inventory & Equipment", ["item", "purse", "equip", "unequip", "eat"]),
     ("🐴 Animals", ["animal"]),
     ("❤️ Hit Points, Modifiers & Proficiencies", ["hp", "modifier", "proficiency"]),
     ("✨ Spells", ["spell"]),

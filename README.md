@@ -71,6 +71,7 @@ which you set with `/character select`.
 |---|---|
 | `/create` | Start the character creation wizard (private to you). It can also make 0th-level normal men and henchmen |
 | `/sheet [character] [page] [private]` | Show a sheet: `sheet`, `inventory`, or `notes` page |
+| `/party [page] [private]` | Party stats, with page buttons: roster, composition and best attributes, travel and food, hit points |
 | `/character list` · `select` · `delete` | Manage your characters |
 | `/character edit` · `notes` | Name, alignment, homeland, description; free-form notes (spells, languages...) |
 | `/character attributes str:… dex:…` | Change attribute scores |
@@ -124,6 +125,21 @@ Axe classes use invocations, rhetoric, or brewing rather than daily castings, so
 - `/spell set_slots` overrides a level's slots (or gives slots to any class), and slots grow automatically
   when the character levels up.
 - The sheet shows ◆ available and ◇ spent slots.
+
+## Party stats
+
+`/party` sums up the party: every player's **active** character (`/character select`), the henchmen they
+employ, and the animals they own. Spare characters and animals nobody in the party owns are left out. Four
+pages, switched with the buttons:
+
+- **Roster**: player characters (with their players), henchmen grouped by employer, and animals grouped by
+  type and owner.
+- **Composition**: how many of each class (with their levels), how many at each level, the average level,
+  and the 🏆 best score in each of the six attributes (ties are shared).
+- **Travel & food**: the slowest member's and slowest animal's speeds, and the pace the party moves at; total
+  days of rations, how many days that feeds everyone, each member's days (empty ones flagged), and each
+  animal's feed in days.
+- **Hit points**: everyone's current and maximum HP, characters, henchmen, and animals.
 
 ## Rations, ammunition, and feed
 
