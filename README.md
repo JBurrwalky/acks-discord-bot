@@ -71,7 +71,7 @@ which you set with `/character select`.
 |---|---|
 | `/create` | Start the character creation wizard (private to you). It can also make 0th-level normal men and henchmen |
 | `/sheet [character] [page] [private]` | Show a sheet: `sheet`, `inventory`, or `notes` page |
-| `/party [page] [private]` | Party stats, with page buttons: roster, composition and best attributes, travel and food, hit points |
+| `/party [page] [private]` | Party stats, with page buttons: roster, composition and best attributes, travel and food, hit points, proficiencies |
 | `/character list` · `select` · `delete` | Manage your characters |
 | `/character edit` · `notes` | Name, alignment, homeland, description; free-form notes (spells, languages...) |
 | `/character attributes str:… dex:…` | Change attribute scores |
@@ -129,7 +129,7 @@ Axe classes use invocations, rhetoric, or brewing rather than daily castings, so
 ## Party stats
 
 `/party` sums up the party: every player's **active** character (`/character select`), the henchmen they
-employ, and the animals they own. Spare characters and animals nobody in the party owns are left out. Four
+employ, and the animals they own. Spare characters and animals nobody in the party owns are left out. Five
 pages, switched with the buttons:
 
 - **Roster**: player characters (with their players), henchmen grouped by employer, and animals grouped by
@@ -140,6 +140,12 @@ pages, switched with the buttons:
   days of rations, how many days that feeds everyone, each member's days (empty ones flagged), and each
   animal's feed in days.
 - **Hit points**: everyone's current and maximum HP, characters, henchmen, and animals.
+- **Proficiencies**: who has each Survival, Dungeon, and Social proficiency (Survival, Tracking, Hunting,
+  Healing, Alertness, Lockpicking, Mystic Aura, Diplomacy, and so on), with their ranks. A proficiency added
+  twice is 2 ranks, and a number after the name sets the rank (`/proficiency add name:Healing 2`). Class
+  powers count too: a thief's Lockpicking shows its skill throw, and powers that grant ranks ("Equals 3 ranks
+  of Healing") or work like a proficiency (an explorer's Alertness) are named. Powers that offer a choice of
+  proficiency need it added by hand.
 
 ## Rations, ammunition, and feed
 

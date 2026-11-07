@@ -710,6 +710,27 @@ def test_verified_reference_data():
             assert len(vals) == rules.CLASSES[key].max_level, (key, name)
 
 
+
+def test_party_proficiency_ranks():
+    from acks import prof_ranks as pr
+    assert pr.split_entry("Performance (chanting) 2") == ("Performance", "chanting", 2)
+    assert pr.split_entry("Healing") == ("Healing", None, 1)
+    c = make("fighter", 3)
+    c.data["proficiencies"] += ["Healing", "Healing", "Tracking 2", "Dungeon Bashing", "Passing Without Trace",
+                                "Performance (lute)", "Riding"]
+    h = pr.holdings(c)
+    assert h["Healing"].total == 2 and h["Tracking"].total == 2
+    assert "Dungeonbashing Expertise" in h and "Passing without Trace" in h and "Riding" not in h
+    assert pr.describe("Bo", h["Performance"], "Performance") == "Bo **1** (lute)"
+    # class powers: thief skill throw, explorer power, healer's 3 ranks plus a taken rank
+    assert pr.holdings(make("thief", 9))["Lockpicking"].skill == "7+"
+    assert pr.describe("Ex", pr.holdings(make("explorer"))["Alertness"], "Alertness") == "Ex (class power)"
+    healer = make("bao_healer")
+    healer.data["proficiencies"].append("Healing")
+    assert pr.describe("Hl", pr.holdings(healer)["Healing"], "Healing") == "Hl **4** (1 + 3 from class power)"
+    assert pr.holdings(make("bao_ranger"))["Tracking"].total == 1
+    assert pr.holdings(make("normal_man")) == {}
+
 if __name__ == "__main__":
     failures = 0
     for name, fn in list(globals().items()):

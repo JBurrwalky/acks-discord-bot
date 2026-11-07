@@ -12,7 +12,7 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from acks import embeds, rules, supplies
+from acks import embeds, prof_ranks, rules, supplies
 from acks.animal import Animal
 from acks.character import Character
 from acks.dice import fmt_mod
@@ -21,7 +21,7 @@ from acks.storage import Storage
 from .common import UserError, guild_id, storage
 
 PAGES = {"roster": ("Roster", "👥"), "composition": ("Composition", "📊"), "travel": ("Travel & food", "🧭"),
-         "hp": ("Hit points", "❤️")}
+         "hp": ("Hit points", "❤️"), "profs": ("Proficiencies", "🎯")}
 COLOR = embeds.SHEET_COLOR
 
 
@@ -181,7 +181,24 @@ def hp_page(p: Party) -> discord.Embed:
     return e
 
 
-BUILDERS = {"roster": roster_page, "composition": composition_page, "travel": travel_page, "hp": hp_page}
+def profs_page(p: Party) -> discord.Embed:
+    e = discord.Embed(title="🎯 Party proficiencies", color=COLOR,
+                      description="Who has each, and their ranks. Class powers that give or act as one are named.")
+    held = [(c, prof_ranks.holdings(c)) for c in p.characters]
+    icons = {"Survival": "🌲", "Dungeon": "🕯️", "Social": "🗣️"}
+    for group, profs in prof_ranks.PARTY_PROFICIENCIES.items():
+        lines = []
+        for prof in profs:
+            who = sorted(((c, h[prof]) for c, h in held if prof in h), key=lambda ch: (-ch[1].total, ch[0].name.casefold()))
+            cells = " · ".join(prof_ranks.describe(c.name, h, prof) for c, h in who)
+            lines.append(f"**{prof}**: {cells or '—'}")
+        _fields(e, f"{icons[group]} {group}", lines)
+    e.set_footer(text="Ranks: add a proficiency again, or put the rank after it (\"Healing 2\")")
+    return e
+
+
+BUILDERS = {"roster": roster_page, "composition": composition_page, "travel": travel_page, "hp": hp_page,
+            "profs": profs_page}
 
 
 def page_embed(p: Party, page: str) -> discord.Embed:
@@ -217,7 +234,7 @@ class PartyStats(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
-    @app_commands.command(name="party", description="Party stats: roster, composition, best attributes, travel, food, HP")
+    @app_commands.command(name="party", description="Party stats: roster, composition, travel, food, HP, proficiencies")
     @app_commands.guild_only()
     @app_commands.describe(page="Which page to open", private="Only show it to you")
     @app_commands.choices(page=[app_commands.Choice(name=label, value=key) for key, (label, _) in PAGES.items()])
